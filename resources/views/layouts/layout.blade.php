@@ -100,18 +100,26 @@
                     <a href="https://www.instagram.com/kuijpersnl/" target="blank" id="socialiconhover"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="footer-logoff profilepage">  
-                    <a href="php/Logout.php" class="fas fa-power-off" id="socialiconhover"><p>Uitloggen</p></a>
+                    <a class="fas fa-power-off" id="socialiconhover" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
+
             </div>
         </footer>
-        <script src="{{ url('/js/bootstrap.min.js') }}"></script>
-        <script src="{{ url('/js/raphael-2.1.4.min.js') }}"></script>
-        <script src="{{ url('/js/justgage.js') }}"></script>
-        <script src="{{ url('/js/tab.js') }}"></script>
-        <script src="{{ url('/js/br.js') }}"></script>
-        <script src="{{ url('/js/shopmodals.js') }}"></script>
-        <script src="{{ url('/js/main.js') }}"></script>
-        <script src="{{ url('/js/pie.js') }}"></script>
+        <script src="{{ url('../js/bootstrap.min.js') }}"></script>
+        <script src="{{ url('../js/raphael-2.1.4.min.js') }}"></script>
+        <script src="{{ url('../js/justgage.js') }}"></script>
+        <script src="{{ url('../js/tab.js') }}"></script>
+        <script src="{{ url('../js/br.js') }}"></script>
+        <script src="{{ url('../js/shopmodals.js') }}"></script>
+        <script src="{{ url('../js/main.js') }}"></script>
+        <script src="{{ url('../js/pie.js') }}"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
