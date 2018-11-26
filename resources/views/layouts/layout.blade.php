@@ -23,12 +23,12 @@
                 </a>
             </div>
             <div class="col text-center col-brand">
-            <a class="navbar-brand" href="home.php">
+            <a class="navbar-brand" href="/home">
                     <img src="{{ url('/img/logo_wiz3.png') }}" class="nav-home" height="90">
                 </a>
             </div>
             <div class="col order-last text-right col-profile">
-                <a href="profile.php" class="profilehover">
+                <a href="/profiel" class="profilehover">
                     <img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-bar"><br/>            
                 </a>
             </div>
@@ -39,14 +39,14 @@
             <div class="col order-first">
                 <ul class="nav justify-content-center">
                     <li class="nav-item text-center">
-                        <a class="nav-link" href="OverOns.php">Over ons</a>
+                        <a class="nav-link" href="/overons">Over ons</a>
                     </li>
                 </ul>
             </div>
             <div class="col order-last">
                 <ul class="nav justify-content-center">
                     <li class="nav-item text-center">
-                        <a class="nav-link" href="shop.php">Shop</a>
+                        <a class="nav-link" href="/shop">Shop</a>
                     </li>
                 </ul>
             </div>
@@ -59,13 +59,13 @@
                     <img src="img/logo_wiz2.png" class="img-fluid" id="wizlogofooter">
                 </a>
                 <p class="footer-links">
-                    <a href="home.php" id="footernavhover">Home</a>
+                    <a href="/home" id="footernavhover">Home</a>
                     ·
-                    <a href="OverOns.php" id="footernavhover">Over Ons</a>       
+                    <a href="/overons" id="footernavhover">Over Ons</a>       
                     ·
-                    <a href="shop.php" id="footernavhover">Shop</a>
+                    <a href="/shop" id="footernavhover">Shop</a>
                     ·
-                    <a href="profile.php" id="footernavhover">Profiel</a>
+                    <a href="/profiel" id="footernavhover">Profiel</a>
                     ·
                     <a href="https://mijnkuijpers.sharepoint.com/" target="blank" id="footernavhover">Mijn Kuijpers</a>
                 </p>
