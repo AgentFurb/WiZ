@@ -1,0 +1,136 @@
+#Searchnavbar{
+    background-color: #8fa2d2; 
+    /* height: 100; */
+    padding: .5rem;
+}
+
+
+.dropbtn {
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 38px;
+    width: 38px;
+}
+
+.dropdown {
+    position: relative;
+    /* display: inline-block; */
+    float: right;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content {display: block;}
+
+.card-group{
+    border-color: #8fa2d2;
+    border-width: 1px;
+}
+
+#PTselect{
+    width: 200px;
+}
+
+.mb-1, .my-1 {
+ 
+    margin-bottom: .5rem !important;
+}
+
+.ot-product {
+    width: 18rem;
+}
+
+.cardstop{
+    height: 400px;
+}
+
+.eb-product {
+    height: 100px;
+    width: 100px;
+}
+
+.hrproducten{
+    width: 75%;
+    border-style: inset;
+    border-width: 1px;
+    display: block;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bekijkook{
+    margin-top: 120px;
+    width: 90%;
+}
+
+.shop-bar {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+}
+
+.form-control {
+    padding-left: .2rem !important;
+    padding-right: 0px !important;
+}
+
+.bekijkook-col {
+    padding-bottom: 15px;
+}
+
+.productImg {
+    max-width: 400px;
+    max-height: 500px;
+}
+
+.marginmid{
+    margin: 25px !important;
+    border-left: 1px solid rgba(0,0,0,.125) !important;
+}
+
+.category {
+    max-width: 250px;
+}
+
+.search {
+    max-width: 500px;
+}
+
+#vergelijkbareproductendetail{
+    margin-left: 15px;
+}
+
+@media only screen and (max-width: 320px) {
+    .productImg {
+       max-height: 330px;
+       max-width: 230px;
+    }
+
+}
+
+@media only screen and (max-width: 769) {
+    #heightwidthfix {
+       height: 400px;
+       width: 330px;
+    }
+
+}

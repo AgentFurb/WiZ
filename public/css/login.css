@@ -1,0 +1,108 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/* Show in default resolution screen*/
+/* .Box {
+    width: 960px;
+    position: relative;
+    margin:0 auto;
+    line-height: 1.4em;
+} */
+
+.bg {
+    /* The image used */
+    background-image: url("../img/background.jpg");
+    /* Full height */
+    height: 100%; 
+    /* Center and scale the image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Position relative */
+    position: relative;
+}
+
+.layer {
+    /* A black transparent layer for over the background image */
+    background-color: rgba(0, 0, 0, 0.25);
+    /* Position absolute to the background image */
+    position: absolute;
+    /* Full width and height */
+    width: 100%;
+    height: 100%;
+}
+
+.Box {
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* width: 600px;  */
+    height: 400px;
+    /*Transparant background*/
+    /*opacity: 0.5;*/
+    /*Round corners*/
+    border-radius: 50px;
+
+    /*Div alignment */
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.Inputs {
+    text-align: center;
+    padding: 10%;
+}
+
+.foot{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px; /* Set the fixed height of the footer here */
+    line-height: 40px; /* Vertically center the text there */
+    color: #000000;
+    text-decoration: none;
+}
+
+.UserPass {
+    width: 300px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.button {
+    width: 200px;
+    height: 30px;
+}
+
+.modal-content{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+
+    margin: auto;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: auto !important;
+}
+.btn-link{
+    color:white;
+}
+.modal-heading h2{
+    color:#ffffff;
+    padding-top: 5px;
+}
+
+.btn {
+    background-color: #ffffff;
+}
+
+.hr-login {
+    border-top: 10px solid rgba(0,0,0,0);
+}
