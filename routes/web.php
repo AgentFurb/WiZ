@@ -11,10 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'PagesController@index');
+
+Route::get('/home', 'PagesController@home');
+
+Route::get('/overons', 'PagesController@overons');
+
+Route::get('/shop', 'PagesController@shop');
+
+Route::get('/profiel', 'PagesController@profiel');
+
+Route::get('/profiel/controlpanel', 'PagesController@control');
+
+// Route::get('/home', 'HomeController@index')->name('home');
