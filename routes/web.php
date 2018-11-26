@@ -29,4 +29,4 @@ Route::get('/profiel', 'PagesController@profiel');
 
 Route::get('/profiel/controlpanel', 'PagesController@control');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
