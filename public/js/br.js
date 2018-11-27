@@ -9,10 +9,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         formatNumber: true,
         levelColorsGradient: false
     });
-
-    document.getElementById('bigfella_refresh').addEventListener('click', function() {
-        gg1.refresh(getRandomInt(0, 288));
-    });
 });
 
 document.addEventListener("DOMContentLoaded", function(event) {
