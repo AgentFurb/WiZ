@@ -69,11 +69,10 @@
                                 <a class="controlmobile" href="controlpanel.php"><h5 class="card-title"><i class="fas fa-user-cog lineheight"></i>Controlpanel</h5></a>
                             @endif
 
-                            <a class="fas fa-power-off" id="socialiconhover" href="{{ route('logout') }}"
+                            <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            <p>Uitloggen</p>
-                            </a>
+                            document.getElementById('logout-form').submit();"><h5 class="card-title"><i class="fas fa-power-off lineheight"></i>Uitloggen</h5></a>
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>                        
