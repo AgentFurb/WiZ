@@ -1,15 +1,7 @@
 body, html {
     height: 100%;
-    margin: 0;
 }
 
-/* Show in default resolution screen*/
-/* .Box {
-    width: 960px;
-    position: relative;
-    margin:0 auto;
-    line-height: 1.4em;
-} */
 
 .bg {
     /* The image used */
@@ -35,22 +27,25 @@ body, html {
 }
 
 .Box {
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    /* width: 600px;  */
-    height: 400px;
-    /*Transparant background*/
-    /*opacity: 0.5;*/
-    /*Round corners*/
-    border-radius: 50px;
-
+    margin: auto !important;
+    height: 400px ;
     /*Div alignment */
-    position: absolute;
-    margin: auto;
+    position: absolute !important;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    text-align: center;
 }
+
+.modal-content{
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 50px !important;
+}
+
+
+
+
 .Inputs {
     text-align: center;
     padding: 10%;
@@ -58,6 +53,8 @@ body, html {
 
 .foot{
     position: absolute;
+    text-align: center;
+    
     bottom: 0;
     width: 100%;
     height: 40px; /* Set the fixed height of the footer here */
@@ -77,26 +74,12 @@ body, html {
     height: 30px;
 }
 
-.modal-content{
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50px;
-
-    margin: auto;
-    margin-left: .5rem;
-    margin-right: .5rem;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    width: auto !important;
-}
 .btn-link{
     color:white;
 }
 .modal-heading h2{
     color:#ffffff;
-    padding-top: 5px;
+    padding-top: 8px;
 }
 
 .btn {
@@ -104,5 +87,5 @@ body, html {
 }
 
 .hr-login {
-    border-top: 10px solid rgba(0,0,0,0);
-}
+    border-top: 5px solid rgba(0,0,0,0);
+} 

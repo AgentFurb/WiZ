@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url('../css/main.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ url('../css/footer.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ url('../css/homegraphs.css') }}" />
+        <link rel="shortcut icon" type="image/png" href="{{('../img/wizicon.png')}}">
 
 
     </head>
@@ -103,7 +104,7 @@
                     <a class="fas fa-power-off" id="socialiconhover" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        <p>Uitloggen</p>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
