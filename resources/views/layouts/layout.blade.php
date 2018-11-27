@@ -11,6 +11,8 @@
         <link rel="stylesheet" type="text/css" href="{{ url('../css/main.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ url('../css/footer.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ url('../css/homegraphs.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ url('../css/profile.css') }}" />
+
         <!-- Chart.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
         <link rel="shortcut icon" type="image/png" href="{{('../img/wizicon.png')}}">
@@ -34,6 +36,7 @@
                 <a href="/profiel" class="profilehover">
                     <img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-bar"><br/>            
                 </a>
+                <h5 id="profilenamedisplay">{{ Auth::user()->name }}</h5>
             </div>
           </div>
         </div>

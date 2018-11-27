@@ -54,6 +54,34 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="Vestiging" class="col-md-4 col-form-label text-md-right">{{ __('Vestiging') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Vestiging" type="text" class="form-control{{ $errors->has('Vestiging') ? ' is-invalid' : '' }}" name="Vestinging" value="{{ old('Vestiging') }}" required>
+
+                                @if ($errors->has('Vestiging'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('Vestiging') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Rechten" class="col-md-4 col-form-label text-md-right">{{ __('Gebruikers rechten') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Rechten" type="Rechten" class="form-control{{ $errors->has('Rechten') ? ' is-invalid' : '' }}" name="Rechten" value="{{ old('Rechten') }}" required>
+
+                                @if ($errors->has('Rechten'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('Rechten') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
