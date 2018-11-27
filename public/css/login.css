@@ -2,6 +2,9 @@ body, html {
     height: 100%;
 }
 
+.reg{
+    margin-top: 160px !important;
+}
 
 .bg {
     /* The image used */
@@ -26,7 +29,19 @@ body, html {
     height: 100%;
 }
 
-.Box {
+
+.Boxreg {
+    height: 400px ;
+    /*Div alignment */
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+.Boxlogin {
     margin: auto !important;
     height: 400px ;
     /*Div alignment */
@@ -43,9 +58,6 @@ body, html {
     border-radius: 50px !important;
 }
 
-.form-horizontal{
-    
-}
 
 
 
@@ -101,3 +113,10 @@ body, html {
 .hr-login {
     border-top: 5px solid rgba(0,0,0,0);
 } 
+
+strong{
+    color: darkred;
+}
+
+
+

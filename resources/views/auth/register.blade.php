@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg">
     <div class="layer">
-        <div class="modal-dialog Box">
+        <div class="modal-dialog Boxreg reg">
             <div class="modal-content">
                 <div class="modal-heading">
                     <h2 class="text-center">Registreren</h2>
@@ -35,7 +35,12 @@
 
                         {{-- Input Rechten --}}
                         <div class="form-group{{ $errors->has('rechten') ? ' has-error' : '' }}">
-                            <input id="rechten" type="text" class="form-control" placeholder="Rechten" name="rechten" value="{{ old('rechten') }}" required>
+                            <select id="rechten" type="text" class="form-control" name="rechten" value="{{ old('rechten') }}" required>
+                                <option value="" disabled selected hidden>Rechten</option>
+                                <option value="User">User</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Admin">Admin</option>
+                            </select>
                             @if ($errors->has('rechten'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('rechten') }}</strong>
@@ -44,8 +49,26 @@
                         </div>
 
                         {{-- Input Vestiging --}}
-                        <div class="form-group{{ $errors->has('vestiging') ? ' has-error' : '' }}">
-                            <input id="vestiging" type="text" class="form-control" placeholder="Vestiging" name="vestiging" value="{{ old('vestiging') }}" required>
+                        <div class="form-group{{ $errors->has('vestiging') ? ' has-error' : '' }}">                            
+                            <select id="vestiging" type="text" class="form-control" name="vestiging" value="{{ old('vestiging') }}" required>
+                                <option value="" disabled selected hidden>Vestiging</option>
+                                <option value="Amsterdam">Amsterdam</option>
+                                <option value="Arnhem">Arnhem</option>
+                                <option value="Den Bosch">Den Bosch</option>
+                                <option value="Den Haag">Den Haag</option>
+                                <option value="Echt">Echt</option>
+                                <option value="Groningen">Groningen</option>
+                                <option value="Helmond">Helmond</option>
+                                <option value="Katwijk">Katwijk</option>
+                                <option value="Makkum">Makkum</option>
+                                <option value="Oosterhout">Oosterhout</option>
+                                <option value="Roosendaal">Roosendaal</option>
+                                <option value="Tilburg">Tilburg</option>
+                                <option value="Utrecht">Utrecht</option>
+                                <option value="Zelhem">Zelhem</option>
+                                <option value="Zwolle">Zwolle</option>
+                            </select>
+                            
                             @if ($errors->has('vestiging'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('vestiging') }}</strong>
@@ -81,7 +104,7 @@
 
                         {{-- Registreer submit --}}
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-lg">
                                 Registreer
                             </button>
                         </div>
