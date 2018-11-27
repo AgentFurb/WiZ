@@ -34,7 +34,7 @@
                 <a href="/profiel" class="profilehover">
                     <img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-bar"><br/>            
                 </a>
-                <h5 id="profilenamedisplay">{{ Auth::user()->name }}</h5>
+                <h5 id="profilenamedisplay">{{ Auth::user()->voornaam }}</h5>
             </div>
           </div>
         </div>
