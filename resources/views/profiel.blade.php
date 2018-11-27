@@ -12,12 +12,12 @@
                 <div class="col order-first">
                     <ul class="nav-fill">
                         <li class="nav-item text-center li-pad">
-                            Gebruikers ID:<br />
+                            Email:<br />
                             {{ Auth::user()->email }}
                         </li>
                         <li class="nav-item text-center li-pad">
-                            Gebruikersnaam:<br />
-                            {{ Auth::user()->name }}
+                            Naam:<br />
+                            {{ Auth::user()->voornaam }} {{ Auth::user()->achternaam }}
                         </li>
                     </ul>
                 </div>
@@ -25,11 +25,11 @@
                     <ul class="nav-fill">
                         <li class="nav-item text-center li-pad">
                             Functie:<br />
-                            {{ Auth::user()->Rechten }}
+                            {{ Auth::user()->rechten }}
                         </li>
                         <li class="nav-item text-center li-pad">
                             Vestiging:<br />
-                            {{ Auth::user()->Vestiging }}
+                            {{ Auth::user()->vestiging }}
                         </li>
                     </ul>
                 </div>
@@ -66,14 +66,13 @@
                             @if ('{{ Auth::user()->Rechten }}' == 'User')
                                 
                             @else
-                                <a class="controlmobile" href="controlpanel.php"><h5 class="card-title"><i class="fas fa-user-cog lineheight"></i>Controlpanel</h5></a>
+                                <a class="controlmobile" href="/controlpanel"><h5 class="card-title"><i class="fas fa-user-cog lineheight"></i>Controlpanel</h5></a>
                             @endif
 
-                            <a class="fas fa-power-off" id="socialiconhover" href="{{ route('logout') }}"
+                            <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            <p>Uitloggen</p>
-                            </a>
+                            document.getElementById('logout-form').submit();"><h5 class="card-title"><i class="fas fa-power-off lineheight"></i>Uitloggen</h5></a>
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>                        

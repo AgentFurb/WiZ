@@ -27,6 +27,6 @@ Route::get('/shop', 'PagesController@shop');
 
 Route::get('/profiel', 'PagesController@profiel');
 
-Route::get('/profiel/controlpanel', 'PagesController@control');
+Route::get('/controlpanel', 'PagesController@control');
 
 //Route::get('/home', 'HomeController@index')->name('home');
