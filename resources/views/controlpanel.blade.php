@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('pageSpecificCSS')
+<link rel="stylesheet" type="text/css" href="{{ url('../css/controlpanel.css') }}" />
+@endsection
+
 @section('content')
 <div class="tab">
             @if ('{{ Auth::user()->Rechten }}' == 'Admin')
