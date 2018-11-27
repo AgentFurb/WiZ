@@ -10,7 +10,6 @@
         <!-- custom css -->
         <link rel="stylesheet" type="text/css" href="{{ url('../css/main.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ url('../css/footer.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ url('../css/homegraphs.css') }}" />
         @yield('pageSpecificCSS')
         <!-- Chart.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
