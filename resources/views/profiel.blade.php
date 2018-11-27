@@ -66,7 +66,7 @@
                             @if ('{{ Auth::user()->Rechten }}' == 'User')
                                 
                             @else
-                                <a class="controlmobile" href="controlpanel.php"><h5 class="card-title"><i class="fas fa-user-cog lineheight"></i>Controlpanel</h5></a>
+                                <a class="controlmobile" href="/controlpanel"><h5 class="card-title"><i class="fas fa-user-cog lineheight"></i>Controlpanel</h5></a>
                             @endif
 
                             <a href="{{ route('logout') }}"
