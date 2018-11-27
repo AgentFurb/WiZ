@@ -2,7 +2,13 @@
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ url('../css/shop.css') }}" />
 @endsection
-
+{{-- 
+<?php
+    if (isset($_GET['done'])==true){
+        echo '<script type="text/javascript">setTimeout(function(){ alert("Product is toegevoegd!"); }, 100)</script>'; 
+    }
+?>
+ --}}
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-end" id="Searchnavbar"> 

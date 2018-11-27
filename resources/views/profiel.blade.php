@@ -12,12 +12,12 @@
                 <div class="col order-first">
                     <ul class="nav-fill">
                         <li class="nav-item text-center li-pad">
-                            Gebruikers ID:<br />
+                            Email:<br />
                             {{ Auth::user()->email }}
                         </li>
                         <li class="nav-item text-center li-pad">
-                            Gebruikersnaam:<br />
-                            {{ Auth::user()->name }}
+                            Naam:<br />
+                            {{ Auth::user()->voornaam }} {{ Auth::user()->achternaam }}
                         </li>
                     </ul>
                 </div>
@@ -25,11 +25,11 @@
                     <ul class="nav-fill">
                         <li class="nav-item text-center li-pad">
                             Functie:<br />
-                            {{ Auth::user()->Rechten }}
+                            {{ Auth::user()->rechten }}
                         </li>
                         <li class="nav-item text-center li-pad">
                             Vestiging:<br />
-                            {{ Auth::user()->Vestiging }}
+                            {{ Auth::user()->vestiging }}
                         </li>
                     </ul>
                 </div>
