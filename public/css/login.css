@@ -43,6 +43,9 @@ body, html {
     border-radius: 50px !important;
 }
 
+.form-horizontal{
+    
+}
 
 
 
@@ -71,6 +74,11 @@ body, html {
 
 .regbtn{
     margin-left: 0px !important;
+}
+
+.form-group{
+    width: 70%;
+    margin: auto;
 }
 
 .button {
