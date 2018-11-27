@@ -117,5 +117,4 @@
         </div>
     </div>
 </div>
-<H1>DAB</H1>
 @endsection
