@@ -2,13 +2,7 @@
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ url('../css/shop.css') }}" />
 @endsection
-{{-- 
-<?php
-    if (isset($_GET['done'])==true){
-        echo '<script type="text/javascript">setTimeout(function(){ alert("Product is toegevoegd!"); }, 100)</script>'; 
-    }
-?>
- --}}
+
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-end" id="Searchnavbar"> 
@@ -80,7 +74,7 @@
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
                     </div>
                     <div class="card-body">
-                        <a href="productdetail.php" class="card-link">Bekijk hier het product</a>
+                        <a href="/productdetail" class="card-link">Bekijk hier het product</a>
                     </div>
                 </div>
                 <div class="card ot-product" id="heightwidthfix">
@@ -90,7 +84,7 @@
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
                     </div>
                     <div class="card-body">
-                        <a href="productdetail.php" class="card-link">Bekijk hier het product</a>
+                        <a href="/productdetail" class="card-link">Bekijk hier het product</a>
                     </div>
                 </div>
                 <div class="card ot-product" id="heightwidthfix">
@@ -100,7 +94,7 @@
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
                     </div>
                     <div class="card-body">
-                        <a href="productdetail.php" class="card-link">Bekijk hier het product</a>
+                        <a href="/productdetail" class="card-link">Bekijk hier het product</a>
                     </div>
                 </div>
             </div>
@@ -113,21 +107,21 @@
                 <li class="media">
                     <img class="mr-3 eb-product" src="img/img-placeholder.png" alt="Generic placeholder image">
                     <div class="media-body">
-                        <a href="productdetail.php" class="card-link"><h5>Bekijk hier het product</h5></a>
+                        <a href="/productdetail" class="card-link"><h5>Bekijk hier het product</h5></a>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                     </div>
                 </li>
                 <li class="media my-4">
                     <img class="mr-3 eb-product" src="img/img-placeholder.png" alt="Generic placeholder image">
                     <div class="media-body">
-                        <a href="productdetail.php" class="card-link"><h5>Bekijk hier het product</h5></a>
+                        <a href="/productdetail" class="card-link"><h5>Bekijk hier het product</h5></a>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                     </div>
                 </li>
                 <li class="media">
                     <img class="mr-3 eb-product" src="img/img-placeholder.png" alt="Generic placeholder image">
                     <div class="media-body">
-                        <a href="productdetail.php" class="card-link"><h5>Bekijk hier het product</h5></a>
+                        <a href="/productdetail" class="card-link"><h5>Bekijk hier het product</h5></a>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                     </div>
                 </li>

@@ -35,4 +35,9 @@ class PagesController extends Controller
     {
         return view('controlpanel');
     }
+
+    public function productdetail()
+    {
+        return view('productdetail');
+    }
 }

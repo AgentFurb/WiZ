@@ -35,27 +35,14 @@
                 <div class="col last-col">Vestiging</div>
                 <div class="col last-col"><img src="img/setting2.png" height="30" width="30"></div>
             </div>
-            <?php 
-                $sqlusers = "SELECT UserID, UserName, UserRechten, Vestiging FROM gebruikers";
-                $result = $conn->query($sqlusers);
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        ?>
-                        <div class="row users">
-                        <div class="col img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
-                        <div class="col"><?php echo $row["UserID"] ?></div>
-                        <div class="col"><?php echo $row["UserName"] ?></div>
-                        <div class="col"><?php echo $row["UserRechten"] ?></div>
-                        <div class="col last-col"><?php echo $row["Vestiging"] ?></div>
-                        <div class="col">Col</div>
-                        </div>
-                        <?php
-                    }
-                } else {
-                    echo "0 results";
-                } 
-            ?>  
+            <div class="row users">
+                <div class="col img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
+                <div class="col">{{ Auth::user()->id }}</div>
+                <div class="col">{{ Auth::user()->voornaam }}</div>
+                <div class="col">{{ Auth::user()->rechten }}</div>
+                <div class="col">{{ Auth::user()->vestiging }}</div>
+                <div class="col">{{ Auth::user()->email }}</div>
+            </div>
         </div>
     </div>
     <div class="tabcontent" id="Productbeheer">

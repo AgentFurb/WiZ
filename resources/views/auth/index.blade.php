@@ -14,37 +14,46 @@
                             @csrf
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input id="email" type="email" placeholder="E-Mail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"  autofocus>
-                                    {{-- @if ($errors->has('email'))
+                                    <input id="email" type="email" placeholder="E-Mail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" autofocus>
+                                    @if ($errors->has('email'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('email') }}</strong>
                                         </span>
-                                    @endif --}}
+                                        <script>
+                                            $(document).ready(function(){
+                                                $("#popup1").modal('show');
+
+                                            });
+                                        </script>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">                                 
                                     <input id="password" type="password" placeholder="Wachtwoord" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" >
-                                    {{-- @if ($errors->has('password'))
-                                        <span class="help-block">
+                                    @if ($errors->has('password'))
+                                        {{-- <span class="help-block">
                                             <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif --}}
+                                        </span> --}}
+                                        
+                                        <script>
+                                            $(document).ready(function(){
+                                                $("#popup1").modal('show');
+
+                                            });
+                                        </script>
+                                    @endif
                                 </div>
                             </div>
                             <br>
 
 
-                            @if ($errors->has('password'))
-                                <!-- Button trigger modal -->
-                                <button type="submit" class="btn btn-lg" data-toggle="modal" data-target="#exampleModal">
-                                    Launch demo modal
-                                </button>
-                            @else
-                                <button type="submit" class="btn btn-lg">
-                                    {{ __('Inloggen') }}
-                                </button>
-                            @endif
+                            <button type="submit" class="btn btn-lg" name="submit" id="myBtn" data-toggle="modal">
+                                {{ __('Inloggen') }}
+                            </button>
+
+
+                                {{-- <a class="buttonlogin" href="#popup1">Let me Pop up</a> --}}
 
 
                             <br>
@@ -63,25 +72,14 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Here i am</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                Thank to pop me out of that button, but now i'm done so you can close this window.
+            </div>
+        </div>
+    </div>
 @endsection
