@@ -15,30 +15,17 @@ class ProductsController extends Controller
     public function index()
     {
 
-        $products = Product::all();
-
-        return $products;
-
-        return view('projects.producten', compact('products'));
+        return view('projects.producten');
     }
 
-    public function productdetail(Product $Product)
+    public function productdetail(product $product)
     {
         //$this->authorize('update', $Product);
         $product = Product::first();
         return $product;
-        return view('Product.productdetail', compact('product'));
+        return view('Product.productdetail', compact('$product'));
 
     }
 
-    public function control()
-    {
-
-        $users = User::all();
-
-        return $users;
-
-        return view('User.control', compact('user'));
-    }
 
 }

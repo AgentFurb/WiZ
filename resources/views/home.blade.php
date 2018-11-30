@@ -5,6 +5,9 @@
 @section('content')
     <div class="backgroundHome">
         <br>
+        <a href="/register">
+            <button>New User</button>      
+        </a>  
         <div class="container-fluid">
             <div class="row">     
                 <div class="col-sm">                        

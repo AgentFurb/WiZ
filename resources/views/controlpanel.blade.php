@@ -6,12 +6,12 @@
 
 @section('content')
 <div class="tab">
-            @if ('{{ Auth::user()->Rechten }}' == 'Admin')
-                <button class="tablinks" onclick="openCity(event, 'Accountbeheer')" id="defaultOpen">Accountbeheer</button>
-                <button class="tablinks" onclick="openCity(event, 'Productbeheer')">Productbeheer</button>
-            @else
-                    <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen">Productbeheer</button>      
-            @endif
+    @if ('{{ Auth::user()->rechten }}' !== 'Admin')
+        <button class="tablinks" onclick="openCity(event, 'Accountbeheer')" id="defaultOpen">Accountbeheer</button>
+        <button class="tablinks" onclick="openCity(event, 'Productbeheer')">Productbeheer</button>
+    @else
+        <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen">Productbeheer</button>      
+    @endif
 </div>
     <div class="tabcontent" id="Accountbeheer">
         <div class="container users-main " >
@@ -22,7 +22,9 @@
                             <form action="Search.php" mathod="post">
                                 <input type="search" class="form-control" placeholder="Gebruikersnaam" aria-label="Search">
                             </form>
-                            <button class="btn btn-outline-secondary" class="form-control" type="submit" onclick="window.location.href = 'NewUser.php';">Add user</button>
+                            <a href="/register">
+                                <button>New User</button>      
+                            </a>                  
                         </div>
                     </div>
                 </div>
@@ -35,14 +37,17 @@
                 <div class="col last-col">Vestiging</div>
                 <div class="col last-col"><img src="img/setting2.png" height="30" width="30"></div>
             </div>
-            <div class="row users">
-                <div class="col img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
-                <div class="col">{{ Auth::user()->id }}</div>
-                <div class="col">{{ Auth::user()->voornaam }}</div>
-                <div class="col">{{ Auth::user()->rechten }}</div>
-                <div class="col">{{ Auth::user()->vestiging }}</div>
-                <div class="col">{{ Auth::user()->email }}</div>
-            </div>
+            @foreach ($users as $user)
+                <div class="row users">
+                    <div class="col img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
+                    <div class="col">{{ $user->id }}</div>
+                    <div class="col">{{ $user->voornaam }}</div>
+                    <div class="col">{{ $user->rechten }}</div>
+                    <div class="col">{{ $user->vestiging }}</div>
+                    <div class="col">{{ $user->email }}</div>
+                </div>
+            @endforeach
+            
         </div>
     </div>
     <div class="tabcontent" id="Productbeheer">
@@ -56,41 +61,6 @@
                 <div class="col colpadding">Product locatie:</div>
                 <div class="col colpadding"><img src="img/setting2.png" height="30" width="30"></div>
             </div>
-            <?php 
-                $sqlusers = "SELECT * FROM aanvragen";
-                $result = $conn->query($sqlusers);
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        ?>
-                        <div class="row users">
-                            <div class="img-col"><img src="img/productaanvraagicon.svg" class="profile-img-small"></div>
-                            <div class="col"><?php echo $row["AanvraagID"] ?></div>
-                            <div class="col"><?php echo $row["UserName"] ?></div>
-                            <div class="col"><?php echo $row["pNaam"] ?></div>
-                            <div class="col"><?php echo $row["ProductAantal"] ?></div>
-                            <div class="col last-col"><?php echo $row["pAfkomst"] ?></div>
-                            <div class="col fromscol">
-                                <div class="form1">
-                                    <form action="aanvraag/WeigerAanvraag.php" method="post" >
-                                        <input type="hidden" name="aanvraagid" value="<?php echo $row["AanvraagID"] ?>" />
-                                        <input type="submit" class="WeigAccbtn"  value="&#xf057;"  name="AfwijsBTN"/>
-                                    </form>
-                                </div>
-                                <div class="form2">
-                                    <form action="aanvraag/AccAanvraag.php" method="post" >
-                                        <input type="hidden" name="aanvraagid" value="<?php echo $row["AanvraagID"] ?>" />
-                                        <input type="submit" class="WeigAccbtn"  value="&#xf058;"  name="AccBTN"/>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <?php 
-                    }
-                } else {
-                    echo "0 results";
-                } 
-            ?>  
         </div>
     </div>
 @endsection

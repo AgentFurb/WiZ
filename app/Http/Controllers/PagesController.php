@@ -11,6 +11,11 @@ class PagesController extends Controller
         return view('auth/index');
     }
 
+    public function register()
+    {
+        return view('auth/register');
+    }
+
     public function home()
     {
         return view('home');

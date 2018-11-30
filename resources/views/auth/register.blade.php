@@ -3,6 +3,9 @@
 @section('content')
 <div class="bg">
     <div class="layer">
+        <a href="/controlpanel">
+            <i class="fas fa-arrow-alt-circle-left" id="backbtn"></i>
+        </a>
         <div class="modal-dialog Boxreg reg">
             <div class="modal-content">
                 <div class="modal-heading">

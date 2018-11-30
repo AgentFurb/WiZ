@@ -17,7 +17,11 @@
 
 Auth::routes();
 
+Route::resource('productdetail', 'ProductsController');
+
 Route::get('/', 'PagesController@index');
+
+Route::get('/register', 'PagesController@register')->name('register');
 
 Route::get('/home', 'PagesController@home');
 
@@ -28,6 +32,8 @@ Route::get('/shop', 'PagesController@shop');
 Route::get('/profiel', 'PagesController@profiel');
 
 Route::get('/controlpanel', 'PagesController@control');
+
+ 
 
 Route::get('/productdetail', 'PagesController@productdetail');
 
