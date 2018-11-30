@@ -114,8 +114,18 @@ body, html {
     border-top: 5px solid rgba(0,0,0,0);
 } 
 
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #dc3545 !important;
+    height: 38px !important;
+    padding: .375rem .75rem !important;
+    border-radius: .75rem !important;
+    margin-top: .5rem !important;
+}
+
 strong{
-    color: darkred;
+    color: red;
 }
 
 

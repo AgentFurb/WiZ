@@ -14,41 +14,28 @@
                             @csrf
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input id="email" type="email" placeholder="E-Mail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" autofocus>
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                        <script>
-                                            $(document).ready(function(){
-                                                $("#popup1").modal('show');
-
-                                            });
-                                        </script>
-                                    @endif
+                                    <input id="email" type="email" placeholder="E-Mail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" autofocus>                                    
                                 </div>
+                                @if ($errors->has('email'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $errors->first('email') }}
+                                    </div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <div class="input-group">                                 
-                                    <input id="password" type="password" placeholder="Wachtwoord" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" >
-                                    @if ($errors->has('password'))
-                                        {{-- <span class="help-block">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span> --}}
-                                        
-                                        <script>
-                                            $(document).ready(function(){
-                                                $("#popup1").modal('show');
-
-                                            });
-                                        </script>
-                                    @endif
+                                    <input id="password" type="password" placeholder="Wachtwoord" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" >                                   
                                 </div>
+                                @if ($errors->has('password'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $errors->first('password') }}
+                                    </div>
+                                 @endif
                             </div>
                             <br>
 
 
-                            <button type="submit" class="btn btn-lg" name="submit" id="myBtn" data-toggle="modal">
+                            <button type="submit" class="btn btn-lg" name="submit" id="myBtn" data-toggle="popup1">
                                 {{ __('Inloggen') }}
                             </button>
 
@@ -72,6 +59,13 @@
             </div>
         </div>
     </div>
+    {{--
+    <script>
+        $( document ).ready(function() {
+            $('#popup1').modal('show');
+        });
+    </script>
+    --}}
 
     <div id="popup1" class="overlay">
         <div class="popup">
