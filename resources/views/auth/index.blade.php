@@ -35,7 +35,7 @@
                             <br>
 
 
-                            <button type="submit" class="btn btn-lg" name="submit" id="myBtn" data-toggle="popup1">
+                            <button type="submit" class="btn btn-lg login" name="submit" id="myBtn" data-toggle="popup1">
                                 {{ __('Inloggen') }}
                             </button>
 
@@ -45,7 +45,7 @@
 
                             <br>
                             @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link forgot" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
