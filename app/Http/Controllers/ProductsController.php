@@ -12,18 +12,11 @@ class ProductsController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
-    {
-
-        return view('projects.producten');
-    }
-
-    public function productdetail(product $product)
+    public function productdetail(Product $product)
     {
         //$this->authorize('update', $Product);
         $product = Product::first();
-        return $product;
-        return view('Product.productdetail', compact('$product'));
+        return view('productdetail', compact('product'));
 
     }
 
