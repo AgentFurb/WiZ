@@ -38,3 +38,13 @@ Route::get('/controlpanel', 'PagesController@control');
 Route::get('/productdetail', 'PagesController@productdetail');
 
 //Route::get('/home', 'HomeController@index')->name('home');
+
+//ERROR MESSAGES
+
+Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
+Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
+Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
+Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
+Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
+Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
+Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
