@@ -208,4 +208,16 @@ strong{
     margin-top: 15px;
   }
 
+.forgot {
+    text-decoration: none !important;
+    color: white !important;
+}
+
+.forgot:hover {
+    color: #999999 !important;
+}
+
+.login:hover {
+    color: #999999 !important;
+}
 

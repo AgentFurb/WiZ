@@ -21,19 +21,23 @@ Route::get('/', 'PagesController@index');
 
 Route::get('/register', 'PagesController@register')->name('register');
 
-Route::get('/home', 'PagesController@home');
+Route::get('/home', ['middleware' => 'auth', 'uses' => 'PagesController@home']);
+// Route::get('/home', 'PagesController@home');
 
-Route::get('/overons', 'PagesController@overons');
+Route::get('/overons', ['middleware' => 'auth', 'uses' => 'PagesController@overons']);
+// Route::get('/overons', 'PagesController@overons');
 
-Route::get('/shop', 'PagesController@shop');
+Route::get('/shop', ['middleware' => 'auth', 'uses' => 'PagesController@shop']);
+// Route::get('/shop', 'PagesController@shop');
 
-Route::get('/profiel', 'PagesController@profiel');
+Route::get('/profiel', ['middleware' => 'auth', 'uses' => 'PagesController@profiel']);
+// Route::get('/profiel', 'PagesController@profiel');
 
-Route::get('/controlpanel', 'UsersController@control');
+Route::get('/controlpanel', ['middleware' => 'auth', 'uses' => 'UsersController@control']);
+// Route::get('/controlpanel', 'UsersController@control');
 
- 
-
-Route::get('/productdetail', 'ProductsController@productdetail');
+Route::get('/productdetail', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);
+// Route::get('/productdetail', 'ProductsController@productdetail');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
