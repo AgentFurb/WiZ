@@ -122,7 +122,7 @@
                 </div>
                 <div>
                     <i class="fas fa-envelope"></i>
-                    <p><a href="">kuijpers@kuijpers.com</a></p>
+                    <p><a href="mailto:kuijpers@kuijpers.com">kuijpers@kuijpers.com</a></p>
                 </div>
             </div>
             <div class="footer-right">
