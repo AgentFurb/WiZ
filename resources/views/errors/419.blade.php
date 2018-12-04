@@ -9,11 +9,11 @@
 @endsection --}}
 
 @section('homebutton')
-<a href="{{ url('/home') }}">
+<a href="{{ url('/') }}">
     <button class="bg-transparent text-kuijpers-blue font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg">
-        {{ __('Go Home') }}
+        {{ __('Log in') }}
     </button>
 </a>
-@endsection 
+@endsection  
 
 @section('message', __('Sorry, your session has expired. Please refresh and try again.'))
