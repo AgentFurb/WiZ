@@ -36,8 +36,23 @@ Route::get('/profiel', ['middleware' => 'auth', 'uses' => 'PagesController@profi
 Route::get('/controlpanel', ['middleware' => 'auth', 'uses' => 'UsersController@control']);
 // Route::get('/controlpanel', 'UsersController@control');
 
-Route::get('/productdetail', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);
+Route::get('/productdetail/products', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);
 // Route::get('/productdetail', 'ProductsController@productdetail');
+
+
+Route::get('/controlpanel/users/{user}', ['middleware' => 'auth', 'uses' => 'UsersController@show']);
+// Route::get('/controlpanel/users/{user}', 'UsersController@show');
+
+Route::get('/controlpanel/users/{user}/edit', ['as' => 'users.edit', 'uses' => 'UsersController@edit']);
+// Route::get('/controlpanel/users/{user}/edit', 'UsersController@edit');
+
+
+Route::patch('/controlpanel/users/{user}/update', ['as' => 'users.update', 'uses' => 'UsersController@update']);
+// Route::get('/controlpanel/users/{user}/edit', 'UsersController@update');
+
+// Route::delete('/controlpanel/users/{user}/destroy', ['as' => 'users.destroy', 'uses' => 'UsersController@destroy']);
+// // Route::get('/controlpanel/users/{user}/edit', 'UsersController@destroy');
+
 
 //Route::get('/home', 'HomeController@index')->name('home');
 

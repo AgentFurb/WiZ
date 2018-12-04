@@ -1,3 +1,6 @@
+.btn{
+    font-family: 'Open Sans', sans-serif;
+}
 .users-top {
     height: 100px;
 }
@@ -14,9 +17,13 @@
     line-height: 4;
 }
 
-.tabcontent{
-    margin-bottom: 193px;
 
+#userdelete{
+    margin-bottom: 193px !important;
+
+} 
+.tabcontent{
+    padding: 0px !important;
 }
 
 .searchuser{
@@ -173,6 +180,53 @@ input[type="submit"] {
 .form2 {
    float: right;
    margin-right: 58px;
+}
+
+
+/*-------------------------------------------*/
+/*------------- User detail css -------------*/
+/*-------------------------------------------*/
+
+.profile-img-users {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    position: relative;
+}
+
+.userdetail{
+    margin-top: 50px;
+}
+
+.usericons{
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 200px;
+    color: #000000;
+}
+
+.usrinfo{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.usrinfo-cols{
+    margin-top: 20px;
+}
+
+.confirmdeleteuser{
+    text-align: center;
+}
+
+
+#userdetailverticalline{
+    border-left: 3px solid #8fa2d2;
+    height: 600px;
+}
+
+
+#userdetailline{
+    margin-top: 20px;
+        border-top: 3px solid #8fa2d2;
 }
 
 @media only screen and (max-width: 1025px) {

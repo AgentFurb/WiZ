@@ -16,7 +16,37 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
         <link rel="shortcut icon" type="image/png" href="{{('../img/wizicon.png')}}">
 
+        {{-- <style>
+        
+        .absolute {
+            position: absolute;
+        }
 
+        .pin {
+            top: 1000;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .bg-cover {
+            background-size: cover;
+        }
+
+        .bg-no-repeat {
+            background-repeat: no-repeat;
+        }
+        @media (min-width: 768px) {
+            .md\:bg-left {
+                background-position: left;
+            }
+        }
+        @media (min-width: 992px) {
+            .lg\:bg-center {
+                background-position: center;
+            }
+        }
+        </style> --}}
     </head>
     <body>
         <div class="container-fluid top-bar">
@@ -60,8 +90,11 @@
         @yield('content')
         <footer class="footer-distributed">
             <div class="footer-left">
-                <a href="home.php">
-                    <img src="img/logo_wiz2.png" class="img-fluid" id="wizlogofooter">
+                <a href="home.php" >
+                    {{-- @yield('image') --}}
+                    <div style="background-image: url({{ asset('/img/logo_wiz2.png') }});" class="absolute pin bg-cover bg-no-repeat md:bg-left lg:bg-center img-fluid" id="wizlogofooter">
+                    </div>
+                    {{-- <img src="img/logo_wiz2.png" class="img-fluid" id="wizlogofooter"> --}}
                 </a>
                 <p class="footer-links">
                     <a href="/home" id="footernavhover">Home</a>
