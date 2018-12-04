@@ -12,42 +12,33 @@
     @else
         <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen">Productbeheer</button>      
     @endif
+    <form action="Search.php" mathod="post">
+        <button type="submit" name="submit">Zoek gebruiker</button>
+        <input type="search" class="searchuser form-control" placeholder="Gebruikersnaam" aria-label="Search">
+        
+    </form>
 </div>
     <div class="tabcontent" id="Accountbeheer">
-        <div class="container users-main " >
-            <div class="row users-top">
-                <div class="col">
-                    <div class="input-group mb-3">
-                        <div class="input-group-append">
-                            <form action="Search.php" mathod="post">
-                                <input type="search" class="form-control" placeholder="Gebruikersnaam" aria-label="Search">
-                            </form>
-                            <a href="/register">
-                                <button>New User</button>      
-                            </a>                  
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="container users-main">
+            <br>
             <div class="row users" id="infobar">
-                <div class="col"></div>
-                <div class="col"><p class="nummer"> User ID: </p></div>
-                <div class="col"><p class="naam"> Username: </p></div>
-                <div class="col last-col">Rechten</div>
-                <div class="col last-col">Vestiging</div>
-                <div class="col last-col"><img src="img/setting2.png" height="30" width="30"></div>
+                <div class="img-col colpadding"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small" style="display: none;"></div>
+                <div class="col-4 colpadding">E-Mail:</div>
+                <div class="col colpadding"><p class="naam"> Rechten: </p></div>
+                <div class="col colpadding">Vestiging:</div>
+                <div class="col colpadding">Id:</div>
             </div>
             @foreach ($users as $user)
-                <div class="row users">
-                    <div class="col img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
-                    <div class="col">{{ $user->id }}</div>
-                    <div class="col">{{ $user->voornaam }}</div>
-                    <div class="col">{{ $user->rechten }}</div>
-                    <div class="col">{{ $user->vestiging }}</div>
-                    <div class="col">{{ $user->email }}</div>
-                </div>
+                <a href="/controlpanel/">
+                    <div class="row users usersdata">
+                        <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
+                        <div class="col-4">{{ $user->email }}</div>
+                        <div class="col">{{ $user->rechten }}</div>
+                        <div class="col">{{ $user->vestiging }}</div>
+                        <div class="col">{{ $user->id }}</div>
+                    </div>
+                </a>
             @endforeach
-            
         </div>
     </div>
     <div class="tabcontent" id="Productbeheer">
