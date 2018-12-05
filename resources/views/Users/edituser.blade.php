@@ -7,9 +7,8 @@
 
 @section('content')
 <div class="container userdetail">
-        <div class="row">
-            <div class="col"><a href="/controlpanel/users/{{ $user->id }}"><i class="fas fa-arrow-circle-left usericons "></i></a>
-            </div>
+        <div class="row">            
+            <div class="col"><a href="/controlpanel/users/{{ $user->id }}"><i class="fas fa-arrow-circle-left usericons "></i></a></div>
             <div class="col"><img class="profile-img-users mx-auto d-block" src="https://www.w3schools.com/howto/img_avatar.png"></div>
             <div class="col"></div>
         </div>

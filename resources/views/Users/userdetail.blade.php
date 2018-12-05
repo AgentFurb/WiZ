@@ -9,6 +9,7 @@
     <div class="container userdetail">
         <div class="row">
             <div class="col">
+                <a href="/controlpanel"><i class="fas fa-arrow-circle-left usericons "></i></a>
                 <a href="/controlpanel/users/{{ $user->id }}/edit"><i class="fas fa-wrench usericons "></i></a>
                 <i class="tablinks far fa-trash-alt usericons" onclick="openCity(event, 'userdelete')"></i>
                 <i class="tablinks fas fa-info usericons" onclick="openCity(event, 'userinfo')" id="defaultOpen" style="display: none;"></i>
