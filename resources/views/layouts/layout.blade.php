@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
         <meta charset="utf-8">
-        <title>WiZ---Kuijpers</title>
+        <title>WiZ - Kuijpers</title>
         <!-- bootstrap - fontawesome -->
         <link rel="stylesheet" type="text/css" href="{{ url('../fontawesome/css/all.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ url('../css/bootstrap.min.css') }}" />
@@ -90,11 +90,8 @@
         @yield('content')
         <footer class="footer-distributed">
             <div class="footer-left">
-                <a href="home.php" >
-                    {{-- @yield('image') --}}
-                    <div style="background-image: url({{ asset('/img/logo_wiz2.png') }});" class="absolute pin bg-cover bg-no-repeat md:bg-left lg:bg-center img-fluid" id="wizlogofooter">
-                    </div>
-                    {{-- <img src="img/logo_wiz2.png" class="img-fluid" id="wizlogofooter"> --}}
+                <a href="home.php" >           
+                    <img src="{{ asset('img/logo_wiz2.png') }}" class="img-fluid" id="wizlogofooter">
                 </a>
                 <p class="footer-links">
                     <a href="/home" id="footernavhover">Home</a>
@@ -150,6 +147,7 @@
 
             </div>
         </footer>
+        @yield('ajaxScript')
         <script src="{{ url('../js/bootstrap.min.js') }}"></script>
         <script src="{{ url('../js/raphael-2.1.4.min.js') }}"></script>
         <script src="{{ url('../js/justgage.js') }}"></script>

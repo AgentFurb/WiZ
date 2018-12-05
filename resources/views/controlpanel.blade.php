@@ -29,7 +29,7 @@
                 <div class="col colpadding">Id:</div>
             </div>
             @foreach ($users as $user)
-                <a href="/controlpanel/users/{{ $user->id }}">
+                <a href="/controlpanel/users/{{ $user->id }}" class="users">
                     <div class="row users usersdata">
                         <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
                         <div class="col-4">{{ $user->email }}</div>

@@ -17,7 +17,7 @@
 
 Auth::routes();
 
-Route::get('/', 'PagesController@index');
+// Route::get('/', 'PagesController@index');
 
 Route::get('/register', 'PagesController@register')->name('register');
 
@@ -65,3 +65,7 @@ Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
 Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
 Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
 Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
+
+Route::get('/','SearchController@index');
+
+Route::get('/search','SearchController@search');

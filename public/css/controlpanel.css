@@ -40,10 +40,13 @@
     margin-bottom: 15px;
     text-align: left;
     line-height: 4;
+    color: #000000;
+    text-decoration: none;
 }
 
 .row.users:hover {
     background-color: #8fa2d2;
+    text-decoration: none;   
 }
 
 .img-col {
