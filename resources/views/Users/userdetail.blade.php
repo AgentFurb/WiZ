@@ -1,0 +1,76 @@
+@extends('layouts.layout')
+
+
+@section('pageSpecificCSS')
+<link rel="stylesheet" type="text/css" href="{{ url('../css/controlpanel.css') }}" />
+@endsection
+
+@section('content')
+    <div class="container userdetail">
+        <div class="row">
+            <div class="col">
+                <a href="/controlpanel/users/{{ $user->id }}/edit"><i class="fas fa-wrench usericons "></i></a>
+                <i class="tablinks far fa-trash-alt usericons" onclick="openCity(event, 'userdelete')"></i>
+                <i class="tablinks fas fa-info usericons" onclick="openCity(event, 'userinfo')" id="defaultOpen" style="display: none;"></i>
+            </div>
+            <div class="col"><img class="profile-img-users mx-auto d-block" src="https://www.w3schools.com/howto/img_avatar.png"></div>
+            <div class="col"></div>
+        </div>
+        <hr id="userdetailline">
+            <div class="usrinfo tabcontent" id="userinfo">
+                <div class="row">
+                    <div class="col">
+                        <div class="usrinfo-cols">
+                            <h5>Naam:</h5>
+                            <h3>{{ $user->achternaam }}, {{ $user->voornaam }}</h3>
+                            <br>
+                            <h5>E-Mail adres:</h5>
+                            <h3>{{ $user->email }}</h3>
+                            <br>
+                            <h5>Vestiging:</h5>
+                            <h3>{{ $user->vestiging }}</h3>
+                            <br>
+                            <h5>Gebruikers id:</h5>
+                            <h3>{{ $user->id }}</h3>
+                            <br>
+                            <h5>Gebruikers functie:</h5>
+                            <h3>{{ $user->rechten }}</h3>
+                        </div>
+                    </div>
+                    <div id="userdetailverticalline"></div>
+                    <div class="col">
+                        <div class="usrinfo-cols">
+
+                            <h5>Gebruiker aangemaakt op:</h5>
+                            <h3>{{ $user->created_at }}</h3>
+                            <br>
+                            <h5>Gebruiker geüpdate op:</h5>
+                            <h3>{{ $user->updated_at }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tabcontent" id="userdelete">
+        <br>
+        <div class="container">
+            <div class="row confirmdeleteuser">
+                <div class="col"></div>
+                <div class="col">                    
+                    <h1>Weet je het zeker?</h1>
+                    <br>
+                    <form action="/controlpanel/users/{{ $user->id }}" method="POST" class="delform">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-success">Verwijder</button>
+                    </form>
+                    <br>
+                    <a href="/controlpanel/users/{{$user->id}}"><button type="submit" class="btn btn-danger">Annuleer</button></a>
+                </div>
+                <div class="col"></div>
+            </div>
+
+        </div>
+    </div>
+@endsection
