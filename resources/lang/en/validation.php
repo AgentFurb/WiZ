@@ -127,10 +127,19 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+            'required' => 'Voer een geldig e-mailadres in',
+        ],
+        'password' => [
+            'required' => 'Voer uw wachtwoord in.',
         ],
     ],
+
+    // 'custom' => [
+    //     'attribute-name' => [
+    //         'rule-name' => 'custom-message',
+    //     ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------
