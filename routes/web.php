@@ -1,5 +1,8 @@
 <?php
 
+use App\User;
+use Illuminate\Support\Facades\Input;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,6 +69,14 @@ Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
 Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
 Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
 
-Route::get('/searchindex','SearchController@searchindex');
-
-Route::get('/search','SearchController@search');
+Route::get ( '/search', function () {
+    return view ( 'search' );
+} );
+Route::any ( '/search', function () {
+    $q = Input::get ( 'q' );
+    $user = User::where ( 'voornaam', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->get ();
+    if (count ( $user ) > 0)
+        return view ( 'search' )->withDetails ( $user )->withQuery ( $q );
+    else
+        return view ( 'search' )->withMessage ( 'No Details found. Try to search again !' );
+} );
