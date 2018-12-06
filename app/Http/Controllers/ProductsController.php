@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 use App\Product;
 
@@ -20,11 +21,15 @@ class ProductsController extends Controller
 
     // }
 
-    public function productdetail(Product $product)
-    {
-        //$this->authorize('update', $Product);
-        $product = Product::first();
-        return view('Products.productdetail', compact('product'));
+    public function productdetail()
+    {   
+        $pID = 3581637;
+        
+        $productimagetests = DB::select(DB::raw("SELECT * FROM productimages WHERE (imagelink LIKE '%png' OR imagelink LIKE '%jpg') AND Productcode = 3581637;"));
+
+        $product = DB::select(DB::raw("SELECT * FROM products WHERE `Productcode fabrikant` = $pID"));
+
+        return view('Products.productdetail', compact( 'productimagetests'));
 
     }
 

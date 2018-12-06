@@ -41,18 +41,59 @@
         </div>
     </div>
     <div class="container">
+        <br>
         <div class="row">
             <div class="col">
-                <img src="img/shop_item2.jpg" id="myImg" class="productImg img-fluid"/>
+                {{-- <h2> {{ $product->Productomschrijving }}</h2> --}}
+            </div>
+        </div>
+        <hr id="userdetailline">
+        <div class="row">
+            <div class="col-7">
+                {{-- <img src="{{ $productimagetest->imagelink }}" id="myImg" class="productImg img-fluid"/> --}}
+
+
+
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($productimagetests as $productimagetest)
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{ $productimagetest->imagelink }}" alt="First slide">
+                            </div>
+                        @endforeach
+
+
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                
+                </div>
+
+
+            <div id="userdetailverticalline"></div>
+            <div class="col">
+                <br>
+                <b>Productcode:</b><br><br>
+                <b>Ingangsdatum:</b><br><br>
+                <b>GTIN product:</b><br><br>
+                <b>Fabikaat:</b><br><br>
+                <b>Productserie:</b><br><br>
+                <br><br>
             </div>
             <div class="col">
-                {{-- <h1> {{ App::product()->productcode }}</h1> --}}
                 <br>
-                <h5><b>Product informatie: </b></h5>
-                Vestiging:  <br>
-                Aantal op voorraad:      <br><br>
-                <h5><b>Omschrijving</b></h5>
-                <p>{{ $product->Productomschrijving }}</p>
+                {{-- {{ $product->Productcode fabrikant"] }} <br><br> --}}
+                {{-- {{ $product->Ingangsdatum }} <br><br> --}}
+                {{-- {{ $product["GTIN product"] }}  <br><br> --}}
+                {{-- {{ $product->Fabrikaat }} <br><br>
+                {{ $product->Productserie }} <br><br> --}}
             </div>
         </div>
     </div>

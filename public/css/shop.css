@@ -119,6 +119,27 @@
     margin-left: 15px;
 }
 
+
+/* Productdetail */
+
+#userdetailverticalline{
+    border-left: 3px solid #8fa2d2;
+    height: 500px;
+}
+
+#myImg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+#userdetailline{
+    margin-top: 20px;
+    border-top: 3px solid #8fa2d2;
+}
+
 @media only screen and (max-width: 320px) {
     .productImg {
        max-height: 330px;
