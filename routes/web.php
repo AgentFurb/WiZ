@@ -17,7 +17,7 @@
 
 Auth::routes();
 
-//Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index');
 
 Route::get('/register', 'PagesController@register')->name('register');
 

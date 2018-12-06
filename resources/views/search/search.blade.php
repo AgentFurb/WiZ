@@ -28,47 +28,47 @@
                 <div class="col colpadding">Vestiging:</div>
                 <div class="col colpadding">Id:</div>
             </div>
-            {{-- @foreach ($users as $user)
-                <a href="/controlpanel/users/{{ $user->id }}"> --}}
+            @foreach ($users as $user)
+                <a href="/controlpanel/users/{{ $user->id }}">
                     <div id="searchUsers">
                         <div class="row users usersdata">
                             <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
-                             <div class="col-4">$user->email</div>
-                            <div class="col">$user->rechten</div>
-                            <div class="col">$user->vestiging</div>
-                            <div class="col">$user->id</div>
+                             <div class="col-4">{{ $user->email }}</div>
+                            <div class="col">{{$user->rechten}}</div>
+                            <div class="col">{{$user->vestiging}}</div>
+                            <div class="col">{{$user->id}}</div>
+                        </div>
+                        {{-- <div class="row users usersdata">
+                            <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
+                            <div class="col-4">{{$user->email}}</div>
+                            <div class="col">{{$user->rechten}}</div>
+                            <div class="col">{{$user->vestiging}}</div>
+                            <div class="col">{{$user->id}}</div>
                         </div>
                         <div class="row users usersdata">
                             <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
-                            <div class="col-4">$user->email</div>
-                            <div class="col">$user->rechten</div>
-                            <div class="col">$user->vestiging</div>
-                            <div class="col">$user->id</div>
+                            <div class="col-4">{{$user->email}}</div>
+                            <div class="col">{{$user->rechten}}</div>
+                            <div class="col">{{$user->vestiging}}</div>
+                            <div class="col">{{$user->id}}</div>
                         </div>
                         <div class="row users usersdata">
                             <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
-                            <div class="col-4">$user->email</div>
-                            <div class="col">$user->rechten</div>
-                            <div class="col">$user->vestiging</div>
-                            <div class="col">$user->id</div>
+                            <div class="col-4">{{$user->email}}</div>
+                            <div class="col">{{$user->rechten}}</div>
+                            <div class="col">{{$user->vestiging}}</div>
+                            <div class="col">{{$user->id}}</div>
                         </div>
                         <div class="row users usersdata">
                             <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
-                            <div class="col-4">$user->email</div>
-                            <div class="col">$user->rechten</div>
-                            <div class="col">$user->vestiging</div>
-                            <div class="col">$user->id</div>
-                        </div>
-                        <div class="row users usersdata">
-                            <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
-                            <div class="col-4">$user->email</div>
-                            <div class="col">$user->rechten</div>
-                            <div class="col">$user->vestiging</div>
-                            <div class="col">$user->id</div>
-                        </div>
+                            <div class="col-4">{{$user->email}}</div>
+                            <div class="col">{{$user->rechten}}</div>
+                            <div class="col">{{$user->vestiging}}</div>
+                            <div class="col">{{$user->id}}</div>
+                        </div> --}}
                     </div>
-                {{-- </a>
-            @endforeach --}}
+                </a>
+            @endforeach
         </div>
     </div>
     <div class="tabcontent" id="Productbeheer">

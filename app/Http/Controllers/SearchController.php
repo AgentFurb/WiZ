@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
 use DB;
 
 class SearchController extends Controller
 {
     public function searchindex()
     {
-        return view('search.search');
+        $users = User::all();
+
+        return view('search.search', compact('users'));
     }
 
     public function search(Request $request)
