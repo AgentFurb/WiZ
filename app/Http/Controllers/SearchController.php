@@ -8,7 +8,7 @@ use DB;
 
 class SearchController extends Controller
 {
-    public function index()
+    public function searchindex()
     {
         return view('search.search');
     }
