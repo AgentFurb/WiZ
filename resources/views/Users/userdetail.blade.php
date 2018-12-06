@@ -58,18 +58,26 @@
         <div class="container">
             <div class="row confirmdeleteuser">
                 <div class="col"></div>
-                <div class="col">                    
-                    <h1>Weet je het zeker?</h1>
-                    <br>
-                    <form action="/controlpanel/users/{{ $user->id }}" method="POST" class="delform">
+                <div class="col-6"><h3>Weet je zeker dat je {{ $user->achternaam }}, {{ $user->voornaam }} wilt verwijderen?</h3></div>
+                <div class="col"></div>
+            </div>
+            <br>
+            <div class="row ">
+                <div class="col"></div>
+                <div class="col">
+                    <form action="/controlpanel/users/{{ $user->id }}/destroy" method="POST" class="delform" id="DelForm">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-success">Verwijder</button>
                     </form>
-                    <br>
+                </div>
+                <div class="col " id="AnBtn">
                     <a href="/controlpanel/users/{{$user->id}}"><button type="submit" class="btn btn-danger">Annuleer</button></a>
                 </div>
                 <div class="col"></div>
+
+                </div>
+                
             </div>
 
         </div>

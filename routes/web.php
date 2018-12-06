@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/', 'PagesController@index');
 
-Route::get('/register', 'PagesController@register')->name('register');
+Route::get('/register', ['middleware' => 'auth', 'uses' => 'PagesController@register']);
 
 Route::get('/home', ['middleware' => 'auth', 'uses' => 'PagesController@home']);
 // Route::get('/home', 'PagesController@home');
@@ -36,6 +36,7 @@ Route::get('/shop', ['middleware' => 'auth', 'uses' => 'PagesController@shop']);
 Route::get('/profiel', ['middleware' => 'auth', 'uses' => 'PagesController@profiel']);
 // Route::get('/profiel', 'PagesController@profiel');
 
+
 Route::get('/controlpanel', ['middleware' => 'auth', 'uses' => 'UsersController@control']);
 // Route::get('/controlpanel', 'UsersController@control');
 
@@ -46,15 +47,15 @@ Route::get('/productdetail/products', ['middleware' => 'auth', 'uses' => 'Produc
 Route::get('/controlpanel/users/{user}', ['middleware' => 'auth', 'uses' => 'UsersController@show']);
 // Route::get('/controlpanel/users/{user}', 'UsersController@show');
 
-Route::get('/controlpanel/users/{user}/edit', ['as' => 'users.edit', 'uses' => 'UsersController@edit']);
+Route::get('/controlpanel/users/{user}/edit', ['middleware' => 'auth', 'uses' => 'UsersController@edit']);
 // Route::get('/controlpanel/users/{user}/edit', 'UsersController@edit');
 
 
-Route::patch('/controlpanel/users/{user}/update', ['as' => 'users.update', 'uses' => 'UsersController@update']);
+Route::patch('/controlpanel/users/{user}/update', ['middleware' => 'auth', 'uses' => 'UsersController@update']);
 // Route::get('/controlpanel/users/{user}/edit', 'UsersController@update');
 
-// Route::delete('/controlpanel/users/{user}/destroy', ['as' => 'users.destroy', 'uses' => 'UsersController@destroy']);
-// // Route::get('/controlpanel/users/{user}/edit', 'UsersController@destroy');
+Route::delete('/controlpanel/users/{user}/destroy', ['middleware' => 'auth', 'uses' => 'UsersController@destroy']);
+// Route::get('/controlpanel/users/{user}/edit', 'UsersController@destroy');
 
 
 //Route::get('/home', 'HomeController@index')->name('home');
@@ -69,6 +70,10 @@ Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
 Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
 Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
 
+//new user
+
+Route::get('/controlpanel/newuser', ['middleware' => 'auth', 'uses' => 'UsersController@newuser']);
+Route::post('/controlpanel/newuser/store', ['middleware' => 'auth', 'uses' => 'UsersController@store']);
 Route::get ( '/search', function () {
     return view ( 'search' );
 } );
