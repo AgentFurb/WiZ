@@ -20,15 +20,22 @@
 
 #userdelete{
     margin-bottom: 193px !important;
-
 } 
+
+#DelForm{
+    text-align: right;
+}
+
+#AnBtn{
+    text-align: left;
+}
 .tabcontent{
     padding: 0px !important;
 }
 
 .searchuser{
     width: 30%;
-
+    margin-right : 0px !important;
 }
 .users {
     height: 64px;

@@ -65,8 +65,35 @@ class UsersController extends Controller
     }
 
 
-    public function create()
+    public function newuser()
     {
         return view('Users.usercreate');
+    }
+
+    public function store()
+    {
+        $this->validate(request(), [
+            'voornaam' => ['required', 'string', 'max:255'],
+            'achternaam' => ['required', 'string', 'max:255'],
+            'rechten' => ['required', 'string', 'max:255'],
+            'vestiging' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ]);
+        
+        $user = User::create(request(['voornaam', 'achternaam', 'password', 'rechten', 'vestiging', 'email']));
+
+
+        // $user->voornaam = $request->voornaam;
+        // $user->achternaam = $request->achternaam;
+        // $user->rechten = $request->rechten;
+        // $user->vestiging = $request->vestiging;
+        // $user->email = $request->email;
+        // $user->password = bcrypt( $request->password );
+        // $user->remember_token = $request->_token;
+        // $user->save();
+
+        return redirect('/controlpanel');
+
     }
 }

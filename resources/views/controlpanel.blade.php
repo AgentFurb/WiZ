@@ -12,11 +12,12 @@
     @else
         <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen">Productbeheer</button>      
     @endif
+    <a href="/controlpanel/newuser" class="tablinks"><button >Nieuwe gebruiker</button></a>
     <form action="Search.php" mathod="post">
-        <button type="submit" name="submit">Zoek gebruiker</button>
-        <input type="search" class="searchuser form-control" placeholder="Gebruikersnaam" aria-label="Search">
+        <input type="search" class="searchuser form-control tablinks" placeholder="Gebruikersnaam" aria-label="Search">
         
     </form>
+
 </div>
     <div class="tabcontent" id="Accountbeheer">
         <div class="container users-main">

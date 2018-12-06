@@ -13,7 +13,7 @@
                 </div>
                 <hr class="hr-login" />
                 <div class="modal-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="/register">
                         {{ csrf_field() }}
 
                         {{-- Input Voornaam --}}
