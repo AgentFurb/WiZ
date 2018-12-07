@@ -13,12 +13,12 @@
         <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen">Productbeheer</button>      
     @endif
 </div>
-<form class="example" action="/search" method="POST" role="search">
-    {{ csrf_field() }}
-    <input type="text" placeholder="Search users" name="q">
-    <button type="submit"><i class="fa fa-search"></i></button>
-</form>
     <div class="tabcontent" id="Accountbeheer">
+        <form class="example" action="/search" method="POST" role="search">
+            {{ csrf_field() }}
+            <input type="text" placeholder="Search users" name="q">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
         @if(isset($details))
         <div class="container users-main">
             <br>
