@@ -12,14 +12,17 @@
     @else
         <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen">Productbeheer</button>      
     @endif
-    <a href="/controlpanel/newuser" class="tablinks"><button >Nieuwe gebruiker</button></a>
-    <form action="Search.php" mathod="post">
-        <input type="search" class="searchuser form-control tablinks" placeholder="Gebruikersnaam" aria-label="Search">
-        
+</div>
+    {{-- <a href="/controlpanel/newuser" class="tablinks"><button >Nieuwe gebruiker</button></a> --}}
+    <form class="example" action="/controlpanel" method="POST" role="search">
+        {{ csrf_field() }}
+        <input type="text" placeholder="Search users" name="q">
+        <button type="submit"><i class="fa fa-search"></i></button>
     </form>
 
-</div>
+
     <div class="tabcontent" id="Accountbeheer">
+        @if(isset($details))
         <div class="container users-main">
             <br>
             <div class="row users" id="infobar">
@@ -29,17 +32,20 @@
                 <div class="col colpadding">Vestiging:</div>
                 <div class="col colpadding">Id:</div>
             </div>
-            @foreach ($users as $user)
-                <a href="/controlpanel/users/{{ $user->id }}" class="users">
-                    <div class="row users usersdata">
-                        <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
-                        <div class="col-4">{{ $user->email }}</div>
-                        <div class="col">{{ $user->rechten }}</div>
-                        <div class="col">{{ $user->vestiging }}</div>
-                        <div class="col">{{ $user->id }}</div>
+            @foreach ($details as $user)
+                <a href="/controlpanel/users/{{ $user->id }}">
+                    <div id="searchUsers">
+                        <div class="row users usersdata">
+                            <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
+                            <div class="col-4">{{ $user->email }}</div>
+                            <div class="col">{{$user->rechten}}</div>
+                            <div class="col">{{$user->vestiging}}</div>
+                            <div class="col">{{$user->id}}</div>
+                        </div>
                     </div>
                 </a>
             @endforeach
+            @endif
         </div>
     </div>
     <div class="tabcontent" id="Productbeheer">

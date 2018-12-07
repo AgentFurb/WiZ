@@ -74,14 +74,15 @@ Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
 
 Route::get('/controlpanel/newuser', ['middleware' => 'auth', 'uses' => 'UsersController@newuser']);
 Route::post('/controlpanel/newuser/store', ['middleware' => 'auth', 'uses' => 'UsersController@store']);
-Route::get ( '/search', function () {
-    return view ( 'search' );
+Route::get ( '/controlpanel', function () {
+    return view ( 'controlpanel' );
 } );
-Route::any ( '/search', function () {
+
+Route::any ( '/controlpanel', function () {
     $q = Input::get ( 'q' );
     $user = User::where ( 'voornaam', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->get ();
     if (count ( $user ) > 0)
-        return view ( 'search' )->withDetails ( $user )->withQuery ( $q );
+        return view ( 'controlpanel' )->withDetails ( $user )->withQuery ( $q );
     else
-        return view ( 'search' )->withMessage ( 'No Details found. Try to search again !' );
+        return view ( 'controlpanel' )->withMessage ( 'No Details found. Try to search again !' );
 } );

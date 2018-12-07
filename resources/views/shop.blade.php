@@ -16,8 +16,10 @@
                 <option>Airconditioner's</option>
             </select> 
         </div>
-        <div class="col-5 shop-bar">
-            <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
+        <div class="row justify-content-end" id="Searchnavbar"> 
+            <div class="col-5 shop-bar">
+                <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
+            </div>
         </div>
         <div class="col-2 shop-bar">
             

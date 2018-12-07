@@ -13,16 +13,10 @@
         <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen">Productbeheer</button>      
     @endif
 </div>
-<form action="/search" method="POST" role="search">
+<form class="example" action="/search" method="POST" role="search">
     {{ csrf_field() }}
-    <div class="searchContainer">
-        <input type="text" class="searchBox" name="q" placeholder="Search users"> 
-        <span class="input-group-btn">
-            <button type="submit" class="searchButton">
-                <i class="fas fa-search"></i>
-            </button>
-        </span>
-    </div>
+    <input type="text" placeholder="Search users" name="q">
+    <button type="submit"><i class="fa fa-search"></i></button>
 </form>
     <div class="tabcontent" id="Accountbeheer">
         @if(isset($details))
@@ -45,34 +39,11 @@
                             <div id="hide" class="col">{{$user->vestiging}}</div>
                             <div id="hide" class="col">{{$user->id}}</div>
                         </div>
-
                     </div>
                 </a>
             @endforeach
             @endif
         </div>
-        {{-- <div class="container">
-                @if(isset($details))
-                    <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-                <h2>Sample User details</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($details as $user)
-                        <tr>
-                            <td>{{$user->voornaam}}</td>
-                            <td>{{$user->email}}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                @endif
-            </div> --}}
     </div>
     <div class="tabcontent" id="Productbeheer">
         <div class="container-fluid users-main">
