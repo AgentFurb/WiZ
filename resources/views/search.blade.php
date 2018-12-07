@@ -13,17 +13,12 @@
         <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen">Productbeheer</button>      
     @endif
 </div>
-    
-    
-
-
     <div class="tabcontent" id="Accountbeheer">
-        <form class="example" action="/controlpanel" method="POST" role="search">
+        <form class="example" action="/search" method="POST" role="search">
             {{ csrf_field() }}
             <input type="text" placeholder="Search users" name="q">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
-        <a href="/controlpanel/newuser" class="tablinks"><button >Nieuwe gebruiker</button></a>
         @if(isset($details))
         <div class="container users-main">
             <br>
@@ -37,12 +32,12 @@
             @foreach ($details as $user)
                 <a href="/controlpanel/users/{{ $user->id }}">
                     <div id="searchUsers">
-                        <div class="row users usersdata">
-                            <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
-                            <div class="col-4">{{ $user->email }}</div>
-                            <div class="col">{{$user->rechten}}</div>
-                            <div class="col">{{$user->vestiging}}</div>
-                            <div class="col">{{$user->id}}</div>
+                        <div class="row users usersdata" id="hide">
+                            <div id="hide" class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
+                            <div id="hide" class="col-4">{{ $user->email }}</div>
+                            <div id="hide" class="col">{{$user->rechten}}</div>
+                            <div id="hide" class="col">{{$user->vestiging}}</div>
+                            <div id="hide" class="col">{{$user->id}}</div>
                         </div>
                     </div>
                 </a>
@@ -63,4 +58,5 @@
             </div>
         </div>
     </div>
+
 @endsection

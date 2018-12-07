@@ -1,5 +1,8 @@
 <?php
 
+use App\User;
+use Illuminate\Support\Facades\Input;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,18 +63,25 @@ Route::delete('/controlpanel/users/{user}/destroy', ['middleware' => 'auth', 'us
 
 Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
 Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
-Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
+// Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
 Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
 Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
 Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
 Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
 
-Route::get('/searchindex','SearchController@searchindex');
-
-Route::get('/search','SearchController@search');
-
-
 //new user
 
 Route::get('/controlpanel/newuser', ['middleware' => 'auth', 'uses' => 'UsersController@newuser']);
 Route::post('/controlpanel/newuser/store', ['middleware' => 'auth', 'uses' => 'UsersController@store']);
+Route::get ( '/controlpanel', function () {
+    return view ( 'controlpanel' );
+} );
+
+Route::any ( '/controlpanel', function () {
+    $q = Input::get ( 'q' );
+    $user = User::where ( 'voornaam', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->get ();
+    if (count ( $user ) > 0)
+        return view ( 'controlpanel' )->withDetails ( $user )->withQuery ( $q );
+    else
+        return view ( 'controlpanel' )->withMessage ( 'No Details found. Try to search again !' );
+} );

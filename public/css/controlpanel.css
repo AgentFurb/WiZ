@@ -252,3 +252,44 @@ input[type="submit"] {
         padding-right: 0px !important;
     }
 }
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-top-left-radius: .75rem;
+    border-bottom-left-radius: .75rem;
+}
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2f2e87;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-top-right-radius: .75rem;
+    border-bottom-right-radius: .75rem;
+}
+
+form.example button:hover {
+    background: #8fa2d2;
+}
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.example {
+    margin: auto;
+    max-width: 300px;
+    margin-top: 10px;
+}
