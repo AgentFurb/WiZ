@@ -49,34 +49,15 @@
         </div>
         <hr id="userdetailline">
         <div class="row">
-            <div class="col-7">
-                {{-- <img src="{{ $productimagetest->imagelink }}" id="myImg" class="productImg img-fluid"/> --}}
 
 
+            <div class="col-6">
 
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        @foreach ($productimagetests as $productimagetest)
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="{{ $productimagetest->imagelink }}" alt="First slide">
-                            </div>
-                        @endforeach
-
-
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                
-                </div>
-
-
+                <img src="{{ $productsOT->imagelink }}" id="myImg" class="productImg img-fluid"/>
+                    
+    
+    
+            </div>
             <div id="userdetailverticalline"></div>
             <div class="col">
                 <br>
@@ -97,5 +78,6 @@
             </div>
         </div>
     </div>
+
 
 @endsection

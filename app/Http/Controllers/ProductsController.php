@@ -13,23 +13,17 @@ class ProductsController extends Controller
         $this->middleware('auth');
     }
 
-    // public function index()
-    // {
-    //     //$this->authorize('update', $Product);
-    //     $products = Product::paginate(5);
-    //     return view('Products.productdetail', compact('products'));
+    public function shopindex()
+    {
+        //$this->authorize('update', $Product);
+        $productsOTs = DB::select(DB::raw("SELECT Productcode, Productomschrijving, imagelink FROM wiz.productimages WHERE Afkorting = 'PPI' LIMIT 3"));
+        return view('shop', compact('productsOTs'));
+       
+    }
 
-    // }
-
-    public function productdetail()
+    public function productdetail(Product $Product)
     {   
-        $pID = 3581637;
-        
-        $productimagetests = DB::select(DB::raw("SELECT * FROM productimages WHERE (imagelink LIKE '%png' OR imagelink LIKE '%jpg') AND Productcode = 3581637;"));
-
-        $product = DB::select(DB::raw("SELECT * FROM products WHERE `Productcode fabrikant` = $pID"));
-
-        return view('Products.productdetail', compact( 'productimagetests'));
+        return view('Products.productdetail', compact('productsOT'));
 
     }
 

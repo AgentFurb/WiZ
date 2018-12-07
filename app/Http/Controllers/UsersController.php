@@ -65,11 +65,6 @@ class UsersController extends Controller
     }
 
 
-    public function newuser()
-    {
-        return view('Users.usercreate');
-    }
-
     public function store()
     {
         $this->validate(request(), [

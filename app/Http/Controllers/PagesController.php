@@ -26,10 +26,6 @@ class PagesController extends Controller
         return view('overons');
     }
 
-    public function shop()
-    {
-        return view('shop');
-    }
 
     public function profiel()
     {

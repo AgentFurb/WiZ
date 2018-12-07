@@ -27,17 +27,16 @@ Route::get('/home', ['middleware' => 'auth', 'uses' => 'PagesController@home']);
 Route::get('/overons', ['middleware' => 'auth', 'uses' => 'PagesController@overons']);
 // Route::get('/overons', 'PagesController@overons');
 
-Route::get('/shop', ['middleware' => 'auth', 'uses' => 'PagesController@shop']);
+Route::get('/shop', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
 // Route::get('/shop', 'PagesController@shop');
 
 Route::get('/profiel', ['middleware' => 'auth', 'uses' => 'PagesController@profiel']);
 // Route::get('/profiel', 'PagesController@profiel');
 
-
 Route::get('/controlpanel', ['middleware' => 'auth', 'uses' => 'UsersController@control']);
 // Route::get('/controlpanel', 'UsersController@control');
 
-Route::get('/productdetail/products', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);
+Route::get('/productdetail/{product}', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);
 // Route::get('/productdetail', 'ProductsController@productdetail');
 
 
