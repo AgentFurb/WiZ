@@ -253,7 +253,7 @@ input[type="submit"] {
     }
 }
 
-form.example input[type=text] {
+form.Sbar input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
@@ -264,7 +264,7 @@ form.example input[type=text] {
     border-bottom-left-radius: .75rem;
 }
 
-form.example button {
+form.Sbar button {
     float: left;
     width: 20%;
     padding: 10px;
@@ -278,18 +278,22 @@ form.example button {
     border-bottom-right-radius: .75rem;
 }
 
-form.example button:hover {
+form.Sbar button:hover {
     background: #8fa2d2;
 }
 
-form.example::after {
+form.Sbar::after {
     content: "";
     clear: both;
     display: table;
 }
 
-.example {
-    margin: auto;
-    max-width: 300px;
+.searchcreateUsers {
     margin-top: 10px;
+}
+
+.Nusr{
+    border-radius: .75rem;
+    width: 100%;
+    padding: 10px;
 }

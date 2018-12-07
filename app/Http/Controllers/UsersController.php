@@ -65,6 +65,11 @@ class UsersController extends Controller
     }
 
 
+    public function newuser()
+    {
+        return view('Users.usercreate');
+    }
+
     public function store()
     {
         $this->validate(request(), [
@@ -78,7 +83,7 @@ class UsersController extends Controller
         
         $user = User::create(request(['voornaam', 'achternaam', 'password', 'rechten', 'vestiging', 'email']));
 
-
+        
         // $user->voornaam = $request->voornaam;
         // $user->achternaam = $request->achternaam;
         // $user->rechten = $request->rechten;
