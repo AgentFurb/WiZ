@@ -268,7 +268,7 @@ form.Sbar button {
     float: left;
     width: 20%;
     padding: 10px;
-    background: #2f2e87;
+    background: #8fa2d2;
     color: white;
     font-size: 17px;
     border: 1px solid grey;
@@ -279,7 +279,7 @@ form.Sbar button {
 }
 
 form.Sbar button:hover {
-    background: #8fa2d2;
+    background: #2f2e87;
 }
 
 form.Sbar::after {
@@ -296,4 +296,12 @@ form.Sbar::after {
     border-radius: .75rem;
     width: 100%;
     padding: 10px;
+    background-color: #8fa2d2;
+    color: #ffffff;
+    font-size: 17px;
+    border: 1px solid grey;
+}
+
+.Nusr:hover {
+    background-color: #2f2e87;
 }

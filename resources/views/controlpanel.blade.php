@@ -29,7 +29,7 @@
                 <div class="col">
                 </div>
                 <div class="col">
-                    <a href="/controlpanel/newuser" class="tablinks"><button class="Nusr searchcreateUsers">Nieuwe gebruiker</button></a>
+                    <a href="/controlpanel/newuser" class="tablinks"><button class="Nusr searchcreateUsers">Gebruiker toevoegen</button></a>
                 </div>
             </div>
         </div>
