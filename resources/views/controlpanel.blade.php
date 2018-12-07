@@ -13,7 +13,7 @@
         <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen">Productbeheer</button>      
     @endif
 </div>
-    {{-- <a href="/controlpanel/newuser" class="tablinks"><button >Nieuwe gebruiker</button></a> --}}
+    
     
 
 
@@ -23,6 +23,7 @@
             <input type="text" placeholder="Search users" name="q">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
+        <a href="/controlpanel/newuser" class="tablinks"><button >Nieuwe gebruiker</button></a>
         @if(isset($details))
         <div class="container users-main">
             <br>

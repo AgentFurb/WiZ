@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col">
                     <div class="usrinfo-cols">
-                    <form action="/controlpanel/newuser/create" method="POST">
+                    <form action="/controlpanel/newuser/store" method="POST">
                             @method('POST')
                             @csrf
                             <h5>Voornaam:</h5>
