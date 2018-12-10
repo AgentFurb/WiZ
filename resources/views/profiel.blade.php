@@ -35,7 +35,15 @@
                 </div>
             </div>
         </div>
-        <img class="profile-img mx-auto d-block" src="https://www.w3schools.com/howto/img_avatar.png">
+        <img class="profile-img mx-auto d-block" src="/storage/avatars/{{ Auth::user()->avatar }}">
+        <form action="/profile" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
         <div class="container-fluid">
             <div class="row">
                 <div class="col">

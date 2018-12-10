@@ -61,13 +61,13 @@ Route::delete('/controlpanel/users/{user}/destroy', ['middleware' => 'auth', 'us
 
 //ERROR MESSAGES
 
-Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
-Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
+// Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
+// Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
 // Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
-Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
-Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
-Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
-Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
+// Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
+// Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
+// Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
+// Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
 
 //new user
 
@@ -77,6 +77,8 @@ Route::get ( '/controlpanel', function () {
     return view ( 'controlpanel' );
 } );
 
+//search funtion users
+
 Route::any ( '/controlpanel', function () {
     $q = Input::get ( 'q' );
     $user = User::where ( 'voornaam', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->get ();
@@ -85,3 +87,6 @@ Route::any ( '/controlpanel', function () {
     else
         return view ( 'controlpanel' )->withMessage ( 'No Details found. Try to search again !' );
 } );
+
+Route::get('/profile', 'UsersController@profilepic');
+Route::post('/profile', 'UsersController@update_avatar');

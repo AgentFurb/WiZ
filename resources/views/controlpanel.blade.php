@@ -38,7 +38,7 @@
         <div class="container users-main">
             <br>
             <div class="row users" id="infobar">
-                <div class="img-col colpadding"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small" style="display: none;"></div>
+                <div class="img-col colpadding"><img src="/storage/avatars/{{ Auth::user()->avatar }}" class="profile-img-small" style="display: none;"></div>
                 <div class="col-4 colpadding">E-Mail:</div>
                 <div class="col colpadding"><p class="naam"> Rechten: </p></div>
                 <div class="col colpadding">Vestiging:</div>
@@ -49,7 +49,7 @@
                     <a href="/controlpanel/users/{{ $user->id }}">
                         <div id="searchUsers">
                             <div class="row users usersdata">
-                                <div class="img-col"><img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-small"></div>
+                                <div class="img-col"><img src="/storage/avatars/{{ $user->avatar }}" class="profile-img-small"></div>
                                 <div class="col-4">{{ $user->email }}</div>
                                 <div class="col">{{$user->rechten}}</div>
                                 <div class="col">{{$user->vestiging}}</div>

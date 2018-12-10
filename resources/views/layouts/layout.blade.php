@@ -63,7 +63,7 @@
             </div>
             <div class="col order-last text-right col-profile">
                 <a href="/profiel" class="profilehover">
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-img-bar"><br/>            
+                    <img src="/storage/avatars/{{ Auth::user()->avatar }}" class="profile-img-bar"><br/>            
                 </a>
                 <h5 id="profilenamedisplay">{{ Auth::user()->voornaam }}</h5>
             </div>

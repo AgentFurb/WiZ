@@ -14,7 +14,7 @@
                 <i class="tablinks far fa-trash-alt usericons" onclick="openCity(event, 'userdelete')"></i>
                 <i class="tablinks fas fa-info usericons" onclick="openCity(event, 'userinfo')" id="defaultOpen" style="display: none;"></i>
             </div>
-            <div class="col"><img class="profile-img-users mx-auto d-block" src="https://www.w3schools.com/howto/img_avatar.png"></div>
+            <div class="col"><img class="profile-img-users mx-auto d-block" src="/storage/avatars/{{ Auth::user()->avatar }}"></div>
             <div class="col"></div>
         </div>
         <hr id="userdetailline">
