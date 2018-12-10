@@ -77,7 +77,7 @@
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
                         </div>
                         <div class="card-body">
-                            <a href="/productdetail/{{$productsOT->Productcode}}" class="card-link">Bekijk hier het product</a>
+                            <a href="/productdetail/{{ $productsOT->Productcode }}" class="card-link">Bekijk hier het product</a>
                         </div>
                     </div>
                 @endforeach

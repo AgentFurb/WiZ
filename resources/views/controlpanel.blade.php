@@ -59,7 +59,16 @@
                     </a>
                 @endforeach
             @else
-                <P>Niet gevonden </P>
+                <div class="row usernotfoundicon">
+                    <div class="col"></div>
+                    <div class="col-6"><i class="fas fa-user-times"></i></div>
+                    <div class="col"></div>
+                </div>
+                <div class="row usernotfound">
+                    <div class="col"></div>
+                    <div class="col-6"> <h3>Gebruiker niet gevonden</h3></div>
+                    <div class="col"></div>
+                </div>
             @endif
         </div>
     </div>

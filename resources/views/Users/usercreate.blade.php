@@ -14,7 +14,8 @@
         <hr id="userdetailline">
         <div class="usrinfo">
             <div class="row">
-                <div class="col">
+                <div class="col"></div>
+                <div class="col-7">
                     <div class="usrinfo-cols">
                     <form action="/controlpanel/newuser/store" method="POST">
                             @method('POST')
@@ -56,26 +57,26 @@
                                 <option>Admin</option>
                             </select>
                             <br>
+                            <h5>Wachtwoord:</h5>
                             <input id="password" type="password" placeholder="Wachtwoord" class="form-control" name="password" required>
-
                             <br>
+                            <h5>Bevestig wachtwoord:</h5>
                             <input id="password-confirm" type="password" placeholder="Bevestig wachtwoord" class="form-control" name="password_confirmation" required>
-
                             <br>
-                            <button type="submit" class="btn btn-lg">Maak gebruiker aan</button>
+                            <p class="createUserbtn"><button type="submit" class="btn btn-lg ">Maak gebruiker aan</button></p>
                         </form>
                     </div>
                 </div>
-                <div id="userdetailverticalline"></div>
-                <div class="col">
+                <div class="col"></div>
+                {{-- <div class="col">
                     <div class="usrinfo-cols">
                         {{-- <h5>Gebruiker aangemaakt op:</h5>
                         <h3>{{ $user->created_at }}</h3>
                         <br>
                         <h5>Gebruiker geüpdate op:</h5>
-                        <h3>{{ $user->updated_at }}</h3> --}}
-                    </div>
-                </div>
+                        {{-- <h3>{{ $user->updated_at }}</h3> --}}
+                    {{-- </div>
+                </div> --}}
             </div>
         </div>
     </div>

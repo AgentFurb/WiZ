@@ -291,6 +291,9 @@ form.Sbar::after {
 .searchcreateUsers {
     margin-top: 10px;
 }
+.createUserbtn{
+    text-align: center;
+}
 
 .Nusr{
     border-radius: .75rem;
@@ -304,4 +307,15 @@ form.Sbar::after {
 
 .Nusr:hover {
     background-color: #2f2e87;
+}
+
+.usernotfound{
+    text-align: center;
+    margin-bottom: 150px;
+}
+.usernotfoundicon{
+    text-align: center;
+    font-size: 75px;
+    margin-top: 120px;
+
 }
