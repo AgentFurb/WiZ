@@ -90,3 +90,10 @@ Route::any ( '/controlpanel', function () {
 
 Route::get('/profile', 'UsersController@profilepic');
 Route::post('/profile', 'UsersController@update_avatar');
+
+//shop
+Route::get('/shop', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
+//shop categorie
+Route::get('/shop/products/{pcategorie}', ['middleware' => 'auth', 'uses' => 'ProductsController@shopCat']);
+//shop product detail
+Route::get('/shop/productdetail/{product}', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);

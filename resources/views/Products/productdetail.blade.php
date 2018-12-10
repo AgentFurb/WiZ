@@ -52,8 +52,8 @@
 
 
             <div class="col-6">
-
                 <img src="{{ $productsOT->imagelink }}" id="myImg" class="productImg img-fluid"/>
+
                     
     
     
