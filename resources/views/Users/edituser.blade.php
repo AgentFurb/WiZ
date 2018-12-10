@@ -9,15 +9,7 @@
 <div class="container userdetail">
         <div class="row">            
             <div class="col"><a href="/controlpanel/users/{{ $user->id }}"><i class="fas fa-arrow-circle-left usericons "></i></a></div>
-            <div class="col"><img class="profile-img-users mx-auto d-block" src="/storage/avatars/{{ $user->avatar }}">
-                <form action="/profile" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group">
-                        <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                        <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+            <div class="col"><img class="profile-img-users mx-auto d-block" src="/storage/avatars/{{ $user->avatar }}">               
             </div>
             <div class="col"></div>
         </div>
