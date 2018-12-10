@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="tab">
-        @if ('{{ Auth::user()->rechten }}' !== 'Admin')
+        @if ('Auth::user()->rechten ' !== 'Admin')
             <button class="tablinks" onclick="openCity(event, 'Accountbeheer')" id="defaultOpen">Accountbeheer</button>
             <button class="tablinks" onclick="openCity(event, 'Productbeheer')">Productbeheer</button>
         @else

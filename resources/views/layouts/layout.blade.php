@@ -87,6 +87,7 @@
             </div>
           </div>
         </div>
+        @yield('shopmenu')
         @yield('content')
         <footer class="footer-distributed">
             <div class="footer-left">

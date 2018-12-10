@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Product;
+use App\pCategorie;
 
 class ProductsController extends Controller
 {
@@ -15,10 +16,11 @@ class ProductsController extends Controller
 
     public function shopindex()
     {
-        //$this->authorize('update', $Product);
-        $productsOTs = DB::select(DB::raw("SELECT Productcode, Productomschrijving, imagelink FROM wiz.productimages WHERE Afkorting = 'PPI' LIMIT 3"));
-        return view('shop', compact('productsOTs'));
-       
+
+        $productsOTs = DB::select(DB::raw("SELECT * FROM wiz.productimages WHERE Afkorting = 'PPI' LIMIT 83, 3"));
+        $productcats = DB::select(DB::raw("SELECT DISTINCT Productserie FROM wiz.products"));
+
+        return view('shop', compact('productsOTs', 'productcats'));
     }
 
     public function productdetail(Product $Product)
@@ -27,7 +29,11 @@ class ProductsController extends Controller
 
     }
 
+    public function shopCat(pCategorie $pCategorie)
+    {
+        $productcats = DB::select(DB::raw("SELECT DISTINCT Productserie FROM wiz.products"));
 
-
+        return view('Products.allproducts', compact('productcats'));
+    }
 
 }

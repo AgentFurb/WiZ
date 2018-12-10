@@ -2,53 +2,45 @@
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ url('../css/shop.css') }}" />
 @endsection
-
-@section('content')
-<div class="container-fluid">
-    <div class="row justify-content-end" id="Searchnavbar"> 
-        <div class="col-5 shop-bar">
-            <select class="form-control category">
-                <option value="" disabled selected hidden>Categorieën</option>
-                <option>Verwarmingen</option>
-                <option>Waterleidingen</option>
-                <option>Zonnepanelen</option>
-                <option>CV-Ketel's</option>
-                <option>Airconditioner's</option>
-            </select> 
-        </div>
+@section('shopmenu')
+    <div class="container-fluid">
         <div class="row justify-content-end" id="Searchnavbar"> 
             <div class="col-5 shop-bar">
-                <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
+                <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
+                    <option value="" disabled selected hidden>Categorieën</option>
+                    @foreach ($productcats as $productcat)
+                        <option value="/shop/products/{{ $productcat->Productserie }}">{{ $productcat->Productserie }}</option>
+                    @endforeach
+                </select> 
             </div>
-        </div>
-        <div class="col-2 shop-bar">
-            
-                @if ('{{ Auth::user()->Rechten }}' == 'User')
-                     
+            <div class="row justify-content-end" id="Searchnavbar"> 
+                <div class="col-5 shop-bar">
+                    <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
+                </div>
+            </div>
+            <div class="col-2 shop-bar">
+                @if ('{{ Auth::user()->Rechten }}' == 'User')      
                     <div class="dropdown">
-                        <img  class="dropbtn" src="img/setting2.png"/>
+                        <img  class="dropbtn" src="{{ asset('img/setting2.png') }}"/>
                         <div class="dropdown-content">
                             <a href="producttoevoegen.php"><i class="fas fa-plus"></i>Toevoegen</a>
                         </div>
                     </div>
-
                 @else   
-
                     <div class="dropdown">
-                        <img  class="dropbtn" src="img/setting2.png"/>
+                        <img  class="dropbtn" src="{{ asset('img/setting2.png') }}"/>
                         <div class="dropdown-content">
                             <a href="producttoevoegen.php"><i class="fas fa-plus"></i>Toevoegen</a>
                             <a href="#"><i class="fas fa-wrench"></i>Aanpassen</a>
                             <a href="producten.php"><i class="fas fa-trash-alt"></i>Verwijderen</a>
                         </div>
                     </div>
-
                 @endif
-
+            </div>
         </div>
     </div>
-</div>
-<br>
+@endsection
+@section('content')
 <div id="myModal1" class="modal">
     <span class="close kruis1">&times;</span>
     <img class="modal-content" id="img01">
@@ -71,13 +63,13 @@
             <div class="card-group">
                 @foreach ($productsOTs as $productsOT)
                     <div class="card ot-product" id="heightwidthfix">
-                        <img class="card-img-top cardstop" src="{{$productsOT->imagelink}}" alt="Card image cap" id="myshopmodal1" height="600px" width="300px">
+                        <img class="card-img-top cardstop" src="{{$productsOT->imagelink}}" alt="Card image cap" id="myshopmodal1" height="400px" width="300px">
                         <div class="card-body">
                             <h5 class="card-title">{{$productsOT->Productomschrijving}}</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
                         </div>
                         <div class="card-body">
-                            <a href="/productdetail/{{ $productsOT->Productcode }}" class="card-link">Bekijk hier het product</a>
+                            <a href="{{ url('shop/productdetail/'.$productsOT->Productcode) }}" class="card-link">Bekijk hier het product</a>
                         </div>
                     </div>
                 @endforeach
