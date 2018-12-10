@@ -9,7 +9,7 @@
 <div class="container userdetail">
         <div class="row">            
             <div class="col"><a href="/controlpanel/users/{{ $user->id }}"><i class="fas fa-arrow-circle-left usericons "></i></a></div>
-            <div class="col"><img class="profile-img-users mx-auto d-block" src="/storage/avatars/{{ Auth::user()->avatar }}">
+            <div class="col"><img class="profile-img-users mx-auto d-block" src="/storage/avatars/{{ $user->avatar }}">
                 <form action="/profile" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
