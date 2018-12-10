@@ -82,3 +82,10 @@ Route::any ( '/controlpanel', function () {
     else
         return view ( 'controlpanel' )->withMessage ( 'No Details found. Try to search again !' );
 } );
+
+//shop
+Route::get('/shop', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
+//shop categorie
+Route::get('/shop/products/{pcategorie}', ['middleware' => 'auth', 'uses' => 'ProductsController@shopCat']);
+//shop product detail
+Route::get('/shop/productdetail/{product}', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);

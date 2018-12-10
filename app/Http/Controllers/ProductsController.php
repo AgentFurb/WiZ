@@ -31,9 +31,13 @@ class ProductsController extends Controller
 
     public function shopCat(pCategorie $pCategorie)
     {
+        // Combobox items Cats
         $productcats = DB::select(DB::raw("SELECT DISTINCT Productserie FROM wiz.products"));
 
-        return view('Products.allproducts', compact('productcats'));
+        // De producten van de categorie
+        $Cproducts = DB::select(DB::raw("SELECT * FROM products WHERE Productserie = '$pCategorie'"));
+
+        return view('Products.allproducts', compact('Cproducts'));
     }
 
 }

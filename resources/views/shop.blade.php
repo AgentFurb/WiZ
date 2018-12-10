@@ -28,7 +28,7 @@
                     </div>
                 @else   
                     <div class="dropdown">
-                        <img  class="dropbtn" src="{{ asset('img/setting2.png') }}"/>
+                        <img  class="dropbtn" src="img/setting2.png"/>
                         <div class="dropdown-content">
                             <a href="producttoevoegen.php"><i class="fas fa-plus"></i>Toevoegen</a>
                             <a href="#"><i class="fas fa-wrench"></i>Aanpassen</a>
@@ -69,7 +69,7 @@
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
                         </div>
                         <div class="card-body">
-                            <a href="{{ url('shop/productdetail/'.$productsOT->Productcode) }}" class="card-link">Bekijk hier het product</a>
+                            <a href="/shop/productdetail/{{ $productsOT->Productcode }}" class="card-link">Bekijk hier het product</a>
                         </div>
                     </div>
                 @endforeach
