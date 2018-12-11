@@ -35,17 +35,24 @@ class ProductsController extends Controller
         //return view('Products.productdetail', compact('productsOT'));
     }
 
-    public function shopCat(pCategorie $pCategorie)
+    // public function shopCat(pCategorie $pCategorie)
+    // {
+    //     // Combobox items Cats
+    //     //$productcats = DB::select(DB::raw("SELECT DISTINCT Productserie FROM wiz.products"));
+    //     $productcats = DB::table('products')->distinct()->select('Productserie')->get();
+
+    //     // Products from category
+    //     //$categorieProds = DB::select(DB::raw("SELECT * FROM products WHERE Productserie = '$pCategorie'"));
+    //     $categorieProds = DB::table('products')->where('Productserie', $pCategorie)->get();
+
+    //     return view('Products.allproducts', compact('productcats', 'categorieProds'));
+    // }
+
+    public function shopAll()
     {
-        // Combobox items Cats
-        //$productcats = DB::select(DB::raw("SELECT DISTINCT Productserie FROM wiz.products"));
-        $productcats = DB::table('products')->distinct()->select('Productserie')->get();
+        $producten = DB::table('products')->where('Productserie', 'Ketel accessoires')->get();
 
-        // Products from category
-        //$categorieProds = DB::select(DB::raw("SELECT * FROM products WHERE Productserie = '$pCategorie'"));
-        $categorieProds = DB::table('products')->where('Productserie', $pCategorie)->get();
-
-        return view('Products.allproducts', compact('productcats', 'categorieProds'));
+        return view('Products.allproducts', compact('producten'));
     }
 
 

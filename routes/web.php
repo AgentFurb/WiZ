@@ -90,9 +90,4 @@ Route::get('/shop', ['middleware' => 'auth', 'uses' => 'ProductsController@shopi
 //shop categorie
 Route::get('/shop/products/{pcategorie}', 'ProductsController@shopCat');
 //shop product detail
-
-
-
-Route::get('/shop/productdetail/{product}', 'ProductsController@productdetail');
-
-
+Route::get('/productdetail/{product}', 'ProductsController@productdetail');

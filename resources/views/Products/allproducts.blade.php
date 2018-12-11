@@ -9,9 +9,9 @@
             <div class="col-5 shop-bar">
                 <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
-                    @foreach ($productcats as $productcat)
+                    {{-- @foreach ($productcats as $productcat)
                         <option value="/shop/products/{{ $productcat->Productserie }}">{{ $productcat->Productserie }}</option>
-                    @endforeach
+                    @endforeach --}}
                 </select> 
             </div>
             <div class="row justify-content-end" id="Searchnavbar"> 
@@ -49,12 +49,54 @@
     @else
         <h1>Not found</h1>
     @endif --}}
+
+
+
+        
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col"></div>
             <div class="col">
 
+                    <table class="table table-hover">
+
+                            <thead>
+                        
+                              <th>Productomschrijving</th>
+                        
+                              <th>Fabrikant</th>
+                        
+                              <th>Producttype</th>
+
+                              <th>Categorie</th>
+                        
+                            </thead>
+                        
+                            <tbody>
+                                @if(isset($producten))
+                                    @foreach($producten as $product)
+                                    
+                                        <tr>
+                                
+                                        <td>{{$product->Productomschrijving}} </td>
+                                
+                                        <td>{{$product->Fabrikaat}} </td>
+                                
+                                        <td>{{$product->Producttype}} </td>
+
+                                        <td>{{$product->Productserie}} </td>
+                                
+                                
+                                        </tr>
+                                    @endforeach
+                                @else
+                                <h1>sdfghjkl</h1>
+                                @endif
+                        
+                            </tbody>
+                        
+                        </table>
             </div>
             <div class="col"></div>
         </div>
