@@ -21,17 +21,32 @@
                             @method('POST')
                             @csrf
                             <h5>Voornaam:</h5>
-                            <input type="text" class="form-control" placeholder="Voornaam" name="voornaam">
+                            <input type="text" class="form-control{{ $errors->has('voornaam') ? ' is-invalid' : '' }}" placeholder="Voornaam" name="voornaam">
                             <br>
+                            @if ($errors->has('voornaam'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first('voornaam') }}
+                                </div>
+                            @endif
                             <h5>Achternaam:</h5>
-                            <input type="text" class="form-control" placeholder="Achternaam" name="achternaam">
+                            <input type="text" class="form-control{{ $errors->has('achternaam') ? ' is-invalid' : '' }}" placeholder="Achternaam" name="achternaam">
                             <br>
+                            @if ($errors->has('achternaam'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first('achternaam') }}
+                                </div>
+                            @endif
                             <h5>E-Mail adres:</h5>
-                            <input type="text" class="form-control" placeholder="E-Mail" name="email">
+                            <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="E-Mail" name="email">
                             <br>
+                            @if ($errors->has('email'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first('email') }}
+                                </div>
+                            @endif
                             <h5>Vestiging:</h5>
-                            <select class="form-control" name="vestiging" >
-                                <option selected hidden>Vestiging:</option>
+                            <select class="form-control{{ $errors->has('vestiging') ? ' is-invalid' : '' }}" name="vestiging" >
+                                <option disabled selected hidden>Vestiging:</option>
                                 <option>Amsterdam</option>
                                 <option>Arnhem</option>
                                 <option>Den Bosch</option>
@@ -49,19 +64,34 @@
                                 <option>Zwolle</option>
                             </select>
                             <br>
+                            @if ($errors->has('vestiging'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first('vestiging') }}
+                                </div>
+                            @endif
                             <h5>Gebruikers functie:</h5>
-                            <select class="form-control" name="rechten" >
-                                <option selected hidden>Functie:</option>
+                            <select class="form-control{{ $errors->has('rechten') ? ' is-invalid' : '' }}" name="rechten" >
+                                <option disabled selected hidden>Functie:</option>
                                 <option>User</option>
                                 <option>Manager</option>
                                 <option>Admin</option>
                             </select>
                             <br>
+                            @if ($errors->has('rechten'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first('rechten') }}
+                                </div>
+                            @endif
                             <h5>Wachtwoord:</h5>
-                            <input id="password" type="password" placeholder="Wachtwoord" class="form-control" name="password" required>
+                            <input id="password" type="password" placeholder="Wachtwoord" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
                             <br>
+                            @if ($errors->has('password'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $errors->first('password') }}
+                                </div>
+                            @endif
                             <h5>Bevestig wachtwoord:</h5>
-                            <input id="password-confirm" type="password" placeholder="Bevestig wachtwoord" class="form-control" name="password_confirmation" required>
+                            <input id="password-confirm" type="password" placeholder="Bevestig wachtwoord" class="form-control" name="password_confirmation">
                             <br>
                             <p class="createUserbtn"><button type="submit" class="btn btn-lg ">Maak gebruiker aan</button></p>
                         </form>
