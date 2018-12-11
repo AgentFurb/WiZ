@@ -58,7 +58,9 @@
                         </div>
                     </a>
                 @endforeach
+                {{ $details->links() }}
             @else
+
                 <div class="row usernotfoundicon">
                     <div class="col"></div>
                     <div class="col-6"><i class="fas fa-user-times"></i></div>

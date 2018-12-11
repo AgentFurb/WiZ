@@ -31,7 +31,7 @@
                             <br>
                             <h5>Vestiging:</h5>
                             <select class="form-control" name="vestiging" >
-                                <option selected hidden>Vestiging:</option>
+                                <option disabled selected hidden>Vestiging:</option>
                                 <option>Amsterdam</option>
                                 <option>Arnhem</option>
                                 <option>Den Bosch</option>
@@ -51,7 +51,7 @@
                             <br>
                             <h5>Gebruikers functie:</h5>
                             <select class="form-control" name="rechten" >
-                                <option selected hidden>Functie:</option>
+                                <option disabled selected hidden>Functie:</option>
                                 <option>User</option>
                                 <option>Manager</option>
                                 <option>Admin</option>

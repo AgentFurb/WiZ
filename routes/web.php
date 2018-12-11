@@ -30,18 +30,11 @@ Route::get('/home', ['middleware' => 'auth', 'uses' => 'PagesController@home']);
 Route::get('/overons', ['middleware' => 'auth', 'uses' => 'PagesController@overons']);
 // Route::get('/overons', 'PagesController@overons');
 
-Route::get('/shop', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
-// Route::get('/shop', 'PagesController@shop');
-
 Route::get('/profiel', ['middleware' => 'auth', 'uses' => 'PagesController@profiel']);
 // Route::get('/profiel', 'PagesController@profiel');
 
 Route::get('/controlpanel', ['middleware' => 'auth', 'uses' => 'UsersController@control']);
 // Route::get('/controlpanel', 'UsersController@control');
-
-Route::get('/productdetail/{product}', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);
-// Route::get('/productdetail', 'ProductsController@productdetail');
-
 
 Route::get('/controlpanel/users/{user}', ['middleware' => 'auth', 'uses' => 'UsersController@show']);
 // Route::get('/controlpanel/users/{user}', 'UsersController@show');
@@ -61,13 +54,13 @@ Route::delete('/controlpanel/users/{user}/destroy', ['middleware' => 'auth', 'us
 
 //ERROR MESSAGES
 
-// Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
-// Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
-// Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
-// Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
-// Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
-// Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
-// Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
+Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
+Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
+Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
+Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
+Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
+Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
+Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
 
 //new user
 
@@ -81,7 +74,7 @@ Route::get ( '/controlpanel', function () {
 
 Route::any ( '/controlpanel', function () {
     $q = Input::get ( 'q' );
-    $user = User::where ( 'voornaam', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->get ();
+    $user = User::where ( 'voornaam', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->paginate(10);
     if (count ( $user ) > 0)
         return view ( 'controlpanel' )->withDetails ( $user )->withQuery ( $q );
     else
@@ -94,6 +87,6 @@ Route::post('/profile', 'UsersController@update_avatar');
 //shop
 Route::get('/shop', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
 //shop categorie
-Route::get('/shop/products/{pcategorie}', ['middleware' => 'auth', 'uses' => 'ProductsController@shopCat']);
+Route::get('/shop/products/{pCategorie}', 'ProductsController@shopCat');
 //shop product detail
-Route::get('/shop/productdetail/{product}', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);
+Route::get('/productdetail/{product}', 'ProductsController@productdetail');

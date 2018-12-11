@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\DB;
+
 
 use Image;
 
@@ -18,11 +20,12 @@ class UsersController extends Controller
 
     public function control()
     {
+        //$users = Users::all();
+        $users = DB::table('users')->simplePaginate(10);
 
-        $users = User::all();
-
-
-        return view('controlpanel', compact('users'));
+        //return view('user.index', ['users' => $users]);
+        //return view('controlpanel', compact('users'));
+        return view('controlpanel', ['users' => $users]);
     }
 
     public function show(User $user)

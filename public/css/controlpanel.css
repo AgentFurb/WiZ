@@ -320,3 +320,40 @@ form.Sbar::after {
     margin-top: 120px;
 
 }
+
+/* Pagination controlpanel */
+
+.pagination{
+    text-align: center;
+    left: 702.437px;
+    right: 702.437px;
+    position: absolute;
+    bottom: 290px;
+    justify-content: center;
+}
+
+.page-link{
+    background-color: #ffffff;
+    border-color: #2f2e87;
+    color: #2f2e87;
+}
+
+.page-item.disabled .page-link{
+    background-color: #ffffff;
+    border-color: #2f2e87;
+    color: #2f2e87;
+}
+
+
+.page-item.active .page-link{
+    background-color: #2f2e87;
+    border-color: #2f2e87;
+    color: #ffffff;
+}
+
+
+.page-link:hover {
+    background-color: #2f2e87;
+    border-color: #2f2e87;
+    color: #ffffff;
+}

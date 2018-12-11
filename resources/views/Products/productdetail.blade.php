@@ -44,7 +44,7 @@
         <br>
         <div class="row">
             <div class="col">
-                {{-- <h2> {{ $product->Productomschrijving }}</h2> --}}
+                
             </div>
         </div>
         <hr id="userdetailline">
@@ -52,7 +52,7 @@
 
 
             <div class="col-6">
-                <img src="{{ $productsOT->imagelink }}" id="myImg" class="productImg img-fluid"/>
+                {{-- <img src="{{ $productsOT->imagelink }}" id="myImg" class="productImg img-fluid"/> --}}
 
                     
     

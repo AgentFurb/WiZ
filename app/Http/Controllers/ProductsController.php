@@ -16,28 +16,34 @@ class ProductsController extends Controller
 
     public function shopindex()
     {
+        //Producten onlangs toegevoegd
+        $productsOTs = DB::table('productimages')->where('Afkorting', 'PPI')->limit(3)->offset(83)->get();
+            //$productsOTs = DB::select(DB::raw("SELECT * FROM wiz.productimages WHERE Afkorting = 'PPI' LIMIT 83, 3"));
 
-        $productsOTs = DB::select(DB::raw("SELECT * FROM wiz.productimages WHERE Afkorting = 'PPI' LIMIT 83, 3"));
-        $productcats = DB::select(DB::raw("SELECT DISTINCT Productserie FROM wiz.products"));
+        //Producten categorieën combobox  
+        $productcats = DB::table('products')->distinct()->select('Productserie')->get();
+            //$productcats = DB::select(DB::raw("SELECT DISTINCT Productserie FROM wiz.products"));
 
         return view('shop', compact('productsOTs', 'productcats'));
     }
 
-    public function productdetail(Product $Product)
+    public function productdetail(Product $product)
     {   
-        return view('Products.productdetail', compact('productsOT'));
-
+        dump($product);
+        //return view('Products.productdetail', compact('productsOT'));
     }
 
     public function shopCat(pCategorie $pCategorie)
     {
         // Combobox items Cats
-        $productcats = DB::select(DB::raw("SELECT DISTINCT Productserie FROM wiz.products"));
+        //$productcats = DB::select(DB::raw("SELECT DISTINCT Productserie FROM wiz.products"));
+        $productcats = DB::table('products')->distinct()->select('Productserie')->get();
 
-        // De producten van de categorie
-        $Cproducts = DB::select(DB::raw("SELECT * FROM products WHERE Productserie = '$pCategorie'"));
+        // Products from category
+        //$categorieProds = DB::select(DB::raw("SELECT * FROM products WHERE Productserie = '$pCategorie'"));
+        $categorieProds = DB::table('products')->where('Productserie', $pCategorie)->get();
 
-        return view('Products.allproducts', compact('Cproducts'));
+        return view('Products.allproducts', compact('productcats', 'categorieProds'));
     }
 
 }
