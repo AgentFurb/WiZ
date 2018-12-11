@@ -25,7 +25,8 @@ Route::get('/', 'PagesController@index');
 Route::get('/register', ['middleware' => 'auth', 'uses' => 'PagesController@register']);
 
 Route::get('/home', ['middleware' => 'auth', 'uses' => 'PagesController@home']);
-// Route::get('/home', 'PagesController@home');
+
+Route::get('/home', 'PagesController@home');
 
 Route::get('/overons', ['middleware' => 'auth', 'uses' => 'PagesController@overons']);
 // Route::get('/overons', 'PagesController@overons');
@@ -54,13 +55,13 @@ Route::delete('/controlpanel/users/{user}/destroy', ['middleware' => 'auth', 'us
 
 //ERROR MESSAGES
 
-Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
-Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
-Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
-Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
-Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
-Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
-Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
+// Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
+// Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
+// Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
+// Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
+// Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
+// Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
+// Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
 
 //new user
 
@@ -70,7 +71,7 @@ Route::get ( '/controlpanel', function () {
     return view ( 'controlpanel' );
 } );
 
-//search funtion users
+
 
 Route::any ( '/controlpanel', function () {
     $q = Input::get ( 'q' );
@@ -84,9 +85,14 @@ Route::any ( '/controlpanel', function () {
 Route::get('/profile', 'UsersController@profilepic');
 Route::post('/profile', 'UsersController@update_avatar');
 
-//shop
+
 Route::get('/shop', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
 //shop categorie
-Route::get('/shop/products/{pCategorie}', 'ProductsController@shopCat');
+Route::get('/shop/products/{pcategorie}', 'ProductsController@shopCat');
 //shop product detail
-Route::get('/productdetail/{product}', 'ProductsController@productdetail');
+
+
+
+Route::get('/shop/productdetail/{product}', 'ProductsController@productdetail');
+
+

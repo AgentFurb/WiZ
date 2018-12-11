@@ -60,6 +60,8 @@
     <div class="row">
         <div class="col-sm-8">
             <h3>Onlangs toegevoegd:</h3>
+            <a href="/test" class="card-link">Bekijk hier het product</a>
+
             <div class="card-group">
                 @foreach ($productsOTs as $productsOT)
                     <div class="card ot-product" id="heightwidthfix">
@@ -69,7 +71,7 @@
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
                         </div>
                         <div class="card-body">
-                            <a href="/productdetail/{{ $productsOT->Productcode }}" class="card-link">Bekijk hier het product</a>
+                            <a href="/shop/productdetail/{{$productsOT->Productcode}}" class="card-link">Bekijk hier het product</a>
                         </div>
                     </div>
                 @endforeach

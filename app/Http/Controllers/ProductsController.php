@@ -16,8 +16,10 @@ class ProductsController extends Controller
 
     public function shopindex()
     {
+        //$whereprods = ['Afkorting' => 'PPI', 'Productcode' => '[0-9]+'];
+
         //Producten onlangs toegevoegd
-        $productsOTs = DB::table('productimages')->where('Afkorting', 'PPI')->limit(3)->offset(83)->get();
+        $productsOTs = DB::table('productimages')->where('Afkorting', 'PPI')->orWhere('Productcode', '[0-9]+')->limit(3)->offset(83)->get();
             //$productsOTs = DB::select(DB::raw("SELECT * FROM wiz.productimages WHERE Afkorting = 'PPI' LIMIT 83, 3"));
 
         //Producten categorieën combobox  
@@ -45,5 +47,6 @@ class ProductsController extends Controller
 
         return view('Products.allproducts', compact('productcats', 'categorieProds'));
     }
+
 
 }
