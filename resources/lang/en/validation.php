@@ -133,6 +133,18 @@ return [
         'password' => [
             'required' => 'Voer uw wachtwoord in.',
         ],
+        'voornaam' => [
+            'required' => 'Voer uw voornaam in.',
+        ],
+        'achternaam' => [
+            'required' => 'Voer uw achternaam in.',
+        ],
+        'vestiging' => [
+            'required' => 'Voer uw vestiging in.',
+        ],
+        'rechten' => [
+            'required' => 'Voer uw functie in.',
+        ],
     ],
 
     // 'custom' => [
