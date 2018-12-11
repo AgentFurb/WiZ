@@ -9,7 +9,7 @@
                 <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($productcats as $productcat)
-                        <option value="/shop/products/{{ $productcat->Productserie }}">{{ $productcat->Productserie }}</option>
+                        <option value="/shop/products/all">{{ $productcat->Productserie }}</option>
                     @endforeach
                 </select> 
             </div>

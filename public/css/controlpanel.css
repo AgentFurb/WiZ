@@ -304,6 +304,7 @@ form.Sbar::after {
     color: #ffffff;
     font-size: 17px;
     border: 1px solid grey;
+    cursor: pointer;
 }
 
 .Nusr:hover {
@@ -318,7 +319,10 @@ form.Sbar::after {
     text-align: center;
     font-size: 75px;
     margin-top: 120px;
+}
 
+.userdel {
+    cursor: pointer;
 }
 
 /* Pagination controlpanel */
