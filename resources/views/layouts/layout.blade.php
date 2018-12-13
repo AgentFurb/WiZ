@@ -62,7 +62,7 @@
                 </a>
             </div>
             <div class="col order-last text-right col-profile">
-                <div class="profiledisplay">
+                <div class="profiledisplay text-center">
                     <a href="/profiel" class="profilehover">
                         <img src="/storage/avatars/{{ Auth::user()->avatar }}" class="profile-img-bar"><br/>            
                     </a>
@@ -83,7 +83,7 @@
             <div class="col order-last">
                 <ul class="nav justify-content-center">
                     <li class="nav-item text-center">
-                        <a class="nav-link" href="/shop">Shop</a>
+                        <a class="nav-link" href="/shop">Overzicht</a>
                     </li>
                 </ul>
             </div>

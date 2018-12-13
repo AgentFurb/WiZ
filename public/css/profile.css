@@ -109,8 +109,8 @@
 }
 
 h5 {
-    position: relative; /* Helps us control overlap */
-    padding-left: 30px; /* Creates space for the Icon */
+    /* position: relative; Helps us control overlap */
+    /* padding-left: 30px; Creates space for the Icon */
     }
   
     .fa-power-off:before, .fa-user-cog:before, .kuijpers-icon {
