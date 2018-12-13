@@ -45,9 +45,9 @@ class ProductsController extends Controller
                             $query->where('Productserie', '=', $cat);
                             })->get();
 
-        dd($cat);
+        //dd($cat);
         
-        //return view('Products.allproducts', compact('productcats', 'categorieProds'));
+        return view('Products.allproducts', compact('productcats', 'categorieProds'));
     }
 }
 

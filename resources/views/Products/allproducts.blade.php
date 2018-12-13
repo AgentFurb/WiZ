@@ -9,9 +9,9 @@
             <div class="col-5 shop-bar">
                 <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
-                    {{-- @foreach ($productcats as $productcat)
+                    @foreach ($productcats as $productcat)
                         <option value="/shop/products/{{ $productcat->Productserie }}">{{ $productcat->Productserie }}</option>
-                    @endforeach --}}
+                    @endforeach
                 </select> 
             </div>
             <div class="row justify-content-end" id="Searchnavbar"> 
