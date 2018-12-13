@@ -26,9 +26,13 @@ body {
     color: #ffffff;
 }
 
+/* .profiledisplay {
+    width: 100px;
+} */
+
 #profilenamedisplay{
     color: #ffffff;
-    margin-right: 9px;
+    /* margin-right: 9px; */
 }
 
 .nav-home {

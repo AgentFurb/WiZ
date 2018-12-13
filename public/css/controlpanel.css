@@ -280,7 +280,7 @@ form.Sbar button {
 }
 
 form.Sbar button:hover {
-    background: #2f2e87;
+    /* background: #2f2e87; */
 }
 
 form.Sbar::after {

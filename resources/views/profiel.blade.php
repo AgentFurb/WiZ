@@ -35,15 +35,17 @@
                 </div>
             </div>
         </div>
-        <img class="profile-img mx-auto d-block" src="/storage/avatars/{{ Auth::user()->avatar }}">
-        <form action="/profile" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
+        <div class="editProfileImg mx-auto">
+            <img href="#" class="profile-img" src="/storage/avatars/{{ Auth::user()->avatar }}">
+            <div class="overlay-profile">
+                <a href="#" class="icon-editProfile"  data-toggle="modal" data-target="#exampleModal"> 
+                    <i class="fas fa-camera"></i>
+                </a>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </div>
+      
+      
+        
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
@@ -94,4 +96,35 @@
             </div>  
         </div> 
     </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Avatar wijzigen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="mx-auto">
+                <img id="img" class="img-preview" src="/storage/avatars/{{ Auth::user()->avatar }}" alt="Image preview...">
+            </div>
+            <div class="modal-body">
+            <form action="/profile" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp" onchange="previewFile()">
+                    <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
+                </div>                        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
+                <button type="submit" class="btn btn-primary">Opslaan</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

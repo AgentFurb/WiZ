@@ -18,8 +18,58 @@
     border-radius: 50%;
     height: 250px;
     width: 250px;
+    position: relative;
+}
+
+.editProfileImg {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
     top: -125px;
     position: relative;
+}
+
+.overlay-profile {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+.editProfileImg:hover .overlay-profile {
+    opacity: 0.5;
+}
+
+.icon-editProfile {
+    color: white;
+    /* font-size: 75px; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.fa-camera:hover {
+    color: #eee !important;
+}
+
+.fa-camera {
+    font-size: 75px;
+}
+
+.img-preview {
+    height: 200px;
+    width: 200px; 
+    border-radius: 50%;
 }
 
 .flex-row {

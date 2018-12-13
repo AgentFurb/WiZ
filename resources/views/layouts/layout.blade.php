@@ -62,10 +62,12 @@
                 </a>
             </div>
             <div class="col order-last text-right col-profile">
-                <a href="/profiel" class="profilehover">
-                    <img src="/storage/avatars/{{ Auth::user()->avatar }}" class="profile-img-bar"><br/>            
-                </a>
-                <h5 id="profilenamedisplay">{{ Auth::user()->voornaam }}</h5>
+                <div class="profiledisplay">
+                    <a href="/profiel" class="profilehover">
+                        <img src="/storage/avatars/{{ Auth::user()->avatar }}" class="profile-img-bar"><br/>            
+                    </a>
+                    <h5 id="profilenamedisplay">{{ Auth::user()->voornaam }}</h5>
+                </div>
             </div>
           </div>
         </div>
@@ -149,6 +151,7 @@
             </div>
         </footer>
         @yield('ajaxScript')
+        <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ url('../js/bootstrap.min.js') }}"></script>
         <script src="{{ url('../js/raphael-2.1.4.min.js') }}"></script>
         <script src="{{ url('../js/justgage.js') }}"></script>
