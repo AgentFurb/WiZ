@@ -5,16 +5,16 @@
         <meta charset="utf-8">
         <title>WiZ - Kuijpers</title>
         <!-- bootstrap - fontawesome -->
-        <link rel="stylesheet" type="text/css" href="{{ url('../fontawesome/css/all.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ url('../css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
         <!-- custom css -->
-        <link rel="stylesheet" type="text/css" href="{{ url('../css/main.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ url('../css/footer.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}" />
         <!-- page specific css -->
         @yield('pageSpecificCSS')
         <!-- Chart.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-        <link rel="shortcut icon" type="image/png" href="{{('../img/wizicon.png')}}">
+        <link rel="shortcut icon" type="image/png" href="{{ asset('img/wizicon.png') }}">
 
         {{-- <style>
         
@@ -53,12 +53,12 @@
           <div class="row">
             <div class="col order-first col-first-empty">  
                 <a  href="https://www.kuijpers.nl/" target="blank">
-                    <img src="{{ url('/img/logo-small.png') }}" class="nav-home kuijperslogosmall" height="90">
+                    <img src="{{ asset('img/logo-small.png') }}" class="nav-home kuijperslogosmall" height="90">
                 </a>
             </div>
             <div class="col text-center col-brand">
             <a class="navbar-brand" href="/home">
-                    <img src="{{ url('/img/logo_wiz3.png') }}" class="nav-home" height="90">
+                    <img src="{{ asset('img/logo_wiz3.png') }}" class="nav-home" height="90">
                 </a>
             </div>
             <div class="col order-last text-right col-profile">
@@ -152,14 +152,14 @@
         </footer>
         @yield('ajaxScript')
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="{{ url('../js/bootstrap.min.js') }}"></script>
-        <script src="{{ url('../js/raphael-2.1.4.min.js') }}"></script>
-        <script src="{{ url('../js/justgage.js') }}"></script>
-        <script src="{{ url('../js/tab.js') }}"></script>
-        <script src="{{ url('../js/br.js') }}"></script>
-        <script src="{{ url('../js/shopmodals.js') }}"></script>
-        <script src="{{ url('../js/main.js') }}"></script>
-        <script src="{{ url('../js/pie.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
+        <script src="{{ asset('js/justgage.js') }}"></script>
+        <script src="{{ asset('js/tab.js') }}"></script>
+        <script src="{{ asset('js/br.js') }}"></script>
+        <script src="{{ asset('/js/shopmodals.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('js/pie.js') }}"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
