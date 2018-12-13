@@ -41,14 +41,7 @@
         </div>
     </div>
 @endsection
-{{-- @if (isset($categorieProds))
-        @foreach ($categorieProds as $categorieProd)
-            <li>test</li>
-        @endforeach
 
-    @else
-        <h1>Not found</h1>
-    @endif --}}
 
 
 
@@ -58,45 +51,20 @@
         <div class="row">
             <div class="col"></div>
             <div class="col">
+                
+                @if (isset($categorieProds))
+                    <h1>{{$categorieProds}}</h1>
+                @else
+                    <h1>Not found</h1>
+                @endif
+                {{-- @if (isset($categorieProds))
+                    @foreach ($categorieProds as $categorieProd)
+                        <li>{{$categorieProd->Productserie}}</li>
+                    @endforeach
 
-                    <table class="table table-hover">
-
-                            <thead>
-                        
-                              <th>Productomschrijving</th>
-                        
-                              <th>Fabrikant</th>
-                        
-                              <th>Producttype</th>
-
-                              <th>Categorie</th>
-                        
-                            </thead>
-                        
-                            <tbody>
-                                @if(isset($producten))
-                                    @foreach($producten as $product)
-                                    
-                                        <tr>
-                                
-                                        <td>{{$product->Productomschrijving}} </td>
-                                
-                                        <td>{{$product->Fabrikaat}} </td>
-                                
-                                        <td>{{$product->Producttype}} </td>
-
-                                        <td>{{$product->Productserie}} </td>
-                                
-                                
-                                        </tr>
-                                    @endforeach
-                                @else
-                                <h1>sdfghjkl</h1>
-                                @endif
-                        
-                            </tbody>
-                        
-                        </table>
+                @else
+                    <h1>Not found</h1>
+                @endif --}}
             </div>
             <div class="col"></div>
         </div>

@@ -9,7 +9,7 @@
                 <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($productcats as $productcat)
-                        <option value="/shop/products/all">{{ $productcat->Productserie }}</option>
+                        <option value="/shop/products/{{ $productcat->Productserie }}">{{ $productcat->Productserie }}</option>
                     @endforeach
                 </select> 
             </div>
@@ -60,8 +60,6 @@
     <div class="row">
         <div class="col-sm-8">
             <h3>Onlangs toegevoegd:</h3>
-            <a href="/test" class="card-link">Bekijk hier het product</a>
-
             <div class="card-group">
                 @foreach ($productsOTs as $productsOT)
                     <div class="card ot-product" id="heightwidthfix">
