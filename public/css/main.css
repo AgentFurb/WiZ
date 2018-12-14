@@ -35,6 +35,14 @@ body {
     /* margin-right: 9px; */
 }
 
+.profiledisplay {
+    width: 100px;
+    right: 25px;
+    /* margin-left: 500px; */
+    /* margin-right: 0px; */
+    position: absolute;
+}
+
 .nav-home {
     font-weight: bold;
     letter-spacing: 3px;
@@ -146,6 +154,7 @@ html {
 
 .col-profile {
     padding-top: 6.4px;
+    position: relative;
 }
 
 ul {
@@ -154,7 +163,7 @@ ul {
 
 .BackgroundOverOns{
     position: relative;
-    background-image: url('../img/plain.jpg');
+    background-image: asset('img/plain.jpg');
     height: 1080px;
     width: 100%;
     background-repeat: no-repeat;

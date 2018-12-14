@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('pageSpecificCSS')
-<link rel="stylesheet" type="text/css" href="{{ url('../css/profile.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/profile.css') }}" />
 
 @endsection
 @section('content')
