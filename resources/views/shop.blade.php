@@ -8,8 +8,8 @@
             <div class="col-5 shop-bar">
                 <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
-                    @foreach ($productcats as $productcat)
-                        <option value="/shop/products/{{ $productcat->Productserie }}">{{ $productcat->Productserie }}</option>
+                    @foreach ($combocats as $combocat)
+                        <option value="/shop/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
                     @endforeach
                 </select> 
             </div>

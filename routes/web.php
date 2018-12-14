@@ -55,13 +55,13 @@ Route::delete('/controlpanel/users/{user}/destroy', ['middleware' => 'auth', 'us
 
 //ERROR MESSAGES
 
-// Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
-// Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
-// Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
-// Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
-// Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
-// Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
-// Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
+Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
+Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
+Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
+Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
+Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
+Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
+Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
 
 //new user
 
@@ -88,6 +88,6 @@ Route::post('/profile', 'UsersController@update_avatar');
 
 Route::get('/shop', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
 //shop categorie
-Route::get('/shop/products/{cat}',  ['middleware' => 'auth', 'uses' =>'ProductsController@shopCat']);
+Route::get('/shop/products/{cat}',  ['middleware' => 'auth', 'uses' =>'ProductsController@shopCat'])->paginate(16);;
 //shop product detail
 Route::get('/shop/productdetail/{product}', 'ProductsController@productdetail');

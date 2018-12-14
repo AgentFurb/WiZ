@@ -25,6 +25,7 @@ class UsersController extends Controller
 
         //return view('user.index', ['users' => $users]);
         //return view('controlpanel', compact('users'));
+
         return view('controlpanel',['users' => $users]);
     }
 

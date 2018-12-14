@@ -134,12 +134,93 @@
 
 }
 
-
 #userdetailline{
     margin-top: 20px;
     border-top: 3px solid #8fa2d2;
 }
 
+
+/* Categorie producten */
+
+.Cprods{
+    width: 80%;
+}
+.searchresults{
+    margin-top: 10px;
+}
+
+.PCcard{
+    background-color: #eeeeee;
+    margin-bottom: 20px;
+    padding: 0px;
+    display: flex;
+    align-items:center;
+    /* margin-right: 40px;
+    max-width: 600px !important; */
+}
+.PCall{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.PCimg{
+    margin-right: 20px;
+}
+.ulinfo{
+    display: flex;
+    align-items:center;
+
+}
+
+ul.prodvraag {
+    list-style-type: square;
+    list-style-position: inside;
+    margin-right: 50px;
+}
+
+ul.prodinfo {
+    list-style-type: none;
+
+}
+  
+
+
+/* Pagination shop */
+
+.pagination{
+    text-align: center;
+    left: 702.437px;
+    right: 702.437px;
+    position: absolute;
+    bottom: 290px;
+    justify-content: center;
+}
+
+.page-link{
+    background-color: #ffffff;
+    border-color: #2f2e87;
+    color: #2f2e87;
+}
+
+.page-item.disabled .page-link{
+    background-color: #ffffff;
+    border-color: #2f2e87;
+    color: #2f2e87;
+}
+
+
+.page-item.active .page-link{
+    background-color: #2f2e87;
+    border-color: #2f2e87;
+    color: #ffffff;
+}
+
+
+.page-link:hover {
+    background-color: #2f2e87;
+    border-color: #2f2e87;
+    color: #ffffff;
+}
 @media only screen and (max-width: 320px) {
     .productImg {
        max-height: 330px;
