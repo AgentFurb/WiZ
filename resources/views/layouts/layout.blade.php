@@ -83,7 +83,7 @@
             <div class="col order-last">
                 <ul class="nav justify-content-center">
                     <li class="nav-item text-center">
-                        <a class="nav-link" href="/shop">Overzicht</a>
+                        <a class="nav-link" href="/overzicht">Overzicht</a>
                     </li>
                 </ul>
             </div>
@@ -101,7 +101,7 @@
                     ·
                     <a href="/overons" id="footernavhover">Over Ons</a>       
                     ·
-                    <a href="/shop" id="footernavhover">Shop</a>
+                    <a href="/overzicht" id="footernavhover">Shop</a>
                     ·
                     <a href="/profiel" id="footernavhover">Profiel</a>
                     ·

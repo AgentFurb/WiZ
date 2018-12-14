@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\Product;
 use Illuminate\Support\Facades\Input;
 
 /*
@@ -26,8 +27,6 @@ Route::get('/register', ['middleware' => 'auth', 'uses' => 'PagesController@regi
 
 Route::get('/home', ['middleware' => 'auth', 'uses' => 'PagesController@home']);
 
-Route::get('/home', 'PagesController@home');
-
 Route::get('/overons', ['middleware' => 'auth', 'uses' => 'PagesController@overons']);
 // Route::get('/overons', 'PagesController@overons');
 
@@ -51,8 +50,6 @@ Route::delete('/controlpanel/users/{user}/destroy', ['middleware' => 'auth', 'us
 // Route::get('/controlpanel/users/{user}/edit', 'UsersController@destroy');
 
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
 //ERROR MESSAGES
 
 Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
@@ -67,10 +64,6 @@ Route::get('503', ['as' => '503', 'uses' => 'ErrorController@maintenance']);
 
 Route::get('/controlpanel/newuser', ['middleware' => 'auth', 'uses' => 'UsersController@newuser']);
 Route::post('/controlpanel/newuser/store', ['middleware' => 'auth', 'uses' => 'UsersController@store']);
-Route::get ( '/controlpanel', function () {
-    return view ( 'controlpanel' );
-} );
-
 
 
 Route::any ( '/controlpanel', function () {
@@ -82,12 +75,24 @@ Route::any ( '/controlpanel', function () {
         return view ( 'controlpanel' )->withMessage ( 'No Details found. Try to search again !' );
 } );
 
+
+Route::any ( '/overzicht', function () {
+    $u = Input::get ( 'u' );
+
+    $product = Product::where ( 'Productomschrijving', 'LIKE', '%' . $u . '%' )->orWhere ( 'Productcode fabrikant', 'LIKE', '%' . $u . '%' )->paginate(16);
+    if (count ( $product ) > 0)
+        //dd($product);
+        return view ( 'Products.allproducts' )->withDetails ( $product )->withQuery ( $u );
+    else
+        return view ( 'Products.allproducts' )->withMessage ( 'No Details found. Try to search again !' );
+} );
+
 Route::get('/profile', 'UsersController@profilepic');
 Route::post('/profile', 'UsersController@update_avatar');
 
 
-Route::get('/shop', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
+Route::get('/overzicht', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
 //shop categorie
-Route::get('/shop/products/{cat}',  ['middleware' => 'auth', 'uses' =>'ProductsController@shopCat'])->paginate(16);;
+Route::get('/overzicht/products/{cat}',  ['middleware' => 'auth', 'uses' =>'ProductsController@shopCat']);
 //shop product detail
-Route::get('/shop/productdetail/{product}', 'ProductsController@productdetail');
+Route::get('/overzicht/productdetail/{product}', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);

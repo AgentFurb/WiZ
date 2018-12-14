@@ -9,9 +9,9 @@
             <div class="col-5 shop-bar">
                 <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
-                    @foreach ($combocats as $combocat)
-                        <option value="/shop/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
-                    @endforeach
+                    {{-- @foreach ($combocats as $combocat)
+                        <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
+                    @endforeach --}}
                 </select> 
             </div>
             <div class="row justify-content-end" id="Searchnavbar"> 
@@ -53,7 +53,7 @@
                             <div class="col-6 PCcard">
                                 <img class="card-img-left PCimg" src="{{$prodscat->imagelink}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
                                 <div class="">
-                                    <a href="/shop/productdetail/{{$prodscat->productcodefabrikant}}"><h5>{{$prodscat->productomschrijving}}</h5></a>
+                                    <a href="/overzicht/productdetail/{{$prodscat->productcodefabrikant}}"><h5>{{$prodscat->productomschrijving}}</h5></a>
                                     <div class="ulinfo"> 
                                         <ul class="prodvraag">
                                             <b><li>Locatie:</li>
@@ -76,6 +76,35 @@
                     {{ $prodscats->links() }}
                 </div>
             @else
+            @endif
+            @if(isset($details))
+                @foreach ($details as $searchprod)
+                    <div class="col-6 PCcard">
+                        <img class="card-img-left PCimg" src="{{$searchprod->imagelink}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
+                        <div class="">
+                            <a href="/overzicht/productdetail/{{$searchprod->productcodefabrikant}}"><h5>{{$searchprod->productomschrijving}}</h5></a>
+                            <div class="ulinfo"> 
+                                <ul class="prodvraag">
+                                    <b><li>Locatie:</li>
+                                    <li>Product type:</li>
+                                    <li>Fabrikaat:</li>
+                                    <li>Product serie:</li>
+                                    <li>Aantal:</li></b>
+                                </ul>
+                                <ul class="prodinfo">
+                                    <li>Locatie</li>
+                                    <li>{{$searchprod->Producttype}}</li>
+                                    <li>{{$searchprod->Fabrikaat}}</li>
+                                    <li>{{$searchprod->Productserie}}</li>
+                                    <li>Aantal</li>
+                                </ul>
+                            </div>   
+                        </div>
+                    </div>
+                @endforeach
+                {{ $details->links() }}
+            @else 
+            <h1>Product not found</h1>
             @endif
         </div>
     </div>
