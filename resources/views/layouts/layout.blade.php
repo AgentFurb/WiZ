@@ -14,7 +14,8 @@
         @yield('pageSpecificCSS')
         <!-- Chart.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-        <link rel="shortcut icon" type="image/png" href="{{ asset('img/wizicon.png') }}">
+        {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('img/wizicon.png') }}"> --}}
+        @laravelPWA
 
         {{-- <style>
         

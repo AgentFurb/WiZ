@@ -116,14 +116,19 @@
     .fa-power-off:before, .fa-user-cog:before, .kuijpers-icon {
     /* content: '\f4fe';
     font-family: fontAwesome; */
-    position: absolute;
+    /* position: absolute; */
     left: 0; /* Adjust as needed */
     top: 3px; /* Adjust as needed */
+    margin-right: 10px;
     }
     
 .kuijpers-icon {
-    height: 20px;
+    /* height: 20px; */
     width: 20px;
+}
+
+.fa-user-cog {
+    width: 30px;
 }
 
 .li-pad {
