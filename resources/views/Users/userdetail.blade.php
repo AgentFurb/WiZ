@@ -2,7 +2,7 @@
 
 
 @section('pageSpecificCSS')
-<link rel="stylesheet" type="text/css" href="{{ url('../css/controlpanel.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/controlpanel.css') }}" />
 @endsection
 
 @section('content')

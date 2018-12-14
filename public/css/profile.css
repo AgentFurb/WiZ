@@ -108,10 +108,10 @@
     /* margin-right: 30px; */
 }
 
-h5 {
-    /* position: relative; Helps us control overlap */
-    /* padding-left: 30px; Creates space for the Icon */
-    }
+/* h5 {
+    position: relative; Helps us control overlap
+    padding-left: 30px; Creates space for the Icon
+    } */
   
     .fa-power-off:before, .fa-user-cog:before, .kuijpers-icon {
     /* content: '\f4fe';

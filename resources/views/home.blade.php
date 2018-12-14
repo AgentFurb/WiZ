@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('pageSpecificCSS')
-    <link rel="stylesheet" type="text/css" href="{{ url('../css/homegraphs.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/homegraphs.css') }}" />
 @endsection
 @section('content')
     <div class="backgroundHome">
