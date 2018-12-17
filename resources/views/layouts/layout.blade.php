@@ -1,19 +1,20 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
         <title>WiZ - Kuijpers</title>
+        <meta name="description" content="WiZ Kuijpers - Weggooien is Zonde, een overzicht van alle overgbleven producten van Kuijpers."/>
         <!-- bootstrap - fontawesome -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link defer rel="stylesheet" type="text/css"  href="{{ asset('fontawesome/css/all.css') }}" />
+        <link defer rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
         <!-- custom css -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}" />
+        <link async rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
+        <link async rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}" />
         <!-- page specific css -->
         @yield('pageSpecificCSS')
         <!-- Chart.js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> --}}
         {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('img/wizicon.png') }}"> --}}
         @laravelPWA
 

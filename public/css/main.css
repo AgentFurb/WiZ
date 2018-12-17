@@ -163,7 +163,7 @@ ul {
 
 .BackgroundOverOns{
     position: relative;
-    background-image: asset('img/plain.jpg');
+    background-image: URL('../img/plain.jpg');
     height: 1080px;
     width: 100%;
     background-repeat: no-repeat;
