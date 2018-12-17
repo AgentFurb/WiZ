@@ -84,7 +84,7 @@ Route::any ( '/overzicht', function () {
         //dd($product);
         return view ( 'Products.allproducts' )->withDetails ( $product )->withQuery ( $u );
     else
-        return view ( 'Products.allproducts' )->withMessage ( 'No Details found. Try to search again !' );
+        return view ( 'Products.allproducts' )->withMessage ( 'No Details found. Try to search again !');
 } );
 
 Route::get('/profile', 'UsersController@profilepic');
