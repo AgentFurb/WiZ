@@ -141,40 +141,41 @@
 
 /* Categorie producten */
 
+.PCimg{
+    max-height: 250px !important;
+    max-width: 330px !important;
+}
 .Cprods{
-    width: 80%;
+    width: 100%;
 }
 .searchresults{
     margin-top: 10px;
+    margin-left: 110px;
 }
 
 .PCcard{
-    background-color: #eeeeee;
+    border: 0px;
     margin-bottom: 20px;
     padding: 0px;
     display: flex;
-    align-items:center;
-    /* margin-right: 40px;
-    max-width: 600px !important; */
+    align-items: center;
+
 }
 .PCall{
     margin-top: 40px;
     margin-bottom: 40px;
 }
 
-.PCimg{
-    margin-right: 20px;
-}
 .ulinfo{
     display: flex;
     align-items:center;
-
+    padding: 20px;
 }
 
 ul.prodvraag {
     list-style-type: square;
     list-style-position: inside;
-    margin-right: 50px;
+    margin-right: 10px;
 }
 
 ul.prodinfo {
@@ -182,16 +183,15 @@ ul.prodinfo {
 
 }
   
+/* shop index */
+
 
 
 /* Pagination shop */
 
-.pagination{
+ .pagination{
     text-align: center;
-    left: 702.437px;
-    right: 702.437px;
-    position: absolute;
-    bottom: 290px;
+
     justify-content: center;
 }
 
@@ -219,19 +219,52 @@ ul.prodinfo {
     background-color: #2f2e87;
     border-color: #2f2e87;
     color: #ffffff;
+} 
+
+.pagelink{
+    text-align: center;
+}
+
+.ul.pagination{
+    text-align: center;
 }
 @media only screen and (max-width: 320px) {
     .productImg {
        max-height: 330px;
        max-width: 230px;
     }
-
-}
-
-@media only screen and (max-width: 769) {
-    #heightwidthfix {
-       height: 400px;
-       width: 330px;
+    .colcat{
+        padding:  0px;
+        width: 100%;
     }
 
 }
+@media only screen and (min-width: 425px) {
+    .ulinfo{
+        padding: 0px !important;
+    } 
+
+}
+
+/* width 425 */
+@media only screen and (min-width: 375px) and (max-width: 425px){
+    .col{
+        flex-basis: 500px !important;
+    } 
+    .ulinfo{
+        padding: 20px !important;
+    } 
+
+}
+/* width 768 */
+@media only screen and (min-width: 426px) and (max-width: 768px){
+    .colcat{
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+
+    } 
+
+}
+
+
+

@@ -4,8 +4,8 @@
 @endsection
 @section('shopmenu')
     <div class="container-fluid">
-        <div class="row justify-content-end" id="Searchnavbar"> 
-            <div class="col-2 shop-bar">
+        <div class="row " id="Searchnavbar"> 
+            <div class="col-5 shop-bar">
                 <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($combocats as $combocat)
@@ -13,22 +13,8 @@
                     @endforeach
                 </select> 
             </div>
-            <div class="col-4 shop-bar">
-                    <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
-                        <option value="" disabled selected hidden>Categorieën</option>
-                        @foreach ($combocats as $combocat)
-                            <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
-                        @endforeach
-                    </select> 
-                </div>
-            <div class="row justify-content-end" id="Searchnavbar"> 
-                <div class="col-5 shop-bar">
-                    <form class="Sbar searchcreateUsers" action="/overzicht" method="POST" role="search">
-                        {{ csrf_field() }}
-                        <input type="text" placeholder="Search products" name="u">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
+            <div class="col-5 shop-bar">
+                <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
             </div>
             <div class="col-2 shop-bar">
                 @if ('{{ Auth::user()->Rechten }}' == 'User')      
@@ -40,7 +26,7 @@
                     </div>
                 @else   
                     <div class="dropdown">
-                        <img  class="dropbtn" src="img/setting2.png"/>
+                        <img  class="dropbtn" src="{{ asset('img/setting2.png') }}"/>
                         <div class="dropdown-content">
                             <a href="producttoevoegen.php"><i class="fas fa-plus"></i>Toevoegen</a>
                             <a href="#"><i class="fas fa-wrench"></i>Aanpassen</a>
@@ -55,19 +41,16 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-8 mainshopprods">
             <h3>Onlangs toegevoegd:</h3>
             <div class="card-group">
                 @if (isset($productsOTs))
                     @foreach ($productsOTs as $productsOT)
-                        <div class="card ot-product" id="heightwidthfix">
-                            <img class="card-img-top cardstop" src="{{$productsOT->imagelink}}" alt="Card image cap" id="myshopmodal1" height="300px" width="300px">
+                        <div class="card">
+                            <img class="card-img-top " src="{{$productsOT->imagelink}}" alt="Card image cap" id="myshopmodal1" height="300px" width="300px">
                             <div class="card-body">
-                                <h5 class="card-title">{{$productsOT->productomschrijving}}</h5>
+                                <a href="/overzicht/productdetail/{{$productsOT->Productcode}}" class="card-link"><h5 class="card-title">{{$productsOT->Productomschrijving}}</h5></a>
                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                            </div>
-                            <div class="card-body">
-                                <a href="/overzicht/productdetail/{{$productsOT->productcodefabrikant}}" class="card-link">Bekijk hier het product</a>
                             </div>
                         </div>
                     @endforeach
@@ -109,8 +92,7 @@
 <div class="container-fluid bekijkook">
     <h3>Bekijk ook deze producten:</h3>
     <div class="row">
-    <div class="col">
-        <div class="card-deck">
+        <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card">
                 <img class="card-img-top" src="img/img-placeholder.png" alt="Card image cap"/>
                 <div class="card-body">
@@ -118,6 +100,8 @@
                     <p class="card-text">If your canoe is stuck in a tree with the headlights on, how many pancakes does it take to get to the moon?</p>
                 </div>
             </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card">
                 <img class="card-img-top" src="img/img-placeholder.png" alt="Card image cap"/>
                 <div class="card-body">
@@ -125,6 +109,8 @@
                     <p class="card-text">On a scale from one to ten what is your favourite colour of the alphabet.</p>
                 </div>
             </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card">
                 <img class="card-img-top" src="img/img-placeholder.png" alt="Card image cap"/>
                 <div class="card-body">
@@ -132,6 +118,8 @@
                     <p class="card-text">I stepped on a Corn Flake, now I'm a Cereal Killer</p>
                 </div>
             </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card">
                 <img class="card-img-top" src="img/img-placeholder.png" alt="Card image cap"/>
                 <div class="card-body">
@@ -139,15 +127,7 @@
                     <p class="card-text">I stepped on a Corn Flake, now I'm a Cereal Killer</p>
                 </div>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="img/img-placeholder.png" alt="Card image cap"/>
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">I stepped on a Corn Flake, now I'm a Cereal Killer</p>
-                </div>
-            </div>
-            </div>
-        </div>          
+        </div>         
     </div>
 </div>
 @endsection

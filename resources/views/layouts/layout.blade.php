@@ -52,7 +52,7 @@
     <body>
         <div class="container-fluid top-bar">
           <div class="row">
-            <div class="col order-first col-first-empty">  
+            <div class="col order-first col-first-empty smalkuijperslogo">  
                 <a  href="https://www.kuijpers.nl/" target="blank">
                     <img src="{{ asset('img/logo-small.png') }}" class="nav-home kuijperslogosmall" height="90">
                 </a>

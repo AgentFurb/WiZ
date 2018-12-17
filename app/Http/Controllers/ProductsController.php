@@ -18,7 +18,7 @@ class ProductsController extends Controller
     public function shopindex()
     {
         //Producten onlangs toegevoegd
-        //$productsOTs = DB::table('productimages')->where('Afkorting', 'PPI')->orWhere('Productcode', '[0-9]+')->limit(3)->offset(83)->get();
+        $productsOTs = DB::table('productimages')->where('Afkorting', 'PPI')->orWhere('Productcode', '[0-9]+')->limit(3)->offset(83)->get();
             //$productsOTs = DB::select(DB::raw("SELECT * FROM wiz.productimages WHERE Afkorting = 'PPI' LIMIT 83, 3"));
 
         //Producten categorieën combobox  
@@ -37,17 +37,26 @@ class ProductsController extends Controller
         
         //dd($productsOTs);
 
-        return view('shop', compact('combocats'));
+        return view('shop', compact('combocats', 'productsOTs'));
     }
 
-    public function productdetail(Product $product)
+    public function productdetail(String $product)
     {   
-        //dd($product);
-        //$productsOTs = DB::table('productimages')->where('Afkorting', 'PPI')->orWhere('Productcode', '[0-9]+')->limit(3)->offset(83)->get();
-        //dd($productsOTs);
-        //$product detail
+        $combocats = DB::table('products')->distinct()->select('Productserie', 'Productserie')->get();
 
-        return view('Products.productdetail', compact('product'));
+        //dd($product);
+
+        $productdetail = DB::table('products AS p')
+        ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
+        ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink')
+        ->where('Productcode fabrikant', '=', $product)
+        ->where('Afkorting', 'PPI')
+        ->limit(1)
+        ->get();
+
+        //dd($productdetail);
+
+        return view('Products.productdetail', compact('combocats', 'productdetail'));
     }
 
     public function shopCat(String $cat)
@@ -55,13 +64,13 @@ class ProductsController extends Controller
         // Combobox items Cats
         $combocats = DB::table('products')->distinct()->select('Productserie')->get();
 
-
+         // p.Productcode fabrikant as productcodefabrikant, p.GTIN product as GTIN,
         // Products from category
         $prodscats = DB::table('products AS p')
         ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
-        ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink', 'pi.Afkorting as afkorting')
+        ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink')
         ->where('productserie', '=', $cat)
-        ->simplePaginate(16);
+        ->simplePaginate(15);
 
         // id
         // productcodefabrikant

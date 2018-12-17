@@ -3,33 +3,32 @@
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
-@section('content')
+
+@section('shopmenu')
     <div class="container-fluid">
-        <div class="row justify-content-end" id="Searchnavbar"> 
+        <div class="row " id="Searchnavbar"> 
             <div class="col-5 shop-bar">
-                <select class="form-control category">
+                <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
-                    <option>Verwarmingen</option>
-                    <option>Waterleidingen</option>
-                    <option>Zonnepanelen</option>
-                    <option>CV-Ketel's</option>
-                    <option>Airconditioner's</option>
+                    @foreach ($combocats as $combocat)
+                        <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
+                    @endforeach
                 </select> 
             </div>
             <div class="col-5 shop-bar">
                 <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
             </div>
             <div class="col-2 shop-bar">
-                @if ('{{ Auth::user()->Rechten }}' == 'User')
+                @if ('{{ Auth::user()->Rechten }}' == 'User')      
                     <div class="dropdown">
-                        <img  class="dropbtn" src="img/setting2.png"/>
+                        <img  class="dropbtn" src="{{ asset('img/setting2.png') }}"/>
                         <div class="dropdown-content">
                             <a href="producttoevoegen.php"><i class="fas fa-plus"></i>Toevoegen</a>
                         </div>
                     </div>
                 @else   
                     <div class="dropdown">
-                        <img  class="dropbtn" src="img/setting2.png"/>
+                        <img  class="dropbtn" src="{{ asset('img/setting2.png') }}"/>
                         <div class="dropdown-content">
                             <a href="producttoevoegen.php"><i class="fas fa-plus"></i>Toevoegen</a>
                             <a href="#"><i class="fas fa-wrench"></i>Aanpassen</a>
@@ -40,23 +39,20 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('content')
     <div class="container">
         <br>
         <div class="row">
             <div class="col">
-                
+                <h2 class="Producttitle">{{ $productdetail[0]->productomschrijving }}</h2>
             </div>
         </div>
         <hr id="userdetailline">
         <div class="row">
-
-
             <div class="col-6">
-                <img src="{{ $productsOT->imagelink }}" id="myImg" class="productImg img-fluid"/>
-
-                    
-    
-    
+                <img src="{{ $productdetail[0]->imagelink }}" id="myImg" class="productImg img-fluid" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
             </div>
             <div id="userdetailverticalline"></div>
             <div class="col">
@@ -70,11 +66,11 @@
             </div>
             <div class="col">
                 <br>
-                {{-- {{ $product->Productcode fabrikant"] }} <br><br> --}}
-                {{-- {{ $product->Ingangsdatum }} <br><br> --}}
-                {{-- {{ $product["GTIN product"] }}  <br><br> --}}
-                {{-- {{ $product->Fabrikaat }} <br><br>
-                {{ $product->Productserie }} <br><br> --}}
+                {{ $productdetail[0]->productcodefabrikant}} <br><br>
+                {{ $productdetail[0]->ingangsdatum }} <br><br>
+                {{ $productdetail[0]->GTIN }}  <br><br>
+                {{ $productdetail[0]->fabrikaat }} <br><br>
+                {{ $productdetail[0]->productserie }} <br><br>
             </div>
         </div>
     </div>

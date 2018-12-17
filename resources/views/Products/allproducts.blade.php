@@ -5,19 +5,17 @@
 
 @section('shopmenu')
     <div class="container-fluid">
-        <div class="row justify-content-end" id="Searchnavbar"> 
+        <div class="row " id="Searchnavbar"> 
             <div class="col-5 shop-bar">
                 <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
-                    {{-- @foreach ($combocats as $combocat)
+                    @foreach ($combocats as $combocat)
                         <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
-                    @endforeach --}}
+                    @endforeach
                 </select> 
             </div>
-            <div class="row justify-content-end" id="Searchnavbar"> 
-                <div class="col-5 shop-bar">
-                    <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
-                </div>
+            <div class="col-5 shop-bar">
+                <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
             </div>
             <div class="col-2 shop-bar">
                 @if ('{{ Auth::user()->Rechten }}' == 'User')      
@@ -48,18 +46,19 @@
             <h2 class="searchresults">Zoek resulaten:</h2>
         </div>
             @if (isset($prodscats))
-                <div class="row PCall">
-                    @foreach ($prodscats as $prodscat)
-                            <div class="col-6 PCcard">
-                                <img class="card-img-left PCimg" src="{{$prodscat->imagelink}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
-                                <div class="">
-                                    <a href="/overzicht/productdetail/{{$prodscat->productcodefabrikant}}"><h5>{{$prodscat->productomschrijving}}</h5></a>
-                                    <div class="ulinfo"> 
+                @foreach($prodscats->chunk(3) as $chunk)
+                    <div class="row PCall">
+                        @foreach ($chunk as $prodscat)
+                            <div class="col colcat">
+                                <div class="card PCcard">
+                                    <img class="card-img-left PCimg img-fluid" src="{{$prodscat->imagelink}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
+                                    <a href="/overzicht/productdetail/{{$prodscat->productcodefabrikant}}"><h5 class="card-title">{{$prodscat->productomschrijving}}</h5></a>
+                                    <div class="card-body ulinfo"> 
                                         <ul class="prodvraag">
                                             <b><li>Locatie:</li>
-                                            <li>Product type:</li>
+                                            <li>Type:</li>
                                             <li>Fabrikaat:</li>
-                                            <li>Product serie:</li>
+                                            <li>Serie:</li>
                                             <li>Aantal:</li></b>
                                         </ul>
                                         <ul class="prodinfo">
@@ -72,8 +71,15 @@
                                     </div>   
                                 </div>
                             </div>
-                    @endforeach
-                    {{ $prodscats->links() }}
+                        @endforeach
+                    </div>
+                @endforeach
+                <div class="row">
+                    <div class="col-5"></div>
+                    <div class="col-2 pagelink">
+                        {{ $prodscats->links() }}
+                    </div>
+                    <div class="col-5"></div>
                 </div>
             @else
             @endif
@@ -104,7 +110,6 @@
                 @endforeach
                 {{ $details->links() }}
             @else 
-            <h1>Product not found</h1>
             @endif
         </div>
     </div>

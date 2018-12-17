@@ -281,4 +281,19 @@ ul {
     .kuijperslogosmall {
         display: none;
     }
+    .smalkuijperslogo {
+        display: none;
+    }
+    .col-brand{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+}
+
+@media only screen and (max-width: 426px) {
+    .profiledisplay{
+        padding-right: 0px;
+        width: 60%;
+    }
 }
