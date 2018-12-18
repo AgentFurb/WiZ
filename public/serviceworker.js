@@ -1,16 +1,72 @@
 var staticCacheName = "pwa-v" + new Date().getTime();
 var filesToCache = [
-    '/offline',
-    '/css/app.css',
-    '/js/app.js',
-    '/img/icons/icon-72x72.png',
-    '/img/icons/icon-96x96.png',
-    '/img/icons/icon-128x128.png',
-    '/img/icons/icon-144x144.png',
-    '/img/icons/icon-152x152.png',
-    '/img/icons/icon-192x192.png',
-    '/img/icons/icon-384x384.png',
-    '/img/icons/icon-512x512.png',
+    // '/layout',
+    
+    // '/offline',
+    // '/meta',
+    
+    // '/home',
+    // '/shop',
+    // '/overons',
+    // '/profiel',
+    // '/controlpanel',
+    // '/search',
+    // '/allproducts',
+    // '/productdetail',
+
+    // '/401',
+    // // '/403',
+    // '/404',
+    // '/419',
+    // '/429',
+    // '/500',
+    // // '/503',
+    
+
+    // '/img/icons/icon-72x72.png',
+    // '/img/icons/icon-96x96.png',
+    // '/img/icons/icon-128x128.png',
+    // '/img/icons/icon-144x144.png',
+    // '/img/icons/icon-152x152.png',
+    // '/img/icons/icon-192x192.png',
+    // '/img/icons/icon-384x384.png',
+    // '/img/icons/icon-512x512.png',
+
+    // '/img/background.jpg',
+    // '/img/plain.jpg',
+    // '/img/BoomOverOnsKnipsel.jpg',
+    // '/img/img-placeholder.png',
+    // '/img/kuijpers-error.jpg',
+    // '/img/logo_wiz2.png',
+    // '/img/logo_wiz3.png',
+    // '/img/logo-small.png',
+
+    // // '/storage/avatars/{{ Auth::user()->avatar }}', //Try to find the real path - because this does not work
+
+    // '/fontawesome/css/all.css',
+    // '/css/bootstrap.min.css',
+
+    // '/css/app.css',
+    // '/css/main.css',
+    // '/css/footer.css',
+
+    // '/css/controlpanel.css',
+    // '/css/homegraphs.css',
+    // '/css/login.css',
+    // '/css/modalproduct.css',
+    // '/css/profile.css',
+    // '/css/shop.css',
+
+    // '/js/app.js',
+
+    // '/js/bootstrap.min.js',
+    // '/js/raphael-2.1.4.min.js',
+    // '/js/justgage.js',
+    // '/js/tab.js',
+    // '/js/br.js',
+    // '/js/shopmodals.js',
+    // '/js/main.js',
+    // '/js/pie.js',
 ];
 
 // Cache on install

@@ -36,9 +36,9 @@
             </div>
         </div>
         <div class="editProfileImg mx-auto">
-            <img href="#" class="profile-img" src="/storage/avatars/{{ Auth::user()->avatar }}">
+            <img alt="Avatar afbeelding" href="#" class="profile-img" src="/storage/avatars/{{ Auth::user()->avatar }}">
             <div class="overlay-profile">
-                <a href="#" class="icon-editProfile"  data-toggle="modal" data-target="#exampleModal"> 
+                <a aria-label="Avatar wijzigen" href="#" class="icon-editProfile"  data-toggle="modal" data-target="#exampleModal"> 
                     <i class="fas fa-camera"></i>
                 </a>
             </div>
@@ -80,9 +80,9 @@
                             @endif
                             <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"><h5 class="card-title"><i class="fas fa-power-off lineheight"></i>Uitloggen</h5>
+                            document.getElementById('logout-form-profiel').submit();"><h5 class="card-title"><i class="fas fa-power-off lineheight"></i>Uitloggen</h5>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form alt="logout" id="logout-form-profiel" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>    
                             </a>                    
@@ -125,4 +125,13 @@
         </div>
     </div>
 </div>
+
+    @section('charts')
+        <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
+        <script src="{{ asset('js/justgage.js') }}"></script>
+        <script src="{{ asset('js/pie.js') }}"></script>
+        <script src="{{ asset('js/Chart.js') }}"></script>
+
+        <script src="{{ asset('js/Charts.js') }}"></script>
+    @endsection
 @endsection
