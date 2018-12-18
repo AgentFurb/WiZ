@@ -121,15 +121,15 @@
 
 /* Productdetail */
 
-#userdetailverticalline{
+.userdetailverticalline{
     border-left: 3px solid #8fa2d2;
     height: 500px;
 }
 
 #myImg{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    margin-top: 50px;
 
 }
 
@@ -265,6 +265,25 @@ ul.prodinfo {
     } 
 
 }
+
+@media only screen and (max-width: 426px) {
+    .userdetailverticalline{
+       display: none;
+        
+    } 
+    .detailimg{
+        max-width: 100%;
+        height: auto;
+    }
+    .prodinformatie{
+        max-width: 50%;
+    }
+
+}
+
+
+
+
 
 
 

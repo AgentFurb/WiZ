@@ -42,38 +42,74 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <br>
-        <div class="row">
-            <div class="col">
-                <h2 class="Producttitle">{{ $productdetail[0]->productomschrijving }}</h2>
+    @if ($productdetail > '')
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h2 class="Producttitle">{{ $productdetail[0]->productomschrijving }}</h2>
+                </div>
+            </div>
+            <hr id="userdetailline">
+            <div class="row">
+                <div class="col-6 detailimg">
+                    <img src="{{ $productdetail[0]->imagelink }}" id="myImg" class="productImg img-fluid" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
+                </div>
+                <div class="userdetailverticalline"></div>
+                <div class="col prodinformatie">
+                    <br>
+                    <b>Productcode:</b><br><br>
+                    <b>Ingangsdatum:</b><br><br>
+                    <b>GTIN product:</b><br><br>
+                    <b>Fabikaat:</b><br><br>
+                    <b>Productserie:</b><br><br>
+                    <br><br>
+                </div>
+                <div class="col prodinformatie">
+                    <br>
+                    {{ $productdetail[0]->productcodefabrikant}} <br><br>
+                    {{ $productdetail[0]->ingangsdatum }} <br><br>
+                    {{ $productdetail[0]->GTIN }}  <br><br>
+                    {{ $productdetail[0]->fabrikaat }} <br><br>
+                    {{ $productdetail[0]->productserie }} <br><br>
+                </div>
             </div>
         </div>
-        <hr id="userdetailline">
-        <div class="row">
-            <div class="col-6">
-                <img src="{{ $productdetail[0]->imagelink }}" id="myImg" class="productImg img-fluid" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
+    @else 
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h2 class="Producttitle">{{ $productdetail->productomschrijving }}</h2>
+                </div>
             </div>
-            <div id="userdetailverticalline"></div>
-            <div class="col">
-                <br>
-                <b>Productcode:</b><br><br>
-                <b>Ingangsdatum:</b><br><br>
-                <b>GTIN product:</b><br><br>
-                <b>Fabikaat:</b><br><br>
-                <b>Productserie:</b><br><br>
-                <br><br>
-            </div>
-            <div class="col">
-                <br>
-                {{ $productdetail[0]->productcodefabrikant}} <br><br>
-                {{ $productdetail[0]->ingangsdatum }} <br><br>
-                {{ $productdetail[0]->GTIN }}  <br><br>
-                {{ $productdetail[0]->fabrikaat }} <br><br>
-                {{ $productdetail[0]->productserie }} <br><br>
+            <hr id="userdetailline">
+            <div class="row">
+                <div class="col-6">
+                    <img src="{{ $productdetail->imagelink }}" id="myImg" class="productImg img-fluid" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
+                </div>
+                <div id="userdetailverticalline"></div>
+                <div class="col">
+                    <br>
+                    <b>Productcode:</b><br><br>
+                    <b>Ingangsdatum:</b><br><br>
+                    <b>GTIN product:</b><br><br>
+                    <b>Fabikaat:</b><br><br>
+                    <b>Productserie:</b><br><br>
+                    <br><br>
+                </div>
+                <div class="col">
+                    <br>
+                    {{ $productdetail->productcodefabrikant}} <br><br>
+                    {{ $productdetail->ingangsdatum }} <br><br>
+                    {{ $productdetail->GTIN }}  <br><br>
+                    {{ $productdetail->fabrikaat }} <br><br>
+                    {{ $productdetail->productserie }} <br><br>
+                </div>
             </div>
         </div>
-    </div>
+    @endif
+    
 
 
 @endsection
