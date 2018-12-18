@@ -107,6 +107,8 @@ Route::post('/profile', 'UsersController@update_avatar');
 Route::get('/overzicht', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
 //shop producttoevoegen
 Route::get('/overzicht/nieuw', ['middleware' => 'auth', 'uses' => 'ProductsController@producttoevoegen']);
+Route::post('/overzicht/nieuw/store', ['middleware' => 'auth', 'uses' => 'ProductsController@store']);
+
 //shop categorie
 Route::get('/overzicht/products/{cat}',  ['middleware' => 'auth', 'uses' =>'ProductsController@shopCat']);
 //shop product detail

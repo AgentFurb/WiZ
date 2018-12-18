@@ -29,5 +29,52 @@
 @endsection
 
 @section('content')
- 
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col pagetitle"> <h2>Product toevoegen</h2></div>
+            <div class="col"></div>
+        </div>
+
+            
+        <form action="/overzicht/nieuw/store" method="POST" enctype="multipart/form-data">
+            @method('POST')
+            @csrf
+            <div class="row from-group">
+                <div class="col-xl  form-group">
+                    <h5>Product foto:</h5>
+                    <div class="productphoto">
+                        <img src="{{ asset('img/img-placeholder.png') }}" alt="" class="img-fluid" name="imagelink">
+                    </div>
+                    <h5>Productomschrijving:</h5>
+                    <textarea class="form-control" rows="4" cols="50"  name="Productomschrijving" required></textarea>
+                </div>
+                <div class="col-xl  form-group">
+                    <h5>Productcode:</h5>
+                    <input class="form-control" type="text" name="Productcode fabrikant" required/>
+                    <h5>GTIN product:</h5>
+                    <input class="form-control" type="text" name="GTIN product" required/>
+                    <h5>Fabrikaat:</h5>
+                    <input class="form-control" type="text" name="Fabrikaat" required/>
+                    <h5>Productserie:</h5>
+                    <input class="form-control" type="text" name="Productserie" required/>
+                    <h5>Producttype:</h5>
+                    <input class="form-control" type="text" name="Producttype" required/>
+                    <h5>Locatie:</h5>
+                    <input class="form-control" type="text" name="Locatie" required/>
+                    <h5>Eenheid gewicht:</h5>
+                    <input class="form-control" type="text" name="Eenheid gewicht" required/>
+                    <h5>E-mail adres:</h5>
+                    <input class="form-control" type="email" name="Owner" required/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col prodcreate">
+                    <input class="btn btn-lg" type="submit" value="Toevoegen"/>
+                </div>
+                <div class="col"></div>
+            </div>
+        </form>
+    </div>
 @endsection

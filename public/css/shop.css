@@ -203,6 +203,29 @@ ul.prodinfo {
 .ul.pagination{
     text-align: center;
 }
+
+
+
+/* New prod */
+.pagetitle{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.formcolnew{
+    width: 100%;
+}
+
+.prodcreate{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.imgomschr{
+    margin-right: 20px;
+}
+
 @media only screen and (max-width: 320px) {
     .productImg {
        max-height: 330px;

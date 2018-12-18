@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cat;
+use App\Pimage;
 
 class ProductsController extends Controller
 {
@@ -80,6 +81,48 @@ class ProductsController extends Controller
         $combocats = DB::table('products')->distinct()->select('Productserie')->get();
 
         return view('Products.newproduct', compact('combocats'));
+    }
+
+    public function store(Request $request)
+    {
+        // $this->validate(request(), [
+        //     'Productcode fabrikant' => ['required', 'string', 'max:20'],
+        //     'GTIN product' => ['required', 'string', 'max:14'],
+        //     'Productomschrijving' => ['required', 'string', 'max:255'],
+        //     'Locatie' => ['required', 'string', 'max:255'],
+        //     'Fabrikaat' => ['required', 'string', 'max:35'],
+        //     'Productserie' => ['required', 'string', 'max:255'],
+        //     'Producttype' => ['required', 'string', 'max:255'],
+        //     'Eenheid gewicht' => ['string', 'max:255'],
+        //     'Owner' => ['required','string', 'max:255', 'email', 'unique:products'],
+        //     'imagelink' => ['required'],
+        // ]);
+        
+        // $product = Product::create(request(['Productcode fabrikant', 'GTIN product', 'Productomschrijving', 'Locatie', 'Fabrikaat', 'Productserie', 'Producttype', 'Eenheid gewicht', 'Owner']));
+
+        // $pimage = Pimage::create(request(['imagelink', 'Productomschrijving', 'Productcode fabrikant']));
+
+
+        $pimage = new Pimage();
+        $pimage->imagelink = $request->input("imagelink");
+        $pimage->Productcode = $request->input("Productcode fabrikant");
+        $pimage->Productomschrijving = $request->input("Productomschrijving");
+        $pimage->save();
+
+        $product = new Product();
+        $product["Productcode fabrikant"] = $request->input("Productcode fabrikant");
+        $product["GTIN product"] = $request->input("GTIN product");
+        $product->Productomschrijving = $request->input("Productomschrijving");
+        $product->Locatie = $request->input("Locatie");
+        $product->Fabrikaat = $request->input("Fabrikaat");
+        $product->Productserie = $request->input("Productserie");
+        $product->Producttype = $request->input("Producttype");
+        $product["Eenheid gewicht"]= $request->input("Eenheid gewicht");
+        $product->Owner = $request->input("Owner");
+        $product->save();
+
+        return redirect('/overzicht');
+
     }
 
 }

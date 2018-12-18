@@ -96,7 +96,7 @@
         @yield('content')
         <footer class="footer-distributed">
             <div class="footer-left">
-                <a href="home.php" >           
+                <a href="/home" >           
                     <img alt="Kuijpers Logo" src="{{ asset('img/logo_wiz2.png') }}" class="img-fluid" id="wizlogofooter">
                 </a>
                 <p class="footer-links">
