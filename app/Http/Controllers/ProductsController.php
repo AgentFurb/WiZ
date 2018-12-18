@@ -24,19 +24,6 @@ class ProductsController extends Controller
         //Producten categorieën combobox  
         $combocats = DB::table('products')->distinct()->select('Productserie', 'Productserie')->get();
 
-
-
-        // $productsOTs = DB::table('products AS p')
-        // ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
-        // ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink', 'pi.Afkorting as afkorting')
-        // ->whereraw('Ingangsdatum = (SELECT MAX(Ingangsdatum) FROM productimages) AND imagelink IS NOT NULL')
-        // ->limit(3)
-        // ->get();
-
-        //$productsOTs = DB::select(DB::raw("SELECT p.ID, p.`Productcode fabrikant`, p.`GTIN product`, p.Ingangsdatum, p.Productomschrijving, p.Fabrikaat, p.Productserie, p.Producttype, pi.imagelink, pi.Afkorting FROM products p LEFT JOIN productimages pi ON p.`Productcode fabrikant` = pi.Productcode WHERE Ingangsdatum = (SELECT MAX(Ingangsdatum) FROM productimages) AND imagelink IS NOT NULL AND Afkorting = 'PPI'limit 3"));
-        
-        //dd($productsOTs);
-
         return view('shop', compact('combocats', 'productsOTs'));
     }
 
@@ -86,4 +73,13 @@ class ProductsController extends Controller
         //dd($prodscats);
         return view('Products.allproducts', compact('combocats', 'prodscats'));
     }
+
+    public function producttoevoegen()
+    {
+        // Combobox items Cats
+        $combocats = DB::table('products')->distinct()->select('Productserie')->get();
+
+        return view('Products.newproduct', compact('combocats'));
+    }
+
 }

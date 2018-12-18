@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class PagesController extends Controller
 {
     public function index()
@@ -25,17 +26,5 @@ class PagesController extends Controller
     {
         return view('overons');
     }
-
-
-    public function profiel()
-    {
-        return view('profiel');
-    }
-
-    public function control()
-    {
-        return view('controlpanel');
-    }
-
 
 }

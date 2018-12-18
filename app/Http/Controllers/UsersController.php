@@ -17,16 +17,23 @@ class UsersController extends Controller
         $this->middleware('auth');
     }
 
+    public function profiel()
+    {
+        $currentuser = Auth::user()->rechten;
+        if($currentuser == 'User'){
+        }
+        else{
+            $controltoegang = $currentuser;
+        }
+        return view('profiel', compact('controltoegang'));
+    }
+
 
     public function control()
     {
-        //$users = Users::all();
         $users = DB::table('users')->simplePaginate(10);
-
-        //return view('user.index', ['users' => $users]);
-        //return view('controlpanel', compact('users'));
-
-        return view('controlpanel',['users' => $users]);
+            
+        return view('controlpanel', compact('users'));
     }
 
     public function show(User $user)
