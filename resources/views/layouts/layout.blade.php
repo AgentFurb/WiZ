@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
         <title>WiZ - Kuijpers</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="WiZ Kuijpers - Weggooien is Zonde, een overzicht van alle overgbleven producten van Kuijpers."/>
         <!-- bootstrap - fontawesome -->
         <link defer rel="stylesheet" type="text/css"  href="{{ asset('fontawesome/css/all.css') }}" />
@@ -55,18 +56,18 @@
           <div class="row">
             <div class="col order-first col-first-empty smalkuijperslogo">  
                 <a  href="https://www.kuijpers.nl/" target="blank">
-                    <img src="{{ asset('img/logo-small.png') }}" class="nav-home kuijperslogosmall" height="90">
+                    <img alt="Kuijpers Logo" src="{{ asset('img/logo-small.png') }}" class="nav-home kuijperslogosmall" height="90">
                 </a>
             </div>
             <div class="col text-center col-brand">
             <a class="navbar-brand" href="/home">
-                    <img src="{{ asset('img/logo_wiz3.png') }}" class="nav-home" height="90">
+                    <img alt="Kuijpers Logo" src="{{ asset('img/logo_wiz3.png') }}" class="nav-home" height="90">
                 </a>
             </div>
             <div class="col order-last text-right col-profile">
                 <div class="profiledisplay text-center">
                     <a href="/profiel" class="profilehover">
-                        <img src="/storage/avatars/{{ Auth::user()->avatar }}" class="profile-img-bar"><br/>            
+                        <img alt="Profiel afbeelding" src="/storage/avatars/{{ Auth::user()->avatar }}" class="profile-img-bar"><br/>            
                     </a>
                     <h5 id="profilenamedisplay">{{ Auth::user()->voornaam }}</h5>
                 </div>
@@ -96,25 +97,25 @@
         <footer class="footer-distributed">
             <div class="footer-left">
                 <a href="home.php" >           
-                    <img src="{{ asset('img/logo_wiz2.png') }}" class="img-fluid" id="wizlogofooter">
+                    <img alt="Kuijpers Logo" src="{{ asset('img/logo_wiz2.png') }}" class="img-fluid" id="wizlogofooter">
                 </a>
                 <p class="footer-links">
-                    <a href="/home" id="footernavhover">Home</a>
+                    <a href="/home" aria-label="Home" class="footernavhover">Home</a>
                     ·
-                    <a href="/overons" id="footernavhover">Over Ons</a>       
+                    <a href="/overons" aria-label="Over ons" class="footernavhover">Over Ons</a>       
                     ·
-                    <a href="/overzicht" id="footernavhover">Shop</a>
+                    <a href="/overzicht" aria-label="Overzicht " class="footernavhover">Overzicht</a>
                     ·
-                    <a href="/profiel" id="footernavhover">Profiel</a>
+                    <a href="/profiel" aria-label="Profiel" class="footernavhover">Profiel</a>
                     ·
-                    <a href="https://mijnkuijpers.sharepoint.com/" target="blank" id="footernavhover">Mijn Kuijpers</a>
+                    <a href="https://mijnkuijpers.sharepoint.com/" aria-label="Mijn Kuijpers" target="blank" class="footernavhover">Mijn Kuijpers</a>
                 </p>
                 <p class="footer-company-name">Kuijpers Installaties &copy; 2018</p>
             </div>
             <div class="footer-center">
                 <div>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a  target="blank" href="https://www.google.nl/maps/place/Panovenweg+20,+5708+HR+Helmond/@51.4738781,5.6267348,17z/data=!3m1!4b1!4m5!3m4!1s0x47c7214f44307933:0x16bd59b2e5452121!8m2!3d51.4738748!4d5.6289235">
+                    <a  target="blank" aria-label="Locatie" href="https://www.google.nl/maps/place/Panovenweg+20,+5708+HR+Helmond/@51.4738781,5.6267348,17z/data=!3m1!4b1!4m5!3m4!1s0x47c7214f44307933:0x16bd59b2e5452121!8m2!3d51.4738748!4d5.6289235">
                         <p><span>Panovenweg 20</span> Helmond, Nederland</p>
                     </a>
                 </div>
@@ -124,7 +125,7 @@
                 </div>
                 <div>
                     <i class="fas fa-envelope"></i>
-                    <p><a href="mailto:kuijpers@kuijpers.com">kuijpers@kuijpers.com</a></p>
+                    <p><a href="mailto:kuijpers@kuijpers.com" aria-label="Email">kuijpers@kuijpers.com</a></p>
                 </div>
             </div>
             <div class="footer-right">
@@ -133,14 +134,14 @@
                     Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
                 </p>
                 <div class="footer-icons">
-                    <a href="https://www.facebook.com/kuijpersNL/" target="blank" id="socialiconhover"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/kuijpersnl" target="blank" id="socialiconhover"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.youtube.com/user/KuijpersNL" target="blank" id="socialiconhover"><i class="fab fa-youtube"></i></a>
-                    <a href="https://nl.linkedin.com/company/kuijpers-installaties" target="blank" id="socialiconhover"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/kuijpersnl/" target="blank" id="socialiconhover"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/kuijpersNL/" aria-label="Facebook" target="blank"><i class="fab fa-facebook-f socialiconhover"></i></a>
+                    <a href="https://twitter.com/kuijpersnl" aria-label="Twitter" target="blank"><i class="fab fa-twitter socialiconhover"></i></a>
+                    <a href="https://www.youtube.com/user/KuijpersNL" aria-label="Youtube" target="blank"><i class="fab fa-youtube socialiconhover"></i></a>
+                    <a href="https://nl.linkedin.com/company/kuijpers-installaties" aria-label="LinkedIn" target="blank"><i class="fab fa-linkedin-in socialiconhover"></i></a>
+                    <a href="https://www.instagram.com/kuijpersnl/" aria-label="Instagram"target="blank"><i class="fab fa-instagram socialiconhover"></i></a>
                 </div>
                 <div class="footer-logoff profilepage">  
-                    <a class="fas fa-power-off" id="socialiconhover" href="{{ route('logout') }}"
+                    <a class="fas fa-power-off socialiconhover" aria-label="Uitloggen" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         <p>Uitloggen</p>
@@ -153,18 +154,14 @@
             </div>
         </footer>
         @yield('ajaxScript')
-        <script src="{{ asset('js/app.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
-        <script src="{{ asset('js/justgage.js') }}"></script>
-        <script src="{{ asset('js/tab.js') }}"></script>
-        <script src="{{ asset('js/br.js') }}"></script>
+        @yield('charts')
+        <script src="{{ asset('js/app.js') }}"></script>       
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>        
+        <script src="{{ asset('js/tab.js') }}"></script>   
         <script src="{{ asset('/js/shopmodals.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
-        <script src="{{ asset('js/pie.js') }}"></script>
-
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
 
     </body>
 </html>

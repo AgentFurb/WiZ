@@ -142,11 +142,11 @@
 	margin-bottom: 5px;
 }
 
-#socialiconhover:hover{
+.socialiconhover:hover{
 	background-color: #ffffff;
     color: #f28e0b;
 }
-#footernavhover:hover{
+.footernavhover:hover{
     color: #f28e0b;
 }
 

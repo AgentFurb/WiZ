@@ -27,11 +27,18 @@
                 <div class="col-sm"> 
                     <div class="card ot-product widthfixer">
                         <div class="card-body">
-                            <canvas id="doughnut-chart"></canvas>
+                            <canvas id="doughnut-chart" width="300" height="300"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @section('charts')
+        <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
+        <script src="{{ asset('js/justgage.js') }}"></script>
+        <script src="{{ asset('js/Chart.js') }}"></script>
+
+        <script src="{{ asset('js/Charts.js') }}"></script>
+    @endsection
 @endsection

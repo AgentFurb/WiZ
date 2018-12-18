@@ -36,9 +36,9 @@
             </div>
         </div>
         <div class="editProfileImg mx-auto">
-            <img href="#" class="profile-img" src="/storage/avatars/{{ Auth::user()->avatar }}">
+            <img alt="Avatar afbeelding" href="#" class="profile-img" src="/storage/avatars/{{ Auth::user()->avatar }}">
             <div class="overlay-profile">
-                <a href="#" class="icon-editProfile"  data-toggle="modal" data-target="#exampleModal"> 
+                <a aria-label="Avatar wijzigen" href="#" class="icon-editProfile"  data-toggle="modal" data-target="#exampleModal"> 
                     <i class="fas fa-camera"></i>
                 </a>
             </div>
@@ -72,7 +72,7 @@
                 <div class="col-sm">
                     <div class="card profile-links">
                         <div class="card-body">
-                            <a href="https://login.microsoftonline.com/d9d6b87a-f22a-4c99-8d5a-25ba4629b8ac/oauth2/authorize?client_id=00000003-0000-0ff1-ce00-000000000000&response_mode=form_post&response_type=code%20id_token&resource=00000003-0000-0ff1-ce00-000000000000&scope=openid&nonce=F71DEA8787388F2813C79D42869733F1A350928C1F14B9DE-1681498AB7162E18859DAE065695808F46837390D6C5C948458DBB201C042170&redirect_uri=https:%2F%2Fmijnkuijpers.sharepoint.com%2F_forms%2Fdefault.aspx&wsucxt=1&cobrandid=11bd8083-87e0-41b5-bb78-0bc43c8a8e8a&client-request-id=d6b7969e-50e8-6000-67fd-0225ec34e912" target="_blank"><h5 class="card-title"><img class="kuijpers-icon" src="img/kuijpers-icon.png">Mijn Kuijpers</h5></a>        
+                            <a href="portal.office.com" rel="noopener" target="_blank"><h5 class="card-title"><img alt="Kuijpers logo" class="kuijpers-icon" src="img/kuijpers-icon.png">Mijn Kuijpers</h5></a>        
                             @if (auth()->check())
                                 @if ('Auth::user()->rechten' == 'User')
 
@@ -82,9 +82,9 @@
                             @endif
                             <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"><h5 class="card-title"><i class="fas fa-power-off lineheight"></i>Uitloggen</h5>
+                            document.getElementById('logout-form-profiel').submit();"><h5 class="card-title"><i class="fas fa-power-off lineheight"></i>Uitloggen</h5>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form alt="logout" id="logout-form-profiel" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>    
                             </a>                    
@@ -127,4 +127,13 @@
         </div>
     </div>
 </div>
+
+    @section('charts')
+        <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
+        <script src="{{ asset('js/justgage.js') }}"></script>
+        <script src="{{ asset('js/pie.js') }}"></script>
+        <script src="{{ asset('js/Chart.js') }}"></script>
+
+        <script src="{{ asset('js/Charts.js') }}"></script>
+    @endsection
 @endsection
