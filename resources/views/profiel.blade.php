@@ -43,7 +43,7 @@
                 </a>
             </div>
         </div>
-      
+        
       
         
         <div class="container-fluid">
@@ -73,12 +73,10 @@
                     <div class="card profile-links">
                         <div class="card-body">
                             <a href="https://login.microsoftonline.com/d9d6b87a-f22a-4c99-8d5a-25ba4629b8ac/oauth2/authorize?client_id=00000003-0000-0ff1-ce00-000000000000&response_mode=form_post&response_type=code%20id_token&resource=00000003-0000-0ff1-ce00-000000000000&scope=openid&nonce=F71DEA8787388F2813C79D42869733F1A350928C1F14B9DE-1681498AB7162E18859DAE065695808F46837390D6C5C948458DBB201C042170&redirect_uri=https:%2F%2Fmijnkuijpers.sharepoint.com%2F_forms%2Fdefault.aspx&wsucxt=1&cobrandid=11bd8083-87e0-41b5-bb78-0bc43c8a8e8a&client-request-id=d6b7969e-50e8-6000-67fd-0225ec34e912" target="_blank"><h5 class="card-title"><img class="kuijpers-icon" src="img/kuijpers-icon.png">Mijn Kuijpers</h5></a>        
-                            @if (auth()->check())
-                                @if ('Auth::user()->rechten' == 'User')
+                            @if (isset($controltoegang))
+                                <a class="controlmobile" href="/controlpanel"><h5 class="card-title"><i class="fas fa-user-cog lineheight"></i>Controlpanel</h5></a>
+                            @else
 
-                                @else
-                                    <a class="controlmobile" href="/controlpanel"><h5 class="card-title"><i class="fas fa-user-cog lineheight"></i>Controlpanel</h5></a>
-                                @endif
                             @endif
                             <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

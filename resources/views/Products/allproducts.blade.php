@@ -17,24 +17,12 @@
             <div class="col-5 shop-bar">
                 <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
             </div>
-            <div class="col-2 shop-bar">
-                @if ('{{ Auth::user()->Rechten }}' == 'User')      
-                    <div class="dropdown">
-                        <img  class="dropbtn" src="{{ asset('img/setting2.png') }}"/>
-                        <div class="dropdown-content">
-                            <a href="producttoevoegen.php"><i class="fas fa-plus"></i>Toevoegen</a>
-                        </div>
-                    </div>
-                @else   
-                    <div class="dropdown">
-                        <img  class="dropbtn" src="{{ asset('img/setting2.png') }}"/>
-                        <div class="dropdown-content">
-                            <a href="producttoevoegen.php"><i class="fas fa-plus"></i>Toevoegen</a>
-                            <a href="#"><i class="fas fa-wrench"></i>Aanpassen</a>
-                            <a href="producten.php"><i class="fas fa-trash-alt"></i>Verwijderen</a>
-                        </div>
-                    </div>
-                @endif
+            <div class="col-2 shop-bar addcol">
+                <div class="addprod">
+                    <a href="/overzicht/nieuw">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

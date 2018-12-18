@@ -30,7 +30,7 @@ Route::get('/home', ['middleware' => 'auth', 'uses' => 'PagesController@home']);
 Route::get('/overons', ['middleware' => 'auth', 'uses' => 'PagesController@overons']);
 // Route::get('/overons', 'PagesController@overons');
 
-Route::get('/profiel', ['middleware' => 'auth', 'uses' => 'PagesController@profiel']);
+Route::get('/profiel', ['middleware' => 'auth', 'uses' => 'UsersController@profiel']);
 // Route::get('/profiel', 'PagesController@profiel');
 
 Route::get('/controlpanel', ['middleware' => 'auth', 'uses' => 'UsersController@control']);
@@ -67,12 +67,25 @@ Route::post('/controlpanel/newuser/store', ['middleware' => 'auth', 'uses' => 'U
 
 
 Route::any ( '/controlpanel', function () {
+    $currentuser = Auth::user()->rechten;
     $q = Input::get ( 'q' );
-    $user = User::where ( 'voornaam', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->paginate(10);
-    if (count ( $user ) > 0)
-        return view ( 'controlpanel' )->withDetails ( $user )->withQuery ( $q );
-    else
-        return view ( 'controlpanel' )->withMessage ( 'No Details found. Try to search again !' );
+    $users = User::where ( 'voornaam', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->paginate(10);
+
+
+    if($currentuser == 'Admin'){
+        $accountbeheertoegang = $currentuser;
+        if (count ( $users ) > 0){
+            return view ('controlpanel', compact('users', 'q', 'accountbeheertoegang'));
+        }
+        else {
+           
+        }
+    }
+    else{
+        //als de gebruiker geen admin is wordt 'accountbeheertoegang' niet gezet, nu is alleen productbeer te zien
+        return view ( 'controlpanel', compact('user', 'q'));
+    }
+
 } );
 
 
@@ -92,6 +105,8 @@ Route::post('/profile', 'UsersController@update_avatar');
 
 
 Route::get('/overzicht', ['middleware' => 'auth', 'uses' => 'ProductsController@shopindex']);
+//shop producttoevoegen
+Route::get('/overzicht/nieuw', ['middleware' => 'auth', 'uses' => 'ProductsController@producttoevoegen']);
 //shop categorie
 Route::get('/overzicht/products/{cat}',  ['middleware' => 'auth', 'uses' =>'ProductsController@shopCat']);
 //shop product detail

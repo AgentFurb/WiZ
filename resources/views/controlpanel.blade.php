@@ -6,14 +6,14 @@
 
 @section('content')
     <div class="tab">
-        @if ('Auth::user()->rechten ' !== 'Admin')
-            <button class="tablinks" onclick="openCity(event, 'Accountbeheer')" id="defaultOpen">Accountbeheer</button>
-            <button class="tablinks" onclick="openCity(event, 'Productbeheer')">Productbeheer</button>
+        @if (isset($accountbeheertoegang))
+            <button class="tablinks" onclick="openCity(event, 'Accountbeheer')" id="defaultOpen"><i class="fas fa-user-cog"></i>         Accountbeheer</button>
+            <button class="tablinks" onclick="openCity(event, 'Productbeheer')"><i class="fas fa-cube"></i>         Productbeheer</button>
         @else
-            <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen">Productbeheer</button>      
+            <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen"><i class="fas fa-cube"></i>         Productbeheer</button>      
         @endif
     </div>
-    <div class="tabcontent" id="Accountbeheer">
+    <div class="tabcontent" id="Accountbeheer"> 
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -44,8 +44,8 @@
                 <div class="col colpadding">Vestiging:</div>
                 <div class="col colpadding">Id:</div>
             </div>
-            @if(isset($details))
-                @foreach ($details as $user)
+            @if(isset($users))
+                @foreach ($users as $user)
                     <a href="/controlpanel/users/{{ $user->id }}">
                         <div id="searchUsers">
                             <div class="row users usersdata">
@@ -58,7 +58,7 @@
                         </div>
                     </a>
                 @endforeach
-                {{ $details->links() }}
+                {{ $users->links() }}
             @else
                 <div class="row usernotfoundicon">
                     <div class="col"></div>
