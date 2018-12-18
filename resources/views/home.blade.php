@@ -37,7 +37,7 @@
     @section('charts')
         <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
         <script src="{{ asset('js/justgage.js') }}"></script>
-        <script src="{{ asset('js/Chart.js') }}"></script>
+        <script src="{{ asset('js/Chart.min.js') }}"></script>
 
         <script src="{{ asset('js/Charts.js') }}"></script>
     @endsection
