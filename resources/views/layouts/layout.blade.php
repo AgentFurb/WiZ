@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name=viewport content="width=device-width, initial-scale=1"/>
         <meta charset="utf-8">
         <title>WiZ - Kuijpers</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="WiZ Kuijpers - Weggooien is Zonde, een overzicht van alle overgbleven producten van Kuijpers."/>
         <!-- bootstrap - fontawesome -->
-        <link defer rel="stylesheet" type="text/css"  href="{{ asset('fontawesome/css/all.css') }}" />
-        <link defer rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link async rel="stylesheet" type="text/css"  href="{{ asset('fontawesome/css/all.css') }}" />
+        <link async rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
         <!-- custom css -->
         <link async rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
         <link async rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}" />
@@ -155,11 +155,11 @@
         </footer>
         @yield('ajaxScript')
         @yield('charts')
-        <script src="{{ asset('js/app.js') }}"></script>       
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>        
-        <script src="{{ asset('js/tab.js') }}"></script>   
-        <script src="{{ asset('/js/shopmodals.js') }}"></script>
-        <script src="{{ asset('js/main.js') }}"></script>
+        {{-- <script async src="{{ asset('js/app.js') }}"></script>        --}}
+        <script async src="{{ asset('js/bootstrap.min.js') }}"></script>        
+        <script async src="{{ asset('js/tab.js') }}"></script>   
+        <script async src="{{ asset('/js/shopmodals.js') }}"></script>
+        <script async src="{{ asset('js/main.js') }}"></script>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
