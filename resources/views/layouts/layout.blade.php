@@ -7,11 +7,31 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="WiZ Kuijpers - Weggooien is Zonde, een overzicht van alle overgbleven producten van Kuijpers."/>
         <!-- bootstrap - fontawesome -->
-        <link async rel="stylesheet" type="text/css"  href="{{ asset('fontawesome/css/all.css') }}" />
-        <link async rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="preload" href="{{ asset('fontawesome/css/all.min.css') }}" as="style" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}"></noscript>
+        
+        <link rel="preload" href="{{ asset('css/bootstrap.min.css') }}" as="style" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"></noscript>       
+
+        {{-- <link rel="stylesheet" type="text/css"  href="{{ asset('fontawesome/css/all.min.css') }}" /> --}}
+        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" /> --}}
+
         <!-- custom css -->
-        <link async rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
-        <link async rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}" />
+        <link rel="preload" href="{{ asset('css/main.css') }}" as="style" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ asset('css/main.css') }}"></noscript> 
+
+        <link rel="preload" href="{{ asset('css/footer.css') }}" as="style" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ asset('css/footer.css') }}"></noscript> 
+
+        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" /> --}}
+        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}" /> --}}
+
+        <script>
+            /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+            !function(a){"use strict";var b=function(b,c,d){function j(a){if(e.body)return a();setTimeout(function(){j(a)})}function l(){f.addEventListener&&f.removeEventListener("load",l),f.media=d||"all"}var g,e=a.document,f=e.createElement("link");if(c)g=c;else{var h=(e.body||e.getElementsByTagName("head")[0]).childNodes;g=h[h.length-1]}var i=e.styleSheets;f.rel="stylesheet",f.href=b,f.media="only x",j(function(){g.parentNode.insertBefore(f,c?g:g.nextSibling)});var k=function(a){for(var b=f.href,c=i.length;c--;)if(i[c].href===b)return a();setTimeout(function(){k(a)})};return f.addEventListener&&f.addEventListener("load",l),f.onloadcssdefined=k,k(l),f};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+            /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+            !function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(a){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+          </script>
         <!-- page specific css -->
         @yield('pageSpecificCSS')
         <!-- Chart.js -->
@@ -155,11 +175,11 @@
         </footer>
         @yield('ajaxScript')
         @yield('charts')
-        {{-- <script async src="{{ asset('js/app.js') }}"></script>        --}}
-        <script async src="{{ asset('js/bootstrap.min.js') }}"></script>        
-        <script async src="{{ asset('js/tab.js') }}"></script>   
-        <script async src="{{ asset('/js/shopmodals.js') }}"></script>
-        <script async src="{{ asset('js/main.js') }}"></script>
+        {{-- <script src="{{ asset('js/app.js') }}"></script>        --}}
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>        
+        <script src="{{ asset('js/tab.js') }}"></script>   
+        <script src="{{ asset('/js/shopmodals.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
