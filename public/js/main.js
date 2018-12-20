@@ -40,7 +40,7 @@ try {
 } catch (e) {}
 
 // Use our detect's results. passive applied if supported, capture will be false either way.
-elem.addEventListener('touchstart', fn, supportsPassive ? { passive: true } : false); 
+element.addEventListener('touchstart', fn, supportsPassive ? { passive: true } : false); 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 
