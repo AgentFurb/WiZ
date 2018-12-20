@@ -7,10 +7,10 @@
 @section('content')
     <div class="tab">
         @if (isset($accountbeheertoegang))
-            <button class="tablinks" onclick="openCity(event, 'Accountbeheer')" id="defaultOpen"> <i class="fas fa-user-cog"></i>         Accountbeheer</button>
-            <button class="tablinks" onclick="openCity(event, 'Productbeheer')"><i class="fas fa-cube"></i>         Productbeheer</button>
+            <button class="tablinks" onclick="openCity(event, 'Accountbeheer')" id="defaultOpen" data-toggle="tab"> <i class="fas fa-user-cog"></i>         Accountbeheer</button>
+            <button class="tablinks" onclick="openCity(event, 'Productbeheer')" data-toggle="tab"><i class="fas fa-cube"></i>         Productbeheer</button>
         @else
-            <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen"><i class="fas fa-cube"></i>         Productbeheer</button>      
+            <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen" data-toggle="tab"><i class="fas fa-cube"></i>         Productbeheer</button>      
         @endif
     </div>
     <div class="tabcontent" id="Accountbeheer"> 
