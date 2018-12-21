@@ -152,13 +152,9 @@
     color: #f28e0b;
 }
 
-/* #socialiconhover:hover{
-	background-color: #ffffff;
+.footer-links a:hover{
     color: #f28e0b;
-}
-#footernavhover:hover{
-    color: #f28e0b;
-} */
+} 
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
