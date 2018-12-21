@@ -8,8 +8,8 @@ var filesToCache = [
     '/home',
     '/shop',
     '/overons',
-    '/profiel',
-    '/controlpanel',
+    // '/profiel',
+    // '/controlpanel',
     '/search',
     '/allproducts',
     '/productdetail',
@@ -21,7 +21,6 @@ var filesToCache = [
     // '/429',
     // '/500',
     // '/503',
-    
 
     // '/img/icons/icon-72x72.png',
     // '/img/icons/icon-96x96.png',
@@ -53,18 +52,16 @@ var filesToCache = [
     '/css/controlpanel.css',
     '/css/homegraphs.css',
     '/css/login.css',
-    '/css/modalproduct.css',
+    // '/css/modalproduct.css',
     '/css/profile.css',
     '/css/shop.css',
-
-    '/js/app.js',
 
     '/js/bootstrap.min.js',
     '/js/raphael-2.1.4.min.js',
     '/js/justgage.js',
     '/js/tab.js',
     '/js/chart.js',
-    '/js/shopmodals.js',
+    // '/js/shopmodals.js',
     '/js/main.js',
     '/js/charts.js',
 ];
