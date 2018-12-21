@@ -51,9 +51,9 @@
                 </div>
                 <div class="col-xl  form-group">
                     <h5>Productcode:</h5>
-                    <input class="form-control" type="text" name="Productcode fabrikant" required/>
+                    <input class="form-control" type="text" name="Productcodefabrikant" required/>
                     <h5>GTIN product:</h5>
-                    <input class="form-control" type="text" name="GTIN product" required/>
+                    <input class="form-control" type="text" name="GTIN" required/>
                     <h5>Fabrikaat:</h5>
                     <input class="form-control" type="text" name="Fabrikaat" required/>
                     <h5>Productserie:</h5>

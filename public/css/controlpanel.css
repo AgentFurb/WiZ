@@ -279,9 +279,6 @@ form.Sbar button {
     border-bottom-right-radius: .75rem;
 }
 
-form.Sbar button:hover {
-    /* background: #2f2e87; */
-}
 
 form.Sbar::after {
     content: "";
@@ -327,13 +324,11 @@ form.Sbar::after {
 
 /* Pagination controlpanel */
 
-.pagination{
+.controluserlink{
     text-align: center;
-    left: 702.437px;
-    right: 702.437px;
-    position: absolute;
-    bottom: 290px;
     justify-content: center;
+    /* margin-top: 50px !important;
+    margin-bottom: 50px !important; */
 }
 
 .page-link{

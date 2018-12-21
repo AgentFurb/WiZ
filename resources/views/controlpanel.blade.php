@@ -58,7 +58,11 @@
                         </div>
                     </a>
                 @endforeach
-                {{ $users->links() }}
+                <div class="row ">
+                    <div class="col"></div>
+                    <div class="controluserlink">{{ $users->links() }}</div>
+                    <div class="col"></div>
+                </div>
             @else
                 <div class="row usernotfoundicon">
                     <div class="col"></div>

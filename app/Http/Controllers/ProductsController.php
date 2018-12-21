@@ -105,13 +105,14 @@ class ProductsController extends Controller
 
         $pimage = new Pimage();
         $pimage->imagelink = $request->input("imagelink");
-        $pimage->Productcode = $request->input("Productcode fabrikant");
+        $product->Locatie = $request->input("Locatie");
+        $pimage->Productcode = $request->input("Productcodefabrikant");
         $pimage->Productomschrijving = $request->input("Productomschrijving");
         $pimage->save();
 
         $product = new Product();
-        $product["Productcode fabrikant"] = $request->input("Productcode fabrikant");
-        $product["GTIN product"] = $request->input("GTIN product");
+        $product["Productcode fabrikant"] = $request->input("Productcodefabrikant");
+        $product["GTIN product"] = $request->input("GTIN");
         $product->Productomschrijving = $request->input("Productomschrijving");
         $product->Locatie = $request->input("Locatie");
         $product->Fabrikaat = $request->input("Fabrikaat");

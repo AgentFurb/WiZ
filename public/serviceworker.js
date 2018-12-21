@@ -9,7 +9,6 @@ var filesToCache = [
     '/shop',
     '/overons',
     '/profiel',
-    '/controlpanel',
     '/search',
     '/allproducts',
     '/productdetail',
