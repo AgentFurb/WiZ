@@ -154,11 +154,11 @@
                     Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
                 </p>
                 <div class="footer-icons">
-                    <a href="https://www.facebook.com/kuijpersNL/" aria-label="Facebook" target="blank"><i class="fab fa-facebook-f socialiconhover"></i></a>
-                    <a href="https://twitter.com/kuijpersnl" aria-label="Twitter" target="blank"><i class="fab fa-twitter socialiconhover"></i></a>
-                    <a href="https://www.youtube.com/user/KuijpersNL" aria-label="Youtube" target="blank"><i class="fab fa-youtube socialiconhover"></i></a>
-                    <a href="https://nl.linkedin.com/company/kuijpers-installaties" aria-label="LinkedIn" target="blank"><i class="fab fa-linkedin-in socialiconhover"></i></a>
-                    <a href="https://www.instagram.com/kuijpersnl/" aria-label="Instagram"target="blank"><i class="fab fa-instagram socialiconhover"></i></a>
+                    <a href="https://www.facebook.com/kuijpersNL/" aria-label="Facebook" target="blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/kuijpersnl" aria-label="Twitter" target="blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/user/KuijpersNL" aria-label="Youtube" target="blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://nl.linkedin.com/company/kuijpers-installaties" aria-label="LinkedIn" target="blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/kuijpersnl/" aria-label="Instagram"target="blank"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="footer-logoff profilepage">  
                     <a class="fas fa-power-off socialiconhover" aria-label="Uitloggen" href="{{ route('logout') }}"
@@ -175,12 +175,13 @@
         </footer>
         @yield('ajaxScript')
         @yield('charts')
-        {{-- <script src="{{ asset('js/app.js') }}"></script>--}}
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>        
+        <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+        {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>        
         <script src="{{ asset('js/tab.js') }}"></script>   
         <script src="{{ asset('/js/shopmodals.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+        
         
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -142,13 +142,19 @@
 	margin-bottom: 5px;
 }
 
-.socialiconhover:hover{
+.footer-distributed .footer-icons a:hover {
 	background-color: #ffffff;
     color: #f28e0b;
 }
-.footernavhover:hover{
+
+.footer-logoff a:hover {
+	background-color: #ffffff;
     color: #f28e0b;
 }
+
+.footer-links a:hover{
+    color: #f28e0b;
+} 
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
