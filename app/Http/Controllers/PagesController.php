@@ -17,11 +17,6 @@ class PagesController extends Controller
         return view('auth/Register');
     }
 
-    public function home()
-    {
-        return view('home');
-    }
-
     public function overons()
     {
         return view('overons');

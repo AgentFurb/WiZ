@@ -45,6 +45,8 @@
                     <h5>Product foto:</h5>
                     <div class="productphoto">
                         <img src="{{ asset('img/img-placeholder.png') }}" alt="" class="img-fluid" name="imagelink">
+                        <br>
+                        <input type="file" name="imagelink">
                     </div>
                     <h5>Productomschrijving:</h5>
                     <textarea class="form-control" rows="4" cols="50"  name="Productomschrijving" required></textarea>

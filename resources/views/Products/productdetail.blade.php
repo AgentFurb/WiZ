@@ -51,6 +51,8 @@
                     <b>GTIN product:</b><br><br>
                     <b>Fabikaat:</b><br><br>
                     <b>Productserie:</b><br><br>
+                    <b>Locatie:</b><br><br>
+                    <b>Product gewicht:</b><br><br>
                     <br><br>
                 </div>
                 <div class="col prodinformatie">
@@ -60,6 +62,10 @@
                     {{ $productdetail[0]->GTIN }}  <br><br>
                     {{ $productdetail[0]->fabrikaat }} <br><br>
                     {{ $productdetail[0]->productserie }} <br><br>
+                    {{ $productdetail[0]->locatie }} <br><br>
+                    {{ $productdetail[0]->gewicht }} <br><br>
+
+
                 </div>
             </div>
         </div>

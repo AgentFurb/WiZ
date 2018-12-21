@@ -18,9 +18,9 @@
                 <div class="col-sm baro"> 
                     <div class="card ot-product widthfixer">
                         <div class="card-body">
-                            <h5>Aantal inkomende producten</h5>
-                            <a href="#" id="smallbuddy_refresh">Random Refresh</a>
+                            <h5>Totaal aantal gebruikers</h5>
                             <div id="smallbuddy"></div>
+                            <input type="hidden" id="smallbuddyusers" value="{{$smallfella}}">
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,6 @@
         <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
         <script src="{{ asset('js/justgage.js') }}"></script>
         <script src="{{ asset('js/Chart.min.js') }}"></script>
-
         <script src="{{ asset('js/Charts.js') }}"></script>
     @endsection
 @endsection
