@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col-5 shop-bar">
-                <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
+                <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($combocats as $combocat)
                         <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
@@ -18,7 +18,7 @@
             </div>
             <div class="col-2 shop-bar addcol">
                 <div class="addprod">
-                    <a href="/overzicht/nieuw">
+                    <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
                         <i class="fas fa-plus"></i>
                     </a>
                 </div>
@@ -35,7 +35,7 @@
                 @if (isset($productsOTs))
                     @foreach ($productsOTs as $productsOT)
                         <div class="card">
-                            <img class="card-img-top " src="{{$productsOT->imagelink}}" alt="Card image cap" id="myshopmodal1" height="300px" width="300px">
+                            <img class="card-img-top " src="{{$productsOT->imagelink}}" alt="Card image cap" height="300px" width="300px">
                             <div class="card-body">
                                 <a href="/overzicht/productdetail/{{$productsOT->Productcode}}" class="card-link"><h5 class="card-title">{{$productsOT->Productomschrijving}}</h5></a>
                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>

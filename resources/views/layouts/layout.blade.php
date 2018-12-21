@@ -175,7 +175,7 @@
         </footer>
         @yield('ajaxScript')
         @yield('charts')
-        <script src="{{ asset('js/app.js') }}"></script>       
+        {{-- <script src="{{ asset('js/app.js') }}"></script>--}}
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>        
         <script src="{{ asset('js/tab.js') }}"></script>   
         <script src="{{ asset('/js/shopmodals.js') }}"></script>
