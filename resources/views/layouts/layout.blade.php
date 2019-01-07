@@ -87,7 +87,7 @@
             <div class="col order-last text-right col-profile">
                 <div class="profiledisplay text-center">
                     <a href="/profiel" class="profilehover">
-                        <img alt="Profiel afbeelding" src="/storage/avatars/{{ Auth::user()->avatar }}" class="profile-img-bar"><br/>            
+                        <img alt="Profiel afbeelding" src="/storage/avatars/{{ Auth::user()->avatar }}" onerror=this.src="{{ asset('img/default.jpg') }}" class="profile-img-bar"><br/>            
                     </a>
                     <h5 id="profilenamedisplay">{{ Auth::user()->voornaam }}</h5>
                 </div>

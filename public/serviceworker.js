@@ -39,10 +39,31 @@ var filesToCache = [
     '/img/logo_wiz2.png',
     '/img/logo_wiz3.png',
     '/img/logo-small.png',
+    '/img/default.jpg',
 
     // // '/storage/avatars/{{ Auth::user()->avatar }}', //Try to find the real path - because this does not work
 
-    '/fontawesome/css/all.css',
+    '/fontawesome/css/all.min.css',
+    '/fontawesome/webfonts/fa-brands-400.woff2',
+    '/fontawesome/webfonts/fa-regular-400.woff2',
+    '/fontawesome/webfonts/fa-solid-900.woff2',
+
+    // '/fontawesome/webfonts/fa-brands-400.eot',
+    // '/fontawesome/webfonts/fa-regular-400.eot',
+    // '/fontawesome/webfonts/fa-solid-900.eot',
+
+    // '/fontawesome/webfonts/fa-brands-400.svg',
+    // '/fontawesome/webfonts/fa-regular-400.svg',
+    // '/fontawesome/webfonts/fa-solid-900.svg',
+
+    // '/fontawesome/webfonts/fa-brands-400.ttf',
+    // '/fontawesome/webfonts/fa-regular-400.ttf',
+    // '/fontawesome/webfonts/fa-solid-900.ttf',
+
+    // '/fontawesome/webfonts/fa-brands-400.woff',
+    // '/fontawesome/webfonts/fa-regular-400.woff',
+    // '/fontawesome/webfonts/fa-solid-900.woff',
+
     '/css/bootstrap.min.css',
 
     '/css/app.css',
