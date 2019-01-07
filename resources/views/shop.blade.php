@@ -82,9 +82,9 @@
     <div class="row">
         @if (isset($bekijkook))
             @foreach ($bekijkook as $bekijk)
-            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="card">
-                        <img class="card-img-top" src="{{ $bekijk->imagelink}}" alt="Card image cap" width="350px" height="320px"/>
+                        <img class="card-img-top productdetailimage" src="{{ $bekijk->imagelink}}" alt="Card image cap" />
                         <div class="card-body">
                                 <a href="/overzicht/productdetail/{{$productsOT->Productcode}}" class="card-link"><h5 class="card-title">{{ $bekijk->productomschrijving}}</h5></a>
                             <p class="card-text">If your canoe is stuck in a tree with the headlights on, how many pancakes does it take to get to the moon?</p>
@@ -93,7 +93,7 @@
                 </div>
             @endforeach
         @else 
-        <h1>not set</h1>
+            <h1>not set</h1>
         @endif       
     </div>
 </div>

@@ -108,6 +108,7 @@
 
 }
 
+
 #userdetailline{
     margin-top: 20px;
     border-top: 3px solid #8fa2d2;
@@ -160,7 +161,10 @@ ul.prodinfo {
   
 /* shop index */
 
-
+.productdetailimage{
+    width: 250px; 
+    height: 220px;
+}
 
 /* Pagination shop */
 
