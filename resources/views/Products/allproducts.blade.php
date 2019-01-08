@@ -50,7 +50,7 @@
                                             <li>Aantal:</li></b>
                                         </ul>
                                         <ul class="prodinfo">
-                                            <li>Locatie</li>
+                                            <li>{{$prodscat->locatie}}</li>
                                             <li>{{$prodscat->producttype}}</li>
                                             <li>{{$prodscat->fabrikaat}}</li>
                                             <li>{{$prodscat->productserie}}</li>

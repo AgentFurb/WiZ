@@ -15,6 +15,7 @@ class ProductsController extends Controller
     {
         $this->middleware('auth');
         
+        
     }
 
     public function shopindex()
@@ -58,7 +59,7 @@ class ProductsController extends Controller
         // Products from category
         $prodscats = DB::table('products AS p')
         ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
-        ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink')
+        ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Locatie as locatie','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink')
         ->where('productserie', '=', $cat)
         ->simplePaginate(15);
         // id
@@ -81,16 +82,48 @@ class ProductsController extends Controller
         return view('Products.newproduct', compact('combocats'));
     }
 
+    public function destroy(String $product)
+    {
+        $deleteproduct = DB::table('products AS p')
+        ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
+        ->where('Productcode fabrikant', '=', $product)
+        ->delete();
+        
+  
+
+        return redirect('/overzicht');
+    }
+
     public function store(Request $request)
     {
         // $pimage = Pimage::create(request(['imagelink', 'Productomschrijving', 'Productcode fabrikant']));
 
-        $pimage = new Pimage();
-        $product->Locatie = $request->store('imagelink',  $request->imagelink->getClientOriginalName());
-        $product->Locatie = $request->input("Locatie");
-        $pimage->Productcode = $request->input("Productcodefabrikant");
-        $pimage->Productomschrijving = $request->input("Productomschrijving");
-        $pimage->save();
+        // dd($request);
+        //dd($request->imagelink->getClientOriginalName());
+        if(empty($request->imagelink->getClientOriginalName()))
+        {
+            //no image
+            $pimage = new Pimage();
+            $pimage->Locatie = $request->input("Locatie");
+            $pimage->Productcode = $request->input("Productcodefabrikant");
+            $pimage->Productomschrijving = $request->input("Productomschrijving");
+            $pimage->save();
+        }
+        else
+        {
+            $pimage = new Pimage();
+            $request->validate(['imagelink' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+            $imagelinkName = '/storage/productimages/'.request()->imagelink->getClientOriginalName();
+            $destinationPath = public_path('/storage/productimages');
+            $request->imagelink->move($destinationPath, $imagelinkName);
+            $pimage->imagelink = $imagelinkName;
+
+            $pimage->Locatie = $request->input("Locatie");
+            $pimage->Productcode = $request->input("Productcodefabrikant");
+            $pimage->Productomschrijving = $request->input("Productomschrijving");
+            $pimage->save();
+        }
+
 
         $product = new Product();
         $product["Productcode fabrikant"] = $request->input("Productcodefabrikant");
@@ -100,8 +133,7 @@ class ProductsController extends Controller
         $product->Fabrikaat = $request->input("Fabrikaat");
         $product->Productserie = $request->input("Productserie");
         $product->Producttype = $request->input("Producttype");
-        $product["Eenheid gewicht"]= $request->input("Eenheid gewicht");
-        $product->Owner = $request->input("Owner");
+        $product["Eenheid gewicht"] = $request->input("Eenheidgewicht");
         $product->save();
 
         return redirect('/overzicht');

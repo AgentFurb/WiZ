@@ -18,7 +18,7 @@ class Product extends Model
         return $this->hasone(Pimage::class);
     }
 
-    public $timestamps = false;
+    
     protected $table = 'products';
 
     /**
@@ -27,7 +27,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'Productcode fabrikant', 'GTIN product', 'Productomschrijving', 'Locatie', 'Fabrikaat', 'Productserie', 'Producttype', 'Eenheid gewicht', 'Owner',
+        'Productcode fabrikant', 'GTIN product', 'Productomschrijving', 'Locatie', 'Fabrikaat', 'Productserie', 'Producttype', 'Eenheid gewicht', 'created_at', 'updated_at',
     ];
 
 
