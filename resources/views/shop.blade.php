@@ -14,7 +14,17 @@
                 </select> 
             </div>
             <div class="col-5 shop-bar">
-                <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
+                <form action="/overzicht" method="POST" role="search">
+                    {{ csrf_field() }}
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q"
+                            placeholder="Search users"> <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
             </div>
             <div class="col-2 shop-bar addcol">
                 <div class="addprod">
