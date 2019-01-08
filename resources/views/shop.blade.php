@@ -23,7 +23,7 @@
             <div class="col-2 shop-bar addcol">
                 <div class="addprod">
                     <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
-                        <i class="fas fa-plus"></i>
+                        <i class="far fa-plus-square"></i>
                     </a>
                 </div>
             </div>
