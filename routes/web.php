@@ -54,7 +54,7 @@ Route::delete('/controlpanel/users/{user}/destroy', ['middleware' => 'auth', 'us
 
 Route::get('401', ['as' => '401', 'uses' => 'ErrorController@notauthorized']);
 Route::get('403', ['as' => '403', 'uses' => 'ErrorController@forbidden']);
-Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
+// Route::get('404', ['as' => '404', 'uses' => 'ErrorController@notfound']);
 Route::get('419', ['as' => '419', 'uses' => 'ErrorController@sessionexpired']);
 Route::get('429', ['as' => '429', 'uses' => 'ErrorController@serverrequest']);
 Route::get('500', ['as' => '500', 'uses' => 'ErrorController@fatal']);
@@ -87,17 +87,13 @@ Route::any ( '/controlpanel', function () {
     }
 
 } );
-
+//->orWhere ( 'Productcode fabrikant', 'LIKE', '%' . $q . '%' )->paginate(16);
 
 Route::any ( '/overzicht', function () {
-    $u = Input::get ( 'u' );
-
-    $product = Product::where ( 'Productomschrijving', 'LIKE', '%' . $u . '%' )->orWhere ( 'Productcode fabrikant', 'LIKE', '%' . $u . '%' )->paginate(16);
-    if (count ( $product ) > 0)
-        //dd($product);
-        return view ( 'Products.allproducts' )->withDetails ( $product )->withQuery ( $u );
-    else
-        return view ( 'Products.allproducts' )->withMessage ( 'No Details found. Try to search again !');
+    $q = Input::get ( 'q' );
+    $product = Product::where ( 'Productomschrijving', 'LIKE', '%' . $q . '%' )->paginate(16);
+   
+    return view ( 'products.allproducts', compact('product', 'q'));
 } );
 
 Route::get('/profile', 'UsersController@profilepic');

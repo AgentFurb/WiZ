@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
 
-@section('shopmenu')
+{{-- @section('shopmenu')
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col-5 shop-bar">
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection --}}
 
 @section('content')
     <div class="container-fluid Cprods">
@@ -71,8 +71,8 @@
                 </div>
             @else
             @endif
-            @if(isset($details))
-                @foreach ($details as $searchprod)
+            @if(isset($product))
+                @foreach ($product as $searchprod)
                     <div class="col-6 PCcard">
                         <img class="card-img-left PCimg" src="{{$searchprod->imagelink}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
                         <div class="">
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 @endforeach
-                {{ $details->links() }}
+                {{ $product->links() }}
             @else 
             @endif
         </div>
