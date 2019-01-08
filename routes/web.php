@@ -109,3 +109,5 @@ Route::post('/overzicht/nieuw/store', ['middleware' => 'auth', 'uses' => 'Produc
 Route::get('/overzicht/products/{cat}',  ['middleware' => 'auth', 'uses' =>'ProductsController@shopCat']);
 //shop product detail
 Route::get('/overzicht/productdetail/{product}', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);
+//shop product delete
+Route::delete('/overzicht/productdetail/destroy/{product}', ['middleware' => 'auth', 'uses' => 'ProductsController@destroy']);

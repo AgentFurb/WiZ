@@ -65,9 +65,7 @@
                     <h5>Locatie:</h5>
                     <input class="form-control" type="text" name="Locatie" required/>
                     <h5>Eenheid gewicht:</h5>
-                    <input class="form-control" type="text" name="Eenheid gewicht" required/>
-                    <h5>E-mail adres:</h5>
-                    <input class="form-control" type="email" name="Owner" required/>
+                    <input class="form-control" type="text" name="Eenheidgewicht" required/>
                 </div>
             </div>
             <div class="row">
