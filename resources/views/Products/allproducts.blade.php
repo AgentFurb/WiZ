@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
 
-{{-- @section('shopmenu')
+@section('shopmenu')
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col-5 shop-bar">
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-@endsection --}}
+@endsection
 
 @section('content')
     <div class="container-fluid Cprods">
@@ -71,32 +71,36 @@
                 </div>
             @else
             @endif
-            @if(isset($product))
-                @foreach ($product as $searchprod)
-                    <div class="col-6 PCcard">
-                        <img class="card-img-left PCimg" src="{{$searchprod->imagelink}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
-                        <div class="">
-                            <a href="/overzicht/productdetail/{{$searchprod->productcodefabrikant}}"><h5>{{$searchprod->productomschrijving}}</h5></a>
-                            <div class="ulinfo"> 
-                                <ul class="prodvraag">
-                                    <b><li>Locatie:</li>
-                                    <li>Product type:</li>
-                                    <li>Fabrikaat:</li>
-                                    <li>Product serie:</li>
-                                    <li>Aantal:</li></b>
-                                </ul>
-                                <ul class="prodinfo">
-                                    <li>Locatie</li>
-                                    <li>{{$searchprod->Producttype}}</li>
-                                    <li>{{$searchprod->Fabrikaat}}</li>
-                                    <li>{{$searchprod->Productserie}}</li>
-                                    <li>Aantal</li>
-                                </ul>
-                            </div>   
-                        </div>
+            @if(isset($products))
+                @foreach ($products as $chunk)
+                    <div class="row PCcard">
+                        @foreach ($chunk as $searchprod)
+                            <div class="col colcat">
+                                <div class="card PCcard">
+                                    <img class="card-img-left PCimg img-fluid" src="{{$searchprod['imagelink']}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
+                                    <a href="/overzicht/productdetail/{{$searchprod['productcodefabrikant']}}"><h5 class="card-title">{{$searchprod['productomschrijving']}}</h5></a>
+                                    <div class="card-body ulinfo"> 
+                                        <ul class="prodvraag">
+                                            <b><li>Locatie:</li>
+                                            <li>Type:</li>
+                                            <li>Fabrikaat:</li>
+                                            <li>Serie:</li>
+                                            <li>Aantal:</li></b>
+                                        </ul>
+                                        <ul class="prodinfo">
+                                            <li>{{$searchprod['locatie']}}</li>
+                                            <li>{{$searchprod['producttype']}}</li>
+                                            <li>{{$searchprod['fabrikaat']}}</li>
+                                            <li>{{$searchprod['productserie']}}</li>
+                                            <li>Aantal</li>
+                                        </ul>
+                                    </div>   
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 @endforeach
-                {{ $product->links() }}
+                {{ $products->links() }}
             @else 
             @endif
         </div>

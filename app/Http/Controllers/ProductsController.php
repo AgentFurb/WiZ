@@ -88,8 +88,6 @@ class ProductsController extends Controller
         ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
         ->where('Productcode fabrikant', '=', $product)
         ->delete();
-        
-  
 
         return redirect('/overzicht');
     }

@@ -14,7 +14,7 @@
                 </select> 
             </div>
             <div class="col-5 shop-bar">
-                <form action="/overzicht" method="POST" role="search">
+                <form action="/overzicht/products/allproducts" method="POST" role="search">
                     {{ csrf_field() }}
                     <div class="input-group">
                         <input type="text" class="form-control" name="q"
