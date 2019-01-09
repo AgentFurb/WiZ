@@ -297,3 +297,10 @@ ul {
         width: 60%;
     }
 }
+
+@media screen and (min-width: 769px) {
+    #barcode-reader {
+      visibility: hidden;
+      display: none;
+    }
+  }
