@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
 
-@section('shopmenu')
+{{-- @section('shopmenu')
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col-2 shop-bar">
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection --}}
 
 @section('content')
     @if ($productdetail > '')

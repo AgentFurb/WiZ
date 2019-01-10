@@ -23,6 +23,8 @@
         <link rel="preload" href="{{ asset('css/footer.css') }}" as="style" onload="this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="{{ asset('css/footer.css') }}"></noscript> 
 
+        <script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
+
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" /> --}}
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}" /> --}}
 
