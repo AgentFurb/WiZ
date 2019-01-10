@@ -39,127 +39,31 @@
             <div class="col pagetitle"> <h2>Product toevoegen</h2></div>
             <div class="col"></div>
         </div>
+        <div class="row">
+        <div class="col"></div>
+        <div class="col justify-content-center">
+        <button class="btn btn-scan" type="button" id="btn" value="Start/Stop the scanner" data-toggle="modal" data-target="#livestream_scanner">
+            <i class="fa fa-barcode"></i>
+        </button> 
+        </div>
+        <div class="col"></div>
+    </div>
         {{-- TEST --}}
-        <script type="text/javascript" src="assets/js/libs/quagga.min.js"></script>
-<style>
-	#interactive.viewport {position: relative; width: 100%; height: auto; overflow: hidden; text-align: center;}
-	#interactive.viewport > canvas, #interactive.viewport > video {max-width: 100%;width: 100%;}
-	canvas.drawing, canvas.drawingBuffer {position: absolute; left: 0; top: 0;}
-</style>
-<script type="text/javascript">
-import Quagga from 'quagga'; // ES6
-const Quagga = require('quagga').default; // Common JS (important: default)
-$(function() {
-	// Create the QuaggaJS config object for the live stream
-	var liveStreamConfig = {
-			inputStream: {
-				type : "LiveStream",
-				constraints: {
-					width: {min: 640},
-					height: {min: 480},
-					aspectRatio: {min: 1, max: 100},
-					facingMode: "environment" // or "user" for the front camera
-				}
-			},
-			locator: {
-				patchSize: "medium",
-				halfSample: true
-			},
-			numOfWorkers: (navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 4),
-			decoder: {
-				"readers":[
-					{"format":"ean_reader","config":{}}
-				]
-			},
-			locate: true
-		};
-	// The fallback to the file API requires a different inputStream option. 
-	// The rest is the same 
-	var fileConfig = $.extend(
-			{}, 
-			liveStreamConfig,
-			{
-				inputStream: {
-					size: 800
-				}
-			}
-		);
-	// Start the live stream scanner when the modal opens
-	$('#livestream_scanner').on('shown.bs.modal', function (e) {
-		Quagga.init(
-			liveStreamConfig, 
-			function(err) {
-				if (err) {
-					$('#livestream_scanner .modal-body .error').html('<div class="alert alert-danger"><strong><i class="fa fa-exclamation-triangle"></i> '+err.name+'</strong>: '+err.message+'</div>');
-					Quagga.stop();
-					return;
-				}
-				Quagga.start();
-			}
-		);
-    });
-	
-	// Make sure, QuaggaJS draws frames an lines around possible 
-	// barcodes on the live stream
-	Quagga.onProcessed(function(result) {
-		var drawingCtx = Quagga.canvas.ctx.overlay,
-			drawingCanvas = Quagga.canvas.dom.overlay;
- 
-		if (result) {
-			if (result.boxes) {
-				drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
-				result.boxes.filter(function (box) {
-					return box !== result.box;
-				}).forEach(function (box) {
-					Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: "green", lineWidth: 2});
-				});
-			}
- 
-			if (result.box) {
-				Quagga.ImageDebug.drawPath(result.box, {x: 0, y: 1}, drawingCtx, {color: "#00F", lineWidth: 2});
-			}
- 
-			if (result.codeResult && result.codeResult.code) {
-				Quagga.ImageDebug.drawPath(result.line, {x: 'x', y: 'y'}, drawingCtx, {color: 'red', lineWidth: 3});
-			}
-		}
-	});
-	
-	// Once a barcode had been read successfully, stop quagga and 
-	// close the modal after a second to let the user notice where 
-	// the barcode had actually been found.
-	Quagga.onDetected(function(result) {    		
-		if (result.codeResult.code){
-			$('#scanner_input').val(result.codeResult.code);
-			Quagga.stop();	
-			setTimeout(function(){ $('#livestream_scanner').modal('hide'); }, 1000);			
-		}
-	});
-    
-	// Stop quagga in any case, when the modal is closed
-    $('#livestream_scanner').on('hide.bs.modal', function(){
-    	if (Quagga){
-    		Quagga.stop();	
-    	}
-    });
-	
-	// Call Quagga.decodeSingle() for every file selected in the 
-	// file input
-	$("#livestream_scanner input:file").on("change", function(e) {
-		if (e.target.files && e.target.files.length) {
-			Quagga.decodeSingle($.extend({}, fileConfig, {src: URL.createObjectURL(e.target.files[0])}), function(result) {alert(result.codeResult.code);});
-		}
-	});
-});
-</script>
-        <div class="row" id="barcode-reader">
+        <style>
+            /* In order to place the tracking correctly */
+            canvas.drawing, canvas.drawingBuffer {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        </style>
+        <div class="row">
             <div class="col-lg-6">
                 <div class="input-group">
-                    <input id="scanner_input" class="form-control" placeholder="Click the button to scan an EAN..." type="text" /> 
                     <span class="input-group-btn"> 
-                        <button class="btn btn-default" type="button" data-toggle="modal" data-target="#livestream_scanner">
+                        {{-- <button class="btn btn-scan" type="button" id="btn" value="Start/Stop the scanner" data-toggle="modal" data-target="#livestream_scanner">
                             <i class="fa fa-barcode"></i>
-                        </button> 
+                        </button>  --}}
                     </span>
                 </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
@@ -168,25 +72,149 @@ $(function() {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                         <h4 class="modal-title">Barcode Scanner</h4>
+                        <button type="button" id="btn" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>                        
                     </div>
-                    <div class="modal-body" style="position: static">
+                    <div class="modal-body">
                         <div id="interactive" class="viewport"></div>
                         <div class="error"></div>
+                        <div id="scanner-container"></div>
                     </div>
                     <div class="modal-footer">
-                        <label class="btn btn-default pull-left">
-                            <i class="fa fa-camera"></i> Use camera app
-                            <input type="file" accept="image/*;capture=camera" capture="camera" class="hidden" />
-                        </label>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        <button id="scanclose" value="Start/Stop the scanner" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+        {{-- <div id="scanner-container"></div>
+        <input type="button" id="btn" value="Start/Stop the scanner" />
+        <div id="interactive" class="viewport"></div> --}}
+
+        <script>     
+                function startScanner() {
+                    Quagga.init({
+                        inputStream: {
+                            name: "Live",
+                            type: "LiveStream",
+                            target: document.querySelector('#scanner-container'),
+                            constraints: {
+                                width: 480,
+                                height: 320,
+                                facingMode: "environment"
+                            },
+                        },
+                        decoder: {
+                            readers: [
+                                "code_128_reader",
+                                "ean_reader",
+                                "ean_8_reader",
+                                "code_39_reader",
+                                "code_39_vin_reader",
+                                "codabar_reader",
+                                "upc_reader",
+                                "upc_e_reader",
+                                "i2of5_reader"
+                            ],
+                            debug: {
+                                showCanvas: true,
+                                showPatches: true,
+                                showFoundPatches: true,
+                                showSkeleton: true,
+                                showLabels: true,
+                                showPatchLabels: true,
+                                showRemainingPatchLabels: true,
+                                boxFromPatches: {
+                                    showTransformed: true,
+                                    showTransformedBox: true,
+                                    showBB: true
+                                }
+                            }
+                        },
+        
+                    }, function (err) {
+                        if (err) {
+                            console.log(err);
+                            return
+                            Quagga.initialized = true;
+                            Quagga.start();
+                        }
+        
+                        console.log("Initialization finished. Ready to start");
+                        Quagga.start();
+        
+                        // Set flag to is running
+                        _scannerIsRunning = true;
+                    });
+        
+                    Quagga.onProcessed(function (result) {
+                        var drawingCtx = Quagga.canvas.ctx.overlay,
+                        drawingCanvas = Quagga.canvas.dom.overlay;
+        
+                        if (result) {
+                            if (result.boxes) {
+                                drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
+                                result.boxes.filter(function (box) {
+                                    return box !== result.box;
+                                }).forEach(function (box) {
+                                    Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
+                                });
+                            }
+        
+                            if (result.box) {
+                                Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
+                            }
+        
+                            if (result.codeResult && result.codeResult.code) {
+                                Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
+                            }
+                        }
+                    });
+                    function order_by_occurrence(arr) {
+                        var counts = {};
+                        arr.forEach(function(value){
+                            if(!counts[value]) {
+                                counts[value] = 0;
+                            }
+                            counts[value]++;
+                        });
+
+                        return Object.keys(counts).sort(function(curKey,nextKey) {
+                            return counts[curKey] < counts[nextKey];
+                        });
+                    }
+                    var last_result = [];
+                    Quagga.onDetected(function (result) {
+                        var last_code = result.codeResult.code;
+                        console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+                        last_result.push(last_code);
+                        if (last_result.length > 20) {
+                            code = order_by_occurrence(last_result)[0];
+                            console.log(last_result);
+                            last_result = [];
+                            Quagga.stop();
+                            $.ajax({
+                                type: "POST",
+                                url: '/products/get_barcode',
+                                data: { upc: code }
+                            });
+                        }
+                        
+                    });
+                }
+        
+        
+                // Start/stop scanner
+                document.getElementById("btn").addEventListener("click", function () {
+                    startScanner();
+                });
+
+                document.getElementById("scanclose").addEventListener("click", function () {
+                    Quagga.stop();
+                });
+            </script>
+
         {{-- END TEST  --}}
         <form action="/overzicht/nieuw/store" method="POST" enctype="multipart/form-data">
             @method('POST')
