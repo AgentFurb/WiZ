@@ -5,7 +5,7 @@
 @section('shopmenu')
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
-            <div class="col-5 shop-bar">
+            <div class="col-2 shop-bar">
                 <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($combocats as $combocat)
@@ -16,20 +16,14 @@
             <div class="col-5 shop-bar">
                 <form action="/overzicht/products/allproducts" method="POST" role="search">
                     {{ csrf_field() }}
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="q"
-                            placeholder="Search users"> <span class="input-group-btn">
-                            <button type="submit" class="btn btn-default">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    </div>
+                    <input type="text" placeholder="Search product" name="q">
+                    <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <div class="col-2 shop-bar addcol">
                 <div class="addprod">
                     <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
-                        <i class="fas fa-plus"></i>
+                        <i class="far fa-plus-square"></i>
                     </a>
                 </div>
             </div>

@@ -6,21 +6,25 @@
 @section('shopmenu')
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
-            <div class="col-5 shop-bar">
-                <select class="form-control category" onchange="window.location=this.options[this.selectedIndex].value">
+            <div class="col-2 shop-bar">
+                <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($combocats as $combocat)
                         <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
                     @endforeach
                 </select> 
             </div>
-            <div class="col-5 shop-bar">
-                <input type="search" class="form-control search" placeholder="Search" aria-label="Search" size="60" >
+            <div class="col-8 shop-bar">
+                <form class="Sbar" action="/overzicht" method="POST" role="search">
+                    {{ csrf_field() }}
+                    <input type="text" placeholder="Search product" name="q">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
             </div>
             <div class="col-2 shop-bar addcol">
                 <div class="addprod">
-                    <a href="/overzicht/nieuw">
-                        <i class="fas fa-plus"></i>
+                    <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
+                        <i class="far fa-plus-square"></i>
                     </a>
                 </div>
             </div>
@@ -44,9 +48,9 @@
                 <div class="col-xl  form-group">
                     <h5>Product foto:</h5>
                     <div class="productphoto">
-                        <img src="{{ asset('img/img-placeholder.png') }}" alt="" class="img-fluid" name="imagelink">
+                        <img id="imgShop" src="{{ asset('img/img-placeholder.png') }}" alt="" class="img-fluid" name="imagelink">
                         <br>
-                        <input type="file" name="imagelink">
+                        <input type="file" name="imagelink" onchange="previewFileShop()">
                     </div>
                     <h5>Productomschrijving:</h5>
                     <textarea class="form-control" rows="4" cols="50"  name="Productomschrijving" required></textarea>
