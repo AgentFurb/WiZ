@@ -304,3 +304,22 @@ ul {
       display: none;
     }
   }
+
+.btn-scan {
+    background-color: #f28e0b;
+    color: #ffffff;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 1px solid #ced4da;
+}
+
+.fa-barcode {
+    font-size: 50px;
+    line-height: 1.5;
+}
+
+.btn-scan:hover {
+    background-color: #ffffff;
+    color: #f28e0b;
+}

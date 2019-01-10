@@ -20,7 +20,7 @@
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-            <div class="col-2 shop-bar addcol">
+            <div class="col-5 shop-bar addcol">
                 <div class="addprod">
                     <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
                         <i class="far fa-plus-square"></i>
