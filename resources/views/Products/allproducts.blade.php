@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
 
-{{-- @section('shopmenu')
+@section('shopmenu')
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col-2 shop-bar">
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-@endsection --}}
+@endsection
 
 @section('content')
     <div class="container-fluid Cprods">
@@ -58,7 +58,7 @@
                                             <li>{{$prodscat->producttype}}</li>
                                             <li>{{$prodscat->fabrikaat}}</li>
                                             <li>{{$prodscat->productserie}}</li>
-                                            <li>Aantal</li>
+                                            <li>{{$prodscat->aantal}}</li>
                                         </ul>
                                     </div>   
                                 </div>
@@ -76,13 +76,13 @@
             @else
             @endif
             @if(isset($products))
-                @foreach ($products as $chunk)
+                @foreach ($products as $searchprods)
                     <div class="row PCcard">
-                        @foreach ($chunk as $searchprod)
+                        {{-- @foreach ($chunk as $searchprods) --}}
                             <div class="col colcat">
                                 <div class="card PCcard">
-                                    <img class="card-img-left PCimg img-fluid" src="{{$searchprod['imagelink']}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
-                                    <a href="/overzicht/productdetail/{{$searchprod['productcodefabrikant']}}"><h5 class="card-title">{{$searchprod['productomschrijving']}}</h5></a>
+                                    <img class="card-img-left PCimg img-fluid" src="{{$searchprods->imagelink}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
+                                    <a href="/overzicht/productdetail/{{$searchprods->productcodefabrikant}}"><h5 class="card-title">{{$searchprods->productomschrijving}}</h5></a>
                                     <div class="card-body ulinfo"> 
                                         <ul class="prodvraag">
                                             <b><li>Locatie:</li>
@@ -92,16 +92,16 @@
                                             <li>Aantal:</li></b>
                                         </ul>
                                         <ul class="prodinfo">
-                                            <li>{{$searchprod['locatie']}}</li>
-                                            <li>{{$searchprod['producttype']}}</li>
-                                            <li>{{$searchprod['fabrikaat']}}</li>
-                                            <li>{{$searchprod['productserie']}}</li>
-                                            <li>Aantal</li>
+                                            <li>{{$searchprods->locatie}}</li>
+                                            <li>{{$searchprods->producttype}}</li>
+                                            <li>{{$searchprods->fabrikaat}}</li>
+                                            <li>{{$searchprods->productserie}}</li>
+                                            <li>{{$searchprods->aantal}}</li>
                                         </ul>
                                     </div>   
                                 </div>
                             </div>
-                        @endforeach
+                        {{-- @endforeach --}}
                     </div>
                 @endforeach
                 {{ $products->links() }}

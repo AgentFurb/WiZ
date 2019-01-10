@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
 
-{{-- @section('shopmenu')
+@section('shopmenu')
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col-2 shop-bar">
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-@endsection --}}
+@endsection
 
 @section('content')
     @if ($productdetail > '')
@@ -46,6 +46,8 @@
                     <a href=""><i class="fas fa-wrench editdeleteicons "></i></a>
                     <i class="tablinks far fa-trash-alt editdeleteicons proddel" onclick="openCity(event, 'proddel')"></i>
                     <i class="tablinks fas fa-info editdeleteicons" onclick="openCity(event, 'prodinfo')" id="defaultOpen" style="display: none;"></i>
+                    {{-- <i class="tablinks fas fa-box-open editdeleteicons" onclick="openCity(event, 'nospecs')" id="defaultOpen"></i>
+                    <i class="tablinks fas fa-info-circle editdeleteicons" onclick="openCity(event, 'showspecs')"></i> --}}
                 </div>
             </div>
             <hr id="userdetailline">
@@ -55,27 +57,35 @@
                         <img src="{{ $productdetail[0]->imagelink }}" id="myImg" class="productImg img-fluid" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
                     </div>
                     <div class="userdetailverticalline"></div>
-                    <div class="col prodinformatie">
-                        <br>
-                        <b>Productcode:</b><br><br>
-                        <b>Ingangsdatum:</b><br><br>
-                        <b>GTIN product:</b><br><br>
-                        <b>Fabikaat:</b><br><br>
-                        <b>Productserie:</b><br><br>
-                        <b>Locatie:</b><br><br>
-                        <b>Product gewicht:</b><br><br>
-                        <br><br>
-                    </div>
-                    <div class="col prodinformatie">
-                        <br>
-                        {{ $productdetail[0]->productcodefabrikant}} <br><br>
-                        {{ $productdetail[0]->ingangsdatum }} <br><br>
-                        {{ $productdetail[0]->GTIN }}  <br><br>
-                        {{ $productdetail[0]->fabrikaat }} <br><br>
-                        {{ $productdetail[0]->productserie }} <br><br>
-                        {{ $productdetail[0]->locatie }} <br><br>
-                        {{ $productdetail[0]->gewicht }} <br><br>
-                    </div>
+                    {{-- <div class="tabcontent" id="nospecs"> --}}
+                        <div class="col prodinformatie">
+                            <br>
+                            <b>Productcode:</b><br><br>
+                            <b>Ingangsdatum:</b><br><br>
+                            <b>GTIN product:</b><br><br>
+                            <b>Fabikaat:</b><br><br>
+                            <b>Productserie:</b><br><br>
+                            <b>Locatie:</b><br><br>
+                            <b>Product gewicht:</b><br><br>
+                            <b>Aantal:</b><br><br>
+                            <br><br>
+                        </div>
+                        <div class="col prodinformatie">
+                            <br>
+                            {{ $productdetail[0]->productcodefabrikant}} <br><br>
+                            {{ (empty($productdetail[0]->ingangsdatum)) ? $productdetail[0]->createdas : $productdetail[0]->ingangsdatum }} <br><br>
+                            {{ (empty($productdetail[0]->GTIN)) ? 'Geen scancode' : $productdetail[0]->GTIN }}  <br><br>
+                            {{ $productdetail[0]->fabrikaat }} <br><br>
+                            {{ $productdetail[0]->productserie }} <br><br>
+                            {{ $productdetail[0]->locatie }} <br><br>
+                            {{ $productdetail[0]->gewicht }} <br><br>
+                            {{ $productdetail[0]->aantal }} <br><br>
+                        </div>
+                    {{-- </div> --}}
+                    {{-- <div class="tabcontent" id="showspecs">
+                        <h1>specs</h1>
+                    </div> --}}
+
                 </div>
             </div>
         </div>

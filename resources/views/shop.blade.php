@@ -39,10 +39,13 @@
                 @if (isset($productsOTs))
                     @foreach ($productsOTs as $productsOT)
                         <div class="card">
-                            <img class="card-img-top " src="{{$productsOT->imagelink}}" alt="Card image cap" height="300px" width="300px">
+                            <img class="card-img-top " src="{{$productsOT->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" height="300px" width="300px">
                             <div class="card-body">
-                                <a href="/overzicht/productdetail/{{$productsOT->Productcode}}" class="card-link"><h5 class="card-title">{{$productsOT->Productomschrijving}}</h5></a>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                                <a href="/overzicht/productdetail/{{$productsOT->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{$productsOT->productomschrijving}}</h5></a>
+                                <ul style="list-style-type:square">
+                                    <li class="productinfoshopindex"><p >{{$productsOT->locatie}}</p></li>
+                                    <li class="productinfoshopindex"><p>{{$productsOT->ingangsdatum}}</p></li>
+                                </ul>
                             </div>
                         </div>
                     @endforeach
@@ -51,34 +54,34 @@
                 @endif
             </div>
         </div>
-        <div class="col-sm-4">
-            <ul class="list-unstyled">
-                <li class="media">
-                    <h3 class="mt-0 mb-1">Eerder bekeken:</h3>
-                </li>
-                <li class="media">
-                    <img class="mr-3 eb-product" src="img/img-placeholder.png" alt="Generic placeholder image">
-                    <div class="media-body">
-                        <a href="#" class="card-link"><h5>Bekijk hier het product</h5></a>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                    </div>
-                </li>
-                <li class="media my-4">
-                    <img class="mr-3 eb-product" src="img/img-placeholder.png" alt="Generic placeholder image">
-                    <div class="media-body">
-                        <a href="#" class="card-link"><h5>Bekijk hier het product</h5></a>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                    </div>
-                </li>
-                <li class="media">
-                    <img class="mr-3 eb-product" src="img/img-placeholder.png" alt="Generic placeholder image">
-                    <div class="media-body">
-                        <a href="#" class="card-link"><h5>Bekijk hier het product</h5></a>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                    </div>
-                </li>
-            </ul>
+        <div class="col">
+            <div class="row">
+                <div class="card">
+                    <img class="card-img-top image-fluid" src="{{ asset('/img/img-placeholder.png')}}" alt="Card image cap" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <img class="card-img-top image-fluid" src="{{ asset('/img/img-placeholder.png')}}" alt="Card image cap" />
+                </div>
+            </div>
         </div>
+        <div class="col">
+                <div class="row">
+                <div class="card-body">
+                        <a href="" class="card-link"><h5 class="card-title">Linkl</h5></a>
+                    <p class="card-text">If your canoe is stuck in a tree with the headlights on, how many pancakes does it take to get to the moon?</p>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="card-body">
+                            <a href="" class="card-link"><h5 class="card-title">Linkl</h5></a>
+                        <p class="card-text">If your canoe is stuck in a tree with the headlights on, how many pancakes does it take to get to the moon?</p>
+                    </div>
+                </div>
+        </div>
+        
     </div>
 </div>
 <div class="container-fluid bekijkook">

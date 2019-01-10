@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
 
-{{-- @section('shopmenu')
+@section('shopmenu')
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col-2 shop-bar">
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-@endsection --}}
+@endsection
 
 @section('content')
     <div class="container">
@@ -195,7 +195,7 @@ $(function() {
                 <div class="col-xl  form-group">
                     <h5>Product foto:</h5>
                     <div class="productphoto">
-                        <img id="imgShop" src="{{ asset('img/img-placeholder.png') }}" alt="" class="img-fluid" name="imagelink">
+                        <img id="imgShop" src="" onerror=this.src="{{ url('/img/img-placeholder.png') }}" class="img-fluid" name="imagelink">
                         <br>
                         <input type="file" name="imagelink" onchange="previewFileShop()">
                     </div>
@@ -206,7 +206,7 @@ $(function() {
                     <h5>Productcode:</h5>
                     <input class="form-control" type="text" name="Productcodefabrikant" required/>
                     <h5>GTIN product:</h5>
-                    <input class="form-control" type="text" name="GTIN" required/>
+                    <input class="form-control" type="text" name="GTIN"/>
                     <h5>Fabrikaat:</h5>
                     <input class="form-control" type="text" name="Fabrikaat" required/>
                     <h5>Productserie:</h5>
@@ -217,11 +217,16 @@ $(function() {
                     <input class="form-control" type="text" name="Locatie" required/>
                     <h5>Eenheid gewicht:</h5>
                     <input class="form-control" type="text" name="Eenheidgewicht" required/>
+                    <h5>Aantal:</h5>
+                    <input class="form-control" type="text" name="Aantal" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col"></div>
-                <div class="col prodcreate">
+                <div class="col-6 prodcreate">
+                    {{-- @if(isset($errormessage1))
+                        <div class="errormessage1"><h3>{{$errormessage1}}</h3></div><br>
+                    @endif --}}
                     <input class="btn btn-lg" type="submit" value="Toevoegen"/>
                 </div>
                 <div class="col"></div>

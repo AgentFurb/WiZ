@@ -89,7 +89,29 @@ Route::any ( '/controlpanel', function () {
 } );
 //->orWhere ( 'Productcode fabrikant', 'LIKE', '%' . $q . '%' )->paginate(16);
 
-Route::any ( '/overzicht/products/allproducts', 'SearchController@SearchProducts');
+Route::any ( '/overzicht/products/allproducts', function(){
+    $q = Input::get ( 'q' );
+    // $products = Product::where ( 'Productomschrijving', 'LIKE', '%' . $q . '%' )->paginate(16);
+
+    // $products = DB::table('products AS p')
+    // ->chunk(3, function($products));
+    // ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
+    // ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Locatie as locatie','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink')
+    // ->where('p.productomschrijving', 'LIKE', '%' . $q . '%')
+    // // ->simplePaginate(15);
+
+    $products = Product::where ('Productomschrijving', 'LIKE', '%' . $q . '%')->orwhere ('Productcode fabrikant', 'LIKE', '%' . $q . '%')
+    ->chunk(3, function($products){
+        foreach ($products as $product) {
+            // apply some action to the chunked results here
+        }
+    });
+
+    // Product::insert($products->toArray()); //insert chunked data
+
+    $combocats = DB::table('products')->distinct()->select('Productserie')->get();
+    return view ( 'products.allproducts', compact('products', 'q', 'combocats'));
+});
 
 Route::get('/profile', 'UsersController@profilepic');
 Route::post('/profile', 'UsersController@update_avatar');

@@ -46,18 +46,4 @@ class SearchController extends Controller
     // }
 
 
-    public function SearchProducts()
-    {
-        $q = Input::get ( 'q' );
-        // $products = Product::where ( 'Productomschrijving', 'LIKE', '%' . $q . '%' )->paginate(16);
-    
-        $products = DB::table('products AS p')
-        ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
-        ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Locatie as locatie','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink')
-        ->where('p.productomschrijving', 'LIKE', '%' . $q . '%')
-        ->simplePaginate(15);
-    
-        $combocats = DB::table('products')->distinct()->select('Productserie')->get();
-        return view ( 'products.allproducts', compact('products', 'q', 'combocats'));
-    }
 }

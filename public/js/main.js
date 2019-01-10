@@ -26,7 +26,7 @@ function previewFileShop() {
   if (file) {
     reader.readAsDataURL(file);
   } else {
-    preview.src = "";
+    preview.src = file;
   }
 }
 
