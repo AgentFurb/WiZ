@@ -30,6 +30,7 @@ var filesToCache = [
     '/img/icons/icon-192x192.png',
     '/img/icons/icon-384x384.png',
     '/img/icons/icon-512x512.png',
+   '/img/newproduct.png',
 
     '/img/background.jpg',
     '/img/plain.jpg',
