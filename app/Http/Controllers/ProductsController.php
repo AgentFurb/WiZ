@@ -51,7 +51,7 @@ class ProductsController extends Controller
 
         $productdetail = DB::table('products AS p')
         ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
-        ->select('p.ID as id', 'p.Eenheid gewicht as gewicht','p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Locatie as locatie','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink', 'p.Aantal as aantal' )
+        ->select('p.ID as id', 'p.Eenheid gewicht as gewicht','p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Locatie as locatie','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink', 'p.Aantal as aantal', 'p.Pspecificaties as specs')
         ->where('Productcode fabrikant', '=', $product)
         ->limit(1)
         ->get();
@@ -91,12 +91,37 @@ class ProductsController extends Controller
 
     public function destroy(String $product)
     {
-        $deleteproduct = DB::table('products AS p')
-        ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
-        ->where('Productcode fabrikant', '=', $product)
-        ->delete();
+        $deleteproduct = Product::where('Productcode fabrikant', '=', $product)->delete();
+        $deleteproductimage = Pimage::where('Productcode', '=', $product)->delete();
 
         return redirect('/overzicht');
+    }
+
+    public function update(Request $request)
+    {
+
+       $product = null;
+        $product = Product::where('ID', $request->ID);
+        dd($product);
+        
+
+        return redirect('/overzicht');
+    }
+
+
+    public function editproduct(String $product)
+    {
+        $combocats = DB::table('products')->distinct()->select('Productserie', 'Productserie')->get();
+
+        $productedit = DB::table('products AS p')
+        ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
+        ->select('p.ID as id', 'p.Eenheid gewicht as gewicht','p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Locatie as locatie','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink', 'p.Aantal as aantal', 'p.Pspecificaties as specs')
+        ->where('Productcode fabrikant', '=', $product)
+        ->limit(1)
+        ->get();
+
+        // dd($productedit);
+        return view('Products.editproduct', compact('combocats', 'productedit'));
     }
 
     public function store(Request $request)
@@ -134,20 +159,40 @@ class ProductsController extends Controller
                 $pimage->save();
             }
 
+            if(empty($request->input("Specificaties")))
+            {
+                $product = new Product();
+                $product["Productcode fabrikant"] = $request->input("Productcodefabrikant");
+                $product["GTIN product"] = $request->input("GTIN");
+                $product->Productomschrijving = $request->input("Productomschrijving");
+                $product->Locatie = $request->input("Locatie");
+                $product->Fabrikaat = $request->input("Fabrikaat");
+                $product->Productserie = $request->input("Productserie");
+                $product->Producttype = $request->input("Producttype");
+                $product["Eenheid gewicht"] = $request->input("Eenheidgewicht");
+                $product->Aantal = $request->input("Aantal");
+                $product->Ingangsdatum = date('Y-m-d H:i:s');
+                $product->save();
+            }
+            else
+            {
+                $product = new Product();
+                $product["Productcode fabrikant"] = $request->input("Productcodefabrikant");
+                $product["GTIN product"] = $request->input("GTIN");
+                $product->Productomschrijving = $request->input("Productomschrijving");
+                $product->Pspecificaties = $request->input("Specificaties");
+                $product->Locatie = $request->input("Locatie");
+                $product->Fabrikaat = $request->input("Fabrikaat");
+                $product->Productserie = $request->input("Productserie");
+                $product->Producttype = $request->input("Producttype");
+                $product["Eenheid gewicht"] = $request->input("Eenheidgewicht");
+                $product->Aantal = $request->input("Aantal");
+                $product->Ingangsdatum = date('Y-m-d H:i:s');
+                $product->save();
+            }
+           
 
-            $product = new Product();
-            $product["Productcode fabrikant"] = $request->input("Productcodefabrikant");
-            $product["GTIN product"] = $request->input("GTIN");
-            $product->Productomschrijving = $request->input("Productomschrijving");
-            $product->Locatie = $request->input("Locatie");
-            $product->Fabrikaat = $request->input("Fabrikaat");
-            $product->Productserie = $request->input("Productserie");
-            $product->Producttype = $request->input("Producttype");
-            $product["Eenheid gewicht"] = $request->input("Eenheidgewicht");
-            $product->Aantal = $request->input("Aantal");
-            $product->Ingangsdatum = date('Y-m-d H:i:s');;
-
-            $product->save();
+            
 
             return redirect('/overzicht');
         // }

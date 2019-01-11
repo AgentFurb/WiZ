@@ -227,10 +227,13 @@
                         <br>
                         <input type="file" name="imagelink" onchange="previewFileShop()">
                     </div>
-                    <h5>Productomschrijving:</h5>
-                    <textarea class="form-control" rows="4" cols="50"  name="Productomschrijving" required></textarea>
+
+                    <h5>Product extra informatie:</h5>
+                    <textarea class="form-control" rows="7" cols="50"  name="Specificaties"></textarea>
                 </div>
                 <div class="col-xl  form-group">
+                    <h5>Product naam:</h5>
+                    <input class="form-control" type="text" name="Productomschrijving" required/>
                     <h5>Productcode:</h5>
                     <input class="form-control" type="text" name="Productcodefabrikant" required/>
                     <h5>GTIN product:</h5>

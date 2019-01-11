@@ -23,7 +23,7 @@
             <div class="col-5 shop-bar addcol">
                 <div class="addprod">
                     <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
-                        <i class="far fa-plus-square"></i>
+                        <img src="{{ asset('img/newproduct.png') }}" alt="" height="50px" width="50px">
                     </a>
                 </div>
             </div>
@@ -54,33 +54,22 @@
                 @endif
             </div>
         </div>
-        <div class="col">
-            <div class="row">
-                <div class="card">
-                    <img class="card-img-top image-fluid" src="{{ asset('/img/img-placeholder.png')}}" alt="Card image cap" />
-
+        {{-- <div class="list-group">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small>3 days ago</small>
                 </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                <small>Donec id elit non mi porta.</small>
             </div>
-            <div class="row">
-                <div class="card">
-                    <img class="card-img-top image-fluid" src="{{ asset('/img/img-placeholder.png')}}" alt="Card image cap" />
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small>3 days ago</small>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-                <div class="row">
-                <div class="card-body">
-                        <a href="" class="card-link"><h5 class="card-title">Linkl</h5></a>
-                    <p class="card-text">If your canoe is stuck in a tree with the headlights on, how many pancakes does it take to get to the moon?</p>
-                </div>
-            </div>
-            <div class="row">
-                    <div class="card-body">
-                            <a href="" class="card-link"><h5 class="card-title">Linkl</h5></a>
-                        <p class="card-text">If your canoe is stuck in a tree with the headlights on, how many pancakes does it take to get to the moon?</p>
-                    </div>
-                </div>
-        </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                <small>Donec id elit non mi porta.</small>
+            </div> --}}
         
     </div>
 </div>
