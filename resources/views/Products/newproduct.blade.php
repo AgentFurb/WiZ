@@ -6,22 +6,28 @@
 @section('shopmenu')
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
-            <div class="col-2 shop-bar">
+            <div class="col order-1 shop-bar">
                 <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($combocats as $combocat)
                         <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
                     @endforeach
                 </select> 
-            </div>
-            <div class="col-8 shop-bar">
+
                 <form class="Sbar" action="/overzicht" method="POST" role="search">
                     {{ csrf_field() }}
                     <input type="text" placeholder="Search product" name="q">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-            <div class="col-2 shop-bar addcol">
+            <div class="col order-2 shop-bar">
+                {{-- <form class="Sbar" action="/overzicht" method="POST" role="search">
+                    {{ csrf_field() }}
+                    <input type="text" placeholder="Search product" name="q">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form> --}}
+            </div>
+            <div class="col order-12 shop-bar addcol">
                 <div class="addprod">
                     <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
                         <i class="far fa-plus-square"></i>
@@ -36,18 +42,17 @@
     <div class="container">
         <div class="row">
             <div class="col"></div>
-            <div class="col pagetitle"> <h2>Product toevoegen</h2></div>
-            <div class="col"></div>
+            <div class="col pagetitle"> 
+                <h2>Product toevoegen</h2>
+            </div>
+            <div class="col">
+            {{-- <div class="btn-floating-container">
+                <button class="btn-floating btn btn-primary btn-medium"><i class="fa fa-barcode " aria-hidden="true"></i>
+                </button>
+            </div> --}}
+            </div>
         </div>
-        <div class="row">
-        <div class="col"></div>
-        <div class="col justify-content-center">
-        <button class="btn btn-scan" type="button" id="btn" value="Start/Stop the scanner" data-toggle="modal" data-target="#livestream_scanner">
-            <i class="fa fa-barcode"></i>
-        </button> 
-        </div>
-        <div class="col"></div>
-    </div>
+        
         {{-- TEST --}}
         <style>
             /* In order to place the tracking correctly */
@@ -237,7 +242,10 @@
                     <h5>Productcode:</h5>
                     <input class="form-control" type="text" name="Productcodefabrikant" required/>
                     <h5>GTIN product:</h5>
-                    <input class="form-control" type="text" name="GTIN"/>
+                    <input class="form-control scanBtn" type="text" name="GTIN"/>
+                    <button class="btn btn-scan" type="button" id="btn" value="Start/Stop the scanner" data-toggle="modal" data-target="#livestream_scanner">
+                        <i class="fa fa-barcode"></i>
+                    </button> 
                     <h5>Fabrikaat:</h5>
                     <input class="form-control" type="text" name="Fabrikaat" required/>
                     <h5>Productserie:</h5>

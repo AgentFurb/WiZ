@@ -82,7 +82,20 @@
 }
 
 .category {
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
     max-width: 250px;
+    background: #ffffff;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+
+    padding-left: .2rem !important;
+    padding-right: 0px !important;
+    border: 1px solid #ced4da;
+    border-right: 0;
 }
 
 .search {
@@ -333,7 +346,7 @@ form.Sbar input[type=text] {
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    max-width: 200px;
+    max-width: 250px;
     background: #ffffff;
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
@@ -362,12 +375,18 @@ form.Sbar button {
 
     border: 1px solid #2f2fff;
     border-left: 0;
+
+    margin-left: -42px;
 }
 
 form.Sbar::after {
     content: "";
     clear: both;
     display: table;
+}
+
+.Sbar {
+    float: right;
 }
 
 .fa-plus-square {
