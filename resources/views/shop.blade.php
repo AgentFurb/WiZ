@@ -23,7 +23,7 @@
             <div class="col-5 shop-bar addcol">
                 <div class="addprod">
                     <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
-                        <img src="{{ asset('img/newproduct.png') }}" alt="" height="50px" width="50px">
+                        <img src="{{ asset('img/newproduct.png') }}" alt="" height="50px" width="50px" style="margin-bottom: 5px;">
                     </a>
                 </div>
             </div>
