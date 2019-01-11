@@ -268,6 +268,8 @@ ul.prodinfo {
     background-color: #f8d7da;
 }
 
+
+
 @media only screen and (max-width: 320px) {
     .productImg {
        max-height: 330px;
