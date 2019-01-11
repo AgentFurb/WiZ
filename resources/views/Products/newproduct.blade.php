@@ -78,7 +78,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Barcode Scanner</h4>
-                        <button type="button" id="btn" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>                        
                     </div>
@@ -96,129 +96,6 @@
         {{-- <div id="scanner-container"></div>
         <input type="button" id="btn" value="Start/Stop the scanner" />
         <div id="interactive" class="viewport"></div> --}}
-
-        <script>     
-                function startScanner() {
-                    Quagga.init({
-                        inputStream: {
-                            name: "Live",
-                            type: "LiveStream",
-                            target: document.querySelector('#scanner-container'),
-                            constraints: {
-                                width: 480,
-                                height: 320,
-                                facingMode: "environment"
-                            },
-                        },
-                        decoder: {
-                            readers: [
-                                "code_128_reader",
-                                "ean_reader",
-                                "ean_8_reader",
-                                "code_39_reader",
-                                "code_39_vin_reader",
-                                "codabar_reader",
-                                "upc_reader",
-                                "upc_e_reader",
-                                "i2of5_reader"
-                            ],
-                            debug: {
-                                showCanvas: true,
-                                showPatches: true,
-                                showFoundPatches: true,
-                                showSkeleton: true,
-                                showLabels: true,
-                                showPatchLabels: true,
-                                showRemainingPatchLabels: true,
-                                boxFromPatches: {
-                                    showTransformed: true,
-                                    showTransformedBox: true,
-                                    showBB: true
-                                }
-                            }
-                        },
-        
-                    }, function (err) {
-                        if (err) {
-                            console.log(err);
-                            return
-                            Quagga.initialized = true;
-                            Quagga.start();
-                        }
-        
-                        console.log("Initialization finished. Ready to start");
-                        Quagga.start();
-        
-                        // Set flag to is running
-                        _scannerIsRunning = true;
-                    });
-        
-                    Quagga.onProcessed(function (result) {
-                        var drawingCtx = Quagga.canvas.ctx.overlay,
-                        drawingCanvas = Quagga.canvas.dom.overlay;
-        
-                        if (result) {
-                            if (result.boxes) {
-                                drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
-                                result.boxes.filter(function (box) {
-                                    return box !== result.box;
-                                }).forEach(function (box) {
-                                    Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
-                                });
-                            }
-        
-                            if (result.box) {
-                                Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
-                            }
-        
-                            if (result.codeResult && result.codeResult.code) {
-                                Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
-                            }
-                        }
-                    });
-                    function order_by_occurrence(arr) {
-                        var counts = {};
-                        arr.forEach(function(value){
-                            if(!counts[value]) {
-                                counts[value] = 0;
-                            }
-                            counts[value]++;
-                        });
-
-                        return Object.keys(counts).sort(function(curKey,nextKey) {
-                            return counts[curKey] < counts[nextKey];
-                        });
-                    }
-                    var last_result = [];
-                    Quagga.onDetected(function (result) {
-                        var last_code = result.codeResult.code;
-                        console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
-                        last_result.push(last_code);
-                        if (last_result.length > 20) {
-                            code = order_by_occurrence(last_result)[0];
-                            console.log(last_result);
-                            last_result = [];
-                            Quagga.stop();
-                            $.ajax({
-                                type: "POST",
-                                url: '/products/get_barcode',
-                                data: { upc: code }
-                            });
-                        }
-                        
-                    });
-                }
-        
-        
-                // Start/stop scanner
-                document.getElementById("btn").addEventListener("click", function () {
-                    startScanner();
-                });
-
-                document.getElementById("scanclose").addEventListener("click", function () {
-                    Quagga.stop();
-                });
-            </script>
 
         {{-- END TEST  --}}
         <form action="/overzicht/nieuw/store" method="POST" enctype="multipart/form-data">
@@ -272,4 +149,126 @@
             </div>
         </form>
     </div>
+    <script>     
+            function startScanner() {
+                Quagga.init({
+                    inputStream: {
+                        name: "Live",
+                        type: "LiveStream",
+                        target: document.querySelector('#scanner-container'),
+                        constraints: {
+                            width: 480,
+                            height: 320,
+                            facingMode: "environment"
+                        },
+                    },
+                    decoder: {
+                        readers: [
+                            "code_128_reader",
+                            "ean_reader",
+                            "ean_8_reader",
+                            "code_39_reader",
+                            "code_39_vin_reader",
+                            "codabar_reader",
+                            "upc_reader",
+                            "upc_e_reader",
+                            "i2of5_reader"
+                        ],
+                        debug: {
+                            showCanvas: true,
+                            showPatches: true,
+                            showFoundPatches: true,
+                            showSkeleton: true,
+                            showLabels: true,
+                            showPatchLabels: true,
+                            showRemainingPatchLabels: true,
+                            boxFromPatches: {
+                                showTransformed: true,
+                                showTransformedBox: true,
+                                showBB: true
+                            }
+                        }
+                    },
+    
+                }, function (err) {
+                    if (err) {
+                        console.log(err);
+                        return
+                        Quagga.initialized = true;
+                        Quagga.start();
+                    }
+    
+                    console.log("Initialization finished. Ready to start");
+                    Quagga.start();
+    
+                    // Set flag to is running
+                    _scannerIsRunning = true;
+                });
+    
+                Quagga.onProcessed(function (result) {
+                    var drawingCtx = Quagga.canvas.ctx.overlay,
+                    drawingCanvas = Quagga.canvas.dom.overlay;
+    
+                    if (result) {
+                        if (result.boxes) {
+                            drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
+                            result.boxes.filter(function (box) {
+                                return box !== result.box;
+                            }).forEach(function (box) {
+                                Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
+                            });
+                        }
+    
+                        if (result.box) {
+                            Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
+                        }
+    
+                        if (result.codeResult && result.codeResult.code) {
+                            Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
+                        }
+                    }
+                });
+                function order_by_occurrence(arr) {
+                    var counts = {};
+                    arr.forEach(function(value){
+                        if(!counts[value]) {
+                            counts[value] = 0;
+                        }
+                        counts[value]++;
+                    });
+
+                    return Object.keys(counts).sort(function(curKey,nextKey) {
+                        return counts[curKey] < counts[nextKey];
+                    });
+                }
+                var last_result = [];
+                Quagga.onDetected(function (result) {
+                    var last_code = result.codeResult.code;
+                    console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+                    last_result.push(last_code);
+                    if (last_result.length > 20) {
+                        code = order_by_occurrence(last_result)[0];
+                        console.log(last_result);
+                        last_result = [];
+                        Quagga.stop();
+                        $.ajax({
+                            type: "POST",
+                            url: '/products/get_barcode',
+                            data: { upc: code }
+                        });
+                    }
+                    
+                });
+            }
+    
+    
+            // Start/stop scanner
+            document.getElementById("btn").addEventListener("click", function () {
+                startScanner();
+            });
+
+            document.getElementById("scanclose").addEventListener("click", function () {
+                Quagga.stop();
+            });
+        </script>
 @endsection
