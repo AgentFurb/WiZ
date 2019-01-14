@@ -89,5 +89,8 @@
                 <div class="col colpadding"><img src="img/setting2.png" height="30" width="30"></div>
             </div>
         </div>
-    </div>
+    </div>   
+@endsection
+@section('tabJS')
+    <script src="{{ asset('js/tab.js') }}"></script> 
 @endsection

@@ -43,20 +43,13 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-// Test via a getter in the options object to see if the passive property is accessed
-var supportsPassive = false;
-try {
-  var opts = Object.defineProperty({}, 'passive', {
-    get: function() {
-      supportsPassive = true;
-    }
-  });
-  window.addEventListener("testPassive", null, opts);
-  window.removeEventListener("testPassive", null, opts);
-} catch (e) {}
+// // assume the feature isn't supported
+// var supportsPassive = false;
+// // create options object with a getter to see if its passive property is accessed
+// var opts = Object.defineProperty && Object.defineProperty({}, 'passive', { get: function(){ supportsPassive = true }});
+// // create a throwaway element & event and (synchronously) test out our options
+// document.addEventListener('test', function() {}, opts);
 
-// Use our detect's results. passive applied if supported, capture will be false either way.
-element.addEventListener('touchstart', fn, supportsPassive ? { passive: true } : false); 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+// // Use our detect's results. passive applied if supported, capture will be false either way.
+// elem.addEventListener('touchstart', fn, supportsPassive ? { passive: true } : false); 
 

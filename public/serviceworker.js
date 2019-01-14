@@ -15,12 +15,12 @@ var filesToCache = [
     // '/productdetail',
 
     '/401',
-    '/403',
+    // '/403',
     '/404',
     '/419',
     '/429',
     '/500',
-    '/503',
+    // '/503',
 
     '/img/icons/icon-72x72.png',
     '/img/icons/icon-96x96.png',
@@ -30,7 +30,6 @@ var filesToCache = [
     '/img/icons/icon-192x192.png',
     '/img/icons/icon-384x384.png',
     '/img/icons/icon-512x512.png',
-   '/img/newproduct.png',
 
     '/img/background.jpg',
     '/img/plain.jpg',
