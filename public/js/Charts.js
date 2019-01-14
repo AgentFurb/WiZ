@@ -44,8 +44,6 @@ new Chart(document.getElementById("doughnut-chart"), {
 
 
 // Barro meter chart
-document.addEventListener("DOMContentLoaded", function(event) {
-
     countusers = document.getElementById("smallbuddyusers").value;
     var gg1 = new JustGage({
         id: "smallbuddy",
@@ -57,5 +55,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
         formatNumber: true,
         levelColorsGradient: false
     });
-});
 

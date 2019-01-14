@@ -180,8 +180,7 @@
         <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
         {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>        
-        <script src="{{ asset('js/tab.js') }}"></script>   
-        <script src="{{ asset('/js/shopmodals.js') }}"></script>
+        @yield('tabJS')
         <script src="{{ asset('js/main.js') }}"></script>
         
         

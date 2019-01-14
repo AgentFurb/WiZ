@@ -132,7 +132,7 @@
 }
 
 .li-pad {
-    padding: .5rem 1rem;
+    padding: .5rem;
     list-style: none;
 }
 
@@ -236,4 +236,8 @@
     .doughnut-chart{
         width: 100%  !important;
     }
+}
+
+.col-userinfo {
+    padding: 0px !important;
 }

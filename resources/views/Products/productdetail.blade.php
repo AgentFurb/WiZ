@@ -203,3 +203,6 @@
 
 
 @endsection
+@section('tabJS')
+    <script src="{{ asset('js/tab.js') }}"></script> 
+@endsection
