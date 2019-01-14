@@ -6,22 +6,22 @@
 @section('shopmenu')
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
-            <div class="col-2 shop-bar">
-                <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
-                    <option value="" disabled selected hidden>Categorieën</option>
-                    @foreach ($combocats as $combocat)
-                        <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
-                    @endforeach
-                </select> 
-            </div>
-            <div class="col-8 shop-bar">
+            <div class="col order1 shop-bar">
                 <form class="Sbar" action="/overzicht" method="POST" role="search">
                     {{ csrf_field() }}
                     <input type="text" placeholder="Search product" name="q">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
+                
+                <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
+                    <option value="" disabled selected hidden>Categorieën</option>
+                    @foreach ($combocats as $combocat)
+                        <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
+                    @endforeach
+                </select>
             </div>
-            <div class="col-2 shop-bar addcol">
+            
+            <div class="col order-12 shop-bar addcol">
                 <div class="addprod">
                     <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
                         <i class="far fa-plus-square"></i>

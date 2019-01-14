@@ -85,7 +85,7 @@
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    max-width: 250px;
+    width: 200px;
     background: #ffffff;
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
@@ -391,12 +391,12 @@ form.Sbar::after {
 
 /* width 425 */
 @media only screen and (min-width: 375px) and (max-width: 425px){
-    .col{
+    /* .col{
         flex-basis: 500px !important;
     } 
     .ulinfo{
         padding: 20px !important;
-    } 
+    }  */
 
 }
 /* width 768 */
@@ -421,7 +421,12 @@ form.Sbar::after {
     .prodinformatie{
         max-width: 50%;
     }
+}
 
+@media only screen and (min-width: 844px) {
+    .Sbar {
+        float: right;
+    }
 }
 
 
@@ -459,7 +464,22 @@ form.Sbar::after {
 
 }
 
+.order1 {
+    max-width: 425px;
+}
 
+video {
+    width: 100%;
+    height: auto;
+}
 
+canvas.drawing, canvas.drawingBuffer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 1rem;
+    width: 100%;
+    height: auto;
+}
 
 
