@@ -8,6 +8,8 @@ use App\Product;
 use App\Cat;
 use App\Pimage;
 use Illuminate\Support\Facades\Storage;
+use Cookie;
+
 
 class ProductsController extends Controller
 {
@@ -23,7 +25,7 @@ class ProductsController extends Controller
         //Producten onlangs toegevoegd
         $productsOTs = DB::table('products AS p')
         ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
-        ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.Locatie as locatie','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'pi.imagelink as imagelink')
+        ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.Fabrikaat as fabrikaat', 'p.Productserie as serie', 'p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'pi.imagelink as imagelink')
         ->orderBy('ingangsdatum', 'desc')
         ->limit(3)
         ->get();
@@ -31,17 +33,16 @@ class ProductsController extends Controller
         //Producten categorieën combobox  
         $combocats = DB::table('products')->distinct()->select('Productserie', 'Productserie')->get();
 
-        //Bekijk ook
-        // $bekijkook = DB::table('products AS p')
-        // ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
-        // ->select('p.ID as id', 'p.Eenheid gewicht as gewicht','p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Locatie as locatie','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink')
-        // ->where('Afkorting', '=', 'PPI')
-        // ->orderByRaw("RAND()")
-        // ->limit(4)
-        // ->get();
+        // Bekijk ook
+        $bekijkook = DB::table('products AS p')
+        ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
+        ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.Fabrikaat as fabrikaat','p.Productserie as serie','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'pi.imagelink as imagelink')
+        ->orderByRaw("RAND()")
+        ->limit(4)
+        ->get();
 
         //dump($bekijkook);
-
+        
         return view('shop', compact('combocats', 'productsOTs', 'bekijkook'));
     }
 
@@ -69,16 +70,7 @@ class ProductsController extends Controller
         ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.Locatie as locatie', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink', 'p.Aantal as aantal')
         ->where('productserie', '=', $cat)
         ->simplePaginate(15);
-        // id
-        // productcodefabrikant
-        // GTIN
-        // ingangsdatum
-        // productomschrijving
-        // fabrikaat
-        // productserie
-        // producttype
-        // imagelink
-        // afkorting
+
         return view('Products.allproducts', compact('combocats', 'prodscats'));
     }
 

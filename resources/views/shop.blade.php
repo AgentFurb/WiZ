@@ -43,8 +43,9 @@
                             <div class="card-body">
                                 <a href="/overzicht/productdetail/{{$productsOT->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{$productsOT->productomschrijving}}</h5></a>
                                 <ul style="list-style-type:square">
-                                    <li class="productinfoshopindex"><p >{{$productsOT->locatie}}</p></li>
+                                    <li class="productinfoshopindex"><p >{{$productsOT->fabrikaat}}</p></li>
                                     <li class="productinfoshopindex"><p>{{$productsOT->ingangsdatum}}</p></li>
+                                    <li class="productinfoshopindex"><p>{{$productsOT->serie}}</p></li>
                                 </ul>
                             </div>
                         </div>
@@ -81,24 +82,55 @@
     </div>
 </div>
 
-<div class="container-fluid bekijkook">
+<div class="container-fluid ">
+    <h3>Bekijk ook deze producten:</h3>
+    <div class="row">
+        <div class="col bekijkook">
+            <div class="card-group">
+                @if (isset($bekijkook))
+                    @foreach ($bekijkook as $bekijk)
+                        <div class="card bekijkookcards">
+                            <img class="card-img-top bekijkookimg" src="{{$bekijk->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" height="300px" width="300px">
+                            <div class="card-body">
+                                <a href="/overzicht/productdetail/{{$bekijk->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{ $bekijk->productomschrijving}}</h5></a>
+                                <ul style="list-style-type:square">
+                                    <li class="productinfoshopindex"><p >{{$bekijk->fabrikaat}}</p></li>
+                                    <li class="productinfoshopindex"><p>{{$bekijk->ingangsdatum}}</p></li>
+                                    <li class="productinfoshopindex"><p>{{$bekijk->serie}}</p></li>
+                                </ul>                        
+                            </div>
+                        </div>
+                    @endforeach
+                @else 
+                    <h1>not set</h1>
+                @endif 
+            </div>
+        </div>      
+    </div>
+</div>
+{{-- <div class="container-fluid bekijkook">
     <h3>Bekijk ook deze producten:</h3>
     <div class="row">
         @if (isset($bekijkook))
+            </div>
+            @php $counttabID = 0 @endphp
+            <div class="tab list-group">
+                <button type="button" class="tablinks list-group-item list-group-item-action" onclick="openCity(event, 'menu1')" id="defaultOpen">menu1</button>
+                <button type="button" class="tablinks list-group-item list-group-item-action" onclick="openCity(event, 'menu2')">menu2</button>
+                <button type="button" class="tablinks list-group-item list-group-item-action" onclick="openCity(event, 'menu3')">menu3</button>
+                <button type="button" class="tablinks list-group-item list-group-item-action" onclick="openCity(event, 'menu4')">menu4</button>
+            </div>
+                
             @foreach ($bekijkook as $bekijk)
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img class="card-img-top productdetailimage" src="{{ $bekijk->imagelink}}" alt="Card image cap" />
-                        <div class="card-body">
-                                <a href="/overzicht/productdetail/{{$productsOT->Productcode}}" class="card-link"><h5 class="card-title">{{ $bekijk->productomschrijving}}</h5></a>
-                            <p class="card-text">If your canoe is stuck in a tree with the headlights on, how many pancakes does it take to get to the moon?</p>
-                        </div>
-                    </div>
+                @php $counttabID++ @endphp
+                <div id="menu{{$counttabID}}" class="tabcontent">
+                    <h3>{{$bekijk->productomschrijving}}</h3>
+                    <p>London is the capital city of England.</p>
                 </div>
             @endforeach
         @else 
             <h1>not set</h1>
         @endif       
     </div>
-</div>
+</div> --}}
 @endsection
