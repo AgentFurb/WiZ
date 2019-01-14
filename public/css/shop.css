@@ -210,6 +210,31 @@ ul.prodinfo {
     height: 220px;
 }
 
+/* shop eerder bekeken css */
+/* .eerderbekeken{
+    margin-top: 40px;
+} */
+.top{
+    width: 95%;
+    position: fixed;
+    background-color: #f7f7f7;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.app_top {
+    display: table-cell;
+}
+.app_top img {
+    float: left;
+    margin-right: 5px;
+}
+.main_EB{
+    margin-bottom: 8px;
+}
+
 /* Pagination shop */
 
  .pagination{
@@ -287,6 +312,63 @@ ul.prodinfo {
     background-color: #f8d7da;
 }
 
+form.Sbar input[type=text] {
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    max-width: 250px;
+    background: #ffffff;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+
+    padding-left: .2rem !important;
+    padding-right: 0px !important;
+    border: 1px solid #ced4da;
+    border-right: 0;
+}
+
+form.Sbar button {
+    float: left;
+    max-width: 50px;
+    background: #2f2e87;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+
+    border: 1px solid #2f2fff;
+    border-left: 0;
+
+    margin-left: -42px;
+}
+
+form.Sbar::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.Sbar {
+    float: right;
+}
+
+.fa-plus-square {
+    color: #000000;
+}
+
+.sidecols{
+    display: none;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
 
 
 @media only screen and (max-width: 320px) {
@@ -342,56 +424,41 @@ ul.prodinfo {
 
 }
 
-form.Sbar input[type=text] {
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    max-width: 250px;
-    background: #ffffff;
-    border-top-left-radius: .25rem;
-    border-bottom-left-radius: .25rem;
-    height: calc(2.25rem + 2px);
-    padding: .375rem .75rem;
 
-    padding-left: .2rem !important;
-    padding-right: 0px !important;
-    border: 1px solid #ced4da;
-    border-right: 0;
+/* @media only screen and (max-width: 768px) {
+
+    .col-sm-8{
+        flex: 100%;
+    }
+    .mainshopprods{
+        flex: 100%;
+    }
+    .sidecols{
+        display: block;
+    }
+    
+    
+} */
+
+@media (max-width: 1024px){
+    .col-sm-8{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .sidecols{
+        display: block;
+    }
+
 }
 
-form.Sbar button {
-    float: left;
-    max-width: 50px;
-    background: #2f2e87;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-    border-top-right-radius: .25rem;
-    border-bottom-right-radius: .25rem;
-    height: calc(2.25rem + 2px);
-    padding: .375rem .75rem;
 
-    border: 1px solid #2f2fff;
-    border-left: 0;
+@media (max-width: 425px){
+    .sidecols{
+        display: none;
+    }
 
-    margin-left: -42px;
 }
 
-form.Sbar::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.Sbar {
-    float: right;
-}
-
-.fa-plus-square {
-    color: #000000;
-}
 
 
 

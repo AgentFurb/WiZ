@@ -54,25 +54,33 @@
                 @endif
             </div>
         </div>
-        {{-- <div class="list-group">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">List group item heading</h5>
-                    <small>3 days ago</small>
+        <div class="sidecols"></div>
+        <div class="col eerderbekeken">
+            <h3>Eerder bekeken</h3>
+            <div class="main_EB">	
+                <div class="app_top">
+                        <img src="img/img-placeholder.png" width="150"/>
+                    <span class="app_txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</span>
                 </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small>Donec id elit non mi porta.</small>
             </div>
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">List group item heading</h5>
-                    <small>3 days ago</small>
+            <div class="main_EB">	
+                <div class="app_top">
+                        <img src="img/img-placeholder.png" width="150"/>
+                    <span class="app_txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </span>
                 </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small>Donec id elit non mi porta.</small>
-            </div> --}}
-        
+            </div>
+            <div class="main_EB">	
+                <div class="app_top">
+                        <img src="img/img-placeholder.png" width="150"/>
+                    <span class="app_txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </span>
+                </div>
+            </div>
+        </div>
+        <div class="sidecols"></div>
+
     </div>
 </div>
+
 <div class="container-fluid bekijkook">
     <h3>Bekijk ook deze producten:</h3>
     <div class="row">

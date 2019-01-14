@@ -148,6 +148,8 @@ class ProductsController extends Controller
             {
                 $pimage = new Pimage();
                 $request->validate(['imagelink' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:6000',]);
+                dd($request->imagelink); 
+
                 $imagelinkName = '/storage/productimages/'.request()->imagelink->getClientOriginalName();
                 $destinationPath = public_path('/storage/productimages');
                 $request->imagelink->move($destinationPath, $imagelinkName);
