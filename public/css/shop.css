@@ -85,7 +85,7 @@
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    max-width: 250px;
+    width: 200px;
     background: #ffffff;
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
@@ -309,12 +309,12 @@ ul.prodinfo {
 
 /* width 425 */
 @media only screen and (min-width: 375px) and (max-width: 425px){
-    .col{
+    /* .col{
         flex-basis: 500px !important;
     } 
     .ulinfo{
         padding: 20px !important;
-    } 
+    }  */
 
 }
 /* width 768 */
@@ -339,14 +339,19 @@ ul.prodinfo {
     .prodinformatie{
         max-width: 50%;
     }
+}
 
+@media only screen and (min-width: 844px) {
+    .Sbar {
+        float: right;
+    }
 }
 
 form.Sbar input[type=text] {
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    max-width: 250px;
+    width: 200px;
     background: #ffffff;
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
@@ -361,7 +366,7 @@ form.Sbar input[type=text] {
 
 form.Sbar button {
     float: left;
-    max-width: 50px;
+    width: 50px;
     background: #2f2e87;
     color: white;
     font-size: 17px;
@@ -376,7 +381,7 @@ form.Sbar button {
     border: 1px solid #2f2fff;
     border-left: 0;
 
-    margin-left: -42px;
+    margin-left: -50px;
 }
 
 form.Sbar::after {
@@ -385,14 +390,24 @@ form.Sbar::after {
     display: table;
 }
 
-.Sbar {
-    float: right;
-}
-
 .fa-plus-square {
     color: #000000;
 }
 
+.order1 {
+    max-width: 425px;
+}
 
+video {
+    width: 100%;
+    height: auto;
+}
 
-
+canvas.drawing, canvas.drawingBuffer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 1rem;
+    width: 100%;
+    height: auto;
+}
