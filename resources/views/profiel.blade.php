@@ -9,7 +9,7 @@
     <div class="container-fluid maincont">
         <div class="container-fluid col-menu">
             <div class="row upperside" id="UserInfo">
-                <div class="col order-first">
+                <div class="col order-first col-userinfo">
                     <ul class="nav-fill">
                         <li class="nav-item text-center li-pad">
                             Email:<br />
