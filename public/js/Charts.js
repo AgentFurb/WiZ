@@ -56,3 +56,4 @@ new Chart(document.getElementById("doughnut-chart"), {
         levelColorsGradient: false
     });
 
+
