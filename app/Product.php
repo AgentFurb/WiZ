@@ -19,7 +19,7 @@ class Product extends Model
     }
 
     public $timestamps = false;
-    protected $table = 'products';
+    protected $table = 'overzicht';
 
     /**
      * The attributes that are mass assignable.
@@ -27,7 +27,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'Productcode fabrikant', 'GTIN product', 'Productomschrijving', 'Locatie', 'Fabrikaat', 'Productserie', 'Producttype', 'Eenheid gewicht', 'updated_at',
+        'Productcode fabrikant', 'GTIN product', 'Productomschrijving', 'Locatie', 'Fabrikaat', 'Productserie', 'Producttype', 'updated_at', 'imagelink',
     ];
 
 

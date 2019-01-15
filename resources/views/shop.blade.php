@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col order1 shop-bar">
-                <form class="Sbar" action="/overzicht" method="POST" role="search">
+                <form class="Sbar" action="/overzicht/products/search" method="POST" role="search">
                     {{ csrf_field() }}
                     <input type="text" placeholder="Search product" name="q">
                     <button type="submit"><i class="fa fa-search"></i></button>
@@ -32,20 +32,29 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row">
+    <div class="row ">
         <div class="col-sm-8 mainshopprods">
             <h3>Onlangs toegevoegd:</h3>
             <div class="card-group">
                 @if (isset($productsOTs))
                     @foreach ($productsOTs as $productsOT)
-                        <div class="card">
+                        <div class="card OTcards">
                             <img class="card-img-top " src="{{$productsOT->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" height="300px" width="300px">
-                            <div class="card-body">
-                                <a href="/overzicht/productdetail/{{$productsOT->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{$productsOT->productomschrijving}}</h5></a>
-                                <ul style="list-style-type:square">
-                                    <li class="productinfoshopindex"><p >{{$productsOT->fabrikaat}}</p></li>
-                                    <li class="productinfoshopindex"><p>{{$productsOT->ingangsdatum}}</p></li>
-                                    <li class="productinfoshopindex"><p>{{$productsOT->serie}}</p></li>
+                            <a href="/overzicht/productdetail/{{$productsOT->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{$productsOT->productomschrijving}}</h5></a>
+                            <div class="card-body ulinfo">
+                                <ul class="prodvraag">
+                                    <b><li>Locatie:</li>
+                                    <li>Ingangsdatum:</li>
+                                    <li>Fabrikaat:</li>
+                                    <li>Serie:</li>
+                                    <li>Aantal:</li></b>
+                                </ul>
+                                <ul class="prodinfo">
+                                    <li>{{$productsOT->locatie}}</li>
+                                    <li>{{$productsOT->ingangsdatum}}</li>
+                                    <li>{{$productsOT->fabrikaat}}</li>
+                                    <li>{{$productsOT->productserie}}</li>
+                                    <li>{{$productsOT->aantal}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -83,21 +92,31 @@
 </div>
 
 <div class="container-fluid ">
-    <h3>Bekijk ook deze producten:</h3>
     <div class="row">
         <div class="col bekijkook">
+            <h3>Bekijk ook deze producten:</h3>
             <div class="card-group">
                 @if (isset($bekijkook))
                     @foreach ($bekijkook as $bekijk)
-                        <div class="card bekijkookcards">
-                            <img class="card-img-top bekijkookimg" src="{{$bekijk->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" height="300px" width="300px">
-                            <div class="card-body">
-                                <a href="/overzicht/productdetail/{{$bekijk->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{ $bekijk->productomschrijving}}</h5></a>
-                                <ul style="list-style-type:square">
-                                    <li class="productinfoshopindex"><p >{{$bekijk->fabrikaat}}</p></li>
-                                    <li class="productinfoshopindex"><p>{{$bekijk->ingangsdatum}}</p></li>
-                                    <li class="productinfoshopindex"><p>{{$bekijk->serie}}</p></li>
-                                </ul>                        
+                        <div class="card bekijkookcards PCcard">
+                            <img class="card-img-top bekijkookimg" src="{{$bekijk->imagelink}}"  height="250px" width="200px">
+                            <a href="/overzicht/productdetail/{{$bekijk->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{ $bekijk->productomschrijving}}</h5></a>
+
+                            <div class="card-body ulinfo">
+                                <ul class="prodvraag">
+                                    <b><li>Locatie:</li>
+                                    <li>Type:</li>
+                                    <li>Fabrikaat:</li>
+                                    <li>Serie:</li>
+                                    <li>Aantal:</li></b>
+                                </ul>
+                                <ul class="prodinfo">
+                                    <li>{{$bekijk->locatie}}</li>
+                                    <li>{{$bekijk->producttype}}</li>
+                                    <li>{{$bekijk->fabrikaat}}</li>
+                                    <li>{{$bekijk->productserie}}</li>
+                                    <li>{{$bekijk->aantal}}</li>
+                                </ul>
                             </div>
                         </div>
                     @endforeach

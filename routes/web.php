@@ -89,28 +89,28 @@ Route::any ( '/controlpanel', function () {
 } );
 //->orWhere ( 'Productcode fabrikant', 'LIKE', '%' . $q . '%' )->paginate(16);
 
-Route::any ( '/overzicht/products/allproducts', function(){
+Route::any ( '/overzicht/products/search', function(){
     $q = Input::get ( 'q' );
-    // $products = Product::where ( 'Productomschrijving', 'LIKE', '%' . $q . '%' )->paginate(16);
+    // $searchproducts = Product::where ( 'Productomschrijving', 'LIKE', '%' . $q . '%' )->paginate(16);
+    // dd($searchproducts);
 
-    // $products = DB::table('products AS p')
-    // ->chunk(3, function($products));
-    // ->leftJoin('productimages AS pi', 'p.Productcode fabrikant', '=', 'pi.Productcode')
-    // ->select('p.ID as id', 'p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as GTIN', 'p.Locatie as locatie','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving', 'p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Producttype as producttype', 'pi.imagelink as imagelink')
-    // ->where('p.productomschrijving', 'LIKE', '%' . $q . '%')
-    // // ->simplePaginate(15);
+    $searchproducts = DB::table('overzicht AS o')
+    ->select('o.ID as id', 'o.Productcode fabrikant as productcodefabrikant', 'o.Fabrikaat as fabrikaat', 'o.Productserie as productserie', 'o.Ingangsdatum as ingangsdatum', 'o.Productomschrijving as productomschrijving', 'o.imagelink as imagelink',  'o.Locatie as locatie', 'o.Producttype as producttype', 'o.Aantal as aantal')
+    ->where('o.Productomschrijving', 'LIKE', '%' . $q . '%')
+    ->orwhere('o.Productcode fabrikant', 'LIKE', '%' . $q . '%')
+    ->simplePaginate(15);
 
-    $products = Product::where ('Productomschrijving', 'LIKE', '%' . $q . '%')->orwhere ('Productcode fabrikant', 'LIKE', '%' . $q . '%')
-    ->chunk(3, function($products){
-        foreach ($products as $product) {
-            // apply some action to the chunked results here
-        }
-    });
+    $combocats = DB::table('overzicht')->distinct()->select('Productserie')->get();
 
-    // Product::insert($products->toArray()); //insert chunked data
-
-    $combocats = DB::table('products')->distinct()->select('Productserie')->get();
-    return view ( 'products.allproducts', compact('products', 'q', 'combocats'));
+    if(empty($searchproducts))
+    {
+        $searcherror = 'Geen resultaten.';
+        return view ( 'products.allproducts', compact('searcherror', 'combocats'));
+    }
+    else
+    {
+        return view ( 'products.allproducts', compact('searchproducts', 'q', 'combocats'));
+    }
 });
 
 Route::get('/profile', 'UsersController@profilepic');

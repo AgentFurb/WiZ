@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col order1 shop-bar">
-                <form class="Sbar" action="/overzicht" method="POST" role="search">
+                <form class="Sbar" action="/overzicht/products/search" method="POST" role="search">
                     {{ csrf_field() }}
                     <input type="text" placeholder="Search product" name="q">
                     <button type="submit"><i class="fa fa-search"></i></button>
@@ -46,14 +46,14 @@
         <div class="col"></div>
     </div>
         {{-- END TEST  --}}
-        <form action="/overzicht/nieuw/store" method="POST" enctype="multipart/form-data">
-            @method('POST')
+        <form action="/overzicht/{{$productedit[0]->productcodefabrikant}}/update" method="POST" enctype="multipart/form-data">
+            @method('PATCH')
             @csrf
             <div class="row from-group">
                 <div class="col-xl  form-group">
                     <h5>Product foto:</h5>
                     <div class="productphoto">
-                        <img id="imgShop" src="" onerror=this.src="{{ url('/img/img-placeholder.png') }}" class="img-fluid" name="imagelink">
+                        <img id="imgShop" src="{{$productedit[0]->imagelink}}" class="img-fluid" name="imagelink">
                         <br>
                         <input type="file" name="imagelink" onchange="previewFileShop()">
                     </div>
@@ -87,7 +87,7 @@
             <div class="row">
                 <div class="col"></div>
                 <div class="col-6 prodcreate">
-                    <input class="btn btn-lg" type="submit" value="Toevoegen"/>
+                    <input class="btn btn-lg" type="submit" value="Updaten"/>
                 </div>
                 <div class="col"></div>
             </div>

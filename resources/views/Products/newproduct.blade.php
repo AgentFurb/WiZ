@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col order1 shop-bar">
-                <form class="Sbar" action="/overzicht" method="POST" role="search">
+                <form class="Sbar" action="/overzicht/products/search" method="POST" role="search">
                     {{ csrf_field() }}
                     <input type="text" placeholder="Search product" name="q">
                     <button type="submit"><i class="fa fa-search"></i></button>
@@ -113,9 +113,9 @@
                     <h5>Locatie:</h5>
                     <input class="form-control" type="text" name="Locatie" required/>
                     <h5>Eenheid gewicht:</h5>
-                    <input class="form-control" type="text" name="Eenheidgewicht" required/>
+                    <input class="form-control" type="text" name="Eenheidgewicht"/>
                     <h5>Aantal:</h5>
-                    <input class="form-control" type="text" name="Aantal" required/>
+                    <input class="form-control" type="text" name="Aantal" />
                 </div>
             </div>
             <div class="row">

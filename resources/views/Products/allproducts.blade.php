@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row " id="Searchnavbar"> 
             <div class="col order1 shop-bar">
-                <form class="Sbar" action="/overzicht" method="POST" role="search">
+                <form class="Sbar" action="/overzicht/products/search" method="POST" role="search">
                     {{ csrf_field() }}
                     <input type="text" placeholder="Search product" name="q">
                     <button type="submit"><i class="fa fa-search"></i></button>
@@ -75,14 +75,15 @@
                 </div>
             @else
             @endif
-            @if(isset($products))
-                @foreach ($products as $searchprods)
+            @if(isset($searchproducts))
+                @foreach ($searchproducts->chunk(3) as $chunk)
                     <div class="row PCcard">
-                        {{-- @foreach ($chunk as $searchprods) --}}
+                        @foreach ($chunk as $searchprod)
+                        
                             <div class="col colcat">
                                 <div class="card PCcard">
-                                    <img class="card-img-left PCimg img-fluid" src="{{$searchprods->imagelink}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
-                                    <a href="/overzicht/productdetail/{{$searchprods->productcodefabrikant}}"><h5 class="card-title">{{$searchprods->productomschrijving}}</h5></a>
+                                    <img class="card-img-left PCimg img-fluid" src="{{$searchprod->imagelink}}" alt="Card image cap" width="330px" height="250px">
+                                    <a href="/overzicht/productdetail/{{$searchprod->productcodefabrikant}}"><h5 class="card-title">{{$searchprod->productomschrijving}}</h5></a>
                                     <div class="card-body ulinfo"> 
                                         <ul class="prodvraag">
                                             <b><li>Locatie:</li>
@@ -92,19 +93,19 @@
                                             <li>Aantal:</li></b>
                                         </ul>
                                         <ul class="prodinfo">
-                                            <li>{{$searchprods->locatie}}</li>
-                                            <li>{{$searchprods->producttype}}</li>
-                                            <li>{{$searchprods->fabrikaat}}</li>
-                                            <li>{{$searchprods->productserie}}</li>
-                                            <li>{{$searchprods->aantal}}</li>
+                                            <li>{{$searchprod->locatie}}</li>
+                                            <li>{{$searchprod->producttype}}</li>
+                                            <li>{{$searchprod->fabrikaat}}</li>
+                                            <li>{{$searchprod->productserie}}</li>
+                                            <li>{{$searchprod->aantal}}</li>
                                         </ul>
                                     </div>   
                                 </div>
                             </div>
-                        {{-- @endforeach --}}
+                        @endforeach
                     </div>
                 @endforeach
-                {{ $products->links() }}
+                {{ $searchproducts->links() }}
             @else 
             @endif
         </div>
