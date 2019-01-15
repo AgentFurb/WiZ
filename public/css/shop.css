@@ -337,7 +337,7 @@ form.Sbar input[type=text] {
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    max-width: 250px;
+    width: 200px;
     background: #ffffff;
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
@@ -352,7 +352,7 @@ form.Sbar input[type=text] {
 
 form.Sbar button {
     float: left;
-    max-width: 50px;
+    width: 50px;
     background: #2f2e87;
     color: white;
     font-size: 17px;
@@ -367,7 +367,7 @@ form.Sbar button {
     border: 1px solid #2f2fff;
     border-left: 0;
 
-    margin-left: -42px;
+    margin-left: -50px;
 }
 
 form.Sbar::after {
@@ -377,7 +377,7 @@ form.Sbar::after {
 }
 
 .Sbar {
-    float: right;
+    float: left;
 }
 
 .fa-plus-square {

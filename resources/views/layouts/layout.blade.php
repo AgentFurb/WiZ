@@ -77,13 +77,13 @@
         <div class="container-fluid top-bar">
           <div class="row">
             <div class="col order-first col-first-empty smalkuijperslogo">  
-                <a  href="https://www.kuijpers.nl/" target="blank">
-                    <img alt="Kuijpers Logo" src="{{ asset('img/logo-small.png') }}" class="nav-home kuijperslogosmall" height="90">
+                <a  href="https://www.kuijpers.nl/" target="blank" rel="noopener">
+                    <img alt="Kuijpers Logo" src="{{ asset('img/logo-small.png') }}"  class="nav-home kuijperslogosmall" height="93.8" width="72.8">
                 </a>
             </div>
             <div class="col text-center col-brand">
             <a class="navbar-brand" href="/home">
-                    <img alt="Kuijpers Logo" src="{{ asset('img/logo_wiz3.png') }}" class="nav-home" height="90">
+                    <img alt="WiZ Kuijpers Logo" src="{{ asset('img/logo_wiz3.png') }}" class="nav-home" height="90">
                 </a>
             </div>
             <div class="col order-last text-right col-profile">
@@ -130,14 +130,14 @@
                     ·
                     <a href="/profiel" aria-label="Profiel" class="footernavhover">Profiel</a>
                     ·
-                    <a href="https://mijnkuijpers.sharepoint.com/" aria-label="Mijn Kuijpers" target="blank" class="footernavhover">Mijn Kuijpers</a>
+                    <a href="https://mijnkuijpers.sharepoint.com/" aria-label="Mijn Kuijpers" target="blank" class="footernavhover" rel="noreferrer">Mijn Kuijpers</a>
                 </p>
                 <p class="footer-company-name">Kuijpers Installaties &copy; 2018</p>
             </div>
             <div class="footer-center">
                 <div>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a  target="blank" aria-label="Locatie" href="https://www.google.nl/maps/place/Panovenweg+20,+5708+HR+Helmond/@51.4738781,5.6267348,17z/data=!3m1!4b1!4m5!3m4!1s0x47c7214f44307933:0x16bd59b2e5452121!8m2!3d51.4738748!4d5.6289235">
+                    <a  target="blank" aria-label="Locatie" href="https://www.google.nl/maps/place/Panovenweg+20,+5708+HR+Helmond/@51.4738781,5.6267348,17z/data=!3m1!4b1!4m5!3m4!1s0x47c7214f44307933:0x16bd59b2e5452121!8m2!3d51.4738748!4d5.6289235" rel="noopener">
                         <p><span>Panovenweg 20</span> Helmond, Nederland</p>
                     </a>
                 </div>
