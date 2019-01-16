@@ -133,6 +133,7 @@
                     <a href="https://mijnkuijpers.sharepoint.com/" aria-label="Mijn Kuijpers" target="blank" class="footernavhover" rel="noreferrer">Mijn Kuijpers</a>
                 </p>
                 <p class="footer-company-name">Kuijpers Installaties &copy; 2018</p>
+                <button id="btnAdd">PWA</button>
             </div>
             <div class="footer-center">
                 <div>
