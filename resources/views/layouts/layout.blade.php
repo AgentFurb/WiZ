@@ -133,7 +133,6 @@
                     <a href="https://mijnkuijpers.sharepoint.com/" aria-label="Mijn Kuijpers" target="blank" class="footernavhover" rel="noreferrer">Mijn Kuijpers</a>
                 </p>
                 <p class="footer-company-name">Kuijpers Installaties &copy; 2018</p>
-                <button id="btnAdd">PWA</button>
             </div>
             <div class="footer-center">
                 <div>
@@ -153,8 +152,9 @@
             </div>
             <div class="footer-right">
                 <p class="footer-company-about">
-                    <span>Over WiZ</span>
-                    Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                    <h5>Over WiZ</h5>
+                    <h6> WiZ, de productbeheer site van Kuijpers!</h6>
+                    <button id="btnAdd">PWA</button>
                 </p>
                 <div class="footer-icons">
                     <a href="https://www.facebook.com/kuijpersNL/" aria-label="Facebook" target="blank"><i class="fab fa-facebook-f"></i></a>
