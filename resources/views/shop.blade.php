@@ -64,30 +64,35 @@
                 @endif
             </div>
         </div>
-        <div class="sidecols"></div>
-        <div class="col eerderbekeken">
-            <h3>Eerder bekeken</h3>
-            <div class="main_EB">	
-                <div class="app_top">
-                        <img src="img/img-placeholder.png" width="150"/>
-                    <span class="app_txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</span>
+        @if(isset($producttypes))
+            <div class="sidecols"></div>
+                <div class="col eerderbekeken">
+                    <h3>Verschillende laptops</h3>
+                    @foreach ($producttypes as $producttype) 
+                        <div class="main_EB">	
+                            <div class="app_top">
+                                    <img src="{{$producttype->imagelink}}" class="producttypeimg" width="150"/>
+                                <span class="app_txt ">
+                                    <a href="/overzicht/productdetail/{{$producttype->productcodefabrikant}}" class="card-link producttypenaam">{{$producttype->productomschrijving}}</a>
+                                </span>
+                                <span class="app_txt ulinfo">
+                                    <ul class="prodvraag">
+                                        <b><li>Locatie:</li>
+                                        <li>Serie:</li>
+                                        <li>Aantal:</li></b>
+                                    </ul>
+                                    <ul class="prodinfo">
+                                        <li>{{$producttype->locatie}}</li>
+                                        <li>{{$producttype->productserie}}</li>
+                                        <li>{{$producttype->aantal}}</li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            </div>
-            <div class="main_EB">	
-                <div class="app_top">
-                        <img src="img/img-placeholder.png" width="150"/>
-                    <span class="app_txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </span>
-                </div>
-            </div>
-            <div class="main_EB">	
-                <div class="app_top">
-                        <img src="img/img-placeholder.png" width="150"/>
-                    <span class="app_txt">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </span>
-                </div>
-            </div>
-        </div>
-        <div class="sidecols"></div>
-
+            <div class="sidecols"></div>
+        @endif
     </div>
 </div>
 

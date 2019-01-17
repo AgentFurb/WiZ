@@ -22,12 +22,6 @@ class ProductsController extends Controller
     public function shopindex()
     {
         //Producten onlangs toegevoegd
-        // $productsOTs = DB::table('overzicht')
-        // ->select('ID ', 'Productcode fabrikant as productcodefabrikant', 'Fabrikaat', 'Productserie', 'Ingangsdatum', 'Productomschrijving', 'imagelink ')
-        // ->orderBy('ingangsdatum', 'desc')
-        // ->limit(3)
-        // ->get();
-
         $productsOTs = DB::table('overzicht AS o')
         ->select('o.ID as id', 'o.Productcode fabrikant as productcodefabrikant', 'o.Fabrikaat as fabrikaat', 'o.Productserie as productserie', 'o.Ingangsdatum as ingangsdatum', 'o.Productomschrijving as productomschrijving', 'o.imagelink as imagelink',  'o.Locatie as locatie', 'o.Producttype as producttype', 'o.Aantal as aantal')
         ->orderBy('ingangsdatum', 'desc')
@@ -44,9 +38,20 @@ class ProductsController extends Controller
         ->limit(4)
         ->get();
 
-        //dump($bekijkook);
-        
-        return view('shop', compact('combocats', 'productsOTs', 'bekijkook'));
+        // Producttype
+        // $typen = DB::table('overzicht')->select('Producttype')->orderByRaw("RAND()")->limit(1)->get();
+
+        //Producten met zelfde producttype
+        $producttypes = DB::table('overzicht AS o')
+        ->select('o.ID as id', 'o.Productcode fabrikant as productcodefabrikant', 'o.Fabrikaat as fabrikaat', 'o.Productserie as productserie', 'o.Ingangsdatum as ingangsdatum', 'o.Productomschrijving as productomschrijving', 'o.imagelink as imagelink',  'o.Locatie as locatie', 'o.Producttype as producttype', 'o.Aantal as aantal')
+        ->where('o.Producttype', '=', 'Laptop')
+        ->orderByRaw("RAND()")
+        ->limit(3)
+        ->get();
+
+        // dd($producttypes);
+  
+        return view('shop', compact('combocats', 'productsOTs', 'bekijkook', 'producttypes'));
     }
 
     public function productdetail(String $product)
@@ -117,18 +122,18 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate(request(), [
-            'Productcodefabrikant' => ['required', 'string', 'max:255'],
-            'GTIN' => ['required', 'string', 'max:255'],
-            'Productomschrijving' => ['required', 'string', 'max:255'],
-            'Locatie' => ['required', 'string', 'max:255'],
-            'Fabrikaat' => ['required', 'string', 'max:255'],
-            'Specificaties' => ['required', 'string', 'max:255'],
-            'Productserie' => ['required', 'string', 'max:255'],
-            'Producttype' => ['required', 'string', 'max:255'],
-            'Eenheidgewicht' => ['required', 'string', 'max:255'],
-            'Aantal' => ['required', 'string', 'max:255'],
-        ]);
+        // $this->validate(request(), [
+        //     'Productcodefabrikant' => ['required', 'string', 'max:255'],
+        //     'GTIN' => ['string', 'max:255'],
+        //     'Productomschrijving' => ['required', 'string', 'max:255'],
+        //     'Locatie' => ['required', 'string', 'max:255'],
+        //     'Fabrikaat' => ['required', 'string', 'max:255'],
+        //     'Specificaties' => ['string', 'max:255'],
+        //     'Productserie' => ['required', 'string', 'max:255'],
+        //     'Producttype' => ['required', 'string', 'max:255'],
+        //     'Eenheidgewicht' => ['string', 'max:255'],
+        //     'Aantal' => ['string', 'max:255'],
+        // ]);
 
         $product = new Product();
         $product["Productcode fabrikant"] = $request->input("Productcodefabrikant");
