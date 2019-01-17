@@ -405,6 +405,13 @@ form.Sbar::after {
     margin-left: 40px;
 }
 
+.producttypenaam{
+    font-size: 20px;
+}
+
+.producttypeimg{
+    margin-right: 10px;
+}
 
 
 @media only screen and (max-width: 320px) {
