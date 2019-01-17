@@ -24,6 +24,12 @@ btnAdd.addEventListener('click', (e) => {
     });
 });
 
+
+$("#pop").on("click", function() {
+  $('#imagepreview').attr('src', $('#imageresource').attr('src')); // here asign the image to the modal when the user click the enlarge link
+  $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+});
+
 // //Listen for ability to show SW install prompt
 // window.addEventListener('beforeinstallprompt', function(event){
 // 	event.preventDefault(); //Prevent Chrome <= 67 from automatically showing the prompt

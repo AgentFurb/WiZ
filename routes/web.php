@@ -94,27 +94,26 @@ Route::any ( '/overzicht/products/search', function(){
     // $searchproducts = Product::where ( 'Productomschrijving', 'LIKE', '%' . $q . '%' )->paginate(16);
     // dd($searchproducts);
 
-    // $searchproducts = DB::table('overzicht AS o')
-    // ->select('o.ID as id', 'o.Productcode fabrikant as productcodefabrikant', 'o.Fabrikaat as fabrikaat', 'o.Productserie as productserie', 'o.Ingangsdatum as ingangsdatum', 'o.Productomschrijving as productomschrijving', 'o.imagelink as imagelink',  'o.Locatie as locatie', 'o.Producttype as producttype', 'o.Aantal as aantal')
-    // ->where('o.Productomschrijving', 'LIKE', '%' . $q . '%')
-    // ->orwhere('o.Productcode fabrikant', 'LIKE', '%' . $q . '%')
-    // ->simplePaginate(15);
-
-    $searchproducts = Product::where('Productomschrijving', 'LIKE', '%' . $q . '%')
-    ->orwhere('Productcode fabrikant', 'LIKE', '%' . $q . '%')
+    $searchproducts = DB::table('overzicht AS o')
+    ->select('o.ID as id', 'o.Productcode fabrikant as productcodefabrikant', 'o.Fabrikaat as fabrikaat', 'o.Productserie as productserie', 'o.Ingangsdatum as ingangsdatum', 'o.Productomschrijving as productomschrijving', 'o.imagelink as imagelink',  'o.Locatie as locatie', 'o.Producttype as producttype', 'o.Aantal as aantal')
+    ->where('o.Productomschrijving', 'LIKE', '%' . $q . '%')
+    ->orwhere('o.Productcode fabrikant', 'LIKE', '%' . $q . '%')
     ->simplePaginate(15);
+
+    // $searchproducts = Product::where('Productomschrijving', 'LIKE', '%' . $q . '%')
+    // ->orwhere('Productcode fabrikant', 'LIKE', '%' . $q . '%')
+    // ->simplePaginate(15);
 
     $combocats = DB::table('overzicht')->distinct()->select('Productserie')->get();
 
     
-    if(count($searchproducts) > 0)
+    if(empty($searchproducts))
     {
         $searcherror = 'Geen resultaten.';
         return view ( 'products.allproducts', compact('searcherror', 'combocats'));
     }
     else
     {
-        
         return view ( 'products.allproducts', compact('searchproducts', 'q', 'combocats'));
     }
 });

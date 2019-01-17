@@ -2,6 +2,7 @@
 
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
+
 @endsection
 
 @section('shopmenu')
@@ -52,7 +53,29 @@
             <div class="usrinfo tabcontent" id="prodinfo">
                 <div class="row">
                     <div class="col-6 detailimg">
-                        <img src="{{ $productdetail[0]->imagelink }}" id="myImg" class="productImg img-fluid" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
+                        <a href="#" id="pop" data-toggle='modal' data-target='#exampleModal'>
+                            <img src="{{ $productdetail[0]->imagelink }}" data-target='#exampleModal' id="imageresource" class="productImg img-fluid myImg" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
+                        </a>                    
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">{{ $productdetail[0]->productomschrijving }} specificaties</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body modalimagedetail">
+                                        <img src="{{ $productdetail[0]->imagelink }}"  class="productImg img-fluid myImg" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="430px" height="350px"/>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="userdetailverticalline"></div>
                         <div class="col prodinformatie">
@@ -66,8 +89,6 @@
                             <b>Product gewicht:</b><br><br>
                             <b>Aantal:</b><br><br>
                             {!! (empty($productdetail[0]->specs)) ? '' : "<i data-toggle='modal' data-target='#exampleModal' class='fas fa-info-circle productspecs'></i>" !!} <br><br>
-                            
-
                         </div>
                         <div class="col prodinformatie">
                             <br>
@@ -149,7 +170,28 @@
             <hr id="userdetailline">
             <div class="row">
                 <div class="col-6">
-                    <img src="{{ $productdetail->imagelink }}" id="myImg" class="productImg img-fluid" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
+                    <a href="#" id="pop">
+                        <img src="{{ $productdetail->imagelink }}" id="imageresource" class="productImg img-fluid myImg" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
+                    </a>
+                </div>
+                        <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{ $productdetail[0]->productomschrijving }} specificaties</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                {{ $productdetail[0]->specs }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 <div id="userdetailverticalline"></div>
                 <div class="col">

@@ -122,8 +122,12 @@
     margin-bottom: 70px;
 }
 
+.modalimagedetail{
+    width: 400px;
+    height: 100%;
+}
 
-#myImg{
+.myImg{
     display: block;
     margin: auto;
     margin-top: 50px;
