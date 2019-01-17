@@ -181,7 +181,7 @@
 
                     </div>
                     <br>
-                    <div class="row ">
+                    <div class="row deleteconfirm">
                         <div class="col"></div>
                         <div class="col" id="delaccept">
                             <form action="/overzicht/productdetail/destroy/{{ $productdetail[0]->productcodefabrikant}}" method="POST" class="delform" id="DelForm">

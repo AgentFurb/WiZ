@@ -63,7 +63,8 @@
                     <div class="controluserlink">{{ $users->links() }}</div>
                     <div class="col"></div>
                 </div>
-            @else
+            @endif
+            @if(isset($usersearcherror))
                 <div class="row usernotfoundicon">
                     <div class="col"></div>
                     <div class="col-6"><i class="fas fa-user-times"></i></div>
@@ -75,6 +76,7 @@
                     <div class="col"></div>
                 </div>
             @endif
+            
         </div>
     </div>
     <div class="tabcontent" id="Productbeheer">

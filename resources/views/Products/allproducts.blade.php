@@ -38,6 +38,7 @@
             <h2 class="searchresults">Zoek resulaten:</h2>
         </div>
             @if (isset($prodscats))
+                {{-- Producten van een geselecteerde categorie --}}
                 @foreach($prodscats->chunk(3) as $chunk)
                     <div class="row PCall">
                         @foreach ($chunk as $prodscat)
@@ -76,6 +77,7 @@
             @else
             @endif
             @if(isset($searchproducts))
+                {{-- Zoek resultaten --}}
                 @foreach ($searchproducts->chunk(3) as $chunk)
                     <div class="row PCcard">
                         @foreach ($chunk as $searchprod)
@@ -107,6 +109,20 @@
                 @endforeach
                 {{ $searchproducts->links() }}
             @else 
+            @endif
+            @if(isset($searcherror))
+                {{-- Geen zoek resultaten --}}
+                <div class="row prodnotfoundicon">
+                    <div class="col"></div>
+                    <div class="col-6"><i class="fas fa-times"></i></div>
+                    <div class="col"></div>
+                </div>
+                <div class="row prodnotfound">
+                    <div class="col"></div>
+                    <div class="col-6"> <h3>Product niet gevonden</h3></div>
+                    <div class="col"></div>
+                </div>
+                <h3></h3>
             @endif
         </div>
     </div>

@@ -122,6 +122,7 @@
     margin-bottom: 70px;
 }
 
+
 #myImg{
     display: block;
     margin: auto;
@@ -138,7 +139,7 @@
 }
 
 #proddel{
-    margin-bottom: 216px;
+    margin-bottom: 232px;
 }
 .confirmdel{
     margin-top: 50px;
@@ -209,6 +210,16 @@ ul.prodvraag {
 ul.prodinfo {
     list-style-type: none;
 
+}
+
+.prodnotfound{
+    text-align: center;
+    margin-bottom: 150px;
+}
+.prodnotfoundicon{
+    text-align: center;
+    font-size: 75px;
+    margin-top: 120px;
 }
   
 /* shop index */
