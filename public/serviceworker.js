@@ -1,9 +1,9 @@
-var staticCacheName = "pwa-v" + new Date().getTime();
+var staticCacheName = "wiz-v" + new Date().getTime();
 var filesToCache = [
-    '/layout',
+    
     
     '/offline',
-    '/meta',
+    // '/meta',
     
     // '/home',
     // '/shop',
@@ -40,6 +40,7 @@ var filesToCache = [
     '/img/logo_wiz3.png',
     '/img/logo-small.png',
     '/img/default.jpg',
+    '/img/pwa-icon.png',
 
     '/fontawesome/css/all.min.css',
     '/fontawesome/webfonts/fa-brands-400.woff2',
@@ -86,7 +87,7 @@ self.addEventListener('activate', event => {
         caches.keys().then(cacheNames => {
             return Promise.all(
                 cacheNames
-                    .filter(cacheName => (cacheName.startsWith("pwa-")))
+                    .filter(cacheName => (cacheName.startsWith("wiz-")))
                     .filter(cacheName => (cacheName !== staticCacheName))
                     .map(cacheName => caches.delete(cacheName))
             );
