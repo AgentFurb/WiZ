@@ -398,3 +398,9 @@ ul {
     font-size: 24px;
     
 } */
+
+#btnAdd {
+    cursor: pointer;
+    width: 20%; 
+    margin-top: 15px;
+}

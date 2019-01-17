@@ -1,7 +1,7 @@
 {
         "name" : "WiZ - Kuijpers",
         "short_name" : "WiZ",
-        "start_url" : "/",
+        "start_url" : "/overzicht",
         "background_color" : "#2f2e87",
         "theme_color" : "#2f2e87",
         "display" : "standalone",

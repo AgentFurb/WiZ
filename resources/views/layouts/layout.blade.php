@@ -151,11 +151,9 @@
                 </div>
             </div>
             <div class="footer-right">
-                <p class="footer-company-about">
-                    <h5>Over WiZ</h5>
-                    <h6> WiZ, de productbeheer site van Kuijpers!</h6>
-                    <button id="btnAdd">PWA</button>
-                </p>
+                <div>
+                    <img id="btnAdd" src="{{ asset('img/pwa-icon.png') }}">
+                <div>
                 <div class="footer-icons">
                     <a href="https://www.facebook.com/kuijpersNL/" aria-label="Facebook" target="blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://twitter.com/kuijpersnl" aria-label="Twitter" target="blank"><i class="fab fa-twitter"></i></a>
