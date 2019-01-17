@@ -95,27 +95,110 @@
                     <textarea class="form-control" rows="7" cols="50"  name="Specificaties"></textarea>
                 </div>
                 <div class="col-xl  form-group">
-                    <h5>Product naam:</h5>
-                    <input class="form-control" type="text" name="Productomschrijving" required/>
-                    <h5>Productcode:</h5>
-                    <input class="form-control" type="text" name="Productcodefabrikant" required/>
-                    <h5>GTIN product:</h5>
-                    <input class="form-control scanBtn" type="text" id="GTIN" name="GTIN"/>
-                    <button class="btn btn-scan" type="button" id="btn" value="Start/Stop the scanner" data-toggle="modal" data-target="#livestream_scanner">
-                        <i class="fa fa-barcode"></i>
-                    </button> 
-                    <h5>Fabrikaat:</h5>
-                    <input class="form-control" type="text" name="Fabrikaat" required/>
-                    <h5>Productserie:</h5>
-                    <input class="form-control" type="text" name="Productserie" required/>
-                    <h5>Producttype:</h5>
-                    <input class="form-control" type="text" name="Producttype" required/>
-                    <h5>Locatie:</h5>
-                    <input class="form-control" type="text" name="Locatie" required/>
-                    <h5>Eenheid gewicht:</h5>
-                    <input class="form-control" type="text" name="Eenheidgewicht"/>
-                    <h5>Aantal:</h5>
-                    <input class="form-control" type="text" name="Aantal" />
+
+                    <div class="form-group">
+                        <h5>Product naam:</h5>
+                        <input id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving"/>
+                        <br>
+                        @if ($errors->has('Productomschrijving'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('Productomschrijving') }}
+                            </div>
+                        @endif
+                    </div>
+
+                    <div class="form-group">
+                        <h5>Productcode:</h5>
+                        <input id="Productcodefabrikant" class="form-control{{ $errors->has('Productcodefabrikant') ? ' is-invalid' : '' }}" type="text" name="Productcodefabrikant"/>
+                        <br>
+                        @if ($errors->has('Productcodefabrikant'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('Productcodefabrikant') }}
+                            </div>
+                        @endif
+                    </div>
+
+                    <div class="form-group">
+                        <h5>GTIN product:</h5>
+                        <input class="form-control scanBtn{{ $errors->has('GTIN') ? ' is-invalid' : '' }}" type="text" id="GTIN" name="GTIN"/>
+                        <button class="btn btn-scan" type="button" id="btn" value="Start/Stop the scanner" data-toggle="modal" data-target="#livestream_scanner">
+                            <i class="fa fa-barcode"></i>
+                        </button> 
+                        <br>
+                        @if ($errors->has('GTIN'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('GTIN') }}
+                            </div>
+                        @endif
+                    </div>
+                    
+                    <div class="form-group">
+                        <h5>Fabrikaat:</h5>
+                        <input id="Fabrikaat" class="form-control{{ $errors->has('Fabrikaat') ? ' is-invalid' : '' }}" type="text" name="Fabrikaat"/>
+                        <br>
+                        @if ($errors->has('Fabrikaat'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('Fabrikaat') }}
+                            </div>
+                        @endif
+                    </div>
+                    
+                    <div class="form-group">
+                        <h5>Productserie:</h5>
+                        <input id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" type="text" name="Productserie"/>
+                        <br>
+                        @if ($errors->has('Productserie'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('Productserie') }}
+                            </div>
+                        @endif
+                    </div>
+
+                    <div class="form-group">
+                        <h5>Producttype:</h5>
+                        <input id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" type="text" name="Producttype"/>
+                        <br>
+                        @if ($errors->has('Producttype'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('Producttype') }}
+                            </div>
+                        @endif
+                    </div>
+                    
+                    <div class="form-group">
+                        <h5>Locatie:</h5>
+                        <input id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" type="text" name="Locatie"/>
+                        <br>
+                        @if ($errors->has('Locatie'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('Locatie') }}
+                            </div>
+                        @endif
+                    </div>
+                    
+                    <div class="form-group">
+                        <h5>Eenheid gewicht:</h5>
+                        <input id="Eenheidgewicht" class="form-control{{ $errors->has('Eenheidgewicht') ? ' is-invalid' : '' }}" type="text" name="Eenheidgewicht"/>
+                        <br>
+                        @if ($errors->has('Eenheidgewicht'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('Eenheidgewicht') }}
+                            </div>
+                        @endif
+                    </div>
+                    
+                    <div class="form-group">
+                        <h5>Aantal:</h5>
+                        <input id="Aantal" class="form-control{{ $errors->has('Aantal') ? ' is-invalid' : '' }}" type="text" name="Aantal" />
+                        <br>
+                        @if ($errors->has('Aantal'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first('Aantal') }}
+                            </div>
+                        @endif
+                    </div>
+                    
+                    
                 </div>
             </div>
             <div class="row">

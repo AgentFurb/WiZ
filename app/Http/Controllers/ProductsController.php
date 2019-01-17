@@ -117,6 +117,18 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate(request(), [
+            'Productcodefabrikant' => ['required', 'string', 'max:255'],
+            'GTIN' => ['required', 'string', 'max:255'],
+            'Productomschrijving' => ['required', 'string', 'max:255'],
+            'Locatie' => ['required', 'string', 'max:255'],
+            'Fabrikaat' => ['required', 'string', 'max:255'],
+            'Specificaties' => ['required', 'string', 'max:255'],
+            'Productserie' => ['required', 'string', 'max:255'],
+            'Producttype' => ['required', 'string', 'max:255'],
+            'Eenheidgewicht' => ['required', 'string', 'max:255'],
+            'Aantal' => ['required', 'string', 'max:255'],
+        ]);
 
         $product = new Product();
         $product["Productcode fabrikant"] = $request->input("Productcodefabrikant");
