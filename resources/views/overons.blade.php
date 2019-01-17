@@ -6,12 +6,15 @@
         <div class="row">
             <div class="OverOnsText" class="justify-content-center">
                 <p><h1 id="overonsheader">Over ons</h1>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. 
-                Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. 
-                Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. 
-                Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+                Welkom op WiZ Kuijpers, <br>
+                Wij zijn Daan Swinkels & Ferdy Hommeles, wij doen de opleiding Applicatatie- en Mediaontwikkeling op het
+                Summa College in Eindhoven en het ROC Ter AA in Helmond.<br> 
+                Als stage opdracht bij Kuijpers Buisiness Partners in Helmond
+                hebben wij de WiZ applicatie gemaakt in samenwerking met Kuijpers. WiZ staat voor Weggooien is Zonde, de reden waarom
+                we deze website hebben gebouwd is omdat Kuijpers een beter inzicht wil krijgen welke producten er zijn overgebleven na het 
+                afronden van een project.
+                <br> 
+                
                 </p>
             </div>
         </div>
