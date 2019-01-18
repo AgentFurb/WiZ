@@ -22,7 +22,7 @@
         </div>        
     </div>
 
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
         <div class="row ">
             <div class="col overonscols">
                 <img src="img/20190115_134053.jpg" class="rotateimgoverons overonsimages" height="300px" width="300px">
@@ -37,6 +37,6 @@
         <div class="row">
 
         </div>
-    </div>
+    </div> --}}
 </div>
 @endsection
