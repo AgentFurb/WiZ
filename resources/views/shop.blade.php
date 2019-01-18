@@ -106,7 +106,7 @@
                 @if (isset($bekijkook))
                     @foreach ($bekijkook as $bekijk)
                         <div class="card bekijkookcards PCcard">
-                            <img class="card-img-top bekijkookimg" src="{{$bekijk->imagelink}}"  height="250px" width="200px">
+                            <img class="card-img-top bekijkookimg" src="{{$bekijk->imagelink}}" >
                             <a href="/overzicht/productdetail/{{$bekijk->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{ $bekijk->productomschrijving}}</h5></a>
 
                             <div class="card-body ulinfo">
