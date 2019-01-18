@@ -39,7 +39,7 @@
                 @if (isset($productsOTs))
                     @foreach ($productsOTs as $productsOT)
                         <div class="card OTcards">
-                            <img class="card-img-top " src="{{$productsOT->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" height="300px" width="300px">
+                            <img class="card-img-top OTimg" src="{{$productsOT->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" height="300px" width="300px">
                             <a href="/overzicht/productdetail/{{$productsOT->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{$productsOT->productomschrijving}}</h5></a>
                             <div class="card-body ulinfo">
                                 <ul class="prodvraag">
@@ -64,8 +64,9 @@
                 @endif
             </div>
         </div>
-        @if(isset($producttypes))
-            <div class="sidecols"></div>
+        <div class="col sidecols"></div>
+        <div class="eerderbekeken">
+            @if(isset($producttypes))
                 <div class="col eerderbekeken">
                     <h3>Verschillende laptops</h3>
                     @foreach ($producttypes as $producttype) 
@@ -91,8 +92,9 @@
                         </div>
                     @endforeach
                 </div>
-            <div class="sidecols"></div>
-        @endif
+            @endif
+        </div>
+        <div class="sidecols col"></div>
     </div>
 </div>
 

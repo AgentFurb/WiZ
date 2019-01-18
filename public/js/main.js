@@ -30,39 +30,7 @@ $("#pop").on("click", function() {
   $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
 });
 
-// //Listen for ability to show SW install prompt
-// window.addEventListener('beforeinstallprompt', function(event){
-// 	event.preventDefault(); //Prevent Chrome <= 67 from automatically showing the prompt
-// 	installPromptEvent = event; //Stash the event so it can be triggered later.
-// 	jQuery('.nebula-sw-install-button').removeClass('inactive').addClass('ready');
-// });
 
-// //Trigger the SW install prompt and handle user choice
-// jQuery('.nebula-sw-install-button').on('click', function(){
-// 	if ( typeof installPromptEvent !== 'undefined' ){
-// 		jQuery('.nebula-sw-install-button').removeClass('ready').addClass('prompted');
-
-// 		installPromptEvent.prompt(); //Show the modal add to home screen dialog
-// 		ga('send', 'event', 'Progressive Web App', 'Install Prompt Shown', event.platforms.join(', '));
-
-// 		//Wait for the user to respond to the prompt
-// 		installPromptEvent.userChoice.then(function(result){
-// 			jQuery('.nebula-sw-install-button').removeClass('prompted').addClass('ready');
-// 			ga('send', 'event', 'Progressive Web App', 'Install Prompt User Choice', result.outcome);
-// 			nv('event', 'Install Prompt ' + result.outcome);
-// 		});
-// 	} else {
-// 		jQuery('.nebula-sw-install-button').removeClass('ready').addClass('inactive');
-// 	}
-
-// 	return false;
-// });
-
-// //PWA Installed
-// window.addEventListener('appinstalled', function(){
-// 	jQuery('.nebula-sw-install-button').removeClass('ready').addClass('success');
-// 	ga('send', 'event', 'Progressive Web App', 'App Installed', 'The app has been installed');
-// });
 
 function previewFile() {
   var preview = document.getElementById("img");

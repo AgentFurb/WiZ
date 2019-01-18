@@ -57,6 +57,7 @@
                     <div class="card">
                         <div class="card-body">
                         <canvas id="bar-chart"  class="bar-chart" width="700" height="500"></canvas>
+                        <input type="hidden" id="countproducts" value="{{$barchartproducts}}">
                         </div>
                     </div>
                 </div>
@@ -64,6 +65,17 @@
                     <div class="card">
                         <div class="card-body">
                             <canvas id="doughnut-chart"  class="doughnut-chart" width="700" height="500"></canvas>
+                            <input type="hidden" id="Locatie0" value="{{ (empty($piechartlocatie[0]->Locatie)) ? '' : $piechartlocatie[0]->Locatie }}">
+                            <input type="hidden" id="Locatie1" value="{{ (empty($piechartlocatie[1]->Locatie)) ? '' : $piechartlocatie[1]->Locatie }}">
+                            <input type="hidden" id="Locatie2" value="{{ (empty($piechartlocatie[2]->Locatie)) ? '' : $piechartlocatie[2]->Locatie }}">
+                            <input type="hidden" id="Locatie3" value="{{ (empty($piechartlocatie[3]->Locatie)) ? '' : $piechartlocatie[3]->Locatie }}">
+                            <input type="hidden" id="Locatie4" value="{{ (empty($piechartlocatie[4]->Locatie)) ? '' : $piechartlocatie[3]->Locatie }}">
+                            {{-- Doughnut producten per locatie --}}
+                            <input type="hidden" id="prodperlocatie0" value="{{ (empty($piechartlocatie[0]->LocatieAantal )) ? '' : $piechartlocatie[0]->LocatieAantal }}">
+                            <input type="hidden" id="prodperlocatie1" value="{{ (empty($piechartlocatie[1]->LocatieAantal )) ? '' : $piechartlocatie[1]->LocatieAantal }}">
+                            <input type="hidden" id="prodperlocatie2" value="{{ (empty($piechartlocatie[2]->LocatieAantal )) ? '' : $piechartlocatie[2]->LocatieAantal }}">
+                            <input type="hidden" id="prodperlocatie3" value="{{ (empty($piechartlocatie[3]->LocatieAantal )) ? '' : $piechartlocatie[3]->LocatieAantal }}">
+                            <input type="hidden" id="prodperlocatie4" value="{{ (empty($piechartlocatie[4]->LocatieAantal )) ? '' : $piechartlocatie[4]->LocatieAantal }}">
                         </div>
                     </div>
                 </div>

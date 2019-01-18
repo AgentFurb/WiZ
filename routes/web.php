@@ -30,7 +30,7 @@ Route::get('/home', ['middleware' => 'auth', 'uses' => 'ChartController@homepage
 Route::get('/overons', ['middleware' => 'auth', 'uses' => 'PagesController@overons']);
 // Route::get('/overons', 'PagesController@overons');
 
-Route::get('/profiel', ['middleware' => 'auth', 'uses' => 'UsersController@profiel']);
+Route::get('/profiel', ['middleware' => 'auth', 'uses' => 'Chartcontroller@profilepagecharts']);
 // Route::get('/profiel', 'PagesController@profiel');
 
 Route::get('/controlpanel', ['middleware' => 'auth', 'uses' => 'UsersController@control']);

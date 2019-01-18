@@ -233,6 +233,12 @@ ul.prodinfo {
     height: 220px;
 }
 
+.OTimg{
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+}
+
 .OTcards{
     margin-bottom: 20px;
     padding: 0px;
@@ -401,8 +407,6 @@ form.Sbar::after {
 
 .sidecols{
     display: none;
-    margin-right: 40px;
-    margin-left: 40px;
 }
 
 .producttypenaam{
@@ -494,9 +498,9 @@ form.Sbar::after {
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .sidecols{
+    /* .sidecols{
         display: block;
-    }
+    } */
 
 }
 
@@ -525,3 +529,23 @@ canvas.drawing, canvas.drawingBuffer {
     width: 100%;
     height: auto;
 }
+
+
+
+
+@media (max-width: 425px){
+    .eerderbekeken{
+        display: none;
+    }
+
+}
+
+@media (max-width: 1024px){
+    .PCcard{
+        padding-right: 20px;
+        flex: 1 0 0% !important;
+    }
+
+
+}
+

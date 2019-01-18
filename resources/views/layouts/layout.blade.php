@@ -130,7 +130,7 @@
                     ·
                     <a href="/profiel" aria-label="Profiel" class="footernavhover">Profiel</a>
                     ·
-                    <a href="https://mijnkuijpers.sharepoint.com/" aria-label="Mijn Kuijpers" target="blank" class="footernavhover" rel="noreferrer">Mijn Kuijpers</a>
+                    <a href="https://www.kuijpers.nl/" aria-label="Mijn Kuijpers" target="blank" class="footernavhover" rel="noreferrer">Mijn Kuijpers</a>
                 </p>
                 <p class="footer-company-name">Kuijpers Installaties &copy; 2018</p>
             </div>

@@ -17,18 +17,6 @@ class UsersController extends Controller
         $this->middleware('auth');
     }
 
-    public function profiel()
-    {
-        $currentuser = Auth::user()->rechten;
-        if($currentuser == 'User'){
-        }
-        else{
-            $controltoegang = $currentuser;
-        }
-        return view('profiel', compact('controltoegang'));
-    }
-
-
     public function control()
     {
         $users = DB::table('users')->simplePaginate(10);

@@ -98,7 +98,7 @@
 
                     <div class="form-group">
                         <h5>Product naam:</h5>
-                        <input id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" required/>
+                        <input id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" />
                         <br>
                         @if ($errors->has('Productomschrijving'))
                             <div class="alert alert-danger" role="alert">
@@ -109,7 +109,7 @@
 
                     <div class="form-group">
                         <h5>Productcode:</h5>
-                        <input id="Productcodefabrikant" class="form-control{{ $errors->has('Productcodefabrikant') ? ' is-invalid' : '' }}" type="text" name="Productcodefabrikant" required/>
+                        <input id="Productcodefabrikant" class="form-control{{ $errors->has('Productcodefabrikant') ? ' is-invalid' : '' }}" type="text" name="Productcodefabrikant" />
                         <br>
                         @if ($errors->has('Productcodefabrikant'))
                             <div class="alert alert-danger" role="alert">
@@ -134,7 +134,7 @@
                     
                     <div class="form-group">
                         <h5>Fabrikaat:</h5>
-                        <input id="Fabrikaat" class="form-control{{ $errors->has('Fabrikaat') ? ' is-invalid' : '' }}" type="text" name="Fabrikaat" required/>
+                        <input id="Fabrikaat" class="form-control{{ $errors->has('Fabrikaat') ? ' is-invalid' : '' }}" type="text" name="Fabrikaat"/>
                         <br>
                         @if ($errors->has('Fabrikaat'))
                             <div class="alert alert-danger" role="alert">
@@ -145,7 +145,13 @@
                     
                     <div class="form-group">
                         <h5>Productserie:</h5>
-                        <input id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" type="text" name="Productserie" required/>
+                        {{-- <input id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" type="text" name="Productserie" required/> --}}
+                        <select id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" name="Productserie">
+                            <option disabled selected hidden>Productserie:</option>
+                            <option>IT</option>
+                            <option>Magazijn</option>
+                            <option>Diversen</option>
+                        </select>
                         <br>
                         @if ($errors->has('Productserie'))
                             <div class="alert alert-danger" role="alert">
@@ -156,7 +162,23 @@
 
                     <div class="form-group">
                         <h5>Producttype:</h5>
-                        <input id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" type="text" name="Producttype" required/>
+                        {{-- <input id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" type="text" name="Producttype" required/> --}}
+                        <select id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" name="Producttype">
+                            <option disabled selected hidden>Producttype:</option>
+                            <option>Tablet</option>
+                            <option>Printer</option>
+                            <option>PC</option>
+                            <option>Monitor</option>
+                            <option>Laptop</option>
+                            <option>Flenzen</option>
+                            <option>Afsluiters</option>
+                            <option>RVS buizen</option>
+                            <option>Elektrische onderdelen</option>
+                            <option>T stukken</option>
+                            <option>Telefoons</option>
+                            <option>TL-buizen</option>
+                            <option>Diversen</option>
+                        </select>
                         <br>
                         @if ($errors->has('Producttype'))
                             <div class="alert alert-danger" role="alert">
@@ -167,13 +189,32 @@
                     
                     <div class="form-group">
                         <h5>Locatie:</h5>
-                        <input id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" type="text" name="Locatie" required/>
+                        {{-- <input id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" type="text" name="Locatie" required/> --}}
+                        <select id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" name="Locatie" >
+                            <option disabled selected hidden>Vestiging:</option>
+                            <option>Amsterdam</option>
+                            <option>Arnhem</option>
+                            <option>Den Bosch</option>
+                            <option>Den Haag</option>
+                            <option>Echt</option>
+                            <option>Groningen</option>
+                            <option>Helmond</option>
+                            <option>Katwijk</option>
+                            <option>Makkum</option>
+                            <option>Oosterhout</option>
+                            <option>Roosendaal</option>
+                            <option>Tilburg</option>
+                            <option>Utrecht</option>
+                            <option>Zelhem</option>
+                            <option>Zwolle</option>
+                        </select>
                         <br>
                         @if ($errors->has('Locatie'))
                             <div class="alert alert-danger" role="alert">
                                 {{ $errors->first('Locatie') }}
                             </div>
                         @endif
+
                     </div>
                     
                     <div class="form-group">

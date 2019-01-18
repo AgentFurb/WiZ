@@ -1,42 +1,66 @@
 // Bar chart
+countproducts = document.getElementById("countproducts").value;
 new Chart(document.getElementById("bar-chart"), {
     type: 'bar',
     data: {
-      labels: ["In", "Uit"],
+      labels: ["In"],
       datasets: [
         {
           label: "Producten",
-          backgroundColor: ['#f28e0b' , '#2f2e87'],
-          data: [Math.floor(Math.random() * 50) + 25, Math.floor(Math.random() * 100) + 25]
+          backgroundColor: ['#f28e0b'],
+
+          data: [countproducts]
+          
         }
       ]
     },
     options: {
       legend: { display: false },
       title: {
-        display: true,
+        display: false,
         text: 'Producten'
-      }
+      },
+      scales: {
+        yAxes: [{
+            ticks: {
+                suggestedMin: 0,
+                suggestedMax: 50
+            }
+        }]
+    }
     }
 });
 
 // Pie chart
+L0 = document.getElementById("Locatie0").value;
+L1 = document.getElementById("Locatie1").value;
+L2 = document.getElementById("Locatie2").value;
+L3 = document.getElementById("Locatie3").value;
+L4 = document.getElementById("Locatie4").value;
+PL0 = document.getElementById("prodperlocatie0").value;
+PL1 = document.getElementById("prodperlocatie1").value;
+PL2 = document.getElementById("prodperlocatie2").value;
+PL3 = document.getElementById("prodperlocatie3").value;
+PL4 = document.getElementById("prodperlocatie4").value;
+
+
 
 new Chart(document.getElementById("doughnut-chart"), {
     type: 'doughnut',
     data: {
-      labels: ["Katwijk", "Helmond", "Amsterdam", "Echt", "Tilburg"],
+      labels: [L0, L1, L2, L3, L4],
       datasets: [
         {
           label: "Population (millions)",
-          backgroundColor: ["#062670", "#92B4F4","#14439B","#C5D5E4","#5073E5"],
-          data: [2278,1967,3734,1784,3133]
+
+          backgroundColor: [ "#14439B", "#92B4F4","#5073E5","#C5D5E4","#062670" ],
+          data: [PL0, PL1, PL2, PL3, PL4],
         }
       ]
     },
     options: {
       title: {
-        display: true,
+        display: false,
         text: 'Totaal aantal overige producten per vestiging'
       }
     }
@@ -53,7 +77,7 @@ new Chart(document.getElementById("doughnut-chart"), {
         gaugeWidthScale: 0.6,
         counter: true,
         formatNumber: true,
-        levelColorsGradient: false
+        levelColorsGradient: false,
     });
 
 

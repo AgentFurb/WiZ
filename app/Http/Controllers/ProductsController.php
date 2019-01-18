@@ -98,9 +98,30 @@ class ProductsController extends Controller
     {
 
 
-        $product = Product::where('Productcode fabrikant', $request->Productcodefabrikant);
+        // $product = Product::where('Productcode fabrikant', $request->Productcodefabrikant);
+        $product = DB::table('overzicht as o')
+        ->select('o.ID as id', 'o.Productcode fabrikant as productcodefabrikant', 'o.Fabrikaat as fabrikaat', 'o.Productserie as productserie', 'o.Eenheid gewicht as gewicht','o.Ingangsdatum as ingangsdatum', 'o.Productomschrijving as productomschrijving', 'o.imagelink as imagelink', 'o.Locatie as locatie', 'o.Producttype as producttype', 'o.Aantal as aantal', 'o.Pspecificaties as specs')
+        ->where('Productcode fabrikant', $request->Productcodefabrikant)
+        ->first();
 
-        dd($product);
+        $product["Productcode fabrikant"] = $request->input("Productcodefabrikant");
+        $product["GTIN product"] = $request->input("GTIN");
+        $product->Productomschrijving = $request->input("Productomschrijving");
+        $product->Locatie = $request->input("Locatie");
+        $product->Fabrikaat = $request->input("Fabrikaat");
+        $product->Pspecificaties = $request->input("Specificaties");
+        $product->Productserie = $request->input("Productserie");
+        $product->Producttype = $request->input("Producttype");
+        $product["Eenheid gewicht"] = $request->input("Eenheidgewicht");
+        $product->Aantal = $request->input("Aantal");
+        $product->Ingangsdatum = date('Y-m-d H:i:s');
+        
+        $request->validate(['imagelink' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:7500',]);
+        $imagelinkName = '/storage/productimages/'.request()->imagelink->getClientOriginalName();
+        $destinationPath = public_path('/storage/productimages');
+        $request->imagelink->move($destinationPath, $imagelinkName);
+        $product->imagelink = $imagelinkName;
+        $product->save();
 
         return redirect('/overzicht');
     }
@@ -122,37 +143,55 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
-        // $this->validate(request(), [
-        //     'Productcodefabrikant' => ['required', 'string', 'max:255'],
-        //     'GTIN' => ['string', 'max:255'],
-        //     'Productomschrijving' => ['required', 'string', 'max:255'],
-        //     'Locatie' => ['required', 'string', 'max:255'],
-        //     'Fabrikaat' => ['required', 'string', 'max:255'],
-        //     'Specificaties' => ['string', 'max:255'],
-        //     'Productserie' => ['required', 'string', 'max:255'],
-        //     'Producttype' => ['required', 'string', 'max:255'],
-        //     'Eenheidgewicht' => ['string', 'max:255'],
-        //     'Aantal' => ['string', 'max:255'],
-        // ]);
+        $this->validate(request(), [
+            'Productcodefabrikant' => ['required', 'string', 'max:255'],
+            'GTIN' => ['nullable', 'string', 'max:255'],
+            'Productomschrijving' => ['required', 'string', 'max:255'],
+            'Locatie' => ['required', 'string', 'max:255'],
+            'Fabrikaat' => ['required', 'string', 'max:255'],
+            'Specificaties' => ['nullable', 'string', 'max:255'],
+            'Productserie' => ['required', 'string', 'max:255'],
+            'Producttype' => ['required', 'string', 'max:255'],
+            'Eenheidgewicht' => ['nullable', 'string', 'max:255'],
+            'Aantal' => ['nullable', 'string', 'max:255'],
+        ]);
 
         $product = new Product();
         $product["Productcode fabrikant"] = $request->input("Productcodefabrikant");
-        $product["GTIN product"] = $request->input("GTIN");
         $product->Productomschrijving = $request->input("Productomschrijving");
         $product->Locatie = $request->input("Locatie");
         $product->Fabrikaat = $request->input("Fabrikaat");
         $product->Pspecificaties = $request->input("Specificaties");
         $product->Productserie = $request->input("Productserie");
         $product->Producttype = $request->input("Producttype");
-        $product["Eenheid gewicht"] = $request->input("Eenheidgewicht");
-        $product->Aantal = $request->input("Aantal");
         $product->Ingangsdatum = date('Y-m-d H:i:s');
+
+        if(empty($request->input("Eenheidgewicht"))){
+            $product["Eenheid gewicht"] = "Onbekend";
+
+        }
+        else{
+            $product["Eenheid gewicht"] = $request->input("Eenheidgewicht");
+        }
+        if(empty($request->input("Aantal"))){
+            $product->Aantal = "Onbekend";
+
+        }
+        else{
+            $product->Aantal = $request->input("Aantal");
+        }
         
-        $request->validate(['imagelink' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:7500',]);
-        $imagelinkName = '/storage/productimages/'.request()->imagelink->getClientOriginalName();
-        $destinationPath = public_path('/storage/productimages');
-        $request->imagelink->move($destinationPath, $imagelinkName);
-        $product->imagelink = $imagelinkName;
+
+        if (empty($request->imagelink)) {
+            $product->imagelink = "/img/img-placeholder.png	";
+        } else {
+            $request->validate(['imagelink' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',]);
+            $imagelinkName = '/storage/productimages/'.request()->imagelink->getClientOriginalName();
+            $destinationPath = public_path('/storage/productimages');
+            $request->imagelink->move($destinationPath, $imagelinkName);
+            $product->imagelink = $imagelinkName;
+        }
+        
         $product->save();
 
         return redirect('/overzicht');

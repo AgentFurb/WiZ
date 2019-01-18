@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-xl  form-group">
                     <h5>Product naam:</h5>
-                    <input class="form-control" type="text" name="Productomschrijving" required value="{{$productedit[0]->productomschrijving}}"/>
+                    <input class="form-control" type="text" name="Productomschrijving"  value="{{$productedit[0]->productomschrijving}}" required/>
                     <h5>Productcode:</h5>
                     <input class="form-control" type="text" name="Productcodefabrikant" value="{{$productedit[0]->productcodefabrikant}}" required/>
                     <h5>GTIN product:</h5>
@@ -79,9 +79,9 @@
                     <h5>Locatie:</h5>
                     <input class="form-control" type="text" name="Locatie" value="{{$productedit[0]->locatie}}" required/>
                     <h5>Eenheid gewicht:</h5>
-                    <input class="form-control" type="text" name="Eenheidgewicht" value="{{$productedit[0]->gewicht}}" required/>
+                    <input class="form-control" type="text" name="Eenheidgewicht" value="{{$productedit[0]->gewicht}}" />
                     <h5>Aantal:</h5>
-                    <input class="form-control" type="text" name="Aantal" value="{{$productedit[0]->aantal}}" required/>
+                    <input class="form-control" type="text" name="Aantal" value="{{$productedit[0]->aantal}}" />
                 </div>
             </div>
             <div class="row">
