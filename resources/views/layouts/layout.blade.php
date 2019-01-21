@@ -6,6 +6,8 @@
         <title>WiZ - Kuijpers</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="WiZ Kuijpers - Weggooien is Zonde, een overzicht van alle overgbleven producten van Kuijpers."/>
+        <meta name="author" content="Daan Swinkels, Ferdy Hommeles">
+        <meta name="keywords" content="Kuijpers,WiZ, Weggooien is Zonde">
         <!-- bootstrap - fontawesome -->
         <link rel="preload" href="{{ asset('fontawesome/css/all.min.css') }}" as="style" onload="this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}"></noscript>
