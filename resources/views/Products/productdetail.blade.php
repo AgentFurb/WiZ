@@ -53,22 +53,22 @@
             <div class="usrinfo tabcontent" id="prodinfo">
                 <div class="row">
                     <div class="col-6 detailimg">
-                        <a href="#" id="pop" data-toggle='modal' data-target='#exampleModal'>
-                            <img src="{{ $productdetail[0]->imagelink }}" data-target='#exampleModal' id="imageresource" class="productImg img-fluid myImg" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
+                        <a href="#" id="pop" data-toggle='modal' data-target='#imagemodal'>
+                            <img src="{{ $productdetail[0]->imagelink }}" data-target='#imagemodal' id="imageresource" class="productImg img-fluid myImg" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
                         </a>                    
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">{{ $productdetail[0]->productomschrijving }} specificaties</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">{{ $productdetail[0]->productomschrijving }}</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body modalimagedetail">
-                                        <img src="{{ $productdetail[0]->imagelink }}"  class="productImg img-fluid myImg" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="430px" height="350px"/>
+                                        <img src="{{ $productdetail[0]->imagelink }}"  class=" img-fluid modalimage" onerror=this.src="{{ url('/img/img-placeholder.png') }}"/>
 
                                 </div>
                                 <div class="modal-footer">
@@ -98,7 +98,7 @@
                             {{ $productdetail[0]->fabrikaat }} <br><br>
                             {{ $productdetail[0]->productserie }} <br><br>
                             {{ $productdetail[0]->locatie }} <br><br>
-                            {{ $productdetail[0]->gewicht }} <b>KG</b><br><br>
+                            {{ empty($productdetail[0]->gewicht) ? 'Onbekend' : '' }} <b>{{ empty($productdetail[0]->gewicht) ? '' : 'KG' }}</b><br><br>
                             {{ $productdetail[0]->aantal }} <br><br>
                         </div>
                     </div>

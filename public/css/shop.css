@@ -116,6 +116,13 @@
 
 /* Productdetail */
 
+.modalimage{
+    margin-top: 0px !important;
+    margin-left: 30px !important;
+    max-height: 400px;
+    max-width: 400px;
+}
+
 .userdetailverticalline{
     border-left: 3px solid #8fa2d2;
     height: 500px;
@@ -362,6 +369,8 @@ form.Sbar input[type=text] {
     background: #ffffff;
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
     height: calc(2.25rem + 2px);
     padding: .375rem .75rem;
 

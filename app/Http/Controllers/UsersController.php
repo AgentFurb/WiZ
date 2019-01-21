@@ -32,7 +32,7 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
-        dd($user);
+
         return view('Users.edituser', compact('user'));
     }
 

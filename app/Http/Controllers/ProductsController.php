@@ -9,14 +9,11 @@ use App\Cat;
 use App\Pimage;
 use Illuminate\Support\Facades\Storage;
 
-
 class ProductsController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
-        
-        
     }
 
     public function shopindex()
@@ -168,20 +165,17 @@ class ProductsController extends Controller
 
         if(empty($request->input("Eenheidgewicht"))){
             $product["Eenheid gewicht"] = "Onbekend";
-
         }
         else{
             $product["Eenheid gewicht"] = $request->input("Eenheidgewicht");
         }
         if(empty($request->input("Aantal"))){
             $product->Aantal = "Onbekend";
-
         }
         else{
             $product->Aantal = $request->input("Aantal");
         }
         
-
         if (empty($request->imagelink)) {
             $product->imagelink = "/img/img-placeholder.png	";
         } else {
@@ -191,7 +185,6 @@ class ProductsController extends Controller
             $request->imagelink->move($destinationPath, $imagelinkName);
             $product->imagelink = $imagelinkName;
         }
-        
         $product->save();
 
         return redirect('/overzicht');
