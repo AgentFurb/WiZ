@@ -98,9 +98,10 @@
                             {{ $productdetail[0]->fabrikaat }} <br><br>
                             {{ $productdetail[0]->productserie }} <br><br>
                             {{ $productdetail[0]->locatie }} <br><br>
-                            {{ empty($productdetail[0]->gewicht) ? 'Onbekend' : '' }} <b>{{ empty($productdetail[0]->gewicht) ? '' : 'KG' }}</b><br><br>
+                            {{ $productdetail[0]->gewicht}} <b>{{$productdetail[0]->gewicht == 'Onbekend' ? '' : 'KG'}}</b><br><br>
                             {{ $productdetail[0]->aantal }} <br><br>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -42,26 +42,20 @@
                     <i class="fas fa-camera"></i>
                 </a>
             </div>
-        </div>
-        
-      
-        
+        </div>   
         <div class="container-fluid">
             <div class="row">
-                <div class="col">
-                    <h4>Het in en uitgaan van uw producten</h4>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-sm">
+                    <h4>Het in en uitgaan van uw producten</h4>
                     <div class="card">
                         <div class="card-body">
                         <canvas id="bar-chart"  class="bar-chart" width="700" height="500"></canvas>
                         <input type="hidden" id="countproducts" value="{{$barchartproducts}}">
                         </div>
                     </div>
-                </div>
+                </div> 
                 <div class="col-sm">
+                    <h4>Vestigingen met het meest aantal producten</h4>
                     <div class="card">
                         <div class="card-body">
                             <canvas id="doughnut-chart"  class="doughnut-chart" width="700" height="500"></canvas>
@@ -69,7 +63,7 @@
                             <input type="hidden" id="Locatie1" value="{{ (empty($piechartlocatie[1]->Locatie)) ? '' : $piechartlocatie[1]->Locatie }}">
                             <input type="hidden" id="Locatie2" value="{{ (empty($piechartlocatie[2]->Locatie)) ? '' : $piechartlocatie[2]->Locatie }}">
                             <input type="hidden" id="Locatie3" value="{{ (empty($piechartlocatie[3]->Locatie)) ? '' : $piechartlocatie[3]->Locatie }}">
-                            <input type="hidden" id="Locatie4" value="{{ (empty($piechartlocatie[4]->Locatie)) ? '' : $piechartlocatie[3]->Locatie }}">
+                            <input type="hidden" id="Locatie4" value="{{ (empty($piechartlocatie[4]->Locatie)) ? '' : $piechartlocatie[4]->Locatie }}">
                             {{-- Doughnut producten per locatie --}}
                             <input type="hidden" id="prodperlocatie0" value="{{ (empty($piechartlocatie[0]->LocatieAantal )) ? '' : $piechartlocatie[0]->LocatieAantal }}">
                             <input type="hidden" id="prodperlocatie1" value="{{ (empty($piechartlocatie[1]->LocatieAantal )) ? '' : $piechartlocatie[1]->LocatieAantal }}">

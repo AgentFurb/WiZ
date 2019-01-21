@@ -92,7 +92,6 @@ Route::any ( '/controlpanel', function () {
 Route::any ( '/overzicht/products/search', function(){
     $q = Input::get ( 'q' );
     // $searchproducts = Product::where ( 'Productomschrijving', 'LIKE', '%' . $q . '%' )->paginate(16);
-    // dd($searchproducts);
 
     $searchproducts = DB::table('overzicht AS o')
     ->select('o.ID as id', 'o.Productcode fabrikant as productcodefabrikant', 'o.Fabrikaat as fabrikaat', 'o.Productserie as productserie', 'o.Ingangsdatum as ingangsdatum', 'o.Productomschrijving as productomschrijving', 'o.imagelink as imagelink',  'o.Locatie as locatie', 'o.Producttype as producttype', 'o.Aantal as aantal')

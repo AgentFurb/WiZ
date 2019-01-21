@@ -8,6 +8,7 @@ use App\Product;
 use App\Cat;
 use App\Pimage;
 use Illuminate\Support\Facades\Storage;
+use Image;
 
 class ProductsController extends Controller
 {
@@ -179,7 +180,28 @@ class ProductsController extends Controller
         if (empty($request->imagelink)) {
             $product->imagelink = "/img/img-placeholder.png	";
         } else {
-            $request->validate(['imagelink' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',]);
+            $request->validate(['imagelink' => 'image|mimes:jpeg,png,jpg,gif,svg|max:7500',]);
+            // $imagenaam = $request->imagelink->getClientOriginalName();
+            // $exif = exif_read_data($imagenaam);
+            // if(!empty($exif['Orientation'])) {
+            //     switch($exif['Orientation']) {
+            //         case 8:
+            //             $img = imagerotate($imagenaam,90,0);
+            //             break;
+            //         case 3:
+            //             $img = imagerotate($imagenaam,180,0);
+            //             break;
+            //         case 6:
+            //             $imagenaam->__toString();
+            //             $img = imagerotate($imagenaam,-90,0);
+            //             break;
+            //     }
+            // }
+
+            // $imagenaam = $request->file('imagelink')->getRealPath();
+            // $img = \Image::make($imagenaam);
+            // $img->orientate();
+
             $imagelinkName = '/storage/productimages/'.request()->imagelink->getClientOriginalName();
             $destinationPath = public_path('/storage/productimages');
             $request->imagelink->move($destinationPath, $imagelinkName);
