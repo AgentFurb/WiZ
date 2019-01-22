@@ -2,6 +2,9 @@
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
+@section('titlePage')
+    <title>WiZ Kuijpers - {{$productedit[0]->productomschrijving}} wijzigen</title>
+@endsection
 
 @section('shopmenu')
     <div class="container-fluid">

@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-
+@section('titlePage')
+    <title>WiZ Kuijpers - Over ons</title>
+@endsection
 @section('content')
 <div class="overons BackgroundOverOns">
     <div class="container-fluid ">

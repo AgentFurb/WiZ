@@ -2,6 +2,9 @@
 @section('pageSpecificCSS')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/homegraphs.css') }}" />
 @endsection
+@section('titlePage')
+    <title>WiZ Kuijpers</title>
+@endsection
 @section('content')
     <div class="backgroundHome">
         <br>

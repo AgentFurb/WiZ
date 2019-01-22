@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-
+@section('titlePage')
+    <title>WiZ Kuijpers - Nieuwe gebruiker</title>
+@endsection
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/controlpanel.css') }}" />
 @endsection
@@ -8,7 +10,7 @@
 <div class="container userdetail">
         <div class="row">            
             <div class="col"><a href="/controlpanel"><i class="fas fa-arrow-circle-left usericons "></i></a></div>
-            <div class="col"><img class="profile-img-users mx-auto d-block" src="/storage/avatars/default.jpg"></div>
+            <div class="col"><img class="profile-img-users mx-auto d-block" src="{{ asset('img/default.jpg') }}"></div>
             <div class="col"></div>
         </div>
         <hr id="userdetailline">

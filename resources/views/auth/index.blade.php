@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('titlePage')
+    <title>Inloggen</title>
+@endsection
 @section('content')
     <div class="bg">
         <div class="layer">

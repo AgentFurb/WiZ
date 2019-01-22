@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-
+@section('titlePage')
+    <title>WiZ Kuijpers - {{ $productdetail[0]->productomschrijving }}</title>
+@endsection
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 
