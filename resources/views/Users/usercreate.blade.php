@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('titlePage')
-    <title>WiZ Kuijpers - Nieuwe gebruiker</title>
+    <title>WiZ Kuijpers - Gebruiker toevoegen</title>
 @endsection
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/controlpanel.css') }}" />

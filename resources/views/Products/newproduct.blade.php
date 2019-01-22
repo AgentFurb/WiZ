@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
 @section('titlePage')
-    <title>WiZ Kuijpers - Nieuw product</title>
+    <title>WiZ Kuijpers - Product toevoegen</title>
 @endsection
 
 @section('shopmenu')
