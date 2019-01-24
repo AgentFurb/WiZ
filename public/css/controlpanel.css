@@ -150,7 +150,7 @@ ul  li{
     display: none;
     padding: 6px 12px;
     border-top: none;
-    height: 100vh;
+
 }
 
 
@@ -223,6 +223,8 @@ input[type="submit"] {
 .usrinfo-cols{
     margin-top: 20px;
 }
+
+
 
 .confirmdeleteuser{
     text-align: center;
