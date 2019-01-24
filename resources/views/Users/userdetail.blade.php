@@ -1,6 +1,7 @@
 @extends('layouts.layout')
-
-
+@section('titlePage')
+    <title>WiZ Kuijpers - {{ $user->voornaam }}</title>
+@endsection
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/controlpanel.css') }}" />
 @endsection

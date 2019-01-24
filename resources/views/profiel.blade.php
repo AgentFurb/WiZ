@@ -2,7 +2,9 @@
 
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/profile.css') }}" />
-
+@endsection
+@section('titlePage')
+    <title>WiZ Kuijpers - Profiel</title>
 @endsection
 @section('content')
     <hr>

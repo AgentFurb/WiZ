@@ -3,20 +3,18 @@
     <head>
         <meta name=viewport content="width=device-width, initial-scale=1"/>
         <meta charset="utf-8">
-        <title>WiZ - Kuijpers</title>
+        @yield("titlePage")
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="WiZ Kuijpers - Weggooien is Zonde, een overzicht van alle overgbleven producten van Kuijpers."/>
         <meta name="author" content="Daan Swinkels, Ferdy Hommeles">
         <meta name="keywords" content="Kuijpers,WiZ, Weggooien is Zonde">
+
         <!-- bootstrap - fontawesome -->
         <link rel="preload" href="{{ asset('fontawesome/css/all.min.css') }}" as="style" onload="this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}"></noscript>
         
         <link rel="preload" href="{{ asset('css/bootstrap.min.css') }}" as="style" onload="this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"></noscript>       
-
-        {{-- <link rel="stylesheet" type="text/css"  href="{{ asset('fontawesome/css/all.min.css') }}" /> --}}
-        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" /> --}}
 
         <!-- custom css -->
         <link rel="preload" href="{{ asset('css/main.css') }}" as="style" onload="this.rel='stylesheet'">
@@ -26,9 +24,6 @@
         <noscript><link rel="stylesheet" href="{{ asset('css/footer.css') }}"></noscript> 
 
         <script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
-
-        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" /> --}}
-        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}" /> --}}
 
         <script>
             /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
@@ -43,37 +38,6 @@
         {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('img/wizicon.png') }}"> --}}
         @laravelPWA
 
-        {{-- <style>
-        
-        .absolute {
-            position: absolute;
-        }
-
-        .pin {
-            top: 1000;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-
-        .bg-cover {
-            background-size: cover;
-        }
-
-        .bg-no-repeat {
-            background-repeat: no-repeat;
-        }
-        @media (min-width: 768px) {
-            .md\:bg-left {
-                background-position: left;
-            }
-        }
-        @media (min-width: 992px) {
-            .lg\:bg-center {
-                background-position: center;
-            }
-        }
-        </style> --}}
     </head>
     <body>
         <div class="container-fluid top-bar">

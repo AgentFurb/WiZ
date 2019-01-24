@@ -3,7 +3,9 @@
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/controlpanel.css') }}" />
 @endsection
-
+@section('titlePage')
+    <title>WiZ Kuijpers - Controlpanel</title>
+@endsection
 @section('content')
     <div class="tab">
         @if (isset($accountbeheertoegang))

@@ -2,6 +2,9 @@
 @section('pageSpecificCSS')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
+@section('titlePage')
+    <title>WiZ Kuijpers - Product toevoegen</title>
+@endsection
 
 @section('shopmenu')
     <div class="container-fluid">
@@ -96,7 +99,7 @@
                 </div>
                 <div class="col-xl  form-group">
 
-                    <div class="form-group">
+                    <div>
                         <h5>Product naam:</h5>
                         <input id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" />
                         <br>
@@ -107,7 +110,7 @@
                         @endif
                     </div>
 
-                    <div class="form-group">
+                    <div>
                         <h5>Productcode:</h5>
                         <input id="Productcodefabrikant" class="form-control{{ $errors->has('Productcodefabrikant') ? ' is-invalid' : '' }}" type="text" name="Productcodefabrikant" />
                         <br>
@@ -118,7 +121,7 @@
                         @endif
                     </div>
 
-                    <div class="form-group">
+                    <div>
                         <h5>GTIN product:</h5>
                         <input class="form-control scanBtn{{ $errors->has('GTIN') ? ' is-invalid' : '' }}" type="text" id="GTIN" name="GTIN"/>
                         <button class="btn btn-scan" type="button" id="btn" value="Start/Stop the scanner" data-toggle="modal" data-target="#livestream_scanner">
@@ -132,7 +135,7 @@
                         @endif
                     </div>
                     
-                    <div class="form-group">
+                    <div>
                         <h5>Fabrikaat:</h5>
                         <input id="Fabrikaat" class="form-control{{ $errors->has('Fabrikaat') ? ' is-invalid' : '' }}" type="text" name="Fabrikaat"/>
                         <br>
@@ -143,7 +146,7 @@
                         @endif
                     </div>
                     
-                    <div class="form-group">
+                    <div>
                         <h5>Productserie:</h5>
                         {{-- <input id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" type="text" name="Productserie" required/> --}}
                         <select id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" name="Productserie">
@@ -160,7 +163,7 @@
                         @endif
                     </div>
 
-                    <div class="form-group">
+                    <div>
                         <h5>Producttype:</h5>
                         {{-- <input id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" type="text" name="Producttype" required/> --}}
                         <select id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" name="Producttype">
@@ -187,7 +190,7 @@
                         @endif
                     </div>
                     
-                    <div class="form-group">
+                    <div>
                         <h5>Locatie:</h5>
                         {{-- <input id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" type="text" name="Locatie" required/> --}}
                         <select id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" name="Locatie" >
@@ -217,7 +220,7 @@
 
                     </div>
                     
-                    <div class="form-group">
+                    <div>
                         <h5>Eenheid gewicht:</h5>
                         <input id="Eenheidgewicht" class="form-control{{ $errors->has('Eenheidgewicht') ? ' is-invalid' : '' }}" type="text" name="Eenheidgewicht"/>
                         <br>
@@ -228,7 +231,7 @@
                         @endif
                     </div>
                     
-                    <div class="form-group">
+                    <div>
                         <h5>Aantal:</h5>
                         <input id="Aantal" class="form-control{{ $errors->has('Aantal') ? ' is-invalid' : '' }}" type="text" name="Aantal"/>
                         <br>
