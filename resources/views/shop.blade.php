@@ -164,3 +164,8 @@
     </div>
 </div> --}}
 @endsection
+@section('PWA')
+    <div>
+        <img id="btnAdd" src="{{ asset('img/pwa-icon.png') }}">
+    <div>
+@endsection

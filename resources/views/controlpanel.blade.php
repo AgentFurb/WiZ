@@ -95,6 +95,11 @@
         </div>
     </div>   
 @endsection
+@section('PWA')
+    <div>
+        <img id="btnAdd" src="{{ asset('img/pwa-icon.png') }}">
+    <div>
+@endsection
 @section('tabJS')
     <script src="{{ asset('js/tab.js') }}"></script> 
 @endsection

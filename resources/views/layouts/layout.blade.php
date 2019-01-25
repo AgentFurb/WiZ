@@ -117,9 +117,7 @@
                 </div>
             </div>
             <div class="footer-right">
-                <div>
-                    <img id="btnAdd" src="{{ asset('img/pwa-icon.png') }}">
-                <div>
+                @yield('PWA')
                 <div class="footer-icons">
                     <a href="https://www.facebook.com/kuijpersNL/" aria-label="Facebook" target="blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://twitter.com/kuijpersnl" aria-label="Twitter" target="blank"><i class="fab fa-twitter"></i></a>
