@@ -51,6 +51,11 @@
             </div>
         </div>
     </div>
+    @section('PWA')
+        <div>
+            <img id="btnAdd" src="{{ asset('img/pwa-icon.png') }}">
+        <div>
+    @endsection
     @section('charts')
         <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
         <script src="{{ asset('js/justgage.js') }}"></script>
