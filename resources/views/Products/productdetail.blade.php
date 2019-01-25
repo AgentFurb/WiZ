@@ -62,14 +62,14 @@
                     <!-- Modal -->
                     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
-                                <div class="modal-content">
+                                <div class="modal-content detailmodal">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">{{ $productdetail[0]->productomschrijving }}</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body modalimagedetail">
+                                    <div class="modal-body detailmodal">
                                         <img src="{{ $productdetail[0]->imagelink }}"  class=" img-fluid modalimage" onerror=this.src="{{ url('/img/img-placeholder.png') }}"/>
 
                                 </div>
@@ -111,7 +111,7 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content detailmodal">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">{{ $productdetail[0]->productomschrijving }} specificaties</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -179,8 +179,8 @@
                 </div>
                         <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
+                    <div class="modal-dialog " role="document">
+                        <div class="modal-content detailmodal">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">{{ $productdetail[0]->productomschrijving }} specificaties</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

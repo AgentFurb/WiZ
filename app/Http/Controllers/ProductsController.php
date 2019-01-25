@@ -8,8 +8,8 @@ use App\Product;
 use App\Cat;
 use App\Pimage;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManager;
-use ImageMagick;
+use Intervention\Image\Image; 
+
 
 class ProductsController extends Controller
 {
@@ -181,23 +181,23 @@ class ProductsController extends Controller
         if (empty($request->imagelink)) {
             $product->imagelink = "/img/img-placeholder.png	";
         } else {
-            require 'vendor/autoload.php';
+            // $request->validate(['imagelink' => 'image|mimes:jpeg,png,jpg,gif,svg|max:7500',]);
+            // $imagelinkName = '/storage/productimages/'.request()->imagelink->getClientOriginalName();
             
-            // create an image manager instance with favored driver
-            $manager = new ImageManager(array('driver' => 'imagick'));
+            // $destinationPath = public_path('/storage/productimages');
+            // $request->imagelink->move($destinationPath, $imagelinkName);
+            // $product->imagelink = $imagelinkName;
+
 
             $request->validate(['imagelink' => 'image|mimes:jpeg,png,jpg,gif,svg|max:7500',]);
             $imagelinkName = '/storage/productimages/'.request()->imagelink->getClientOriginalName();
             
             $destinationPath = public_path('/storage/productimages');
             $request->imagelink->move($destinationPath, $imagelinkName);
-            // to finally create image instances
-            $image = $manager->make($imagelinkName)->resize(300, 200);
-            $product->imagelink = $image;
+            $product->imagelink = $imagelinkName;
 
         }
         $product->save();
-
         return redirect('/overzicht');
     }
 

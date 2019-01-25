@@ -116,9 +116,13 @@
 
 .modalimage{
     margin-top: 0px !important;
-    margin-left: 30px !important;
     max-height: 400px;
     max-width: 400px;
+}
+
+.detailmodal{
+    text-align: center;
+    margin: auto;
 }
 
 .userdetailverticalline{
