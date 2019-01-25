@@ -108,27 +108,28 @@
             <div class="card-group">
                 @if (isset($bekijkook))
                     @foreach ($bekijkook as $bekijk)
-                        <div class="card bekijkookcards PCcard">
-                            <img class="card-img-top bekijkookimg" src="{{$bekijk->imagelink}}" >
-                            <a href="/overzicht/productdetail/{{$bekijk->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{ $bekijk->productomschrijving}}</h5></a>
-
-                            <div class="card-body ulinfo">
-                                <ul class="prodvraag">
-                                    <b><li>Locatie:</li>
-                                    <li>Type:</li>
-                                    <li>Fabrikaat:</li>
-                                    <li>Serie:</li>
-                                    <li>Aantal:</li></b>
-                                </ul>
-                                <ul class="prodinfo">
-                                    <li>{{$bekijk->locatie}}</li>
-                                    <li>{{$bekijk->producttype}}</li>
-                                    <li>{{$bekijk->fabrikaat}}</li>
-                                    <li>{{$bekijk->productserie}}</li>
-                                    <li>{{$bekijk->aantal}}</li>
-                                </ul>
-                            </div>
+                    <div class="card bekijkcards flexbekijkook">
+                        <div height="300px" width="300px">
+                            <img class="card-img-top bekijkookimg" src="{{$bekijk->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" >
                         </div>
+                        <a href="/overzicht/productdetail/{{$bekijk->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{$bekijk->productomschrijving}}</h5></a>
+                        <div class="card-body ulinfo">
+                            <ul class="prodvraag">
+                                <b><li>Locatie:</li>
+                                <li>Ingangsdatum:</li>
+                                <li>Fabrikaat:</li>
+                                <li>Serie:</li>
+                                <li>Aantal:</li></b>
+                            </ul>
+                            <ul class="prodinfo">
+                                <li>{{$bekijk->locatie}}</li>
+                                <li>{{$bekijk->ingangsdatum}}</li>
+                                <li>{{$bekijk->fabrikaat}}</li>
+                                <li>{{$bekijk->productserie}}</li>
+                                <li>{{$bekijk->aantal}}</li>
+                            </ul>
+                        </div>
+                    </div>
                     @endforeach
                 @else 
                     <h1>not set</h1>

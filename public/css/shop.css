@@ -241,7 +241,8 @@ ul.prodinfo {
 .OTimg{
     border-style: solid;
     border-color: white;
-    border-width: 5px;
+    /* border-width: 5px; */
+    height: 300px !important;
 }
 
 .OTcards{
@@ -251,9 +252,19 @@ ul.prodinfo {
     align-items: center;
 }
 
+.bekijkcards{
+    margin-bottom: 20px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+}
+
+
+
 .bekijkookimg{
-    max-width: 300px;
-    max-height: 300px;
+    width: 300px !important;
+
+    height: 300px !important;
 }
 
 
@@ -425,6 +436,10 @@ form.Sbar::after {
     margin-right: 10px;
 }
 
+.chunkrowsbekijkook{
+    display: none;
+}
+
 
 @media only screen and (max-width: 320px) {
     .productImg {
@@ -548,10 +563,20 @@ canvas.drawing, canvas.drawingBuffer {
 
 }
 
+
 @media (max-width: 1024px){
     .PCcard{
         padding-right: 20px;
-        flex: 1 0 0% !important;
+        /* flex: 1 0 0% !important; */
+    }
+
+
+}
+
+@media (max-width: 1172px){
+    .bekijkcards{
+        /* margin-right: 20px; */
+        flex: 1 0 50% !important;
     }
 
 

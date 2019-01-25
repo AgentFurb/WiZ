@@ -86,7 +86,7 @@
                         @foreach ($chunk as $searchprod)
                         
                             <div class="col colcat">
-                                <div class="card PCcard">
+                                <div class="card PCcard ">
                                     <img class="card-img-left PCimg img-fluid" src="{{$searchprod->imagelink}}" alt="Card image cap" width="330px" height="250px">
                                     <a href="/overzicht/productdetail/{{$searchprod->productcodefabrikant}}"><h5 class="card-title">{{$searchprod->productomschrijving}}</h5></a>
                                     <div class="card-body ulinfo"> 

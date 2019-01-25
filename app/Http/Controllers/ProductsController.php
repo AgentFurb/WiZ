@@ -8,8 +8,8 @@ use App\Product;
 use App\Cat;
 use App\Pimage;
 use Illuminate\Support\Facades\Storage;
-use Image;
-use ImageOptimizer;
+use Intervention\Image\ImageManager;
+use ImageMagick;
 
 class ProductsController extends Controller
 {
@@ -181,16 +181,20 @@ class ProductsController extends Controller
         if (empty($request->imagelink)) {
             $product->imagelink = "/img/img-placeholder.png	";
         } else {
-            $request->validate(['compresspath' => 'image|mimes:jpeg,png,jpg,gif,svg|max:7000',]);
+            require 'vendor/autoload.php';
+            
+            // create an image manager instance with favored driver
+            $manager = new ImageManager(array('driver' => 'imagick'));
+
+            $request->validate(['imagelink' => 'image|mimes:jpeg,png,jpg,gif,svg|max:7500',]);
             $imagelinkName = '/storage/productimages/'.request()->imagelink->getClientOriginalName();
+            
             $destinationPath = public_path('/storage/productimages');
             $request->imagelink->move($destinationPath, $imagelinkName);
-            $product->imagelink = $imagelinkName;
+            // to finally create image instances
+            $image = $manager->make($imagelinkName)->resize(300, 200);
+            $product->imagelink = $image;
 
-            $compresspath = 'C:/laragon/www/Laravel/WiZ/public/storage/productimages/'.$request->imagelink->getClientOriginalName();
-            $test = $request->imagelink->getClientOriginalExtension();
-            dd($test);
-            ImageOptimizer::optimize($compresspath);
         }
         $product->save();
 
