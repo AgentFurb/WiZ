@@ -135,7 +135,7 @@
 </div>
 @section('PWA')
     <div>
-        <img id="btnAdd" src="{{ asset('img/pwa-icon.png') }}">
+        <img id="btnAdd" alt="PWA popup" src="{{ asset('img/pwa-icon.png') }}">
     <div>
 @endsection
 

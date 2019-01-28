@@ -11,8 +11,8 @@
             <div class="col order1 shop-bar">
                 <form class="Sbar" action="/overzicht/products/search" method="POST" role="search">
                     {{ csrf_field() }}
-                    <input type="text" placeholder="Search product" name="q">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input aria-label="Search product" type="text" placeholder="Search product" name="q">
+                    <button aria-label="Submit search" type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 
                 <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
@@ -42,11 +42,11 @@
                 @if (isset($productsOTs))
                     @foreach ($productsOTs as $productsOT)
                         <div class="card OTcards">
-                            <img class="card-img-top OTimg" src="{{$productsOT->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" height="300px" width="300px">
+                            <img alt="{{$productsOT->productomschrijving}}" class="card-img-top OTimg" src="{{$productsOT->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" height="300px" width="300px">
                             <a href="/overzicht/productdetail/{{$productsOT->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{$productsOT->productomschrijving}}</h5></a>
                             <div class="card-body ulinfo">
                                 <ul class="prodvraag">
-                                    <b><li>Locatie:</li>
+                                    <li>Locatie:</li>
                                     <li>Ingangsdatum:</li>
                                     <li>Fabrikaat:</li>
                                     <li>Serie:</li>
@@ -75,13 +75,13 @@
                     @foreach ($producttypes as $producttype) 
                         <div class="main_EB">	
                             <div class="app_top">
-                                    <img src="{{$producttype->imagelink}}" class="producttypeimg" width="150"/>
+                                    <img alt="{{$producttype->productomschrijving}}" src="{{$producttype->imagelink}}" class="producttypeimg" width="150"/>
                                 <span class="app_txt ">
                                     <a href="/overzicht/productdetail/{{$producttype->productcodefabrikant}}" class="card-link producttypenaam">{{$producttype->productomschrijving}}</a>
                                 </span>
                                 <span class="app_txt ulinfo">
                                     <ul class="prodvraag">
-                                        <b><li>Locatie:</li>
+                                        <li>Locatie:</li>
                                         <li>Serie:</li>
                                         <li>Aantal:</li></b>
                                     </ul>
@@ -110,12 +110,12 @@
                     @foreach ($bekijkook as $bekijk)
                     <div class="card bekijkcards flexbekijkook">
                         <div height="300px" width="300px">
-                            <img class="card-img-top bekijkookimg" src="{{$bekijk->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" >
+                            <img alt="{{$bekijk->productomschrijving}}" class="card-img-top bekijkookimg" src="{{$bekijk->imagelink}}" onerror=this.src="{{ url('/img/img-placeholder.png') }}" >
                         </div>
                         <a href="/overzicht/productdetail/{{$bekijk->productcodefabrikant}}" class="card-link"><h5 class="card-title">{{$bekijk->productomschrijving}}</h5></a>
                         <div class="card-body ulinfo">
                             <ul class="prodvraag">
-                                <b><li>Locatie:</li>
+                                <li>Locatie:</li>
                                 <li>Ingangsdatum:</li>
                                 <li>Fabrikaat:</li>
                                 <li>Serie:</li>
@@ -166,6 +166,6 @@
 @endsection
 @section('PWA')
     <div>
-        <img id="btnAdd" src="{{ asset('img/pwa-icon.png') }}">
+        <img id="btnAdd" alt="PWA popup" src="{{ asset('img/pwa-icon.png') }}">
     <div>
 @endsection
