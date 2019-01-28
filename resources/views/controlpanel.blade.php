@@ -15,7 +15,7 @@
             <button class="tablinks" onclick="openCity(event, 'Productbeheer')" id="defaultOpen" data-toggle="tab"><i class="fas fa-cube"></i>         Productbeheer</button>      
         @endif
     </div>
-    <div class="tabcontent" id="Accountbeheer"> 
+    <div class="tabcontent" id="Accountbeheer" style="display: block;height: 100vh;"> 
         <div class="container">
             <div class="row">
                 <div class="col">
