@@ -111,6 +111,10 @@
     margin-left: 15px;
 }
 
+.searcherrorprod{
+    margin-bottom: 100px;
+}
+
 
 /* Productdetail */
 
@@ -187,9 +191,11 @@
     max-height: 250px !important;
     max-width: 330px !important;
 }
+
 .Cprods{
     width: 100%;
 }
+
 .searchresults{
     margin-top: 10px;
     margin-left: 110px;

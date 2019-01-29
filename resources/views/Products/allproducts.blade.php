@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('pageSpecificCSS')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/shop.css') }}" />
 @endsection
 @section('titlePage')
     <title>WiZ Kuijpers - Overzicht</title>
@@ -15,7 +15,6 @@
                     <input type="text" placeholder="Search product" name="q">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
-                
                 <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($combocats as $combocat)
@@ -23,7 +22,6 @@
                     @endforeach
                 </select>
             </div>
-            
             <div class="col order-12 shop-bar addcol">
                 <div class="addprod">
                     <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
@@ -38,9 +36,10 @@
 @section('content')
     <div class="container-fluid Cprods">
         <div class="row">
-            <h2 class="searchresults">Zoek resulaten:</h2>
         </div>
             @if (isset($prodscats))
+            <h2 class="searchresults">Zoek resulaten:</h2>
+
                 {{-- Producten van een geselecteerde categorie --}}
                 @foreach($prodscats->chunk(3) as $chunk)
                     <div class="row PCall">
@@ -79,8 +78,9 @@
                 </div>
             @else
             @endif
+            {{-- Zoek resultaten --}}
             @if(isset($searchproducts))
-                {{-- Zoek resultaten --}}
+                <h2 class="searchresults">Zoek resulaten:</h2>
                 @foreach ($searchproducts->chunk(3) as $chunk)
                     <div class="row PCcard">
                         @foreach ($chunk as $searchprod)
@@ -122,7 +122,7 @@
                 </div>
                 <div class="row prodnotfound">
                     <div class="col"></div>
-                    <div class="col-6"> <h3>Product niet gevonden</h3></div>
+                    <div class="col-6 searcherrorprod"> <h3>Product niet gevonden</h3></div>
                     <div class="col"></div>
                 </div>
                 <h3></h3>

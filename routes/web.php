@@ -71,13 +71,13 @@ Route::any ( '/controlpanel', function () {
     $q = Input::get ( 'q' );
     $users = User::where ( 'voornaam', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->paginate(10);
 
-
     if($currentuser == 'Admin'){
         $accountbeheertoegang = $currentuser;
         if (count ( $users ) > 0){
             return view ('controlpanel', compact('users', 'q', 'accountbeheertoegang'));
         }
         else {
+            $usersearcherror = 'error';
             return view ('controlpanel', compact('usersearcherror', 'accountbeheertoegang'));
         }
     }
@@ -106,14 +106,14 @@ Route::any ( '/overzicht/products/search', function(){
     $combocats = DB::table('overzicht')->distinct()->select('Productserie')->get();
 
     
-    if(empty($searchproducts))
+    if(count($searchproducts) > 0)
     {
-        $searcherror = 'Geen resultaten.';
-        return view ( 'products.allproducts', compact('searcherror', 'combocats'));
+        return view ( 'products.allproducts', compact('searchproducts', 'q', 'combocats'));
     }
     else
     {
-        return view ( 'products.allproducts', compact('searchproducts', 'q', 'combocats'));
+        $searcherror = 'Geen resultaten.';
+        return view ( 'products.allproducts', compact('searcherror', 'combocats'));
     }
 });
 
@@ -132,6 +132,8 @@ Route::get('/overzicht/products/{cat}',  ['middleware' => 'auth', 'uses' =>'Prod
 Route::get('/overzicht/productdetail/{product}', ['middleware' => 'auth', 'uses' => 'ProductsController@productdetail']);
 //shop product edit view
 Route::get('/overzicht/{product}/edit', ['middleware' => 'auth', 'uses' => 'ProductsController@editproduct']);
+
+Route::get('/overzicht/nieuw/{GTIN}', ['middleware' => 'auth', 'uses' => 'ProductsController@GTIN']);
 
 Route::patch('/overzicht/{product}/update', ['middleware' => 'auth', 'uses' => 'ProductsController@update']);
 

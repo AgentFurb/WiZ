@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cat;
+use App\GTIN;
 use App\Pimage;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Image; 
@@ -91,6 +92,28 @@ class ProductsController extends Controller
         $deleteproduct = Product::where('Productcode fabrikant', '=', $product)->delete();
 
         return redirect('/overzicht');
+    }
+
+    public function GTIN(String $GTIN)
+    {
+        $combocats = DB::table('overzicht')->distinct()->select('Productserie', 'Productserie')->get();
+
+        $gtininfo = DB::table('products as p')
+        ->select('p.Productcode fabrikant as productcodefabrikant', 'p.GTIN product as gtin','p.Fabrikaat as fabrikaat', 'p.Productserie as productserie', 'p.Eenheid gewicht as gewicht','p.Ingangsdatum as ingangsdatum', 'p.Productomschrijving as productomschrijving',  'p.Producttype as producttype')
+        ->where('GTIN product', $GTIN)
+        ->get();
+
+        if(count($gtininfo) > 0)
+        {
+            return view('Products.newproduct', compact('gtininfo', 'combocats'));
+        }
+        else
+        {
+            $gtinerror = 'notfound';
+            return view('Products.newproduct', compact('gtinerror', 'combocats'));
+        }
+
+        // dd($GTIN, $gtininfo);
     }
 
     public function update(Request $request)

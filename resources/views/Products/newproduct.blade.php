@@ -95,13 +95,14 @@
                     </div>
 
                     <h5>Product extra informatie:</h5>
-                    <textarea class="form-control" rows="7" cols="50"  name="Specificaties"></textarea>
+                    <textarea class="form-control" rows="7" cols="50"  name="Specificaties" value="{{ old('Specificaties')}}"></textarea>
                 </div>
                 <div class="col-xl  form-group">
+                    {{-- @if(isset($gtininfo)) <h2>{{$gtininfo["productomschrijving"]}}</h2> @endif --}}
 
                     <div>
                         <h5>Product naam:</h5>
-                        <input id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" />
+                    <input id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" @if(isset($gtininfo)) value="{{$gtininfo[0]->productomschrijving}}" @endif value="{{ old('Productomschrijving')}}"/>
                         <br>
                         @if ($errors->has('Productomschrijving'))
                             <div class="alert alert-danger" role="alert">
@@ -112,7 +113,7 @@
 
                     <div>
                         <h5>Productcode:</h5>
-                        <input id="Productcodefabrikant" class="form-control{{ $errors->has('Productcodefabrikant') ? ' is-invalid' : '' }}" type="text" name="Productcodefabrikant" />
+                        <input id="Productcodefabrikant" class="form-control{{ $errors->has('Productcodefabrikant') ? ' is-invalid' : '' }}" type="text" name="Productcodefabrikant" value="{{ old('Productcodefabrikant')}}"/>
                         <br>
                         @if ($errors->has('Productcodefabrikant'))
                             <div class="alert alert-danger" role="alert">
@@ -123,7 +124,7 @@
 
                     <div>
                         <h5>GTIN product:</h5>
-                        <input class="form-control scanBtn{{ $errors->has('GTIN') ? ' is-invalid' : '' }}" type="text" id="GTIN" name="GTIN"/>
+                    <input class="form-control scanBtn{{ $errors->has('GTIN') ? ' is-invalid' : '' }}" type="text" id="GTIN" name="GTIN" @if(isset($gtininfo)) value="{{$gtininfo[0]->gtin}}" @endif value="{{ old('GTIN')}}"/>
                         <button class="btn btn-scan" type="button" id="btn" value="Start/Stop the scanner" data-toggle="modal" data-target="#livestream_scanner">
                             <i class="fa fa-barcode"></i>
                         </button> 
@@ -133,11 +134,16 @@
                                 {{ $errors->first('GTIN') }}
                             </div>
                         @endif
+                        @if (isset($gtinerror))
+                            <div class="alert alert-danger" role="alert">
+                                Dit product is nog niet bij ons bekend, vul de rest van de informatie zelf in.
+                            </div>
+                        @endif
                     </div>
                     
                     <div>
                         <h5>Fabrikaat:</h5>
-                        <input id="Fabrikaat" class="form-control{{ $errors->has('Fabrikaat') ? ' is-invalid' : '' }}" type="text" name="Fabrikaat"/>
+                        <input id="Fabrikaat" class="form-control{{ $errors->has('Fabrikaat') ? ' is-invalid' : '' }}" type="text" name="Fabrikaat" @if(isset($gtininfo)) value="{{$gtininfo[0]->fabrikaat}}"@endif value="{{ old('Fabrikaat')}}"/>
                         <br>
                         @if ($errors->has('Fabrikaat'))
                             <div class="alert alert-danger" role="alert">
@@ -154,6 +160,9 @@
                             <option>IT</option>
                             <option>Magazijn</option>
                             <option>Diversen</option>
+                            @if(isset($gtininfo)) 
+                                <option selected>{{$gtininfo[0]->productserie}}</option>
+                            @endif
                         </select>
                         <br>
                         @if ($errors->has('Productserie'))
@@ -181,6 +190,9 @@
                             <option>Telefoons</option>
                             <option>TL-buizen</option>
                             <option>Diversen</option>
+                            @if(isset($gtininfo)) 
+                                <option selected>{{$gtininfo[0]->producttype}}</option>
+                            @endif
                         </select>
                         <br>
                         @if ($errors->has('Producttype'))
@@ -222,7 +234,7 @@
                     
                     <div>
                         <h5>Eenheid gewicht:</h5>
-                        <input id="Eenheidgewicht" class="form-control{{ $errors->has('Eenheidgewicht') ? ' is-invalid' : '' }}" type="text" name="Eenheidgewicht"/>
+                        <input id="Eenheidgewicht" class="form-control{{ $errors->has('Eenheidgewicht') ? ' is-invalid' : '' }}" type="text" name="Eenheidgewicht" value="{{ old('Eenheidgewicht')}}"/>
                         <br>
                         @if ($errors->has('Eenheidgewicht'))
                             <div class="alert alert-danger" role="alert">
@@ -233,7 +245,7 @@
                     
                     <div>
                         <h5>Aantal:</h5>
-                        <input id="Aantal" class="form-control{{ $errors->has('Aantal') ? ' is-invalid' : '' }}" type="text" name="Aantal"/>
+                        <input id="Aantal" class="form-control{{ $errors->has('Aantal') ? ' is-invalid' : '' }}" type="text" name="Aantal" value="{{ old('Aantal')}}"/>
                         <br>
                         @if ($errors->has('Aantal'))
                             <div class="alert alert-danger" role="alert">
@@ -349,6 +361,7 @@
                         return counts[curKey] < counts[nextKey];
                     });
                 }
+
                 var last_result = [];
                 Quagga.onDetected(function (result) {
                     var last_code = result.codeResult.code;
@@ -360,6 +373,9 @@
                         last_result = [];
                         document.getElementById('GTIN').value = code;
                         setTimeout(function(){ $('#livestream_scanner').modal('hide'); }, 500);
+
+                        window.location = "/overzicht/nieuw/" + code,
+
                         Quagga.stop();
                     }
                     

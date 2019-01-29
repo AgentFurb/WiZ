@@ -13,7 +13,7 @@
                 <div class="col-sm">                        
                     <div class="card ot-product widthfixer">
                         <div class="card-body">  
-                            <h5>Het in en uitgaan van producten</h5>
+                            <h5>Het totaal aantal producten</h5>
                             <canvas id="bar-chart" width="300" height="300"></canvas>
                             <input type="hidden" id="countproducts" value="{{$barchartproducts}}">
                         </div>
@@ -23,7 +23,7 @@
                     <div class="card ot-product widthfixer">
                         <div class="card-body">
                             <h5>Totaal aantal gebruikers</h5>
-                            <div id="smallbuddy"></div>
+                            <div id="smallbuddy" class="usercounter"></div>
                             <input type="hidden" id="smallbuddyusers" value="{{$smallfella}}">
                         </div>
                     </div>

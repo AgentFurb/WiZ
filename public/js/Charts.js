@@ -43,8 +43,6 @@ PL2 = document.getElementById("prodperlocatie2").value;
 PL3 = document.getElementById("prodperlocatie3").value;
 PL4 = document.getElementById("prodperlocatie4").value;
 
-
-
 new Chart(document.getElementById("doughnut-chart"), {
     type: 'doughnut',
     data: {
@@ -78,6 +76,14 @@ new Chart(document.getElementById("doughnut-chart"), {
         counter: true,
         formatNumber: true,
         levelColorsGradient: false,
+        options: {
+          legend: {
+              labels: {
+                  // This more specific font property overrides the global property
+                  fontColor: 'black'
+              }
+          }
+      }
     });
 
 
