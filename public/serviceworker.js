@@ -52,7 +52,6 @@ var filesToCache = [
     '/css/app.css',
     '/css/main.css',
     '/css/footer.css',
-    '/css/login.css',
 
     '/css/controlpanel.css',
     '/css/homegraphs.css',

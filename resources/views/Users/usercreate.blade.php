@@ -23,7 +23,7 @@
                             @method('POST')
                             @csrf
                             <h5>Voornaam:</h5>
-                            <input aria-label="Voornaam" type="text" class="form-control{{ $errors->has('voornaam') ? ' is-invalid' : '' }}" placeholder="Voornaam" name="voornaam">
+                            <input aria-label="Voornaam" type="text" class="form-control{{ $errors->has('voornaam') ? ' is-invalid' : '' }}" placeholder="Voornaam" name="voornaam" value="{{ old('voornaam') }}" autofocus>
                             <br>
                             @if ($errors->has('voornaam'))
                                 <div class="alert alert-danger" role="alert">
@@ -31,7 +31,7 @@
                                 </div>
                             @endif
                             <h5>Achternaam:</h5>
-                            <input aria-label="Achternaam" type="text" class="form-control{{ $errors->has('achternaam') ? ' is-invalid' : '' }}" placeholder="Achternaam" name="achternaam">
+                            <input aria-label="Achternaam" type="text" class="form-control{{ $errors->has('achternaam') ? ' is-invalid' : '' }}" placeholder="Achternaam" name="achternaam" value="{{ old('achternaam') }}">
                             <br>
                             @if ($errors->has('achternaam'))
                                 <div class="alert alert-danger" role="alert">
@@ -39,7 +39,7 @@
                                 </div>
                             @endif
                             <h5>E-Mail adres:</h5>
-                            <input aria-label="E-Mail adres" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="E-Mail" name="email">
+                            <input aria-label="E-Mail adres" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="E-Mail" name="email" value="{{ old('email') }}">
                             <br>
                             @if ($errors->has('email'))
                                 <div class="alert alert-danger" role="alert">
@@ -47,7 +47,7 @@
                                 </div>
                             @endif
                             <h5>Vestiging:</h5>
-                            <select aria-label="Vestiging" class="form-control{{ $errors->has('vestiging') ? ' is-invalid' : '' }}" name="vestiging" >
+                            <select aria-label="Vestiging" class="form-control{{ $errors->has('vestiging') ? ' is-invalid' : '' }}" name="vestiging" value="{{ old('vestiging') }}">
                                 <option disabled selected hidden>Vestiging:</option>
                                 <option>Amsterdam</option>
                                 <option>Arnhem</option>
@@ -72,7 +72,7 @@
                                 </div>
                             @endif
                             <h5>Gebruikers functie:</h5>
-                            <select aria-label="Rechten" class="form-control{{ $errors->has('rechten') ? ' is-invalid' : '' }}" name="rechten" >
+                            <select aria-label="Rechten" class="form-control{{ $errors->has('rechten') ? ' is-invalid' : '' }}" name="rechten" value="{{ old('rechten') }}">
                                 <option disabled selected hidden>Functie:</option>
                                 <option>User</option>
                                 <option>Manager</option>
