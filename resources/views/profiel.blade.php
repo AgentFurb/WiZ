@@ -143,7 +143,7 @@
         <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
         <script src="{{ asset('js/justgage.js') }}"></script>
         <script src="{{ asset('js/Chart.min.js') }}"></script>
-
+        <input type="hidden" id="smallbuddyusers" value="0">
         <script src="{{ asset('js/Charts.js') }}"></script>
     @endsection
 @endsection
