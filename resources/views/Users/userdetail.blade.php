@@ -10,12 +10,12 @@
     <div class="container userdetail">
         <div class="row">
             <div class="col">
-                <a href="/controlpanel"><i class="fas fa-arrow-circle-left usericons "></i></a>
-                <a href="/controlpanel/users/{{ $user->id }}/edit"><i class="fas fa-wrench usericons "></i></a>
-                <i class="tablinks far fa-trash-alt usericons userdel" onclick="openCity(event, 'userdelete')"></i>
+                <a aria-label="Pagina terug" href="/controlpanel"><i class="fas fa-arrow-circle-left usericons "></i></a>
+                <a aria-label="Gebruiker wijzigen" href="/controlpanel/users/{{ $user->id }}/edit"><i class="fas fa-wrench usericons "></i></a>
+                <i aria-label="Gebruiker verwijderen" class="tablinks far fa-trash-alt usericons userdel" onclick="openCity(event, 'userdelete')"></i>
                 <i class="tablinks fas fa-info usericons" onclick="openCity(event, 'userinfo')" id="defaultOpen" style="display: none;"></i>
             </div>
-            <div class="col"><img class="profile-img-users mx-auto d-block" src="/storage/avatars/{{ $user->avatar }}"></div>
+            <div class="col"><img aria-label="Avatar" class="profile-img-users mx-auto d-block" src="/storage/avatars/{{ $user->avatar }}"></div>
             <div class="col"></div>
         </div>
         <hr id="userdetailline">

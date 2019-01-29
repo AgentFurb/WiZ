@@ -135,16 +135,15 @@
 </div>
 @section('PWA')
     <div>
-        <img id="btnAdd" src="{{ asset('img/pwa-icon.png') }}">
+        <img id="btnAdd" alt="PWA popup" src="{{ asset('img/pwa-icon.png') }}">
     <div>
 @endsection
 
     @section('charts')
         <script src="{{ asset('js/raphael-2.1.4.min.js') }}"></script>
         <script src="{{ asset('js/justgage.js') }}"></script>
-        <script src="{{ asset('js/pie.js') }}"></script>
         <script src="{{ asset('js/Chart.min.js') }}"></script>
-
+        <input type="hidden" id="smallbuddyusers" value="0">
         <script src="{{ asset('js/Charts.js') }}"></script>
     @endsection
 @endsection

@@ -12,11 +12,11 @@
             <div class="col order1 shop-bar">
                 <form class="Sbar" action="/overzicht/products/search" method="POST" role="search">
                     {{ csrf_field() }}
-                    <input type="text" placeholder="Search product" name="q">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input aria-label="Search product" type="text" placeholder="Search product" name="q">
+                    <button aria-label="Search product" type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 
-                <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
+                <select aria-label="Select categorie" class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($combocats as $combocat)
                         <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
@@ -26,7 +26,7 @@
             
             <div class="col order-12 shop-bar addcol">
                 <div class="addprod">
-                    <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
+                    <a aria-label="Product toevoegen" href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
                         <i class="far fa-plus-square"></i>
                     </a>
                 </div>
@@ -89,9 +89,9 @@
                 <div class="col-xl  form-group">
                     <h5>Product foto:</h5>
                     <div class="productphoto">
-                        <img id="imgShop" src="" onerror=this.src="{{ url('/img/img-placeholder.png') }}" class="img-fluid" name="imagelink">
+                        <img aria-label="Product foto" id="imgShop" src="" onerror=this.src="{{ url('/img/img-placeholder.png') }}" class="img-fluid" name="imagelink">
                         <br>
-                        <input type="file" name="imagelink" onchange="previewFileShop()">
+                        <input aria-label="Product foto teovoegen" type="file" name="imagelink" onchange="previewFileShop()">
                     </div>
 
                     <h5>Product extra informatie:</h5>
@@ -155,7 +155,7 @@
                     <div>
                         <h5>Productserie:</h5>
                         {{-- <input id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" type="text" name="Productserie" required/> --}}
-                        <select id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" name="Productserie">
+                        <select aria-label="Productserie" id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" name="Productserie">
                             <option disabled selected hidden>Productserie:</option>
                             <option>IT</option>
                             <option>Magazijn</option>
@@ -175,7 +175,7 @@
                     <div>
                         <h5>Producttype:</h5>
                         {{-- <input id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" type="text" name="Producttype" required/> --}}
-                        <select id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" name="Producttype">
+                        <select aria-label="Producttype" id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" name="Producttype">
                             <option disabled selected hidden>Producttype:</option>
                             <option>Tablet</option>
                             <option>Printer</option>
@@ -205,7 +205,7 @@
                     <div>
                         <h5>Locatie:</h5>
                         {{-- <input id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" type="text" name="Locatie" required/> --}}
-                        <select id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" name="Locatie" >
+                        <select aria-label="Locatie" id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" name="Locatie" >
                             <option disabled selected hidden>Vestiging:</option>
                             <option>Amsterdam</option>
                             <option>Arnhem</option>

@@ -12,8 +12,8 @@
             <div class="col order1 shop-bar">
                 <form class="Sbar" action="/overzicht/products/search" method="POST" role="search">
                     {{ csrf_field() }}
-                    <input type="text" placeholder="Search product" name="q">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input aria-label="Search product" type="text" placeholder="Search product" name="q">
+                    <button aria-label="Search product" type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
@@ -46,11 +46,11 @@
                         @foreach ($chunk as $prodscat)
                             <div class="col colcat">
                                 <div class="card PCcard">
-                                    <img class="card-img-left PCimg img-fluid" src="{{$prodscat->imagelink}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
+                                    <img aria-label="Product foto" class="card-img-left PCimg img-fluid" src="{{$prodscat->imagelink}}" alt="Card image cap" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px">
                                     <a href="/overzicht/productdetail/{{$prodscat->productcodefabrikant}}"><h5 class="card-title">{{$prodscat->productomschrijving}}</h5></a>
                                     <div class="card-body ulinfo"> 
                                         <ul class="prodvraag">
-                                            <b><li>Locatie:</li>
+                                            <li>Locatie:</li>
                                             <li>Type:</li>
                                             <li>Fabrikaat:</li>
                                             <li>Serie:</li>
@@ -88,10 +88,10 @@
                             <div class="col colcat">
                                 <div class="card PCcard ">
                                     <img class="card-img-left PCimg img-fluid" src="{{$searchprod->imagelink}}" alt="Card image cap" width="330px" height="250px">
-                                    <a href="/overzicht/productdetail/{{$searchprod->productcodefabrikant}}"><h5 class="card-title">{{$searchprod->productomschrijving}}</h5></a>
+                                    <a aria-label="{{$searchprod->productomschrijving}}" href="/overzicht/productdetail/{{$searchprod->productcodefabrikant}}"><h5 class="card-title">{{$searchprod->productomschrijving}}</h5></a>
                                     <div class="card-body ulinfo"> 
                                         <ul class="prodvraag">
-                                            <b><li>Locatie:</li>
+                                            <li>Locatie:</li>
                                             <li>Type:</li>
                                             <li>Fabrikaat:</li>
                                             <li>Serie:</li>

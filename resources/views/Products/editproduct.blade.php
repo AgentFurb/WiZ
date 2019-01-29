@@ -12,11 +12,11 @@
             <div class="col order1 shop-bar">
                 <form class="Sbar" action="/overzicht/products/search" method="POST" role="search">
                     {{ csrf_field() }}
-                    <input type="text" placeholder="Search product" name="q">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input aria-label="Search product" type="text" placeholder="Search product" name="q">
+                    <button aria-label="Search product" type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 
-                <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
+                <select aria-label="Select categorie" class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($combocats as $combocat)
                         <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
@@ -56,41 +56,41 @@
                 <div class="col-xl  form-group">
                     <h5>Product foto:</h5>
                     <div class="productphoto">
-                        <img id="imgShop" src="{{$productedit[0]->imagelink}}" class="img-fluid" name="imagelink">
+                        <img aria-label="Product foto" id="imgShop" src="{{$productedit[0]->imagelink}}" class="img-fluid" name="imagelink">
                         <br>
-                        <input type="file" name="imagelink" onchange="previewFileShop()">
+                        <input aria-label="Foto product toevoegen" type="file" name="imagelink" onchange="previewFileShop()">
                     </div>
 
                     <h5>Product extra informatie:</h5>
-                    <textarea class="form-control" rows="7" cols="50"  name="Specificaties">
+                    <textarea aria-label="Product extra informatie" class="form-control" rows="7" cols="50"  name="Specificaties">
                         @if(isset($productedit[0]->specs)){{$productedit[0]->specs}}@endif
                     </textarea>
                 </div>
                 <div class="col-xl  form-group">
                     <h5>Product naam:</h5>
-                    <input class="form-control" type="text" name="Productomschrijving"  value="{{$productedit[0]->productomschrijving}}" required/>
+                    <input aria-label="Productomschrijving" class="form-control" type="text" name="Productomschrijving"  value="{{$productedit[0]->productomschrijving}}" required/>
                     <h5>Productcode:</h5>
-                    <input class="form-control" type="text" name="Productcodefabrikant" value="{{$productedit[0]->productcodefabrikant}}" required/>
+                    <input aria-label="Productcodefabrikant" class="form-control" type="text" name="Productcodefabrikant" value="{{$productedit[0]->productcodefabrikant}}" required/>
                     <h5>GTIN product:</h5>
-                    <input class="form-control" type="text" name="GTIN" value="@if(isset($productedit[0]->GTIN)){{$productedit[0]->GTIN}}@endif"/>
+                    <input aria-label="GTIN" class="form-control" type="text" name="GTIN" value="@if(isset($productedit[0]->GTIN)){{$productedit[0]->GTIN}}@endif"/>
                     <h5>Fabrikaat:</h5>
-                    <input class="form-control" type="text" name="Fabrikaat" value="{{$productedit[0]->fabrikaat}}" required/>
+                    <input aria-label="Fabrikaat" class="form-control" type="text" name="Fabrikaat" value="{{$productedit[0]->fabrikaat}}" required/>
                     <h5>Productserie:</h5>
-                    <input class="form-control" type="text" name="Productserie" value="{{$productedit[0]->productserie}}" required/>
+                    <input aria-label="Productserie" class="form-control" type="text" name="Productserie" value="{{$productedit[0]->productserie}}" required/>
                     <h5>Producttype:</h5>
-                    <input class="form-control" type="text" name="Producttype" value="{{$productedit[0]->producttype}}" required/>
+                    <input aria-label="Producttype" class="form-control" type="text" name="Producttype" value="{{$productedit[0]->producttype}}" required/>
                     <h5>Locatie:</h5>
-                    <input class="form-control" type="text" name="Locatie" value="{{$productedit[0]->locatie}}" required/>
+                    <input aria-label="Locatie" class="form-control" type="text" name="Locatie" value="{{$productedit[0]->locatie}}" required/>
                     <h5>Eenheid gewicht:</h5>
-                    <input class="form-control" type="text" name="Eenheidgewicht" value="{{$productedit[0]->gewicht}}" />
+                    <input aria-label="Eenheidgewicht" class="form-control" type="text" name="Eenheidgewicht" value="{{$productedit[0]->gewicht}}" />
                     <h5>Aantal:</h5>
-                    <input class="form-control" type="text" name="Aantal" value="{{$productedit[0]->aantal}}" />
+                    <input aria-label="Aantal" class="form-control" type="text" name="Aantal" value="{{$productedit[0]->aantal}}" />
                 </div>
             </div>
             <div class="row">
                 <div class="col"></div>
                 <div class="col-6 prodcreate">
-                    <input class="btn btn-lg" type="submit" value="Updaten"/>
+                    <input aria-label="Product updaten" class="btn btn-lg" type="submit" value="Updaten"/>
                 </div>
                 <div class="col"></div>
             </div>

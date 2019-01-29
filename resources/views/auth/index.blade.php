@@ -1,7 +1,4 @@
 @extends('layouts.app')
-@section('titlePage')
-    <title>Inloggen</title>
-@endsection
 @section('content')
     <div class="bg">
         <div class="layer">
@@ -16,7 +13,7 @@
                             @csrf
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input id="email" type="email" placeholder="E-Mail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" autofocus>                                    
+                                    <input aria-label="E-mail adres" id="email" type="email" placeholder="E-Mail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" autofocus>                                    
                                 </div>
                                 @if ($errors->has('email'))
                                     <div class="alert alert-danger" role="alert">
@@ -26,7 +23,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">                                 
-                                    <input id="password" type="password" placeholder="Wachtwoord" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" >                                   
+                                    <input aria-label="Wachtwoord" id="password" type="password" placeholder="Wachtwoord" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" >                                   
                                 </div>
                                 @if ($errors->has('password'))
                                     <div class="alert alert-danger" role="alert">
@@ -37,7 +34,7 @@
                             <br>
 
 
-                            <button type="submit" class="btn btn-lg login" name="submit" id="myBtn" data-toggle="popup1">
+                            <button aria-label="Inloggen" type="submit" class="btn btn-lg login" name="submit" id="myBtn" data-toggle="popup1">
                                 {{ __('Inloggen') }}
                             </button>
 
@@ -57,24 +54,7 @@
                 </div>
             </div>
             <div class="foot">
-                <div class="foot">© 2018 Copyright</div>
-            </div>
-        </div>
-    </div>
-    {{--
-    <script>
-        $( document ).ready(function() {
-            $('#popup1').modal('show');
-        });
-    </script>
-    --}}
-
-    <div id="popup1" class="overlay">
-        <div class="popup">
-            <h2>Here i am</h2>
-            <a class="close" href="#">&times;</a>
-            <div class="content">
-                Thank to pop me out of that button, but now i'm done so you can close this window.
+                <div class="foot">Kuijpers Installaties &copy; 2018</div>
             </div>
         </div>
     </div>

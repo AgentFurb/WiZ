@@ -9,8 +9,8 @@
 @section('content')
 <div class="container userdetail">
         <div class="row">            
-            <div class="col"><a href="/controlpanel"><i class="fas fa-arrow-circle-left usericons "></i></a></div>
-            <div class="col"><img class="profile-img-users mx-auto d-block" src="{{ asset('img/default.jpg') }}"></div>
+            <div class="col"><a aria-label="Pagina terug" href="/controlpanel"><i class="fas fa-arrow-circle-left usericons "></i></a></div>
+            <div class="col"><img aria-label="Default avatar" class="profile-img-users mx-auto d-block" src="{{ asset('img/default.jpg') }}"></div>
             <div class="col"></div>
         </div>
         <hr id="userdetailline">
@@ -23,7 +23,7 @@
                             @method('POST')
                             @csrf
                             <h5>Voornaam:</h5>
-                            <input type="text" class="form-control{{ $errors->has('voornaam') ? ' is-invalid' : '' }}" placeholder="Voornaam" name="voornaam">
+                            <input aria-label="Voornaam" type="text" class="form-control{{ $errors->has('voornaam') ? ' is-invalid' : '' }}" placeholder="Voornaam" name="voornaam">
                             <br>
                             @if ($errors->has('voornaam'))
                                 <div class="alert alert-danger" role="alert">
@@ -31,7 +31,7 @@
                                 </div>
                             @endif
                             <h5>Achternaam:</h5>
-                            <input type="text" class="form-control{{ $errors->has('achternaam') ? ' is-invalid' : '' }}" placeholder="Achternaam" name="achternaam">
+                            <input aria-label="Achternaam" type="text" class="form-control{{ $errors->has('achternaam') ? ' is-invalid' : '' }}" placeholder="Achternaam" name="achternaam">
                             <br>
                             @if ($errors->has('achternaam'))
                                 <div class="alert alert-danger" role="alert">
@@ -39,7 +39,7 @@
                                 </div>
                             @endif
                             <h5>E-Mail adres:</h5>
-                            <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="E-Mail" name="email">
+                            <input aria-label="E-Mail adres" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="E-Mail" name="email">
                             <br>
                             @if ($errors->has('email'))
                                 <div class="alert alert-danger" role="alert">
@@ -47,7 +47,7 @@
                                 </div>
                             @endif
                             <h5>Vestiging:</h5>
-                            <select class="form-control{{ $errors->has('vestiging') ? ' is-invalid' : '' }}" name="vestiging" >
+                            <select aria-label="Vestiging" class="form-control{{ $errors->has('vestiging') ? ' is-invalid' : '' }}" name="vestiging" >
                                 <option disabled selected hidden>Vestiging:</option>
                                 <option>Amsterdam</option>
                                 <option>Arnhem</option>
@@ -72,7 +72,7 @@
                                 </div>
                             @endif
                             <h5>Gebruikers functie:</h5>
-                            <select class="form-control{{ $errors->has('rechten') ? ' is-invalid' : '' }}" name="rechten" >
+                            <select aria-label="Rechten" class="form-control{{ $errors->has('rechten') ? ' is-invalid' : '' }}" name="rechten" >
                                 <option disabled selected hidden>Functie:</option>
                                 <option>User</option>
                                 <option>Manager</option>
@@ -85,7 +85,7 @@
                                 </div>
                             @endif
                             <h5>Wachtwoord:</h5>
-                            <input id="password" type="password" placeholder="Wachtwoord" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
+                            <input aria-label="WAchtwoord" id="password" type="password" placeholder="Wachtwoord" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
                             <br>
                             @if ($errors->has('password'))
                                 <div class="alert alert-danger" role="alert">
@@ -93,7 +93,7 @@
                                 </div>
                             @endif
                             <h5>Bevestig wachtwoord:</h5>
-                            <input id="password-confirm" type="password" placeholder="Bevestig wachtwoord" class="form-control" name="password_confirmation">
+                            <input aria-label="Bevesting wachtwoord" id="password-confirm" type="password" placeholder="Bevestig wachtwoord" class="form-control" name="password_confirmation">
                             <br>
                             <p class="createUserbtn"><button type="submit" class="btn btn-lg ">Maak gebruiker aan</button></p>
                         </form>
