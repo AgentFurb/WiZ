@@ -143,7 +143,7 @@
                     
                     <div>
                         <h5>Fabrikaat:</h5>
-                        <input aria-label="Fabrikaat" id="Fabrikaat" class="form-control{{ $errors->has('Fabrikaat') ? ' is-invalid' : '' }}" type="text" name="Fabrikaat" @if(isset($gtininfo)) value="{{$gtininfo[0]->fabrikaat}}"@endif value="{{ old('GTIN') }}"/>
+                        <input aria-label="Fabrikaat" id="Fabrikaat" class="form-control{{ $errors->has('Fabrikaat') ? ' is-invalid' : '' }}" type="text" name="Fabrikaat" @if(isset($gtininfo)) value="{{$gtininfo[0]->fabrikaat}}"@endif value="{{ old('Fabrikaat') }}"/>
                         <br>
                         @if ($errors->has('Fabrikaat'))
                             <div class="alert alert-danger" role="alert">
