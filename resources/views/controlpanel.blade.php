@@ -21,8 +21,8 @@
                 <div class="col">
                     <form class="Sbar searchcreateUsers" action="/controlpanel" method="POST" role="search">
                         {{ csrf_field() }}
-                        <input type="text" placeholder="Search users" name="q">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                        <input aria-label="Search users" type="text" placeholder="Search users" name="q">
+                        <button aria-label="Search users" type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
                 <div class="col">

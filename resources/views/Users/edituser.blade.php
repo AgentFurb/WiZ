@@ -10,8 +10,8 @@
 @section('content')
 <div class="container userdetail">
         <div class="row">            
-            <div class="col"><a href="/controlpanel/users/{{ $user->id }}"><i class="fas fa-arrow-circle-left usericons "></i></a></div>
-            <div class="col"><img class="profile-img-users mx-auto d-block" src="/storage/avatars/{{ $user->avatar }}">               
+            <div class="col"><a aria-label="Pagina terug" href="/controlpanel/users/{{ $user->id }}"><i class="fas fa-arrow-circle-left usericons "></i></a></div>
+            <div class="col"><img aria-label="Avatar" class="profile-img-users mx-auto d-block" src="/storage/avatars/{{ $user->avatar }}">               
             </div>
             <div class="col"></div>
         </div>
@@ -24,16 +24,16 @@
                             @method('PATCH')
                             @csrf
                             <h5>Voornaam:</h5>
-                            <input type="text" class="form-control" value="{{ $user->voornaam }}" name="voornaam">
+                            <input aria-label="Voornaam" type="text" class="form-control" value="{{ $user->voornaam }}" name="voornaam">
                             <br>
                             <h5>Achternaam:</h5>
-                            <input type="text" class="form-control" value="{{ $user->achternaam }}" name="achternaam">
+                            <input aria-label="Achternaam" type="text" class="form-control" value="{{ $user->achternaam }}" name="achternaam">
                             <br>
                             <h5>E-Mail adres:</h5>
-                            <input type="text" class="form-control" value="{{ $user->email }}" name="email">
+                            <input aria-label="E-Mail adres" type="text" class="form-control" value="{{ $user->email }}" name="email">
                             <br>
                             <h5>Vestiging:</h5>
-                            <select class="form-control" name="vestiging" >
+                            <select aria-label="Vestiging" class="form-control" name="vestiging" >
                                 <option selected hidden>{{ $user->vestiging }}</option>
                                 <option>Amsterdam</option>
                                 <option>Arnhem</option>
@@ -53,14 +53,14 @@
                             </select>
                             <br>
                             <h5>Gebruikers functie:</h5>
-                            <select class="form-control" name="rechten" >
+                            <select aria-label="Rechten" class="form-control" name="rechten" >
                                 <option selected hidden>{{ $user->rechten }}</option>
                                 <option>User</option>
                                 <option>Manager</option>
                                 <option>Admin</option>
                             </select>
                             <br>
-                            <button type="submit" class="btn btn-lg">Update gebruiker</button>
+                            <button aria-label="Update gebruiker" type="submit" class="btn btn-lg">Update gebruiker</button>
                         </form>
                     </div>
                 </div>
