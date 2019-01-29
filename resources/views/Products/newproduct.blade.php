@@ -12,11 +12,11 @@
             <div class="col order1 shop-bar">
                 <form class="Sbar" action="/overzicht/products/search" method="POST" role="search">
                     {{ csrf_field() }}
-                    <input type="text" placeholder="Search product" name="q">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input aria-label="Search product" type="text" placeholder="Search product" name="q">
+                    <button aria-label="Search product" type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 
-                <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
+                <select aria-label="Select categorie" class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($combocats as $combocat)
                         <option value="/overzicht/products/{{ $combocat->Productserie }}">{{ $combocat->Productserie }}</option>
@@ -26,7 +26,7 @@
             
             <div class="col order-12 shop-bar addcol">
                 <div class="addprod">
-                    <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
+                    <a aria-label="Product toevoegen" href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
                         <i class="far fa-plus-square"></i>
                     </a>
                 </div>
@@ -89,19 +89,19 @@
                 <div class="col-xl  form-group">
                     <h5>Product foto:</h5>
                     <div class="productphoto">
-                        <img id="imgShop" src="" onerror=this.src="{{ url('/img/img-placeholder.png') }}" class="img-fluid" name="imagelink">
+                        <img aria-label="Product foto" id="imgShop" src="" onerror=this.src="{{ url('/img/img-placeholder.png') }}" class="img-fluid" name="imagelink">
                         <br>
-                        <input type="file" name="imagelink" onchange="previewFileShop()">
+                        <input aria-label="Product foto teovoegen" type="file" name="imagelink" onchange="previewFileShop()">
                     </div>
 
                     <h5>Product extra informatie:</h5>
-                    <textarea class="form-control" rows="7" cols="50"  name="Specificaties"></textarea>
+                    <textarea aria-label="Product extra informatie" class="form-control" rows="7" cols="50"  name="Specificaties"></textarea>
                 </div>
                 <div class="col-xl  form-group">
 
                     <div>
                         <h5>Product naam:</h5>
-                        <input id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" />
+                        <input aria-label="Product naam" id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" />
                         <br>
                         @if ($errors->has('Productomschrijving'))
                             <div class="alert alert-danger" role="alert">
@@ -112,7 +112,7 @@
 
                     <div>
                         <h5>Productcode:</h5>
-                        <input id="Productcodefabrikant" class="form-control{{ $errors->has('Productcodefabrikant') ? ' is-invalid' : '' }}" type="text" name="Productcodefabrikant" />
+                        <input aria-label="Productcode" id="Productcodefabrikant" class="form-control{{ $errors->has('Productcodefabrikant') ? ' is-invalid' : '' }}" type="text" name="Productcodefabrikant" />
                         <br>
                         @if ($errors->has('Productcodefabrikant'))
                             <div class="alert alert-danger" role="alert">
@@ -123,8 +123,8 @@
 
                     <div>
                         <h5>GTIN product:</h5>
-                        <input class="form-control scanBtn{{ $errors->has('GTIN') ? ' is-invalid' : '' }}" type="text" id="GTIN" name="GTIN"/>
-                        <button class="btn btn-scan" type="button" id="btn" value="Start/Stop the scanner" data-toggle="modal" data-target="#livestream_scanner">
+                        <input aria-label="Scan barcode" class="form-control scanBtn{{ $errors->has('GTIN') ? ' is-invalid' : '' }}" type="text" id="GTIN" name="GTIN"/>
+                        <button aria-label="Scan barcode" class="btn btn-scan" type="button" id="btn" value="Start/Stop the scanner" data-toggle="modal" data-target="#livestream_scanner">
                             <i class="fa fa-barcode"></i>
                         </button> 
                         <br>
@@ -137,7 +137,7 @@
                     
                     <div>
                         <h5>Fabrikaat:</h5>
-                        <input id="Fabrikaat" class="form-control{{ $errors->has('Fabrikaat') ? ' is-invalid' : '' }}" type="text" name="Fabrikaat"/>
+                        <input aria-label="Fabrikaat" id="Fabrikaat" class="form-control{{ $errors->has('Fabrikaat') ? ' is-invalid' : '' }}" type="text" name="Fabrikaat"/>
                         <br>
                         @if ($errors->has('Fabrikaat'))
                             <div class="alert alert-danger" role="alert">
@@ -149,7 +149,7 @@
                     <div>
                         <h5>Productserie:</h5>
                         {{-- <input id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" type="text" name="Productserie" required/> --}}
-                        <select id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" name="Productserie">
+                        <select aria-label="Productserie" id="Productserie" class="form-control{{ $errors->has('Productserie') ? ' is-invalid' : '' }}" name="Productserie">
                             <option disabled selected hidden>Productserie:</option>
                             <option>IT</option>
                             <option>Magazijn</option>
@@ -166,7 +166,7 @@
                     <div>
                         <h5>Producttype:</h5>
                         {{-- <input id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" type="text" name="Producttype" required/> --}}
-                        <select id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" name="Producttype">
+                        <select aria-label="Producttype" id="Producttype" class="form-control{{ $errors->has('Producttype') ? ' is-invalid' : '' }}" name="Producttype">
                             <option disabled selected hidden>Producttype:</option>
                             <option>Tablet</option>
                             <option>Printer</option>
@@ -193,7 +193,7 @@
                     <div>
                         <h5>Locatie:</h5>
                         {{-- <input id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" type="text" name="Locatie" required/> --}}
-                        <select id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" name="Locatie" >
+                        <select aria-label="Locatie" id="Locatie" class="form-control{{ $errors->has('Locatie') ? ' is-invalid' : '' }}" name="Locatie" >
                             <option disabled selected hidden>Vestiging:</option>
                             <option>Amsterdam</option>
                             <option>Arnhem</option>
@@ -222,7 +222,7 @@
                     
                     <div>
                         <h5>Eenheid gewicht:</h5>
-                        <input id="Eenheidgewicht" class="form-control{{ $errors->has('Eenheidgewicht') ? ' is-invalid' : '' }}" type="text" name="Eenheidgewicht"/>
+                        <input aria-label="Eenheid gewicht" id="Eenheidgewicht" class="form-control{{ $errors->has('Eenheidgewicht') ? ' is-invalid' : '' }}" type="text" name="Eenheidgewicht"/>
                         <br>
                         @if ($errors->has('Eenheidgewicht'))
                             <div class="alert alert-danger" role="alert">
@@ -233,7 +233,7 @@
                     
                     <div>
                         <h5>Aantal:</h5>
-                        <input id="Aantal" class="form-control{{ $errors->has('Aantal') ? ' is-invalid' : '' }}" type="text" name="Aantal"/>
+                        <input aria-label="Aantal" id="Aantal" class="form-control{{ $errors->has('Aantal') ? ' is-invalid' : '' }}" type="text" name="Aantal"/>
                         <br>
                         @if ($errors->has('Aantal'))
                             <div class="alert alert-danger" role="alert">

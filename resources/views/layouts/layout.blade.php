@@ -67,14 +67,14 @@
             <div class="col order-first">
                 <ul class="nav justify-content-center">
                     <li class="nav-item text-center">
-                        <a class="nav-link" href="/overons">Over ons</a>
+                        <a aria-label="Over ons" class="nav-link" href="/overons">Over ons</a>
                     </li>
                 </ul>
             </div>
             <div class="col order-last">
                 <ul class="nav justify-content-center">
                     <li class="nav-item text-center">
-                        <a class="nav-link" href="/overzicht">Overzicht</a>
+                        <a aria-label="Overzicht" class="nav-link" href="/overzicht">Overzicht</a>
                     </li>
                 </ul>
             </div>
@@ -98,7 +98,7 @@
                     ·
                     <a href="https://www.kuijpers.nl/" aria-label="Mijn Kuijpers" target="blank" class="footernavhover" rel="noreferrer">Mijn Kuijpers</a>
                 </p>
-                <p class="footer-company-name">Kuijpers Installaties &copy; 2018</p>
+                <p aria-label="Kuijpers Installaties" class="footer-company-name">Kuijpers Installaties &copy; 2018</p>
             </div>
             <div class="footer-center">
                 <div>

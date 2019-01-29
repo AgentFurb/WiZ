@@ -13,8 +13,8 @@
             <div class="col order1 shop-bar">
                 <form class="Sbar" action="/overzicht/products/search" method="POST" role="search">
                     {{ csrf_field() }}
-                    <input type="text" placeholder="Search product" name="q">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input aria-label="Search product" type="text" placeholder="Search product" name="q">
+                    <button aria-label="Search product" type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 
                 <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
@@ -27,7 +27,7 @@
             
             <div class="col order-12 shop-bar addcol">
                 <div class="addprod">
-                    <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
+                    <a aria-label="Product toevoegen" href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
                         <i class="far fa-plus-square"></i>
                     </a>
                 </div>
@@ -45,9 +45,9 @@
                     <h2 class="Producttitle">{{ $productdetail[0]->productomschrijving }}</h2>
                 </div>
                 <div class="col prodedit">
-                    <a href="/overzicht"><i class="fas fa-arrow-circle-left editdeleteicons "></i></a>
-                    <a href="/overzicht/{{ $productdetail[0]->productcodefabrikant }}/edit"><i class="fas fa-wrench editdeleteicons "></i></a>
-                    <i class="tablinks far fa-trash-alt editdeleteicons proddel" onclick="openCity(event, 'proddel')"></i>
+                    <a aria-label="Pagina terug" href="/overzicht"><i class="fas fa-arrow-circle-left editdeleteicons "></i></a>
+                    <a aria-label="Product wijzigen" href="/overzicht/{{ $productdetail[0]->productcodefabrikant }}/edit"><i class="fas fa-wrench editdeleteicons "></i></a>
+                    <i aria-label="Product verwijderen" class="tablinks far fa-trash-alt editdeleteicons proddel" onclick="openCity(event, 'proddel')"></i>
                     <i class="tablinks fas fa-info editdeleteicons" onclick="openCity(event, 'prodinfo')" id="defaultOpen" style="display: none;"></i>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="col-6 detailimg">
                         <a href="#" id="pop" data-toggle='modal' data-target='#imagemodal'>
-                            <img src="{{ $productdetail[0]->imagelink }}" data-target='#imagemodal' id="imageresource" class="productImg img-fluid myImg" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
+                            <img aria-label="Product foto" src="{{ $productdetail[0]->imagelink }}" data-target='#imagemodal' id="imageresource" class="productImg img-fluid myImg" onerror=this.src="{{ url('/img/img-placeholder.png') }}" width="330px" height="250px"/>
                         </a>                    
                     </div>
                     <!-- Modal -->
@@ -70,7 +70,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body detailmodal">
-                                        <img src="{{ $productdetail[0]->imagelink }}"  class=" img-fluid modalimage" onerror=this.src="{{ url('/img/img-placeholder.png') }}"/>
+                                        <img aria-label="Prodcut foto" src="{{ $productdetail[0]->imagelink }}"  class=" img-fluid modalimage" onerror=this.src="{{ url('/img/img-placeholder.png') }}"/>
 
                                 </div>
                                 <div class="modal-footer">
@@ -145,11 +145,11 @@
                             <form action="/overzicht/productdetail/destroy/{{ $productdetail[0]->productcodefabrikant}}" method="POST" class="delform" id="DelForm">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-success">Verwijder</button>
+                                <button aria-label="Product verwijderen" type="submit" class="btn btn-success">Verwijder</button>
                             </form>
                         </div>
                         <div class="col" id="delannuleer">
-                            <a href="/overzicht/productdetail/{{$productdetail[0]->productcodefabrikant}}"><button type="submit" class="btn btn-danger">Annuleer</button></a>
+                            <a href="/overzicht/productdetail/{{$productdetail[0]->productcodefabrikant}}"><button aria-label="Annuleer" type="submit" class="btn btn-danger">Annuleer</button></a>
                         </div>
                         <div class="col"></div>
                     </div>
