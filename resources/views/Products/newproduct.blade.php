@@ -102,7 +102,7 @@
 
                     <div>
                         <h5>Product naam:</h5>
-                    <input aria-label="Product naam" id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" @if(isset($gtininfo)) value="{{$gtininfo[0]->productomschrijving}}" @endif value="{{ old('Productomschrijving') }}"/>
+                    <input aria-label="Product naam" id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" @if(isset($gtininfo)) value="{{$gtininfo[0]->productomschrijving}}" @endif value="{{ old('Productomschrijving') }}" autofocus/>
                         <br>
                         @if ($errors->has('Productomschrijving'))
                             <div class="alert alert-danger" role="alert">
