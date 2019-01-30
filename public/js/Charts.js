@@ -37,23 +37,21 @@ L1 = document.getElementById("Locatie1").value;
 L2 = document.getElementById("Locatie2").value;
 L3 = document.getElementById("Locatie3").value;
 L4 = document.getElementById("Locatie4").value;
-L5 = document.getElementById("Locatie5").value;
 PL0 = document.getElementById("prodperlocatie0").value;
 PL1 = document.getElementById("prodperlocatie1").value;
 PL2 = document.getElementById("prodperlocatie2").value;
 PL3 = document.getElementById("prodperlocatie3").value;
 PL4 = document.getElementById("prodperlocatie4").value;
-PL5 = document.getElementById("prodperlocatie5").value;
 
 new Chart(document.getElementById("doughnut-chart"), {
     type: 'doughnut',
     data: {
-      labels: [L0, L1, L2, L3, L4, L5],
+      labels: [L0, L1, L2, L3, L4],
       datasets: [
         {
 
           backgroundColor: [ "#14439B", "#92B4F4","#5073E5","#C5D5E4","#062670" ],
-          data: [PL0, PL1, PL2, PL3, PL4, PL5],
+          data: [PL0, PL1, PL2, PL3, PL4],
         }
       ]
     },

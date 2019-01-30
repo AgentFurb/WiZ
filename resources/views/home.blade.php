@@ -39,16 +39,12 @@
                             <input type="hidden" id="Locatie2" value="{{ (empty($piechartlocatie[2]->Locatie)) ? '' : $piechartlocatie[2]->Locatie }}">
                             <input type="hidden" id="Locatie3" value="{{ (empty($piechartlocatie[3]->Locatie)) ? '' : $piechartlocatie[3]->Locatie }}">
                             <input type="hidden" id="Locatie4" value="{{ (empty($piechartlocatie[4]->Locatie)) ? '' : $piechartlocatie[4]->Locatie }}">
-
-                            <input type="hidden" id="Locatie5" value="{{ (empty($piechartlocatie[5]->Locatie)) ? '' : $piechartlocatie[5]->Locatie }}">
                             {{-- Doughnut producten per locatie --}}
                             <input type="hidden" id="prodperlocatie0" value="{{ (empty($piechartlocatie[0]->LocatieAantal )) ? '' : $piechartlocatie[0]->LocatieAantal }}">
                             <input type="hidden" id="prodperlocatie1" value="{{ (empty($piechartlocatie[1]->LocatieAantal )) ? '' : $piechartlocatie[1]->LocatieAantal }}">
                             <input type="hidden" id="prodperlocatie2" value="{{ (empty($piechartlocatie[2]->LocatieAantal )) ? '' : $piechartlocatie[2]->LocatieAantal }}">
                             <input type="hidden" id="prodperlocatie3" value="{{ (empty($piechartlocatie[3]->LocatieAantal )) ? '' : $piechartlocatie[3]->LocatieAantal }}">
                             <input type="hidden" id="prodperlocatie4" value="{{ (empty($piechartlocatie[4]->LocatieAantal )) ? '' : $piechartlocatie[4]->LocatieAantal }}">
-
-                            <input type="hidden" id="prodperlocatie5" value="{{ (empty($piechartlocatie[5]->LocatieAantal )) ? '' : $piechartlocatie[5]->LocatieAantal }}">
                         </div>
                     </div>
                 </div>
