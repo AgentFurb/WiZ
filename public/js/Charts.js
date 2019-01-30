@@ -71,19 +71,21 @@ new Chart(document.getElementById("doughnut-chart"), {
         id: "smallbuddy",
         value: countusers,
         min: 0,
-        max: 50,
+        max: 25,
         gaugeWidthScale: 0.6,
         counter: true,
         formatNumber: true,
-        levelColorsGradient: false,
+        // levelColorsGradient: false,
+        noGradient: true,
         options: {
           legend: {
               labels: {
                   // This more specific font property overrides the global property
-                  fontColor: 'black'
+                  fontColor: "#000000",
               }
           }
       }
+      
     });
 
 
