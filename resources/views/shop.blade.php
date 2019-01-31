@@ -14,7 +14,6 @@
                     <input aria-label="Search product" type="text" placeholder="Search product" name="q">
                     <button aria-label="Submit search" type="submit"><i class="fa fa-search"></i></button>
                 </form>
-                
                 <select class="form-control category" aria-label="Select category" onchange="window.location=this.options[this.selectedIndex].value">
                     <option value="" disabled selected hidden>Categorieën</option>
                     @foreach ($combocats as $combocat)
@@ -22,7 +21,6 @@
                     @endforeach
                 </select>
             </div>
-            
             <div class="col order-12 shop-bar addcol">
                 <div class="addprod">
                     <a href="/overzicht/nieuw" aria-label="Nieuw product toevoegen">
@@ -35,7 +33,7 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row ">
+    <div class="row">
         <div class="col-sm-8 mainshopprods">
             <h3>Onlangs toegevoegd:</h3>
             <div class="card-group">

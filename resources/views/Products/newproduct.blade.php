@@ -98,11 +98,9 @@
                     <textarea aria-label="Product extra informatie"  class="form-control" rows="7" cols="50"  name="Specificaties" value="{{ old('Specificaties')}}"></textarea>
                 </div>
                 <div class="col-xl  form-group">
-                    {{-- @if(isset($gtininfo)) <h2>{{$gtininfo["productomschrijving"]}}</h2> @endif --}}
-
                     <div>
                         <h5>Product naam:</h5>
-                    <input aria-label="Product naam" id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" @if(isset($gtininfo)) value="{{$gtininfo[0]->productomschrijving}}" @endif value="{{ old('Productomschrijving') }}" autofocus/>
+                        <input aria-label="Product naam" id="Productomschrijving" class="form-control{{ $errors->has('Productomschrijving') ? ' is-invalid' : '' }}" type="text" name="Productomschrijving" @if(isset($gtininfo)) value="{{$gtininfo[0]->productomschrijving}}" @endif value="{{ old('Productomschrijving') }}" autofocus/>
                         <br>
                         @if ($errors->has('Productomschrijving'))
                             <div class="alert alert-danger" role="alert">
@@ -245,7 +243,7 @@
                     
                     <div>
                         <h5>Aantal:</h5>
-                        <input aria-label="Aatnal" id="Aantal" class="form-control{{ $errors->has('Aantal') ? ' is-invalid' : '' }}" type="text" name="Aantal" value="{{ old('Aantal') }}"/>
+                        <input aria-label="Aantal" id="Aantal" class="form-control{{ $errors->has('Aantal') ? ' is-invalid' : '' }}" type="text" name="Aantal" value="{{ old('Aantal') }}"/>
                         <br>
                         @if ($errors->has('Aantal'))
                             <div class="alert alert-danger" role="alert">
@@ -260,9 +258,6 @@
             <div class="row">
                 <div class="col"></div>
                 <div class="col-6 prodcreate">
-                    {{-- @if(isset($errormessage1))
-                        <div class="errormessage1"><h3>{{$errormessage1}}</h3></div><br>
-                    @endif --}}
                     <input class="btn btn-lg" type="submit" value="Toevoegen"/>
                 </div>
                 <div class="col"></div>

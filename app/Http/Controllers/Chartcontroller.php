@@ -19,6 +19,7 @@ class Chartcontroller extends Controller
         $piechartlocatie = DB::table('overzicht')
         ->selectRaw('Locatie, Count(Locatie) AS LocatieAantal')
         ->groupby('Locatie')
+        ->orderby('LocatieAantal', 'DESC')
         ->limit(5)
         ->get();
 
@@ -43,6 +44,7 @@ class Chartcontroller extends Controller
         $piechartlocatie = DB::table('overzicht')
         ->selectRaw('Locatie, Count(Locatie) AS LocatieAantal')
         ->groupby('Locatie')
+        ->orderby('LocatieAantal', 'DESC')
         ->limit(5)
         ->get();
 

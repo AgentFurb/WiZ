@@ -66,7 +66,7 @@
           <div class="row">
             <div class="col order-first">
                 <ul class="nav justify-content-center">
-                    <li class="nav-item text-center">
+                    <li class="nav-item text-center">               
                         <a aria-label="Over ons" class="nav-link" href="/overons">Over ons</a>
                     </li>
                 </ul>
