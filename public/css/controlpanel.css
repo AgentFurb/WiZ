@@ -13,7 +13,6 @@
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     margin-bottom: 15px;
-
     line-height: 4;
 }
 
@@ -161,6 +160,7 @@ ul  li{
     margin-left: 120px;
     margin-right: 120px;
     text-align: center;
+    height: 100vh;
 }
 
 
