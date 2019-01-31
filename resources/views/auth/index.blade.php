@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="foot">
-                <div class="foot">Kuijpers Installaties &copy; 2018</div>
+                <div class="foot">Kuijpers Installaties &copy; {{ date('Y') }}</div>
             </div>
         </div>
     </div>

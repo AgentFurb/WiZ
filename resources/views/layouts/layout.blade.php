@@ -98,7 +98,7 @@
                     ·
                     <a href="https://www.kuijpers.nl/" aria-label="Mijn Kuijpers" target="blank" class="footernavhover" rel="noreferrer">Mijn Kuijpers</a>
                 </p>
-                <p aria-label="Kuijpers Installaties" class="footer-company-name">Kuijpers Installaties &copy; 2018</p>
+                <p aria-label="Kuijpers Installaties" class="footer-company-name">Kuijpers Installaties &copy; {{ date('Y') }}</p>
             </div>
             <div class="footer-center">
                 <div>
