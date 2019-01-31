@@ -251,8 +251,6 @@
                             </div>
                         @endif
                     </div>
-                    
-                    
                 </div>
             </div>
             <div class="row">

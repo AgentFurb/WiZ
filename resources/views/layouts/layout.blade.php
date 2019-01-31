@@ -125,11 +125,11 @@
                     <a href="https://nl.linkedin.com/company/kuijpers-installaties" aria-label="LinkedIn" target="blank"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://www.instagram.com/kuijpersnl/" aria-label="Instagram"target="blank"><i class="fab fa-instagram"></i></a>
                 </div>
-                <div class="footer-logoff profilepage">  
-                    <a class="fas fa-power-off socialiconhover" aria-label="Uitloggen" href="{{ route('logout') }}"
+                <div class="footer-logoff profilepage socialiconhover">  
+                    <a class="fas fa-power-off loggouthover" aria-label="Uitloggen" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                        <p>Uitloggen</p>
+                        <p class="uitloggenfootertext">Uitloggen</p>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
